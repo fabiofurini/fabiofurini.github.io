@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Software — {{ site.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><div class="wrap">
+  <p class="eyebrow">Software &amp; data</p>
+  <h1>Software</h1>
+  <p class="lead">{{ software.intro }}</p>
+</div></div>
+<section class="block"><div class="wrap">
+  <div class="sw">
+    {% for s in software.tools %}
+    <div class="card">
+      <h3>{{ s.name }}</h3>
+      <p>{{ s.summary }}</p>
+      <div class="paper">
+        {% if s.paper_obj %}Paper: <a href="/publications/#{{ s.paper_obj.id }}">{{ s.paper_obj.title }}</a> — <i>{{ s.paper_obj.venue }}</i>, {{ s.paper_obj.year }}
+        {% elif s.note %}{{ s.note }}{% endif %}
+      </div>
+      <div class="row"><a class="lk primary" href="{{ s.url }}" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">Benchmark library</p><h2>Libraries</h2></div></div>
+  <div class="sw">
+    {% for s in software.libraries %}
+    <div class="card">
+      <h3>{{ s.name }}</h3><p>{{ s.summary }}</p>
+      {% if s.paper_obj %}<div class="paper">Paper: <a href="/publications/#{{ s.paper_obj.id }}">{{ s.paper_obj.title }}</a> — <i>{{ s.paper_obj.venue }}</i>, {{ s.paper_obj.year }}</div>{% endif %}
+      <div class="row"><a class="lk primary" href="{{ s.url }}" target="_blank" rel="noopener">Visit ↗</a></div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="callout"><p>The author's versions of all papers, with their metadata, are archived in the
+    <a href="{{ site.archive_repo }}" target="_blank" rel="noopener">research-papers</a> repository.</p></div>
+</div></section>
+{% endblock %}

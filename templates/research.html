@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Research — {{ site.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><div class="wrap">
+  <p class="eyebrow">Research</p>
+  <h1>Exact algorithms for hard combinatorial problems</h1>
+  <p class="lead">My work designs mathematical formulations and exact algorithms — branch-and-price,
+    branch-and-cut, Benders and Dantzig-Wolfe decomposition, combinatorial branch-and-bound — that
+    solve to proven optimality problems of practical size. The {{ papers|length }} publications fall
+    into the {{ themes|length }} lines of work below.</p>
+</div></div>
+
+<div class="wrap">
+  {% for t in themes %}
+  <section class="theme" id="{{ t.slug }}">
+    <div>
+      <div class="num">{{ '%02d' % loop.index }}</div>
+      <h2>{{ t.name }}</h2>
+      <div class="count">{{ t.count }} papers · {{ t.span }}</div>
+    </div>
+    <div>
+      <p class="desc">{{ t.description }}</p>
+      <ul class="mini-pubs">
+        {% for p in t.papers[:4] %}
+        <li><div class="t"><a href="/publications/#{{ p.id }}" style="color:inherit">{{ p.title }}</a></div>
+            <div class="v"><i>{{ p.venue }}</i>, {{ p.year }}</div></li>
+        {% endfor %}
+      </ul>
+      <a class="more" href="/publications/?theme={{ t.slug }}">All {{ t.count }} papers in this theme →</a>
+    </div>
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}

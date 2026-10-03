@@ -1,0 +1,11 @@
+<article class="pub" id="{{ p.id }}">
+  <p class="t">{{ p.title }}</p>
+  <p class="a">{% for a in p.authors %}{% if 'Furini' in a %}<b>{{ a }}</b>{% else %}{{ a }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  <p class="v"><i>{{ p.venue }}</i>, {{ p.year }}{% if p.status == 'accepted' %} · accepted{% endif %}</p>
+  {% if p.abstract %}<p class="abs">{{ p.abstract }}</p>{% endif %}
+  <div class="links">
+    {% if p.doi %}<a class="lk primary" href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">Published version ↗</a>{% endif %}
+    {% if p.pdf %}<a class="lk" href="{{ p.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+    {% if p.code %}<a class="lk" href="{{ p.code }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
+  </div>
+</article>

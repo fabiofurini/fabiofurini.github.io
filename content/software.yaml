@@ -1,0 +1,59 @@
+# Software and data. `paper` is a publication id (J.., C..) and links to it.
+# Leave `paper` empty for work whose paper is not yet published.
+intro: >-
+  Implementations of the algorithms in my papers, released with the benchmark
+  instances and computational material needed to reproduce the experiments.
+
+tools:
+  - name: CliSAT
+    summary: Exact SAT-based algorithm for the Maximum Clique Problem, used to solve hard maximum clique instances, with benchmark instances and computational material.
+    paper: J43
+    url: https://github.com/psanse/CliSAT
+  - name: BPP-NE
+    summary: Numerically exact branch-price-and-cut solver for the classical Bin Packing Problem, with safe dual bounds and an exact fixed-point pricing algorithm.
+    paper: J44
+    url: https://github.com/fabiofurini/bpp-numerically-exact
+  - name: NEA-G2KP
+    summary: Exact solution framework for two-dimensional knapsack problems, with the instances and detailed results of the benchmark study.
+    paper: J46
+    url: https://github.com/INFORMSJoC/2025.1423
+  - name: Bfilt
+    summary: Branch-and-filter exact algorithm for Binary Constraint Satisfaction Problems, with a Linux release, benchmark instances and format converters.
+    paper: J39
+    url: https://github.com/psanse/Bfilt
+  - name: KPCG
+    summary: Combinatorial branch-and-bound for the Knapsack Problem with Conflicts, where selected items must satisfy a capacity constraint and pairwise incompatibilities.
+    paper: J34
+    url: https://github.com/psanse/KPCG
+  - name: BBEWC
+    summary: Exact branch-and-bound for the Maximum Edge-Weighted Clique Problem, with the datasets and the executable used in the computational study.
+    paper: J27
+    url: https://github.com/psanse/BBEWC
+  - name: LOC-COV
+    summary: Branch-and-Benders-cut for the Maximal Covering and Partial Set Covering Location Problems, scaling to millions of demand points.
+    paper: J25
+    url: https://github.com/fabiofurini/LocationCovering
+  - name: SUB-COV-MAX
+    summary: Submodular maximization of concave utility functions composed with a set-union operator, for covering and location models with diminishing returns.
+    paper: J41
+    url: https://github.com/fabiofurini/Maximizing-submodular-utility-functions
+  - name: COVER-MAX-DEPTH
+    summary: Exact separation of cover inequalities of maximum depth for knapsack-constrained problems.
+    paper: J38
+    url: https://github.com/fabiofurini/COVER_MAX_DEPTH
+  - name: BP-k-VCP
+    summary: Branch-and-price for the k-Vertex Cut Problem.
+    paper: ""
+    note: Associated paper under review
+    url: https://github.com/FabioCiccarelli/BP_k-vertex-cut
+  - name: Ramsey lower bounds
+    summary: Integer programming approach to compute lower bounds for Ramsey numbers using circulant graphs.
+    paper: ""
+    note: Associated paper under review
+    url: https://github.com/fabiofurini/ramsey-number-lower-bounds
+
+libraries:
+  - name: QPLIB
+    summary: The reference library of quadratic programming instances — continuous, mixed-integer and binary — curated and classified for benchmarking.
+    paper: J23
+    url: https://qplib.zib.de

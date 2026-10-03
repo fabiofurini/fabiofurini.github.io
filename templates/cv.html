@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Curriculum vitae — {{ site.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><div class="wrap">
+  <p class="eyebrow">Curriculum vitae</p><h1>Curriculum vitae</h1>
+  <p class="lead">A summary. The full CV, with the complete list of publications, talks and service,
+     is available as a PDF.</p>
+  <div class="actions"><a class="btn primary" href="/static/{{ cv.cv_pdf }}" target="_blank" rel="noopener">Download full CV (PDF)</a>
+    <a class="btn" href="/publications/">Publications</a></div>
+</div></div>
+<div class="wrap">
+  {% for sec, label in [('appointments','Appointments'),('education','Education'),('qualifications','Qualifications'),('service','Editorial and scientific service'),('awards','Awards and memberships')] %}
+  <section class="cv-grid"><div><h2>{{ label }}</h2></div>
+    <ul class="tl">{% for it in cv[sec] %}
+      <li><div class="y">{{ it.years }}</div><div><div class="r">{{ it.role }}</div><div class="w">{{ it.where }}</div>{% if it.note %}<div class="x">{{ it.note }}</div>{% endif %}</div></li>
+    {% endfor %}</ul>
+  </section>
+  {% endfor %}
+  <section class="cv-grid"><div><h2>Grants and projects</h2></div>
+    <ul class="tl">{% for g in cv.grants %}
+      <li><div class="y">{{ g.years }}</div><div><div class="r">{{ g.name }}</div><div class="w">{{ g.funder }} · {{ g.role }}</div></div></li>
+    {% endfor %}</ul>
+  </section>
+  <section class="cv-grid"><div><h2>Industrial collaborations</h2></div>
+    <ul class="tl">{% for g in cv.industry %}
+      <li><div class="y">{{ g.years }}</div><div><div class="r">{{ g.partner }}</div><div class="w">{{ g.what }}</div></div></li>
+    {% endfor %}</ul>
+  </section>
+</div>
+{% endblock %}

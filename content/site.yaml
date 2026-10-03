@@ -1,0 +1,67 @@
+# ---------------------------------------------------------------------------
+# Identity and home page. Edit freely, then run:  python3 build.py
+# ---------------------------------------------------------------------------
+name: Fabio Furini
+title: Associate Professor of Operations Research
+affiliation: Department of Computer, Control and Management Engineering "Antonio Ruberti"
+institution: Sapienza University of Rome
+address: Via Ariosto 25, 00185 Rome, Italy
+email: fabio.furini@uniroma1.it
+url: https://fabiofurini.github.io
+
+# Leave empty to show the monogram. Put the file in static/img/.
+photo: ""
+
+tagline: >-
+  Exact algorithms for combinatorial optimization — integer programming,
+  decomposition and reformulation, applied to packing, coloring, clique,
+  interdiction and location problems.
+
+bio:
+  - >-
+    I am an Associate Professor of Operations Research at the Department of
+    Computer, Control and Management Engineering "Antonio Ruberti" (DIAG),
+    Sapienza University of Rome. My research is on exact algorithms for hard
+    combinatorial optimization problems: mixed-integer linear programming,
+    decomposition and reformulation techniques, and combinatorial
+    branch-and-bound, with a consistent focus on solving to proven optimality
+    instances that were previously out of reach.
+  - >-
+    Before joining Sapienza in 2021, I was Maître de conférences at LAMSADE,
+    Université Paris Dauphine-PSL (2013–2019), where I obtained the
+    Habilitation à diriger des recherches in 2017, and a postdoctoral fellow
+    at LIPN, Université Paris 13, and at the University of Bologna. I received
+    my Ph.D. from the University of Bologna in 2011, under the supervision of
+    Paolo Toth and Alberto Caprara. I hold the national qualification as Full
+    Professor in Italy, France and Denmark.
+  - >-
+    I am Associate Editor of Omega, and Program Committee Chair and local
+    organizer of the European Mixed Integer Programming Workshop (EUROMIP)
+    2026 in Rome.
+
+interests:
+  - Mixed-integer linear programming
+  - Decomposition and reformulation
+  - Combinatorial branch-and-bound
+  - Cutting and packing
+  - Graph optimization
+  - Bilevel and interdiction problems
+
+stats:
+  - {value: "60", label: "Refereed publications", note: "48 journal articles, 12 proceedings"}
+  - {value: "31", label: "h-index", note: "Google Scholar"}
+  - {value: "7",  label: "Researchers supervised", note: "6 PhD students, 1 postdoc"}
+  - {value: "€787k", label: "Research funding", note: "grants and contracts"}
+
+profiles:
+  - {name: Google Scholar, url: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=en"}
+  - {name: ORCID,          url: "https://orcid.org/0000-0002-1839-5827"}
+  - {name: GitHub,         url: "https://github.com/fabiofurini"}
+  - {name: DBLP,           url: "https://dblp.org/search?q=Fabio+Furini"}
+  - {name: ResearchGate,   url: "https://www.researchgate.net/profile/Fabio-Furini"}
+  - {name: LinkedIn,       url: "https://www.linkedin.com/in/fabiofurini/"}
+  - {name: Sapienza,       url: "https://phd.uniroma1.it/web/FABIO-FURINI_nC4385_EN.aspx"}
+
+# Where the paper archive (PDFs, data) is published
+archive_url: /research-papers
+archive_repo: https://github.com/fabiofurini/research-papers

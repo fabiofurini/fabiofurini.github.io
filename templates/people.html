@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Group — {{ site.name }}{% endblock %}
+{% block content %}
+<div class="page-head"><div class="wrap">
+  <p class="eyebrow">Group</p><h1>Students and researchers</h1>
+  <p class="lead">{{ people.intro }}</p>
+</div></div>
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">Current</p><h2>Currently supervised</h2></div></div>
+  <div class="people">
+    {% for p in people.current %}
+    <div class="person"><div class="nm">{{ p.name }}</div><div class="rl">{{ p.role }}</div>
+      {% if p.topic %}<div class="tp">{{ p.topic }}</div>{% endif %}<div class="wh">{{ p.where }}</div></div>
+    {% endfor %}
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">Alumni</p><h2>Former students and postdocs</h2></div></div>
+  <div class="people">
+    {% for p in people.alumni %}
+    <div class="person"><div class="nm">{{ p.name }}</div><div class="rl">{{ p.role }}</div>
+      {% if p.topic %}<div class="tp">{{ p.topic }}</div>{% endif %}<div class="wh">{{ p.where }}</div>
+      {% if p.now %}<span class="now">Now: {{ p.now }}</span>{% endif %}</div>
+    {% endfor %}
+  </div>
+  <div class="callout"><p>{{ people.theses }}</p></div>
+</div></section>
+{% endblock %}

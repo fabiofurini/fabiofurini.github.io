@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Software — Fabio Furini</title>
+<meta name="description" content="Fabio Furini — Associate Professor of Operations Research, Sapienza University of Rome. Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta name="author" content="Fabio Furini">
+<meta property="og:title" content="Software — Fabio Furini">
+<meta property="og:description" content="Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fabiofurini.github.io/software/">
+<link rel="canonical" href="https://fabiofurini.github.io/software/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/site.css?v=43aa1e1f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1d2f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white'>FF</text></svg>">
+<script>try{var t=localStorage.getItem('ff-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Fabio Furini</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/research/">Research</a>
+      <a href="/publications/">Publications</a>
+      <a href="/software/" aria-current="page">Software</a>
+      <a href="/teaching/">Teaching</a>
+      <a href="/people/">Group</a>
+      <a href="/cv/">CV</a>
+    </nav>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="page-head"><div class="wrap">
+  <p class="eyebrow">Software &amp; data</p>
+  <h1>Software</h1>
+  <p class="lead">Implementations of the algorithms in my papers, released with the benchmark instances and computational material needed to reproduce the experiments.</p>
+</div></div>
+<section class="block"><div class="wrap">
+  <div class="sw">
+    <div class="card">
+      <h3>CliSAT</h3>
+      <p>Exact SAT-based algorithm for the Maximum Clique Problem, used to solve hard maximum clique instances, with benchmark instances and computational material.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J43">CliSAT: a new exact algorithm for hard maximum clique problems</a> — <i>European Journal of Operational Research</i>, 2023
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/psanse/CliSAT" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>BPP-NE</h3>
+      <p>Numerically exact branch-price-and-cut solver for the classical Bin Packing Problem, with safe dual bounds and an exact fixed-point pricing algorithm.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J44">A Numerically Exact Algorithm for the Bin-Packing Problem</a> — <i>INFORMS Journal on Computing</i>, 2024
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/fabiofurini/bpp-numerically-exact" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>NEA-G2KP</h3>
+      <p>Exact solution framework for two-dimensional knapsack problems, with the instances and detailed results of the benchmark study.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J46">Exact Algorithms for Two-Dimensional Knapsack Problems: A Unified Framework with New Benchmark Results</a> — <i>INFORMS Journal on Computing</i>, 2026
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/INFORMSJoC/2025.1423" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>Bfilt</h3>
+      <p>Branch-and-filter exact algorithm for Binary Constraint Satisfaction Problems, with a Linux release, benchmark instances and format converters.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J39">A new branch-and-filter exact algorithm for binary constraint satisfaction problems</a> — <i>European Journal of Operational Research</i>, 2022
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/psanse/Bfilt" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>KPCG</h3>
+      <p>Combinatorial branch-and-bound for the Knapsack Problem with Conflicts, where selected items must satisfy a capacity constraint and pairwise incompatibilities.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J34">A new combinatorial branch-and-bound algorithm for the Knapsack Problem with Conflicts</a> — <i>European Journal of Operational Research</i>, 2021
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/psanse/KPCG" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>BBEWC</h3>
+      <p>Exact branch-and-bound for the Maximum Edge-Weighted Clique Problem, with the datasets and the executable used in the computational study.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J27">A new branch-and-bound algorithm for the maximum edge-weighted clique problem</a> — <i>European Journal of Operational Research</i>, 2019
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/psanse/BBEWC" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>LOC-COV</h3>
+      <p>Branch-and-Benders-cut for the Maximal Covering and Partial Set Covering Location Problems, scaling to millions of demand points.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J25">Benders Decomposition for Very Large Scale Partial Set Covering and Maximal Covering Location Problems</a> — <i>European Journal of Operational Research</i>, 2019
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/fabiofurini/LocationCovering" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>SUB-COV-MAX</h3>
+      <p>Submodular maximization of concave utility functions composed with a set-union operator, for covering and location models with diminishing returns.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J41">Submodular maximization of concave utility functions composed with a set-union operator with applications to maximal covering location problems</a> — <i>Mathematical Programming</i>, 2022
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/fabiofurini/Maximizing-submodular-utility-functions" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>COVER-MAX-DEPTH</h3>
+      <p>Exact separation of cover inequalities of maximum depth for knapsack-constrained problems.</p>
+      <div class="paper">
+Paper: <a href="/publications/#J38">On the exact separation of cover inequalities of maximum-depth</a> — <i>Optimization Letters</i>, 2022
+      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/fabiofurini/COVER_MAX_DEPTH" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>BP-k-VCP</h3>
+      <p>Branch-and-price for the k-Vertex Cut Problem.</p>
+      <div class="paper">
+Associated paper under review      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/FabioCiccarelli/BP_k-vertex-cut" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>Ramsey lower bounds</h3>
+      <p>Integer programming approach to compute lower bounds for Ramsey numbers using circulant graphs.</p>
+      <div class="paper">
+Associated paper under review      </div>
+      <div class="row"><a class="lk primary" href="https://github.com/fabiofurini/ramsey-number-lower-bounds" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">Benchmark library</p><h2>Libraries</h2></div></div>
+  <div class="sw">
+    <div class="card">
+      <h3>QPLIB</h3><p>The reference library of quadratic programming instances — continuous, mixed-integer and binary — curated and classified for benchmarking.</p>
+<div class="paper">Paper: <a href="/publications/#J23">QPLIB: A Library of Quadratic Programming Instances</a> — <i>Mathematical Programming Computation</i>, 2019</div>      <div class="row"><a class="lk primary" href="https://qplib.zib.de" target="_blank" rel="noopener">Visit ↗</a></div>
+    </div>
+  </div>
+  <div class="callout"><p>The author's versions of all papers, with their metadata, are archived in the
+    <a href="https://github.com/fabiofurini/research-papers" target="_blank" rel="noopener">research-papers</a> repository.</p></div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="nm">Fabio Furini</div>
+      <div>Associate Professor of Operations Research</div>
+      <div>Department of Computer, Control and Management Engineering &#34;Antonio Ruberti&#34;</div>
+      <div>Sapienza University of Rome</div>
+      <div class="faint" style="margin-top:8px">Via Ariosto 25, 00185 Rome, Italy</div>
+      <div style="margin-top:8px"><a href="mailto:fabio.furini@uniroma1.it">fabio.furini@uniroma1.it</a></div>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul><li><a href="/research/">Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/software/">Software</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Group</a></li><li><a href="/cv/">CV</a></li></ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul><li><a href="https://scholar.google.com/citations?user=Kx7v180AAAAJ&amp;hl=en" rel="me noopener" target="_blank">Google Scholar</a></li><li><a href="https://orcid.org/0000-0002-1839-5827" rel="me noopener" target="_blank">ORCID</a></li><li><a href="https://github.com/fabiofurini" rel="me noopener" target="_blank">GitHub</a></li><li><a href="https://dblp.org/search?q=Fabio+Furini" rel="me noopener" target="_blank">DBLP</a></li><li><a href="https://www.researchgate.net/profile/Fabio-Furini" rel="me noopener" target="_blank">ResearchGate</a></li><li><a href="https://www.linkedin.com/in/fabiofurini/" rel="me noopener" target="_blank">LinkedIn</a></li><li><a href="https://phd.uniroma1.it/web/FABIO-FURINI_nC4385_EN.aspx" rel="me noopener" target="_blank">Sapienza</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=nx;
+    try{localStorage.setItem('ff-theme',nx)}catch(e){}
+  });
+  var m=document.getElementById('menuBtn'),n=document.getElementById('nav');
+  m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',String(o))});
+})();
+</script>
+</body>
+</html>

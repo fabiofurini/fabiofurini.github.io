@@ -1,0 +1,53 @@
+# Summary CV shown on the site. The full CV is the PDF in static/ (cv_pdf).
+cv_pdf: FabioFurini_CV.pdf
+
+appointments:
+  - {years: "2021 – now",  role: "Associate Professor", where: "Department of Computer, Control and Management Engineering, Sapienza University of Rome"}
+  - {years: "2021 – 2026", role: "Associate Researcher", where: "Institute for Systems Analysis and Computer Science (IASI-CNR), Rome"}
+  - {years: "2020 – 2021", role: "Research Fellow", where: "IASI-CNR, Rome"}
+  - {years: "2013 – 2019", role: "Maître de conférences", where: "LAMSADE, Université Paris Dauphine-PSL"}
+  - {years: "2012 – 2013", role: "Postdoctoral Fellow", where: "LIPN, Université Paris 13"}
+  - {years: "2011 – 2012", role: "Postdoctoral Fellow", where: "University of Bologna"}
+  - {years: "2009 – 2012", role: "Consultant", where: "Ferrovie dello Stato, Rome"}
+  - {years: "2007 – 2008", role: "Consultant", where: "Ferrari S.p.A., Maranello"}
+
+education:
+  - {years: "2017", role: "Habilitation à diriger des recherches", where: "Université Paris Dauphine-PSL", note: "Reformulations and Decompositions of Mixed Integer Linear and Nonlinear Programs"}
+  - {years: "2008 – 2011", role: "Ph.D. in Control System Engineering and Operational Research", where: "University of Bologna", note: "Decomposition and reformulation of integer linear programming problems. Supervisors: Paolo Toth and Alberto Caprara"}
+  - {years: "2005 – 2007", role: "M.Sc. in Engineering and Industrial Management", where: "University of Bologna"}
+  - {years: "2001 – 2004", role: "B.Sc. in Engineering and Industrial Management", where: "University of Bologna"}
+
+qualifications:
+  - {years: "2022", role: "Qualification as Full Professor in Operations Research", where: "Technical University of Denmark"}
+  - {years: "2019", role: "National qualification as Full Professor in Operations Research", where: "Italian Ministry of University and Research"}
+  - {years: "2017", role: "Qualification as Professeur des universités", where: "France — sections 26 (applied mathematics) and 27 (computer science)"}
+
+service:
+  - {years: "2018 – now",  role: "Associate Editor", where: "Omega — The International Journal of Management Science"}
+  - {years: "2026",        role: "Program Committee Chair and local organizer", where: "European Mixed Integer Programming Workshop (EUROMIP), Rome"}
+  - {years: "2018 – 2020", role: "Guest Editor", where: "Discrete Applied Mathematics — special issue on Graphs and Combinatorial Optimization"}
+  - {years: "2017 – 2019", role: "Guest Editor", where: "Annals of Operations Research — special issue on Recent Advances in Decomposition Methods for Hard Optimization Problems"}
+  - {years: "2018 – 2020", role: "Local organization committee", where: "CTW 2018 (Paris), SPOC 2018 (Paris), CTW 2020"}
+  - {years: "2009 – now",  role: "Referee", where: "Operations Research, Mathematical Programming, INFORMS Journal on Computing, Transportation Science, EJOR and many others"}
+
+grants:
+  - {years: "2025", name: "Towards EXplainable BIlevel Learning", funder: "Sapienza University of Rome", role: "co-PI"}
+  - {years: "2024", name: "Proactive Anomaly Network Defense and optimization Analysis (PANDA)", funder: "Sapienza University of Rome", role: "PI"}
+  - {years: "2023 – now", name: "Rail Transportation — Centro Nazionale 4, Spoke 4", funder: "PNRR", role: "co-PI"}
+  - {years: "2023", name: "SEEDS: Sustainable Ecosystems in Evolving Digital Societies", funder: "Sapienza University of Rome", role: "member"}
+  - {years: "2021", name: "Optimal spread-containment policies to protect social networks", funder: "SEED PNR", role: "PI"}
+  - {years: "2017 – 2018", name: "Rich Graph Coloring Problems with applications to resource allocation", funder: "PGMO", role: "PI"}
+  - {years: "2016 – 2017", name: "Efficient Quadratic Programming Exact Algorithms mixing Relaxations", funder: "CNRS, PEPS JCJC", role: "PI"}
+  - {years: "2014 – 2017", name: "QPLIB2014: a Library of Quadratic Programming Instances", funder: "PGMO", role: "PI"}
+  - {years: "2014 – 2017", name: "Efficient exact algorithms for Graph Partitioning Problems", funder: "PGMO", role: "PI"}
+
+industry:
+  - {years: "2020 – 2022", partner: "Huawei, Paris", what: "Industrial doctoral contract — network optimization, interdiction and robustness"}
+  - {years: "2017 – 2019", partner: "Orange, Paris", what: "Industrial doctoral contract — optimization for next-generation telecommunication networks"}
+  - {years: "2015 – 2017", partner: "DecisionBrain, Paris", what: "Industrial doctoral contract — production planning and scheduling"}
+  - {years: "2010 – 2012", partner: "Ferrovie dello Stato", what: "Timetabling optimization software"}
+
+awards:
+  - {years: "2014 – 2021", role: "Prime d'encadrement doctoral et de recherche (PEDR)", where: "French national research and supervision award"}
+  - {years: "2014", role: "Prix Fondation Dauphine de la Publication", where: "Université Paris Dauphine-PSL"}
+  - {years: "Current", role: "Member", where: "Mathematical Optimization Society"}

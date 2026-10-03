@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}{{ site.name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site.name }} — {{ site.title }}, {{ site.institution }}. {{ site.tagline }}{% endblock %}">
+<meta name="author" content="{{ site.name }}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ site.tagline }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}{{ path }}">
+<link rel="canonical" href="{{ site.url }}{{ path }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/site.css?v={{ build_id }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1d2f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white'>FF</text></svg>">
+<script>try{var t=localStorage.getItem('ff-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">{{ site.name }}</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      {% for item in nav %}
+      <a href="{{ item.href }}"{% if item.href == section %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="nm">{{ site.name }}</div>
+      <div>{{ site.title }}</div>
+      <div>{{ site.affiliation }}</div>
+      <div>{{ site.institution }}</div>
+      <div class="faint" style="margin-top:8px">{{ site.address }}</div>
+      <div style="margin-top:8px"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>{% for item in nav %}<li><a href="{{ item.href }}">{{ item.label }}</a></li>{% endfor %}</ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul>{% for p in site.profiles %}<li><a href="{{ p.url }}" rel="me noopener" target="_blank">{{ p.name }}</a></li>{% endfor %}</ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=nx;
+    try{localStorage.setItem('ff-theme',nx)}catch(e){}
+  });
+  var m=document.getElementById('menuBtn'),n=document.getElementById('nav');
+  m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',String(o))});
+})();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

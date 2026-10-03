@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{{ site.name }} — {{ site.title }}{% endblock %}
+{% block content %}
+<div class="wrap">
+  <section class="hero">
+    <div>
+      {% if site.photo %}<img class="portrait" src="/static/img/{{ site.photo }}" alt="{{ site.name }}" width="200" height="200">
+      {% else %}<div class="monogram" aria-hidden="true">FF</div>{% endif %}
+    </div>
+    <div>
+      <p class="eyebrow">Operations Research · Combinatorial Optimization</p>
+      <h1>{{ site.name }}</h1>
+      <p class="role">{{ site.title }}</p>
+      <p class="inst">{{ site.affiliation }}, {{ site.institution }}</p>
+      <p class="tagline">{{ site.tagline }}</p>
+      <div class="actions">
+        <a class="btn primary" href="/publications/">Publications</a>
+        <a class="btn" href="/research/">Research</a>
+        <a class="btn" href="/cv/">Curriculum vitae</a>
+        <a class="btn" href="mailto:{{ site.email }}">Contact</a>
+      </div>
+      <div class="profiles">
+        {% for p in site.profiles %}<a href="{{ p.url }}" rel="me noopener" target="_blank">{{ p.name }} ↗</a>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="stats" role="list">
+    {% for s in site.stats %}
+    <div class="stat" role="listitem"><div class="v">{{ s.value }}</div><div class="l">{{ s.label }}</div><div class="n">{{ s.note }}</div></div>
+    {% endfor %}
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap two-col">
+    <div class="prose">
+      <p class="eyebrow">About</p>
+      {% for para in site.bio %}<p>{{ para }}</p>{% endfor %}
+    </div>
+    <aside>
+      <div class="side-box">
+        <h3>Research interests</h3>
+        <ul>{% for i in site.interests %}<li>{{ i }}</li>{% endfor %}</ul>
+      </div>
+      <div class="side-box">
+        <h3>Currently</h3>
+        <ul>
+          <li>Associate Editor, <i>Omega</i></li>
+          <li>PC Chair, EUROMIP 2026, Rome</li>
+          <li>Teaching <a href="/teaching/">Integer Programming</a> at Sapienza</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Research</p><h2>Lines of work</h2></div>
+      <a href="/research/">All research themes →</a>
+    </div>
+    <div class="grid-3">
+      {% for t in themes %}
+      <a class="card" href="/research/#{{ t.slug }}">
+        <h3>{{ t.name }}</h3>
+        <p>{{ t.description }}</p>
+        <div class="meta"><span><b>{{ t.count }}</b> papers</span><span>{{ t.span }}</span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Latest</p><h2>Recent publications</h2></div>
+      <a href="/publications/">All {{ papers|length }} publications →</a>
+    </div>
+    {% for p in recent %}{% include "_pub.html" %}{% endfor %}
+  </div>
+</section>
+{% endblock %}
