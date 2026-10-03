@@ -1,40 +1,75 @@
-intro: >-
-  Insegno programmazione intera, ottimizzazione combinatoria e analisi
-  matematica. Tutto il materiale dei corsi — dispense, modelli, codice e dati —
-  è pubblicato online e liberamente accessibile.
-
+intro: Insegno programmazione intera, ottimizzazione combinatoria e analisi matematica. Tutto il materiale
+  dei corsi — dispense, modelli, codice e dati — è pubblicato online e liberamente accessibile.
 courses:
-  - name: Programmazione intera e ottimizzazione combinatoria
-    original: ""
-    level: Laurea magistrale · Ingegneria gestionale
-    where: Sapienza Università di Roma
-    since: "dal 2021"
-    detail: 120 ore · circa 300 studenti l'anno
-    sites:
-      - {label: "Modellazione MIP", lang: IT, url: "https://fabiofurini.github.io/modellazione-mip/", repo: "https://github.com/fabiofurini/modellazione-mip"}
-      - {label: "MIP Modelling", lang: EN, url: "https://fabiofurini.github.io/mip-modelling/", repo: "https://github.com/fabiofurini/mip-modelling"}
-      - {label: "Laboratorio di Ricerca Operativa", lang: IT, url: "https://fabiofurini.github.io/laboratorio-ricerca-operativa/", repo: "https://github.com/fabiofurini/laboratorio-ricerca-operativa"}
-      - {label: "Operations Research Lab", lang: EN, url: "https://fabiofurini.github.io/operations-research-lab/", repo: "https://github.com/fabiofurini/operations-research-lab"}
-  - name: Analisi matematica 1
-    original: ""
-    level: Laurea triennale
-    where: Sapienza Università di Roma
-    since: "2021–2024"
-    detail: dispense con dimostrazioni ed esercizi
-    sites:
-      - {label: "Analisi Matematica 1", lang: IT, url: "https://fabiofurini.github.io/analisi-matematica-1/", repo: "https://github.com/fabiofurini/analisi-matematica-1"}
-      - {label: "Mathematical Analysis 1", lang: EN, url: "https://fabiofurini.github.io/mathematical-analysis-1/", repo: "https://github.com/fabiofurini/mathematical-analysis-1"}
-
+- name: Programmazione intera e ottimizzazione combinatoria
+  original: ''
+  level: Laurea magistrale · Ingegneria gestionale
+  where: Sapienza Università di Roma
+  since: dal 2021
+  detail: 120 ore · circa 300 studenti l'anno
+  sites:
+  - label: Modellazione MIP
+    lang: IT
+    url: https://fabiofurini.github.io/modellazione-mip/
+    repo: https://github.com/fabiofurini/modellazione-mip
+  - label: MIP Modelling
+    lang: EN
+    url: https://fabiofurini.github.io/mip-modelling/
+    repo: https://github.com/fabiofurini/mip-modelling
+  - label: Laboratorio di Ricerca Operativa
+    lang: IT
+    url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
+    repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
+  - label: Operations Research Lab
+    lang: EN
+    url: https://fabiofurini.github.io/operations-research-lab/
+    repo: https://github.com/fabiofurini/operations-research-lab
+- name: Analisi matematica 1
+  original: ''
+  level: Laurea triennale
+  where: Sapienza Università di Roma
+  since: 2021–2024
+  detail: dispense con dimostrazioni ed esercizi
+  sites:
+  - label: Analisi Matematica 1
+    lang: IT
+    url: https://fabiofurini.github.io/analisi-matematica-1/
+    repo: https://github.com/fabiofurini/analisi-matematica-1
+  - label: Mathematical Analysis 1
+    lang: EN
+    url: https://fabiofurini.github.io/mathematical-analysis-1/
+    repo: https://github.com/fabiofurini/mathematical-analysis-1
 advanced:
-  - {year: "2023", name: "Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs", where: "Scuola CIMPA su struttura dei grafi e analisi delle reti complesse"}
-  - {year: "2019", name: "Decomposizione di Benders", where: "Corso di dottorato, Università di Bologna"}
-  - {year: "2019", name: "Decomposizione di Dantzig-Wolfe", where: "Corso di dottorato, IFSTAR, Lille"}
-  - {year: "2015", name: "Generazione di colonne per problemi combinatori difficili", where: "Corso di dottorato, Université Paris Dauphine-PSL"}
-
+- year: '2023'
+  name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
+    on Graphs
+  where: Scuola CIMPA su struttura dei grafi e analisi delle reti complesse
+- year: '2019'
+  name: Decomposizione di Benders
+  where: Corso di dottorato, Università di Bologna
+- year: '2019'
+  name: Decomposizione di Dantzig-Wolfe
+  where: Corso di dottorato, IFSTAR, Lille
+- year: '2015'
+  name: Generazione di colonne per problemi combinatori difficili
+  where: Corso di dottorato, Université Paris Dauphine-PSL
 past:
-  - {where: "Sapienza Università di Roma", courses: "Combinatorial Optimization and Integer Programming (magistrale)"}
-  - {where: "Università di Modena e Reggio Emilia", courses: "Ottimizzazione lineare intera (triennale)"}
-  - {where: "Università di Parma", courses: "Quantitative Methods and Optimization (magistrale)"}
-  - {where: "Université Paris Dauphine-PSL", courses: "Programmation linéaire · Programmation linéaire avancée · Optimisation combinatoire · Outils d'optimisation pour les sciences des données et de la décision · Optimisation en finance · Gestion de la production · Humanitarian logistics · Système de gestion de bases de données"}
-
-total_hours: "1.644"
+- where: Sapienza Università di Roma
+  courses: Combinatorial Optimization and Integer Programming (magistrale)
+- where: Università di Modena e Reggio Emilia
+  courses: Ottimizzazione lineare intera (triennale)
+- where: Università di Parma
+  courses: Quantitative Methods and Optimization (magistrale)
+- where: Université Paris Dauphine-PSL
+  courses: Programmation linéaire · Programmation linéaire avancée · Optimisation combinatoire · Outils
+    d'optimisation pour les sciences des données et de la décision · Optimisation en finance · Gestion
+    de la production · Humanitarian logistics · Système de gestion de bases de données
+total_hours: '1.644'
+tools_intro: Strumenti interattivi che uso e sviluppo per la didattica.
+tools:
+- name: Bomberino
+  summary: 'Un banco di lavoro interattivo per gli algoritmi della ricerca operativa: simplesso primale
+    e duale, tagli di Gomory e branch-and-bound su piccoli problemi lineari e interi. Ogni pivot, bound,
+    taglio e ramificazione resta tracciato in frazioni esatte, e l''esercizio svolto si esporta in LaTeX.'
+  url: https://fciccarelli.com/bomberino
+  note: Realizzato con Fabio Ciccarelli

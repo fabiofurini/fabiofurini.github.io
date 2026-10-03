@@ -30,6 +30,24 @@
   {% endfor %}
 </div></section>
 
+
+{% if teaching.tools %}
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.tools_eyebrow }}</p><h2>{{ strings.tools_title }}</h2></div></div>
+  <p class="lead" style="margin-top:0">{{ teaching.tools_intro }}</p>
+  <div class="sw" style="margin-top:22px">
+    {% for tool in teaching.tools %}
+    <div class="card">
+      <h3>{{ tool.name }}</h3>
+      <p>{{ tool.summary }}</p>
+      {% if tool.note %}<div class="paper">{{ tool.note }}</div>{% endif %}
+      <div class="row"><a class="lk primary" href="{{ tool.url }}" target="_blank" rel="noopener">{{ strings.visit }}</a></div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
 <section class="block"><div class="wrap">
   <div class="sec-head"><div><p class="eyebrow">{{ strings.doctoral }}</p><h2>{{ strings.phd_courses }}</h2></div></div>
   <ul class="tl">
