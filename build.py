@@ -18,17 +18,16 @@ ROOT = Path(__file__).resolve().parent
 ARCHIVE = Path('/home/fabio/Dropbox/1_RICERCA/100_PAPERI')
 DIST = ROOT / 'docs'   # GitHub Pages serves this folder from main
 
-NAV = [
-    {'label': 'Research',     'href': '/research/'},
-    {'label': 'Publications', 'href': '/publications/'},
-    {'label': 'Software',     'href': '/software/'},
-    {'label': 'Teaching',     'href': '/teaching/'},
-    {'label': 'Group',        'href': '/people/'},
-    {'label': 'CV',           'href': '/cv/'},
-]
+LANGS = ['en', 'it']          # 'en' alla radice, le altre in /<lang>/
 
-def load(name):
-    return yaml.safe_load((ROOT / 'content' / name).read_text(encoding='utf-8'))
+def load(name, lang='en'):
+    """Legge un file di contenuto; per l'inglese sta in content/, per le
+    altre lingue in content/<lang>/ con lo stesso nome."""
+    base = ROOT / 'content' if lang == 'en' else ROOT / 'content' / lang
+    f = base / name
+    if not f.is_file() and lang != 'en':
+        f = ROOT / 'content' / name        # ripiego sull'inglese
+    return yaml.safe_load(f.read_text(encoding='utf-8'))
 
 def clean_venue(v):
     v = (v or '').rstrip('.').strip()
@@ -78,16 +77,18 @@ def write_bib(papers, out):
 
 SKIP_OPEN = {'C06'}   # archived source is an earlier draft, see the archive README
 
-def build():
-    site     = load('site.yaml')
-    software = load('software.yaml')
-    teaching = load('teaching.yaml')
-    people   = load('people.yaml')
-    cv       = load('cv.yaml')
-    themes_y = load('themes.yaml')          # the research themes live with the site
-
-    papers = load_papers()
-    by_id  = {p['id']: p for p in papers}
+def build_lang(lang, env, papers, by_id, build_id, assets_done):
+    """Rende le pagine di una lingua. L'inglese sta alla radice, le altre
+    sotto /<lang>/. I PDF e i dati sono condivisi: si scrivono una volta sola."""
+    prefix   = '' if lang == 'en' else f'/{lang}'
+    site     = load('site.yaml', lang)
+    software = load('software.yaml', lang)
+    teaching = load('teaching.yaml', lang)
+    people   = load('people.yaml', lang)
+    cv       = load('cv.yaml', lang)
+    themes_y = load('themes.yaml', lang)
+    strings  = load(f'ui.{lang}.yaml')
+    nav = [{'label': n['label'], 'href': f"{prefix}/{n['href']}/"} for n in strings['nav']]
 
     themes = []
     for slug, t in themes_y.items():
@@ -98,35 +99,19 @@ def build():
         themes.append({
             'slug': slug, 'name': t['name'], 'description': t['description'],
             'papers': tp, 'count': len(tp),
-            'span': f"{min(yrs)}–{max(yrs)}" if min(yrs) != max(yrs) else str(min(yrs)),
+            'span': f"{min(yrs)}\u2013{max(yrs)}" if min(yrs) != max(yrs) else str(min(yrs)),
         })
     themes.sort(key=lambda t: -t['count'])
 
     for group in ('tools', 'libraries'):
-        for s in software.get(group, []):
-            s['paper_obj'] = by_id.get(s.get('paper') or '')
-
-    build_id = hashlib.sha1(
-        (ROOT / 'static' / 'css' / 'site.css').read_bytes()
-        + (ROOT / 'static' / 'js' / 'publications.js').read_bytes()
-    ).hexdigest()[:8]
-
-    env = Environment(loader=FileSystemLoader(ROOT / 'templates'),
-                      autoescape=select_autoescape(['html']),
-                      trim_blocks=True, lstrip_blocks=True)
+        for sw in software.get(group, []):
+            sw['paper_obj'] = by_id.get(sw.get('paper') or '')
 
     stats = {
         'journal': sum(1 for p in papers if p['kind'] == 'journal'),
         'conference': sum(1 for p in papers if p['kind'] == 'conference'),
         'from': min(p['year'] for p in papers), 'to': max(p['year'] for p in papers),
     }
-    ctx = dict(site=site, nav=NAV, themes=themes, papers=papers, stats=stats,
-               software=software, teaching=teaching, people=people, cv=cv,
-               build_id=build_id, recent=papers[:5])
-
-    if DIST.exists():
-        shutil.rmtree(DIST)
-    DIST.mkdir(parents=True)
 
     pages = [('home.html', '', '/'),
              ('research.html', 'research', '/research/'),
@@ -135,35 +120,76 @@ def build():
              ('teaching.html', 'teaching', '/teaching/'),
              ('people.html', 'people', '/people/'),
              ('cv.html', 'cv', '/cv/')]
+
+    out_base = DIST if lang == 'en' else DIST / lang
+    written = []
     for tpl, out, path in pages:
-        html = env.get_template(tpl).render(section=path, path=path, **ctx)
-        target = DIST / out / 'index.html' if out else DIST / 'index.html'
+        full = f'{prefix}{path}'
+        # la stessa pagina nell'altra lingua, per il selettore
+        other = '' if lang != 'en' else '/it'
+        other_url = f"{other}{path}" if lang == 'en' else path
+        html = env.get_template(tpl).render(
+            section=full, path=full, lang=lang, prefix=prefix,
+            t=strings['ui'], strings=strings, other_url=other_url,
+            site=site, nav=nav, themes=themes, papers=papers, stats=stats,
+            software=software, teaching=teaching, people=people, cv=cv,
+            build_id=build_id, recent=papers[:5])
+        target = (out_base / out / 'index.html') if out else (out_base / 'index.html')
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding='utf-8')
+        written.append(full)
 
-    shutil.copytree(ROOT / 'static', DIST / 'static')
+    if not assets_done:
+        shutil.copytree(ROOT / 'static', DIST / 'static')
+        (DIST / 'papers').mkdir(exist_ok=True)
+        for p in papers:
+            if p['_pdf_src']:
+                shutil.copy2(p['_pdf_src'],
+                             DIST / 'papers' / f"{p['_pdf_src'].parent.parent.name}.pdf")
+        pub_json = {
+            'papers': [{k: v for k, v in p.items() if not k.startswith('_')} for p in papers],
+            'themes': [{'slug': t['slug'], 'name': t['name']} for t in themes],
+        }
+        (DIST / 'static' / 'publications.json').write_text(
+            json.dumps(pub_json, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+        write_bib(papers, DIST / 'static' / 'publications.bib')
+        cvpdf = Path('/home/fabio/Dropbox/5_CARRIERA/DOC/CV/CV_FabioFurini_ENG.pdf')
+        if cvpdf.is_file():
+            shutil.copy2(cvpdf, DIST / 'static' / cv['cv_pdf'])
+    else:
+        # i nomi dei filoni cambiano con la lingua: un file per lingua
+        pub_json = {
+            'papers': [{k: v for k, v in p.items() if not k.startswith('_')} for p in papers],
+            'themes': [{'slug': t['slug'], 'name': t['name']} for t in themes],
+        }
+        (DIST / 'static' / f'publications.{lang}.json').write_text(
+            json.dumps(pub_json, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    return written, site
 
-    (DIST / 'papers').mkdir()
-    n = 0
-    for p in papers:
-        if p['_pdf_src']:
-            shutil.copy2(p['_pdf_src'], DIST / 'papers' / f"{p['_pdf_src'].parent.parent.name}.pdf")
-            n += 1
 
-    pub_json = {
-        'papers': [{k: v for k, v in p.items() if not k.startswith('_')} for p in papers],
-        'themes': [{'slug': t['slug'], 'name': t['name']} for t in themes],
-    }
-    (DIST / 'static' / 'publications.json').write_text(
-        json.dumps(pub_json, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    write_bib(papers, DIST / 'static' / 'publications.bib')
+def build():
+    papers = load_papers()
+    by_id  = {p['id']: p for p in papers}
+    build_id = hashlib.sha1(
+        (ROOT / 'static' / 'css' / 'site.css').read_bytes()
+        + (ROOT / 'static' / 'js' / 'publications.js').read_bytes()
+    ).hexdigest()[:8]
+    env = Environment(loader=FileSystemLoader(ROOT / 'templates'),
+                      autoescape=select_autoescape(['html']),
+                      trim_blocks=True, lstrip_blocks=True)
 
-    cvpdf = Path('/home/fabio/Dropbox/5_CARRIERA/DOC/CV/CV_FabioFurini_ENG.pdf')
-    if cvpdf.is_file():
-        shutil.copy2(cvpdf, DIST / 'static' / cv['cv_pdf'])
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    DIST.mkdir(parents=True)
+
+    all_urls = []
+    site = None
+    for k, lang in enumerate(LANGS):
+        urls, site = build_lang(lang, env, papers, by_id, build_id, assets_done=(k > 0))
+        all_urls += urls
 
     (DIST / '.nojekyll').write_text('')
-    urls = ''.join(f"<url><loc>{site['url']}{p}</loc></url>" for _, _, p in pages)
+    urls = ''.join(f"<url><loc>{site['url']}{u}</loc></url>" for u in all_urls)
     (DIST / 'sitemap.xml').write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
         encoding='utf-8')
@@ -171,9 +197,11 @@ def build():
         f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n", encoding='utf-8')
 
     size = sum(f.stat().st_size for f in DIST.rglob('*') if f.is_file())
-    print(f"built {len(pages)} pages · {len(papers)} publications · {n} PDFs · "
-          f"{len(themes)} themes · {size/1e6:.1f} MB → {DIST}")
+    npdf = len(list((DIST / 'papers').glob('*.pdf')))
+    print(f"built {len(all_urls)} pages in {len(LANGS)} languages \u00b7 {len(papers)} publications "
+          f"\u00b7 {npdf} PDFs \u00b7 {size/1e6:.1f} MB \u2192 {DIST}")
     return DIST
+
 
 if __name__ == '__main__':
     d = build()

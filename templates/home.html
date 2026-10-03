@@ -8,16 +8,16 @@
       {% else %}<div class="monogram" aria-hidden="true">FF</div>{% endif %}
     </div>
     <div>
-      <p class="eyebrow">Operations Research · Combinatorial Optimization</p>
+      <p class="eyebrow">{{ themes[0].name if false else strings.tagline_eyebrow|default("Operations Research · Combinatorial Optimization") }}</p>
       <h1>{{ site.name }}</h1>
       <p class="role">{{ site.title }}</p>
       <p class="inst">{{ site.affiliation }}, {{ site.institution }}</p>
       <p class="tagline">{{ site.tagline }}</p>
       <div class="actions">
-        <a class="btn primary" href="/publications/">Publications</a>
-        <a class="btn" href="/research/">Research</a>
-        <a class="btn" href="/cv/">Curriculum vitae</a>
-        <a class="btn" href="mailto:{{ site.email }}">Contact</a>
+        <a class="btn primary" href="{{ prefix }}/publications/">{{ nav[1].label }}</a>
+        <a class="btn" href="{{ prefix }}/research/">{{ nav[0].label }}</a>
+        <a class="btn" href="{{ prefix }}/cv/">{{ t.curriculum }}</a>
+        <a class="btn" href="mailto:{{ site.email }}">{{ t.contact }}</a>
       </div>
       <div class="profiles">
         {% for p in site.profiles %}<a href="{{ p.url }}" rel="me noopener" target="_blank">{{ p.name }} ↗</a>{% endfor %}
@@ -35,20 +35,20 @@
 <section class="block">
   <div class="wrap two-col">
     <div class="prose">
-      <p class="eyebrow">About</p>
+      <p class="eyebrow">{{ t.about }}</p>
       {% for para in site.bio %}<p>{{ para }}</p>{% endfor %}
     </div>
     <aside>
       <div class="side-box">
-        <h3>Research interests</h3>
+        <h3>{{ t.research_interests }}</h3>
         <ul>{% for i in site.interests %}<li>{{ i }}</li>{% endfor %}</ul>
       </div>
       <div class="side-box">
-        <h3>Currently</h3>
+        <h3>{{ t.currently }}</h3>
         <ul>
           <li>Associate Editor, <i>Omega</i></li>
           <li>PC Chair, EUROMIP 2026, Rome</li>
-          <li>Teaching <a href="/teaching/">Integer Programming</a> at Sapienza</li>
+          <li><a href="{{ prefix }}/teaching/">{{ nav[3].label }}</a> — Sapienza</li>
         </ul>
       </div>
     </aside>
@@ -58,15 +58,15 @@
 <section class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Research</p><h2>Lines of work</h2></div>
-      <a href="/research/">All research themes →</a>
+      <div><p class="eyebrow">{{ nav[0].label }}</p><h2>{{ t.lines_of_work }}</h2></div>
+      <a href="{{ prefix }}/research/">{{ t.all_themes }}</a>
     </div>
     <div class="grid-3">
-      {% for t in themes %}
-      <a class="card" href="/research/#{{ t.slug }}">
-        <h3>{{ t.name }}</h3>
-        <p>{{ t.description }}</p>
-        <div class="meta"><span><b>{{ t.count }}</b> papers</span><span>{{ t.span }}</span></div>
+      {% for th in themes %}
+      <a class="card" href="{{ prefix }}/research/#{{ th.slug }}">
+        <h3>{{ th.name }}</h3>
+        <p>{{ th.description }}</p>
+        <div class="meta"><span><b>{{ th.count }}</b> {{ t.papers }}</span><span>{{ th.span }}</span></div>
       </a>
       {% endfor %}
     </div>
@@ -76,8 +76,8 @@
 <section class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Latest</p><h2>Recent publications</h2></div>
-      <a href="/publications/">All {{ papers|length }} publications →</a>
+      <div><p class="eyebrow">{{ t.latest }}</p><h2>{{ t.recent_pubs }}</h2></div>
+      <a href="{{ prefix }}/publications/">{{ t.all_pubs.replace("{n}", papers|length|string) }}</a>
     </div>
     {% for p in recent %}{% include "_pub.html" %}{% endfor %}
   </div>

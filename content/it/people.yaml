@@ -1,0 +1,17 @@
+intro: >-
+  Dottorandi e ricercatori che seguo o ho seguito.
+
+current:
+  - {name: Fabio Ciccarelli, role: Dottorando, where: "Sapienza Università di Roma, dottorato ABRO", topic: "Algoritmi esatti per problemi di packing"}
+  - {name: Mingming Zheng, role: Dottorando in visita, where: "Sapienza Università di Roma", topic: "Algoritmi esatti per la colorazione di grafi"}
+  - {name: Yuntian Zhang, role: Dottorando in visita, where: "Sapienza Università di Roma", topic: "Problemi di copertura e localizzazione"}
+
+alumni:
+  - {name: Daniele Patria, role: Assegnista di ricerca, where: "Sapienza Università di Roma", topic: "Problemi di packing con funzione obiettivo submodulare", now: "Consulente, Siemens"}
+  - {name: Ian-Christopher Ternier, role: Dottorato (co-tutela), where: "Université Paris Dauphine-PSL", topic: "Risoluzione esatta del problema di colorazione dei grafi e sue varianti", now: "Professore, EPITA"}
+  - {name: Xueying Shen, role: Dottorato industriale (co-tutela), where: "Université Paris Dauphine-PSL con DecisionBrain", topic: ""}
+  - {name: Isma Bentoumi, role: Dottorato industriale (co-tutela), where: "Université Paris Dauphine-PSL con Huawei", topic: ""}
+
+theses: >-
+  Seguo anche tesi triennali e magistrali al DIAG della Sapienza. Chi è
+  interessato a una tesi in ottimizzazione può scrivermi.

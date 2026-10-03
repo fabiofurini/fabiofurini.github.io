@@ -1,0 +1,88 @@
+# Interface strings, English.
+lang_code: en
+lang_name: English
+other_lang_code: it
+other_lang_name: Italiano
+nav:
+  - {label: Research,     href: research}
+  - {label: Publications, href: publications}
+  - {label: Software,     href: software}
+  - {label: Teaching,     href: teaching}
+  - {label: Group,        href: people}
+  - {label: CV,           href: cv}
+ui:
+  skip: Skip to content
+  theme_toggle: Toggle dark mode
+  menu_open: Open menu
+  site_section: Site
+  elsewhere: Elsewhere
+  about: About
+  research_interests: Research interests
+  currently: Currently
+  lines_of_work: Lines of work
+  all_themes: All research themes →
+  latest: Latest
+  recent_pubs: Recent publications
+  all_pubs: "All {n} publications →"
+  papers: papers
+  search_placeholder: Search titles, co-authors, journals, abstracts…
+  all_types: All types
+  journal_articles: Journal articles
+  conference_papers: Conference papers
+  of: of
+  published_version: Published version ↗
+  pdf: PDF
+  code: Code ↗
+  cite: Cite
+  copied: Copied
+  read_more: Read more
+  show_less: Show less
+  no_match: No publication matches these filters.
+  download_bib: Download all as BibTeX
+  all_papers_theme: "All {n} papers in this theme →"
+  contact: Contact
+  curriculum: Curriculum vitae
+  download_cv: Download full CV (PDF)
+  current: Current
+  alumni: Alumni
+  accepted: accepted
+  note_english: The papers and the curriculum vitae are in English.
+tagline_eyebrow: Operations Research · Combinatorial Optimization
+research_title: Exact algorithms for hard combinatorial problems
+research_lead: >-
+  My work designs mathematical formulations and exact algorithms — branch-and-price,
+  branch-and-cut, Benders and Dantzig-Wolfe decomposition, combinatorial
+  branch-and-bound — that solve to proven optimality problems of practical size.
+  The {n} publications fall into the {k} lines of work below.
+pubs_lead: >-
+  {j} journal articles and {c} conference papers, {from}–{to}. Each entry links to
+  the version of record and to the author's version for direct download.
+paper_label: "Paper:"
+library_eyebrow: Benchmark library
+libraries: Libraries
+visit: Visit ↗
+software_callout: >-
+  Every paper on this site comes with the author's version as a PDF and a BibTeX
+  entry — see
+current_courses: Current courses
+courses: Courses
+hours_since: "{h} hours taught since 2012"
+doctoral: Doctoral
+phd_courses: PhD courses and schools
+previously: Previously
+past_teaching: Past teaching
+source: source
+people_title: Students and researchers
+currently_supervised: Currently supervised
+former: Former students and postdocs
+now_label: "Now:"
+cv_lead: >-
+  A summary. The full CV, with the complete list of publications, talks and
+  service, is available as a PDF.
+cv_appointments: Appointments
+cv_education: Education
+cv_qualifications: Qualifications
+cv_service: Editorial and scientific service
+cv_awards: Awards and memberships
+cv_grants: Grants and projects
+cv_industry: Industrial collaborations

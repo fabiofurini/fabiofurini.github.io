@@ -2,14 +2,14 @@
 {% block title %}Teaching — {{ site.name }}{% endblock %}
 {% block content %}
 <div class="page-head"><div class="wrap">
-  <p class="eyebrow">Teaching</p>
-  <h1>Teaching</h1>
+  <p class="eyebrow">{{ nav[3].label }}</p>
+  <h1>{{ nav[3].label }}</h1>
   <p class="lead">{{ teaching.intro }}</p>
 </div></div>
 
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Current courses</p><h2>Courses</h2></div>
-    <span class="faint">{{ teaching.total_hours }} hours taught since 2012</span></div>
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div>
+    <span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span></div>
   {% for c in teaching.courses %}
   <div class="course">
     <div class="head">
@@ -21,7 +21,7 @@
       {% for s in c.sites %}
       <div class="site-link">
         <div><span class="lg">{{ s.lang }}</span><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></div>
-        <a class="rp" href="{{ s.repo }}" target="_blank" rel="noopener">source</a>
+        <a class="rp" href="{{ s.repo }}" target="_blank" rel="noopener">{{ strings.source }}</a>
       </div>
       {% endfor %}
     </div>
@@ -31,7 +31,7 @@
 </div></section>
 
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Doctoral</p><h2>PhD courses and schools</h2></div></div>
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.doctoral }}</p><h2>{{ strings.phd_courses }}</h2></div></div>
   <ul class="tl">
     {% for c in teaching.advanced %}
     <li><div class="y">{{ c.year }}</div><div><div class="r">{{ c.name }}</div><div class="w">{{ c.where }}</div></div></li>
@@ -40,7 +40,7 @@
 </div></section>
 
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Previously</p><h2>Past teaching</h2></div></div>
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.previously }}</p><h2>{{ strings.past_teaching }}</h2></div></div>
   <ul class="tl">
     {% for c in teaching.past %}
     <li><div class="y">{{ c.where }}</div><div class="w">{{ c.courses }}</div></li>

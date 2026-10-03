@@ -1,0 +1,52 @@
+bin-packing-cutting-stock:
+  name: Bin Packing e Cutting Stock
+  description: >-
+    Algoritmi esatti per impacchettare oggetti in contenitori e per tagliare
+    materiale: branch-price-and-cut, enumerazione di pattern e bound duali
+    numericamente sicuri, comprese le varianti temporali e bidimensionali.
+knapsack:
+  name: Problemi di Knapsack
+  description: >-
+    Algoritmi esatti e di approssimazione per varianti dello zaino con setup,
+    conflitti, prodotti e finestre temporali, insieme allo studio poliedrale
+    delle disuguaglianze di cover.
+graph-coloring:
+  name: Colorazione di Grafi
+  description: >-
+    Branch-and-price e branch-and-bound basato su DSATUR per colorazione di
+    vertici, pesata, per partizioni e a somma minima, comprese le riformulazioni
+    come problemi di stable set di peso massimo.
+clique-stable-set:
+  name: Clique e Stable Set
+  description: >-
+    Algoritmi combinatori esatti per la clique massima e le sue varianti pesate
+    sui vertici e sugli archi, con filtraggio SAT, bound superiori più stretti e
+    decomposizioni in clique rilassate.
+interdiction-blocker-vertex-cut:
+  name: Interdizione, Blocker e Vertex Cut
+  description: >-
+    Problemi bilivello e di interdizione sui grafi: vertex k-cut, separatori di
+    vertici con capacità, interdizione di clique e di archi, blocker del flusso
+    massimo.
+covering-location-submodular:
+  name: Covering, Localizzazione e Submodularità
+  description: >-
+    Decomposizione di Benders per problemi di copertura e localizzazione su
+    larghissima scala, e massimizzazione submodulare di utilità concave composte
+    con un operatore di unione.
+decomposition-reformulation:
+  name: Decomposizione e Riformulazione
+  description: >-
+    Riformulazione automatica di Dantzig-Wolfe per programmi interi misti e
+    rilassamenti perspective per problemi con variabili semicontinue.
+quadratic-programming:
+  name: Programmazione Quadratica Binaria
+  description: >-
+    Tecniche di linearizzazione per problemi quadratici binari e QPLIB, la
+    libreria di riferimento di istanze di programmazione quadratica.
+transportation-scheduling:
+  name: Trasporti e Scheduling
+  description: >-
+    Ottimizzazione nel traffico aereo e ferroviario: sequenziamento degli
+    atterraggi, orari e instradamento dei treni, rotte di navi portacontainer
+    fluviali.

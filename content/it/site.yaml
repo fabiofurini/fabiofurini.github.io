@@ -1,0 +1,56 @@
+name: Fabio Furini
+title: Professore Associato di Ricerca Operativa
+affiliation: Dipartimento di Ingegneria Informatica, Automatica e Gestionale "Antonio Ruberti"
+institution: Sapienza Università di Roma
+address: Via Ariosto 25, 00185 Roma
+email: fabio.furini@uniroma1.it
+url: https://fabiofurini.github.io
+photo: fabio-furini.jpg
+
+tagline: >-
+  Algoritmi esatti per l'ottimizzazione combinatoria — programmazione intera,
+  decomposizione e riformulazione, applicati a problemi di packing, colorazione,
+  clique, interdizione e localizzazione.
+
+bio:
+  - >-
+    Sono professore associato di Ricerca Operativa al Dipartimento di Ingegneria
+    Informatica, Automatica e Gestionale "Antonio Ruberti" (DIAG) della Sapienza
+    Università di Roma. Mi occupo di algoritmi esatti per problemi difficili di
+    ottimizzazione combinatoria: programmazione lineare intera mista, tecniche di
+    decomposizione e riformulazione, branch-and-bound combinatorio. Il filo
+    conduttore è risolvere all'ottimo garantito istanze che prima non erano alla
+    portata.
+  - >-
+    Prima di arrivare alla Sapienza nel 2021 sono stato maître de conférences al
+    LAMSADE dell'Université Paris Dauphine-PSL (2013–2019), dove nel 2017 ho
+    conseguito l'Habilitation à diriger des recherches, e assegnista al LIPN
+    dell'Université Paris 13 e all'Università di Bologna. Il dottorato l'ho preso
+    a Bologna nel 2011, con Paolo Toth e Alberto Caprara. Ho l'abilitazione a
+    professore ordinario in Italia, Francia e Danimarca.
+  - >-
+    Sono Associate Editor di Omega e presiedo il comitato di programma di EUROMIP
+    2026, il convegno europeo di programmazione intera, che organizzo a Roma.
+
+interests:
+  - Programmazione lineare intera mista
+  - Decomposizione e riformulazione
+  - Branch-and-bound combinatorio
+  - Cutting e packing
+  - Ottimizzazione su grafi
+  - Problemi bilivello e di interdizione
+
+stats:
+  - {value: "60", label: "Pubblicazioni", note: "48 articoli su rivista, 12 atti di convegno"}
+  - {value: "31", label: "Indice h", note: "Google Scholar"}
+  - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista"}
+  - {value: "787 mila €", label: "Finanziamenti", note: "progetti e contratti"}
+
+profiles:
+  - {name: Google Scholar, url: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=it"}
+  - {name: ORCID,          url: "https://orcid.org/0000-0002-1839-5827"}
+  - {name: GitHub,         url: "https://github.com/fabiofurini"}
+  - {name: DBLP,           url: "https://dblp.org/search?q=Fabio+Furini"}
+  - {name: ResearchGate,   url: "https://www.researchgate.net/profile/Fabio-Furini"}
+  - {name: LinkedIn,       url: "https://www.linkedin.com/in/fabiofurini/"}
+  - {name: Sapienza,       url: "https://phd.uniroma1.it/web/FABIO-FURINI_nC4385_EN.aspx"}

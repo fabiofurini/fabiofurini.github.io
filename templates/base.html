@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ path }}">
 <link rel="canonical" href="{{ site.url }}{{ path }}">
+<link rel="alternate" hreflang="{{ strings.other_lang_code }}" href="{{ site.url }}{{ other_url }}">
+<link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ path }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -20,17 +22,19 @@
 {% block head %}{% endblock %}
 </head>
 <body>
-<a class="sr-only" href="#main">Skip to content</a>
+<a class="sr-only" href="#main">{{ t.skip }}</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">{{ site.name }}</a>
+    <a class="brand" href="{{ prefix }}/">{{ site.name }}</a>
     <nav class="nav" id="nav" aria-label="Main">
       {% for item in nav %}
       <a href="{{ item.href }}"{% if item.href == section %} aria-current="page"{% endif %}>{{ item.label }}</a>
       {% endfor %}
     </nav>
-    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
-    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+    <a class="icon-btn lang-btn" href="{{ other_url }}" hreflang="{{ strings.other_lang_code }}"
+       title="{{ strings.other_lang_name }}" aria-label="{{ strings.other_lang_name }}">{{ strings.other_lang_code|upper }}</a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="{{ t.theme_toggle }}" title="{{ t.theme_toggle }}">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="nav">☰</button>
   </div>
 </header>
 
@@ -49,11 +53,11 @@
       <div style="margin-top:8px"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
     </div>
     <div>
-      <h4>Site</h4>
+      <h4>{{ t.site_section }}</h4>
       <ul>{% for item in nav %}<li><a href="{{ item.href }}">{{ item.label }}</a></li>{% endfor %}</ul>
     </div>
     <div>
-      <h4>Elsewhere</h4>
+      <h4>{{ t.elsewhere }}</h4>
       <ul>{% for p in site.profiles %}<li><a href="{{ p.url }}" rel="me noopener" target="_blank">{{ p.name }}</a></li>{% endfor %}</ul>
     </div>
   </div>

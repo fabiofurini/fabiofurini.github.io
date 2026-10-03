@@ -7,6 +7,8 @@
     });
   }
 
+  var L = window.FP_LANG || {};
+  function T(k, d) { return L[k] || d; }
   var DATA = null, theme = null;
   var state = { q: '', kind: '' };
 
@@ -32,16 +34,16 @@
       return /Furini/.test(a) ? '<b>' + esc(a) + '</b>' : esc(a);
     }).join(', ');
     var links = [];
-    if (p.doi) links.push('<a class="lk primary" href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">Published version ↗</a>');
-    if (p.pdf) links.push('<a class="lk" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">PDF</a>');
-    if (p.code) links.push('<a class="lk" href="' + esc(p.code) + '" target="_blank" rel="noopener">Code ↗</a>');
-    links.push('<button class="lk" type="button" data-cite="' + esc(p.id) + '">Cite</button>');
-    if (p.abstract) links.push('<button class="lk ghost" type="button" data-more="' + esc(p.id) + '">Read more</button>');
+    if (p.doi) links.push('<a class="lk primary" href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">' + esc(T('published', 'Published version ↗')) + '</a>');
+    if (p.pdf) links.push('<a class="lk" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">' + esc(T('pdf', 'PDF')) + '</a>');
+    if (p.code) links.push('<a class="lk" href="' + esc(p.code) + '" target="_blank" rel="noopener">' + esc(T('code', 'Code ↗')) + '</a>');
+    links.push('<button class="lk" type="button" data-cite="' + esc(p.id) + '">' + esc(T('cite', 'Cite')) + '</button>');
+    if (p.abstract) links.push('<button class="lk ghost" type="button" data-more="' + esc(p.id) + '">' + esc(T('more', 'Read more')) + '</button>');
     var tags = (p.themes || []).map(function (t) { return '<span class="tag">' + esc(themeName(t)) + '</span>'; }).join('');
     return '<article class="pub" id="' + esc(p.id) + '">' +
       '<p class="t">' + esc(p.title) + '</p>' +
       '<p class="a">' + authors + '</p>' +
-      '<p class="v"><i>' + esc(p.venue) + '</i>, ' + p.year + (p.status === 'accepted' ? ' · accepted' : '') + '</p>' +
+      '<p class="v"><i>' + esc(p.venue) + '</i>, ' + p.year + (p.status === 'accepted' ? ' · ' + esc(T('accepted', 'accepted')) : '') + '</p>' +
       (p.abstract ? '<p class="abs">' + esc(p.abstract) + '</p>' : '') +
       '<div class="links">' + links.join('') + tags + '</div></article>';
   }
@@ -50,11 +52,11 @@
     var found = DATA.papers.filter(matches);
     found.sort(function (a, b) { return (b.year - a.year) || a.title.localeCompare(b.title); });
 
-    $('#countLine').textContent = found.length + ' of ' + DATA.papers.length + ' publications' +
+    $('#countLine').textContent = found.length + ' ' + T('of', 'of') + ' ' + DATA.papers.length + ' ' + T('pubs', 'publications') +
       (theme ? ' · ' + themeName(theme) : '');
 
     if (!found.length) {
-      $('#list').innerHTML = '<p class="empty">No publication matches these filters.</p>';
+      $('#list').innerHTML = '<p class="empty">' + esc(T('none', 'No publication matches these filters.')) + '</p>';
     } else {
       var html = '', year = null;
       found.forEach(function (p) {
@@ -92,15 +94,16 @@
     if (b.dataset.more) {
       var card = b.closest('.pub');
       var open = card.classList.toggle('open');
-      b.textContent = open ? 'Show less' : 'Read more';
+      b.textContent = open ? T('less', 'Show less') : T('more', 'Read more');
     } else if (b.dataset.cite) {
       var p = DATA.papers.filter(function (x) { return x.id === b.dataset.cite; })[0];
       var t = bibtex(p);
       if (navigator.clipboard) {
         navigator.clipboard.writeText(t).then(function () {
-          b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Cite'; }, 1500);
+          b.textContent = T('copied', 'Copied');
+          setTimeout(function () { b.textContent = T('cite', 'Cite'); }, 1500);
         }, function () { window.prompt('BibTeX entry:', t); });
-      } else { window.prompt('BibTeX entry:', t); }
+      } else { window.prompt('BibTeX:', t); }
     } else if (b.dataset.slug !== undefined) {
       theme = (theme === b.dataset.slug) ? null : b.dataset.slug;
       var u = new URL(location.href);
@@ -110,7 +113,7 @@
     }
   });
 
-  fetch('/static/publications.json')
+  fetch(T('data', '/static/publications.json'))
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (d) {
       DATA = d;

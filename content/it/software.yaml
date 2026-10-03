@@ -1,0 +1,31 @@
+intro: >-
+  Le implementazioni degli algoritmi descritti nei miei lavori, rilasciate con le
+  istanze di riferimento e il materiale necessario a riprodurre gli esperimenti.
+
+tools:
+  - {name: CliSAT, paper: J43, url: "https://github.com/psanse/CliSAT",
+     summary: "Algoritmo esatto basato su SAT per il problema della clique massima, usato per risolvere istanze difficili, con istanze di riferimento e materiale computazionale."}
+  - {name: BPP-NE, paper: J44, url: "https://github.com/fabiofurini/bpp-numerically-exact",
+     summary: "Branch-price-and-cut numericamente esatto per il bin packing classico, con bound duali sicuri e pricing esatto a virgola fissa."}
+  - {name: NEA-G2KP, paper: J46, url: "https://github.com/INFORMSJoC/2025.1423",
+     summary: "Impianto risolutivo esatto per problemi di knapsack bidimensionale, con le istanze e i risultati dettagliati dello studio sperimentale."}
+  - {name: Bfilt, paper: J39, url: "https://github.com/psanse/Bfilt",
+     summary: "Algoritmo esatto branch-and-filter per problemi di soddisfacimento di vincoli binari, con eseguibile Linux, istanze e convertitori di formato."}
+  - {name: KPCG, paper: J34, url: "https://github.com/psanse/KPCG",
+     summary: "Branch-and-bound combinatorio per lo zaino con conflitti, dove gli oggetti scelti devono rispettare capacità e incompatibilità a coppie."}
+  - {name: BBEWC, paper: J27, url: "https://github.com/psanse/BBEWC",
+     summary: "Branch-and-bound esatto per la clique massima pesata sugli archi, con i dati e l'eseguibile usati nello studio computazionale."}
+  - {name: LOC-COV, paper: J25, url: "https://github.com/fabiofurini/LocationCovering",
+     summary: "Branch-and-Benders-cut per i problemi di massima copertura e di copertura parziale, capace di trattare milioni di punti di domanda."}
+  - {name: SUB-COV-MAX, paper: J41, url: "https://github.com/fabiofurini/Maximizing-submodular-utility-functions",
+     summary: "Massimizzazione submodulare di utilità concave composte con un operatore di unione, per modelli di copertura e localizzazione a rendimenti decrescenti."}
+  - {name: COVER-MAX-DEPTH, paper: J38, url: "https://github.com/fabiofurini/COVER_MAX_DEPTH",
+     summary: "Separazione esatta delle disuguaglianze di cover di profondità massima per problemi con vincoli di zaino."}
+  - {name: BP-k-VCP, paper: "", note: "Lavoro associato in revisione", url: "https://github.com/FabioCiccarelli/BP_k-vertex-cut",
+     summary: "Branch-and-price per il problema del k-vertex cut."}
+  - {name: Ramsey lower bounds, paper: "", note: "Lavoro associato in revisione", url: "https://github.com/fabiofurini/ramsey-number-lower-bounds",
+     summary: "Approccio di programmazione intera per calcolare bound inferiori sui numeri di Ramsey tramite grafi circolanti."}
+
+libraries:
+  - {name: QPLIB, paper: J23, url: "https://qplib.zib.de",
+     summary: "La libreria di riferimento di istanze di programmazione quadratica — continue, intere miste e binarie — curata e classificata per il confronto fra algoritmi."}

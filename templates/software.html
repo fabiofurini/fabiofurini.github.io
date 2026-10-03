@@ -2,37 +2,36 @@
 {% block title %}Software — {{ site.name }}{% endblock %}
 {% block content %}
 <div class="page-head"><div class="wrap">
-  <p class="eyebrow">Software &amp; data</p>
-  <h1>Software</h1>
+  <p class="eyebrow">{{ nav[2].label }}</p>
+  <h1>{{ nav[2].label }}</h1>
   <p class="lead">{{ software.intro }}</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="sw">
-    {% for s in software.tools %}
+    {% for sw in software.tools %}
     <div class="card">
-      <h3>{{ s.name }}</h3>
-      <p>{{ s.summary }}</p>
+      <h3>{{ sw.name }}</h3>
+      <p>{{ sw.summary }}</p>
       <div class="paper">
-        {% if s.paper_obj %}Paper: <a href="/publications/#{{ s.paper_obj.id }}">{{ s.paper_obj.title }}</a> — <i>{{ s.paper_obj.venue }}</i>, {{ s.paper_obj.year }}
-        {% elif s.note %}{{ s.note }}{% endif %}
+        {% if sw.paper_obj %}{{ strings.paper_label }} <a href="{{ prefix }}/publications/#{{ sw.paper_obj.id }}">{{ sw.paper_obj.title }}</a> — <i>{{ sw.paper_obj.venue }}</i>, {{ sw.paper_obj.year }}
+        {% elif sw.note %}{{ sw.note }}{% endif %}
       </div>
-      <div class="row"><a class="lk primary" href="{{ s.url }}" target="_blank" rel="noopener">GitHub ↗</a></div>
+      <div class="row"><a class="lk primary" href="{{ sw.url }}" target="_blank" rel="noopener">GitHub ↗</a></div>
     </div>
     {% endfor %}
   </div>
 </div></section>
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Benchmark library</p><h2>Libraries</h2></div></div>
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.library_eyebrow }}</p><h2>{{ strings.libraries }}</h2></div></div>
   <div class="sw">
-    {% for s in software.libraries %}
+    {% for sw in software.libraries %}
     <div class="card">
-      <h3>{{ s.name }}</h3><p>{{ s.summary }}</p>
-      {% if s.paper_obj %}<div class="paper">Paper: <a href="/publications/#{{ s.paper_obj.id }}">{{ s.paper_obj.title }}</a> — <i>{{ s.paper_obj.venue }}</i>, {{ s.paper_obj.year }}</div>{% endif %}
-      <div class="row"><a class="lk primary" href="{{ s.url }}" target="_blank" rel="noopener">Visit ↗</a></div>
+      <h3>{{ sw.name }}</h3><p>{{ sw.summary }}</p>
+      {% if sw.paper_obj %}<div class="paper">{{ strings.paper_label }} <a href="{{ prefix }}/publications/#{{ sw.paper_obj.id }}">{{ sw.paper_obj.title }}</a> — <i>{{ sw.paper_obj.venue }}</i>, {{ sw.paper_obj.year }}</div>{% endif %}
+      <div class="row"><a class="lk primary" href="{{ sw.url }}" target="_blank" rel="noopener">{{ strings.visit }}</a></div>
     </div>
     {% endfor %}
   </div>
-  <div class="callout"><p>Every paper on this site comes with the author's version as a PDF and a
-    BibTeX entry — see <a href="/publications/">Publications</a>.</p></div>
+  <div class="callout"><p>{{ strings.software_callout }} <a href="{{ prefix }}/publications/">{{ nav[1].label }}</a>.</p></div>
 </div></section>
 {% endblock %}

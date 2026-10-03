@@ -1,0 +1,89 @@
+# Stringhe dell'interfaccia, italiano.
+lang_code: it
+lang_name: Italiano
+other_lang_code: en
+other_lang_name: English
+nav:
+  - {label: Ricerca,        href: research}
+  - {label: Pubblicazioni,  href: publications}
+  - {label: Software,       href: software}
+  - {label: Didattica,      href: teaching}
+  - {label: Gruppo,         href: people}
+  - {label: CV,             href: cv}
+ui:
+  skip: Vai al contenuto
+  theme_toggle: Cambia tema
+  menu_open: Apri il menu
+  site_section: Pagine
+  elsewhere: Altrove
+  about: Chi sono
+  research_interests: Interessi di ricerca
+  currently: In corso
+  lines_of_work: Filoni di ricerca
+  all_themes: Tutti i filoni →
+  latest: Ultimi lavori
+  recent_pubs: Pubblicazioni recenti
+  all_pubs: "Tutte le {n} pubblicazioni →"
+  papers: lavori
+  search_placeholder: Cerca per titolo, coautore, rivista, abstract…
+  all_types: Tutti i tipi
+  journal_articles: Articoli su rivista
+  conference_papers: Atti di convegno
+  of: su
+  published_version: Versione pubblicata ↗
+  pdf: PDF
+  code: Codice ↗
+  cite: Cita
+  copied: Copiato
+  read_more: Leggi tutto
+  show_less: Riduci
+  no_match: Nessuna pubblicazione corrisponde a questi filtri.
+  download_bib: Scarica tutto in BibTeX
+  all_papers_theme: "Tutti i {n} lavori di questo filone →"
+  contact: Contatti
+  curriculum: Curriculum vitae
+  download_cv: Scarica il CV completo (PDF)
+  current: Attuali
+  alumni: Ex allievi
+  accepted: in corso di stampa
+  note_english: I lavori e il curriculum sono in inglese.
+tagline_eyebrow: Ricerca Operativa · Ottimizzazione Combinatoria
+research_title: Algoritmi esatti per problemi combinatori difficili
+research_lead: >-
+  Il mio lavoro costruisce formulazioni matematiche e algoritmi esatti —
+  branch-and-price, branch-and-cut, decomposizione di Benders e di Dantzig-Wolfe,
+  branch-and-bound combinatorio — capaci di risolvere all'ottimo garantito
+  problemi di dimensione reale. Le {n} pubblicazioni si distribuiscono nei {k}
+  filoni qui sotto.
+pubs_lead: >-
+  {j} articoli su rivista e {c} lavori in atti di convegno, {from}–{to}. Ogni voce
+  rimanda alla versione pubblicata e alla versione d'autore, scaricabile.
+paper_label: "Lavoro:"
+library_eyebrow: Libreria di riferimento
+libraries: Librerie
+visit: Vai al sito ↗
+software_callout: >-
+  Di ogni lavoro su questo sito trovi la versione d'autore in PDF e la voce
+  BibTeX — vedi
+current_courses: Corsi attuali
+courses: Corsi
+hours_since: "{h} ore di didattica dal 2012"
+doctoral: Dottorato
+phd_courses: Corsi di dottorato e scuole
+previously: In passato
+past_teaching: Didattica precedente
+source: sorgenti
+people_title: Studenti e ricercatori
+currently_supervised: Chi seguo ora
+former: Ex dottorandi e assegnisti
+now_label: "Oggi:"
+cv_lead: >-
+  Una sintesi. Il CV completo, con l'elenco integrale di pubblicazioni, seminari
+  e incarichi, è disponibile in PDF.
+cv_appointments: Incarichi
+cv_education: Formazione
+cv_qualifications: Abilitazioni
+cv_service: Attività editoriale e scientifica
+cv_awards: Riconoscimenti e affiliazioni
+cv_grants: Progetti e finanziamenti
+cv_industry: Collaborazioni industriali
