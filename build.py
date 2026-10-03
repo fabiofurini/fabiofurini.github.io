@@ -58,6 +58,24 @@ def load_papers():
     papers.sort(key=lambda p: (-p['year'], p['title']))
     return papers
 
+def write_bib(papers, out):
+    """The full bibliography, generated from the same metadata as the site."""
+    lines = []
+    for p in sorted(papers, key=lambda x: (x['kind'] != 'journal', int(x['id'][1:]))):
+        kind = 'article' if p['kind'] == 'journal' else 'inproceedings'
+        key = p['authors'][0].split()[-1].replace('.', '') + str(p['year']) + p['id']
+        field = 'journal' if kind == 'article' else 'booktitle'
+        lines += [f"@{kind}{{{key},",
+                  f"  author  = {{{' and '.join(p['authors'])}}},",
+                  f"  title   = {{{p['title'].replace('&', chr(92) + '&')}}},",
+                  f"  {field} = {{{p['venue'].replace('&', chr(92) + '&')}}},",
+                  f"  year    = {{{p['year']}}},"]
+        if p.get('doi'):
+            lines += [f"  doi     = {{{p['doi']}}},", f"  url     = {{https://doi.org/{p['doi']}}},"]
+        lines += ["}", ""]
+    out.write_text('\n'.join(lines), encoding='utf-8')
+
+
 SKIP_OPEN = {'C06'}   # archived source is an earlier draft, see the archive README
 
 def build():
@@ -66,7 +84,7 @@ def build():
     teaching = load('teaching.yaml')
     people   = load('people.yaml')
     cv       = load('cv.yaml')
-    themes_y = yaml.safe_load((ARCHIVE / '_INDEX' / 'themes.yaml').read_text(encoding='utf-8'))
+    themes_y = load('themes.yaml')          # the research themes live with the site
 
     papers = load_papers()
     by_id  = {p['id']: p for p in papers}
@@ -138,7 +156,7 @@ def build():
     }
     (DIST / 'static' / 'publications.json').write_text(
         json.dumps(pub_json, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    shutil.copy2(ARCHIVE / '_INDEX' / 'publications.bib', DIST / 'static' / 'publications.bib')
+    write_bib(papers, DIST / 'static' / 'publications.bib')
 
     cvpdf = Path('/home/fabio/Dropbox/5_CARRIERA/DOC/CV/CV_FabioFurini_ENG.pdf')
     if cvpdf.is_file():

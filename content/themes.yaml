@@ -1,0 +1,92 @@
+bin-packing-cutting-stock:
+  name: Bin Packing & Cutting Stock
+  description: 'Exact algorithms for packing items into bins and cutting stock into pieces: branch-price-and-cut,
+    pattern enumeration, and numerically safe dual bounds, including the temporal and two-dimensional
+    variants.'
+  journal:
+  - 2
+  - 4
+  - 12
+  - 31
+  - 32
+  - 40
+  - 42
+  - 44
+  - 46
+knapsack:
+  name: Knapsack Problems
+  description: Exact and approximation algorithms for knapsack variants with setups, conflicts, products,
+    and time windows, together with the polyhedral study of cover inequalities.
+  journal:
+  - 3
+  - 8
+  - 10
+  - 16
+  - 18
+  - 20
+  - 34
+  - 38
+graph-coloring:
+  name: Graph Coloring
+  description: Branch-and-price and DSATUR-based branch-and-bound for vertex, weighted, partition, and
+    minimum-sum coloring, including reformulations as maximum weight stable set problems.
+  journal:
+  - 1
+  - 14
+  - 15
+  - 21
+  - 30
+  - 35
+clique-stable-set:
+  name: Clique & Stable Set
+  description: Exact combinatorial algorithms for maximum clique and its weighted and edge-weighted variants,
+    with SAT-based filtering, tightened upper bounds, and relaxed-clique decompositions.
+  journal:
+  - 26
+  - 27
+  - 28
+  - 43
+  - 48
+  - 33
+interdiction-blocker-vertex-cut:
+  name: Interdiction, Blocker & Vertex Cut
+  description: 'Bilevel and interdiction problems on graphs: vertex k-cut, capacitated vertex separators,
+    clique and edge interdiction, and maximum flow blockers.'
+  journal:
+  - 22
+  - 29
+  - 36
+  - 37
+  - 45
+covering-location-submodular:
+  name: Covering, Location & Submodularity
+  description: Benders decomposition for very large scale covering and maximal covering location problems,
+    and submodular maximization of concave utilities composed with a set-union operator.
+  journal:
+  - 25
+  - 41
+decomposition-reformulation:
+  name: Decomposition & Reformulation
+  description: Automatic Dantzig-Wolfe reformulation of mixed integer programs and perspective relaxations
+    for problems with semi-continuous variables.
+  journal:
+  - 6
+  - 11
+  - 17
+quadratic-programming:
+  name: Binary Quadratic Programming
+  description: Linearisation techniques for binary quadratic problems and QPLIB, the reference library
+    of quadratic programming instances.
+  journal:
+  - 23
+  - 24
+transportation-scheduling:
+  name: Transportation & Scheduling
+  description: 'Real-world optimisation in air and rail traffic: aircraft sequencing, train timetabling
+    and routing, and barge container ship routing.'
+  journal:
+  - 7
+  - 9
+  - 13
+  - 19
+  - 47

@@ -62,6 +62,4 @@ profiles:
   - {name: LinkedIn,       url: "https://www.linkedin.com/in/fabiofurini/"}
   - {name: Sapienza,       url: "https://phd.uniroma1.it/web/FABIO-FURINI_nC4385_EN.aspx"}
 
-# Where the paper archive (PDFs, data) is published
-archive_url: /research-papers
-archive_repo: https://github.com/fabiofurini/research-papers
+# The working archive (LaTeX sources, originals) lives in Dropbox, not online.
