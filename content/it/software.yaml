@@ -3,11 +3,6 @@ intro: >-
   istanze di riferimento e il materiale necessario a riprodurre gli esperimenti.
 
 tools:
-  - name: Bomberino
-    summary: Un banco di lavoro interattivo per insegnare gli algoritmi della ricerca operativa — simplesso primale e duale, tagli di Gomory e branch-and-bound su piccoli problemi lineari e interi. Ogni pivot, bound, taglio e ramificazione resta tracciato in frazioni esatte, e l'esercizio svolto si esporta in LaTeX.
-    paper: ""
-    note: Strumento didattico, realizzato con Fabio Ciccarelli
-    url: https://fciccarelli.com/bomberino
   - {name: CliSAT, paper: J43, url: "https://github.com/psanse/CliSAT",
      summary: "Algoritmo esatto basato su SAT per il problema della clique massima, usato per risolvere istanze difficili, con istanze di riferimento e materiale computazionale."}
   - {name: BPP-NE, paper: J44, url: "https://github.com/fabiofurini/bpp-numerically-exact",
