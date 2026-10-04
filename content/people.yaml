@@ -4,9 +4,9 @@ intro: >-
 current:
   - {name: Fabio Ciccarelli, role: PhD student, where: "Sapienza University of Rome (ABRO program)", topic: "Exact algorithms for packing problems"}
   - {name: Mingming Zheng, role: Visiting PhD student, where: "Sapienza University of Rome", topic: "Exact algorithms for graph coloring problems"}
-  - {name: Yuntian Zhang, role: Visiting PhD student, where: "Sapienza University of Rome", topic: "Location covering problems"}
 
 alumni:
+  - {name: Yuntian Zhang, role: Visiting PhD student, where: "Sapienza University of Rome", topic: "Location covering problems"}
   - {name: Daniele Patria, role: Postdoctoral researcher, where: "Sapienza University of Rome", topic: "Packing problems with submodular objective functions", now: "Consultant, Siemens"}
   - {name: Ian-Christopher Ternier, role: PhD (co-supervised), where: "Université Paris Dauphine-PSL", topic: "Exact solution of the graph coloring problem and its variants", now: "Professor, EPITA"}
   - {name: Xueying Shen, role: Industrial PhD (co-supervised), where: "Université Paris Dauphine-PSL with DecisionBrain", topic: ""}
