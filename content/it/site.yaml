@@ -41,9 +41,9 @@ interests:
   - Problemi bilivello e di interdizione
 
 stats:
-  - {value: "60", label: "Pubblicazioni", note: "48 articoli su rivista, 12 atti di convegno"}
-  - {value: "31", label: "Indice h", note: "Google Scholar"}
-  - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista"}
+  - {value: "60", label: "Pubblicazioni", note: "48 articoli su rivista, 12 atti di convegno", href: "/publications/"}
+  - {value: "31", label: "Indice h", note: "Google Scholar", href: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=it"}
+  - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista", href: "/people/"}
   - {value: "787 mila €", label: "Finanziamenti", note: "progetti e contratti"}
 
 profiles:

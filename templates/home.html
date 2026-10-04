@@ -27,7 +27,11 @@
 
   <div class="stats" role="list">
     {% for s in site.stats %}
-    <div class="stat" role="listitem"><div class="v">{{ s.value }}</div><div class="l">{{ s.label }}</div><div class="n">{{ s.note }}</div></div>
+    {% set ext = s.href and '://' in s.href %}
+    {% set url = s.href if ext else (prefix ~ s.href if s.href else '') %}
+    {% if url %}<a class="stat" role="listitem" href="{{ url }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>{% else %}<div class="stat" role="listitem">{% endif %}
+      <div class="v">{{ s.value }}</div><div class="l">{{ s.label }}{% if ext %} <span class="ar" aria-hidden="true">↗</span>{% endif %}</div><div class="n">{{ s.note }}</div>
+    {% if url %}</a>{% else %}</div>{% endif %}
     {% endfor %}
   </div>
 </div>

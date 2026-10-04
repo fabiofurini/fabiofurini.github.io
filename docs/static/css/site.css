@@ -113,7 +113,11 @@ section.block + section.block{border-top:1px solid var(--border)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:var(--surface);padding:24px 22px}
+.stat{background:var(--surface);padding:24px 22px;display:block}
+a.stat{color:inherit;text-decoration:none;transition:background .15s}
+a.stat:hover{background:var(--bg)}
+a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
+a.stat .ar{color:var(--faint);font-weight:400}
 .stat .v{font-family:var(--serif);font-size:2.2rem;font-weight:600;letter-spacing:-.03em;line-height:1}
 .stat .l{font-weight:600;font-size:.92rem;margin-top:10px}
 .stat .n{font-size:.83rem;color:var(--faint);margin-top:2px}
