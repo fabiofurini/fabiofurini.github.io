@@ -132,6 +132,9 @@ a.stat .ar{color:var(--faint);font-weight:400}
 .side-box li:first-child{border-top:none;padding-top:0}
 .side-box + .side-box{margin-top:16px}
 .side-box .ar{color:var(--faint);font-size:.85em}
+.person .nm a{color:inherit;text-decoration:none}
+.person .nm a:hover{text-decoration:underline;text-underline-offset:2px}
+.person .nm .ar{color:var(--faint);font-weight:400;font-size:.8em}
 
 /* ---------- theme cards ---------- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}

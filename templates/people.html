@@ -9,7 +9,7 @@
   <div class="sec-head"><div><p class="eyebrow">{{ t.current }}</p><h2>{{ strings.currently_supervised }}</h2></div></div>
   <div class="people">
     {% for p in people.current %}
-    <div class="person"><div class="nm">{{ p.name }}</div><div class="rl">{{ p.role }}</div>
+    <div class="person"><div class="nm">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }} <span class="ar" aria-hidden="true">↗</span></a>{% else %}{{ p.name }}{% endif %}</div><div class="rl">{{ p.role }}</div>
       {% if p.topic %}<div class="tp">{{ p.topic }}</div>{% endif %}<div class="wh">{{ p.where }}</div></div>
     {% endfor %}
   </div>
@@ -18,7 +18,7 @@
   <div class="sec-head"><div><p class="eyebrow">{{ t.alumni }}</p><h2>{{ strings.former }}</h2></div></div>
   <div class="people">
     {% for p in people.alumni %}
-    <div class="person"><div class="nm">{{ p.name }}</div><div class="rl">{{ p.role }}</div>
+    <div class="person"><div class="nm">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }} <span class="ar" aria-hidden="true">↗</span></a>{% else %}{{ p.name }}{% endif %}</div><div class="rl">{{ p.role }}</div>
       {% if p.topic %}<div class="tp">{{ p.topic }}</div>{% endif %}<div class="wh">{{ p.where }}</div>
       {% if p.now %}<span class="now">{{ strings.now_label }} {{ p.now }}</span>{% endif %}</div>
     {% endfor %}
