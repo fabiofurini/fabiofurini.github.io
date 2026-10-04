@@ -131,6 +131,7 @@ a.stat .ar{color:var(--faint);font-weight:400}
 .side-box li{padding:6px 0;border-top:1px solid var(--border);font-size:.93rem}
 .side-box li:first-child{border-top:none;padding-top:0}
 .side-box + .side-box{margin-top:16px}
+.side-box .ar{color:var(--faint);font-size:.85em}
 
 /* ---------- theme cards ---------- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}

@@ -21,8 +21,8 @@ ui:
   currently: In corso
   lines_of_work: Filoni di ricerca
   all_themes: Tutti i filoni →
-  latest: Ultimi lavori
-  recent_pubs: Pubblicazioni recenti
+  latest: Selezione
+  recent_pubs: Pubblicazioni selezionate
   all_pubs: "Tutte le {n} pubblicazioni →"
   papers: lavori
   search_placeholder: Cerca per titolo, coautore, rivista, abstract…

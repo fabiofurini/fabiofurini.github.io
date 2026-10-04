@@ -54,6 +54,14 @@ stats:
   - {value: "7",  label: "Researchers supervised", note: "6 PhD students, 1 postdoc", href: "/people/"}
   - {value: "€787k", label: "Research funding", note: "grants and contracts"}
 
+# Papers featured on the home page, in this order. Ids from the paper archive.
+selected: [J36, J41, J29, J23, J06]
+
+# The "Currently" box on the home page. `url` is optional.
+currently:
+  - {text: "Associate Editor, <i>Omega</i>", url: "https://www.sciencedirect.com/journal/omega"}
+  - {text: "PC Chair, EUROMIP 2026, Rome", url: "https://www.mixedinteger.org/EUROMIP/2026/"}
+
 profiles:
   - {name: Google Scholar, url: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=en"}
   - {name: ORCID,          url: "https://orcid.org/0000-0002-1839-5827"}

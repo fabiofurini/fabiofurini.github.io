@@ -21,8 +21,8 @@ ui:
   currently: Currently
   lines_of_work: Lines of work
   all_themes: All research themes →
-  latest: Latest
-  recent_pubs: Recent publications
+  latest: Selection
+  recent_pubs: Selected publications
   all_pubs: "All {n} publications →"
   papers: papers
   search_placeholder: Search titles, co-authors, journals, abstracts…

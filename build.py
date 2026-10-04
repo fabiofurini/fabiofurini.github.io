@@ -113,6 +113,9 @@ def build_lang(lang, env, papers, by_id, build_id, assets_done):
         'from': min(p['year'] for p in papers), 'to': max(p['year'] for p in papers),
     }
 
+    sel = [by_id[i] for i in (site.get('selected') or []) if i in by_id]
+    selected = sel or papers[:5]
+
     pages = [('home.html', '', '/'),
              ('research.html', 'research', '/research/'),
              ('publications.html', 'publications', '/publications/'),
@@ -133,7 +136,7 @@ def build_lang(lang, env, papers, by_id, build_id, assets_done):
             t=strings['ui'], strings=strings, other_url=other_url,
             site=site, nav=nav, themes=themes, papers=papers, stats=stats,
             software=software, teaching=teaching, people=people, cv=cv,
-            build_id=build_id, recent=papers[:5])
+            build_id=build_id, selected=selected)
         target = (out_base / out / 'index.html') if out else (out_base / 'index.html')
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding='utf-8')

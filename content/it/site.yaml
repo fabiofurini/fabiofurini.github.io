@@ -46,6 +46,12 @@ stats:
   - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista", href: "/people/"}
   - {value: "787 mila €", label: "Finanziamenti", note: "progetti e contratti"}
 
+selected: [J36, J41, J29, J23, J06]
+
+currently:
+  - {text: "Associate Editor, <i>Omega</i>", url: "https://www.sciencedirect.com/journal/omega"}
+  - {text: "PC Chair, EUROMIP 2026, Roma", url: "https://www.mixedinteger.org/EUROMIP/2026/"}
+
 profiles:
   - {name: Google Scholar, url: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=it"}
   - {name: ORCID,          url: "https://orcid.org/0000-0002-1839-5827"}
