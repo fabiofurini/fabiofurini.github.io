@@ -24,6 +24,14 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
     repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
+  - label: Linear Algebra
+    lang: EN
+    url: https://fabiofurini.github.io/linear-algebra/
+    repo: https://github.com/fabiofurini/linear-algebra
+  - label: Algebra Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/algebra-lineare/
+    repo: https://github.com/fabiofurini/algebra-lineare
 - name: Mathematical Analysis 1
   original: Analisi matematica 1
   level: Bachelor's degree
