@@ -1,4 +1,4 @@
-intro: Insegno programmazione intera, ottimizzazione combinatoria e analisi matematica. Tutto il materiale
+intro: Insegno programmazione intera, ottimizzazione combinatoria, algebra lineare e analisi matematica. Tutto il materiale
   dei corsi — dispense, modelli, codice e dati — è pubblicato online e liberamente accessibile.
 courses:
 - name: Programmazione intera e ottimizzazione combinatoria
@@ -24,14 +24,6 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/operations-research-lab/
     repo: https://github.com/fabiofurini/operations-research-lab
-  - label: Algebra Lineare
-    lang: IT
-    url: https://fabiofurini.github.io/algebra-lineare/
-    repo: https://github.com/fabiofurini/algebra-lineare
-  - label: Linear Algebra
-    lang: EN
-    url: https://fabiofurini.github.io/linear-algebra/
-    repo: https://github.com/fabiofurini/linear-algebra
 - name: Analisi matematica 1
   original: ''
   level: Laurea triennale
@@ -47,6 +39,21 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/mathematical-analysis-1/
     repo: https://github.com/fabiofurini/mathematical-analysis-1
+- name: Algebra lineare
+  original: ''
+  level: Laurea triennale
+  where: Sapienza Università di Roma
+  since: ''
+  detail: dispense, esercizi e un laboratorio di calcolo interattivo
+  sites:
+  - label: Algebra Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/algebra-lineare/
+    repo: https://github.com/fabiofurini/algebra-lineare
+  - label: Linear Algebra
+    lang: EN
+    url: https://fabiofurini.github.io/linear-algebra/
+    repo: https://github.com/fabiofurini/linear-algebra
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems

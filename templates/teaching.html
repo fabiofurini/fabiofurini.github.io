@@ -14,7 +14,7 @@
   <div class="course">
     <div class="head">
       <div><h3>{{ c.name }}</h3>{% if c.original %}<div class="orig">{{ c.original }}</div>{% endif %}</div>
-      <div class="lvl">{{ c.level }}<br>{{ c.where }}<br><span class="faint">{{ c.since }} · {{ c.detail }}</span></div>
+      <div class="lvl">{{ c.level }}<br>{{ c.where }}<br><span class="faint">{% if c.since %}{{ c.since }} · {% endif %}{{ c.detail }}</span></div>
     </div>
     {% if c.sites %}
     <div class="sites">

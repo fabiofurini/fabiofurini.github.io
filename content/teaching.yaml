@@ -1,4 +1,4 @@
-intro: I teach integer programming, combinatorial optimization and mathematical analysis. All the course
+intro: I teach integer programming, combinatorial optimization, linear algebra and mathematical analysis. All the course
   material — lecture notes, models, code and data — is published online and openly accessible.
 courses:
 - name: Integer Programming and Combinatorial Optimization
@@ -24,14 +24,6 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
     repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
-  - label: Linear Algebra
-    lang: EN
-    url: https://fabiofurini.github.io/linear-algebra/
-    repo: https://github.com/fabiofurini/linear-algebra
-  - label: Algebra Lineare
-    lang: IT
-    url: https://fabiofurini.github.io/algebra-lineare/
-    repo: https://github.com/fabiofurini/algebra-lineare
 - name: Mathematical Analysis 1
   original: Analisi matematica 1
   level: Bachelor's degree
@@ -47,6 +39,21 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/analisi-matematica-1/
     repo: https://github.com/fabiofurini/analisi-matematica-1
+- name: Linear Algebra
+  original: Algebra lineare
+  level: Bachelor's degree
+  where: Sapienza University of Rome
+  since: ''
+  detail: lecture notes, exercises and an interactive computation lab
+  sites:
+  - label: Linear Algebra
+    lang: EN
+    url: https://fabiofurini.github.io/linear-algebra/
+    repo: https://github.com/fabiofurini/linear-algebra
+  - label: Algebra Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/algebra-lineare/
+    repo: https://github.com/fabiofurini/algebra-lineare
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
