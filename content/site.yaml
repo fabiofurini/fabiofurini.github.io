@@ -52,7 +52,7 @@ stats:
   - {value: "60", label: "Refereed publications", note: "48 journal articles, 12 proceedings", href: "/publications/"}
   - {value: "31", label: "h-index", note: "Google Scholar", href: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=en"}
   - {value: "7",  label: "Researchers supervised", note: "6 PhD students, 1 postdoc", href: "/people/"}
-  - {value: "€787k", label: "Research funding", note: "grants and contracts"}
+  - {value: "~ €800k", label: "Research funding", note: "grants and contracts"}
 
 # Papers featured on the home page, in this order. Ids from the paper archive.
 selected: [J36, J41, J29, J23, J06]
