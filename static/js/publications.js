@@ -36,6 +36,7 @@
     var links = [];
     if (p.doi) links.push('<a class="lk primary" href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">' + esc(T('published', 'Published version ↗')) + '</a>');
     if (p.pdf) links.push('<a class="lk" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">' + esc(T('pdf', 'PDF')) + '</a>');
+    if (['J36','J41','J29','J23','J06'].indexOf(p.id) !== -1) links.push('<a class="lk" href="/reading/' + esc(p.id) + '/" target="_blank" rel="noopener">MD ↗</a>');
     if (p.code) links.push('<a class="lk" href="' + esc(p.code) + '" target="_blank" rel="noopener">' + esc(T('code', 'Code ↗')) + '</a>');
     links.push('<button class="lk" type="button" data-cite="' + esc(p.id) + '">' + esc(T('cite', 'Cite')) + '</button>');
     if (p.abstract) links.push('<button class="lk ghost" type="button" data-more="' + esc(p.id) + '">' + esc(T('more', 'Read more')) + '</button>');
