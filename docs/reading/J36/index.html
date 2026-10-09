@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CVSP — Paper guide | Fabio Furini</title>
+<meta name="description" content="Fabio Furini — Associate Professor of Operations Research, Sapienza University of Rome. Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta name="author" content="Fabio Furini">
+<meta property="og:title" content="Fabio Furini — Associate Professor of Operations Research">
+<meta property="og:description" content="Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fabiofurini.github.io/">
+<link rel="canonical" href="https://fabiofurini.github.io/reading/J36/">
+<link rel="alternate" hreflang="it" href="https://fabiofurini.github.io/it/">
+<link rel="alternate" hreflang="en" href="https://fabiofurini.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/site.css?v=516f6183">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1d2f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white'>FF</text></svg>">
+<script>try{var t=localStorage.getItem('ff-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Fabio Furini</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/research/">Research</a>
+      <a href="/publications/">Publications</a>
+      <a href="/software/">Software</a>
+      <a href="/teaching/">Teaching</a>
+      <a href="/people/">Group</a>
+      <a href="/cv/">CV</a>
+    </nav>
+    <a class="icon-btn lang-btn" href="/it/" hreflang="it"
+       title="Italiano" aria-label="Italiano">IT</a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CVSP — Paper guide | Fabio Furini</title>
+<meta name="description" content="Fabio Furini — Associate Professor of Operations Research, Sapienza University of Rome. Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta name="author" content="Fabio Furini">
+<meta property="og:title" content="Fabio Furini — Associate Professor of Operations Research">
+<meta property="og:description" content="Exact algorithms for combinatorial optimization — integer programming, decomposition and reformulation, applied to packing, coloring, clique, interdiction and location problems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fabiofurini.github.io/">
+<link rel="canonical" href="https://fabiofurini.github.io/reading/J36/">
+<link rel="alternate" hreflang="it" href="https://fabiofurini.github.io/it/">
+<link rel="alternate" hreflang="en" href="https://fabiofurini.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/site.css?v=516f6183">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1d2f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white'>FF</text></svg>">
+<script>try{var t=localStorage.getItem('ff-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Fabio Furini</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/research/">Research</a>
+      <a href="/publications/">Publications</a>
+      <a href="/software/">Software</a>
+      <a href="/teaching/">Teaching</a>
+      <a href="/people/">Group</a>
+      <a href="/cv/">CV</a>
+    </nav>
+    <a class="icon-btn lang-btn" href="/it/" hreflang="it"
+       title="Italiano" aria-label="Italiano">IT</a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<main id="main"><div class="wrap">
+<nav class="paper-crumb"><a href="/">Home</a> / <a href="/publications/">Publications</a> / J36</nav>
+<header class="paper-lead">
+<p class="eyebrow">PAPER GUIDE · OPERATIONS RESEARCH · 2022</p>
+<h1>When deleting vertices becomes a <em>two-player game</em></h1>
+<p class="paper-intro">The hidden bilevel structure of the Capacitated Vertex Separator Problem—and how it leads to stronger exact optimization methods.</p>
+<p class="paper-authors">Fabio Furini · Ivana Ljubić · Enrico Malaguti · Paolo Paronuzzi</p>
+<div class="actions"><a class="btn primary" href="/papers/J36_2022_OPRE_casting-light-hidden-bilevel-combinatorial-structure.pdf">Read the paper ↗</a><a class="btn" href="https://doi.org/10.1287/opre.2021.2110">Published version ↗</a><a class="btn" href="/markdown/J36.md">Markdown source ↓</a></div>
+</header>
+<div class="paper-layout"><aside class="paper-aside"><span class="paper-overline">IN THIS GUIDE</span><a href="#problem">The problem</a><a href="#insight">The bilevel insight</a><a href="#contributions">Contributions</a><a href="#results">Computational results</a><a href="#takeaway">Why read it?</a></aside>
+<article class="paper-prose">
+<div class="paper-opening"><span>THE CENTRAL IDEA</span><p>Instead of explicitly assigning every surviving vertex to a partition, let an adversarial second player expose the connectivity violations. The resulting structure produces inequalities directly in the vertex-deletion variables.</p></div>
+<section id="problem"><p class="eyebrow">01 / THE PROBLEM</p><h2>How few vertices must we remove?</h2><p>Given an undirected graph, remove a minimum-cardinality vertex set so that the remaining vertices can be divided into at most <strong>k disconnected shores</strong>, each containing at most <strong>b vertices</strong>. The components must not only be small: they must also fit into the available shores.</p>
+<div class="paper-figure"><svg viewBox="0 0 690 220" role="img" aria-label="Conceptual diagram: a connected graph is separated into three groups by removing two highlighted vertices">
+<defs><style>.e{stroke:#a1a8ab;stroke-width:2;fill:none}.n{fill:#fff;stroke:#58716c;stroke-width:2.5}.cut{fill:#8c1d2f;stroke:#8c1d2f}.g{fill:#e8efed;stroke:#9db7ad;stroke-width:1.2}.txt{font:13px Inter,Arial,sans-serif;fill:#57615c}</style></defs>
+<g transform="translate(18,12)"><path class="e" d="M32 65L82 35L140 58L80 112L32 65M140 58L150 135L80 112L185 90L140 58M185 90L225 45L260 110L185 90M150 135L260 110L235 170L150 135M260 110L290 55L235 170"/><g class="n"><circle cx="32" cy="65" r="11"/><circle cx="82" cy="35" r="11"/><circle cx="140" cy="58" r="11"/><circle cx="80" cy="112" r="11"/><circle cx="150" cy="135" r="11"/><circle cx="225" cy="45" r="11"/><circle cx="260" cy="110" r="11"/><circle cx="235" cy="170" r="11"/></g><circle class="cut" cx="185" cy="90" r="12"/><circle class="cut" cx="290" cy="55" r="12"/><text class="txt" x="125" y="199">Original graph</text></g>
+<path d="M342 110h48m-10-8 10 8-10 8" fill="none" stroke="#9baba3" stroke-width="2"/>
+<g transform="translate(410,23)"><rect class="g" x="0" y="0" width="91" height="148" rx="13"/><rect class="g" x="103" y="0" width="68" height="148" rx="13"/><rect class="g" x="183" y="0" width="80" height="148" rx="13"/><g class="n"><circle cx="25" cy="37" r="10"/><circle cx="64" cy="37" r="10"/><circle cx="45" cy="89" r="10"/><circle cx="137" cy="48" r="10"/><circle cx="137" cy="101" r="10"/><circle cx="205" cy="37" r="10"/><circle cx="241" cy="74" r="10"/><circle cx="205" cy="112" r="10"/></g><path class="e" d="M25 37L64 37L45 89L25 37M137 48V101M205 37L241 74L205 112"/><text class="txt" x="45" y="184" text-anchor="middle">Shore 1</text><text class="txt" x="136" y="184" text-anchor="middle">Shore 2</text><text class="txt" x="223" y="184" text-anchor="middle">Shore 3</text></g></svg><p>Conceptual illustration of vertex interdiction and disconnected shores; not an original paper figure.</p></div></section>
+<section id="insight"><p class="eyebrow">02 / THE INSIGHT</p><h2>A graph problem hides a Stackelberg game</h2><div class="paper-steps"><div><span>01</span><strong>The leader</strong><p>Chooses the vertices to delete.</p></div><div><span>02</span><strong>The follower</strong><p>Examines the remaining network for forbidden connected structures.</p></div><div><span>03</span><strong>The algorithm</strong><p>Uses the follower’s response to add inequalities and refine the decision.</p></div></div><p>The bilevel interpretation is not merely a different story for the same model. It becomes a systematic way to derive <strong>strong valid inequalities in the natural variable space</strong>, while retaining an exact method.</p></section>
+<section id="contributions"><p class="eyebrow">03 / CONTRIBUTIONS</p><h2>What changes mathematically?</h2><div class="paper-features"><div><strong>A bilevel formulation</strong><p>An interdiction-based interpretation of the capacitated vertex separator problem.</p></div><div><strong>Cut generation</strong><p>New inequalities exploiting the graph structure, with polynomial-time separation results.</p></div><div><strong>A natural-space exact algorithm</strong><p>A cutting-plane framework that avoids carrying explicit shore-assignment decisions throughout the model.</p></div><div><strong>A broader formulation</strong><p>An extension to a min–max problem involving the largest surviving component.</p></div></div><p>The full manuscript develops the precise inequalities, theoretical relationships, and separation algorithms.</p></section>
+<section id="results"><p class="eyebrow">04 / COMPUTATIONAL RESULTS</p><h2>What do the experiments tell us?</h2><p>On the reported <strong>1,397 benchmark instances</strong>, the combination of component and cover inequalities (C+CV) is the best of the tested variants in that family, closing <strong>940 instances</strong> within the 30-minute time limit.</p>
+<div class="paper-metric"><div><strong>940 <small>/ 1,397</small></strong><span>Instances solved by C+CV</span></div><div><strong>+15</strong><span>Versus component cuts alone</span></div></div>
+<h3>Comparison against existing exact methods</h3><div class="paper-table"><table><thead><tr><th>Instance group</th><th>CPLEX</th><th>Branch-and-price</th><th>C+CV</th></tr></thead><tbody><tr><td>DIMACS</td><td>124</td><td>164</td><td><strong>182</strong></td></tr><tr><td>MIPLIB</td><td>73</td><td>109</td><td><strong>138</strong></td></tr><tr><td>Netlib</td><td>237</td><td>351</td><td><strong>354</strong></td></tr><tr><td>Random</td><td>168</td><td><strong>322</strong></td><td>266</td></tr><tr class="total"><td>All 1,397</td><td>602</td><td><strong>946</strong></td><td>940</td></tr></tbody></table></div><p class="paper-note">Numbers of instances solved to proven optimality, from the paper’s computational study. Results depend on the benchmark, computing platform and time limit.</p>
+<p>The key finding is <strong>complementarity rather than universal dominance</strong>: the new method performs especially well on DIMACS and MIPLIB, while branch-and-price remains much stronger on the Random group.</p>
+<h3>Beyond the original CVSP</h3><p>For the related min–max extension, the specialized branch-and-cut solves <strong>290 of 564</strong> benchmark instances, compared with 161 and 164 for two alternative formulations.</p></section>
+<section id="takeaway" class="paper-ending"><p class="eyebrow">05 / WHY READ THE PAPER?</p><h2>The lesson goes beyond graph separation.</h2><p>If you work on mixed-integer programming, interdiction or graph modification, the most interesting part is the route from an unexpected <strong>leader–follower interpretation</strong> to exact inequalities that are both theoretically meaningful and computationally useful.</p><a class="btn primary" href="/papers/J36_2022_OPRE_casting-light-hidden-bilevel-combinatorial-structure.pdf">Explore the full paper ↗</a><a class="btn" href="https://github.com/paoloparonuzzi/CVSP">See the code ↗</a></section>
+</article></div></div></main>
+<style>
+.paper-crumb{padding:28px 0;font-size:.83rem;color:var(--faint)}.paper-crumb a{color:var(--muted)}.paper-lead{padding:32px 0 46px;max-width:900px;border-bottom:1px solid var(--border)}.paper-lead h1{font:600 clamp(2.35rem,5vw,4.35rem)/1.09 var(--serif);letter-spacing:-.035em;margin:14px 0 20px}.paper-lead h1 em{font-style:normal;color:var(--accent)}.paper-intro{max-width:750px;font-size:1.2rem;line-height:1.65;color:var(--muted)}.paper-authors{color:var(--faint);font-size:.91rem;margin:20px 0}.paper-lead .actions{gap:9px;flex-wrap:wrap}.paper-layout{display:grid;grid-template-columns:200px minmax(0,830px);gap:52px;padding:38px 0 70px}.paper-aside{position:sticky;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:15px;font-size:.82rem}.paper-aside a{color:var(--muted)}.paper-aside a:hover{color:var(--accent)}.paper-overline{font-size:.68rem;letter-spacing:.12em;font-weight:700;color:var(--faint);margin-bottom:7px}.paper-prose{line-height:1.8;font-size:1rem;min-width:0}.paper-prose section{padding:32px 0 22px;border-bottom:1px solid var(--border);scroll-margin-top:90px}.paper-prose h2{font:600 clamp(1.65rem,3vw,2.25rem)/1.22 var(--serif);letter-spacing:-.017em;margin:8px 0 20px}.paper-prose h3{font-size:1.05rem;margin:34px 0 12px}.paper-prose p{color:var(--muted);margin:0 0 20px}.paper-prose strong{color:var(--ink)}.paper-opening{padding:26px 30px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 9px 9px 0}.paper-opening span{font-size:.69rem;letter-spacing:.11em;font-weight:700;color:var(--accent)}.paper-opening p{font:500 1.25rem/1.55 var(--serif);color:var(--ink);margin:10px 0 0}.paper-figure{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:22px 18px 10px;margin:28px 0}.paper-figure svg{display:block;width:100%;height:auto}.paper-figure p{font-size:.73rem;color:var(--faint);text-align:center;margin:8px 0 0}.paper-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0 28px}.paper-steps>div,.paper-features>div{border:1px solid var(--border);border-radius:10px;padding:20px;background:var(--surface)}.paper-steps span{display:block;font-size:.78rem;color:var(--accent);font-weight:700;margin-bottom:12px}.paper-steps strong,.paper-features strong{display:block;margin-bottom:7px}.paper-steps p,.paper-features p{font-size:.86rem;line-height:1.55;margin:0}.paper-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:23px 0}.paper-metric{display:flex;gap:44px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;margin:27px 0}.paper-metric>div{display:flex;flex-direction:column}.paper-metric strong{font:600 2.35rem/1.2 var(--serif);color:var(--accent)}.paper-metric small{font-size:.52em;color:var(--muted)}.paper-metric span{font-size:.79rem;color:var(--muted);margin-top:7px}.paper-table{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin:16px 0}.paper-table table{width:100%;border-collapse:collapse;font-size:.9rem}.paper-table th,.paper-table td{padding:12px 15px;text-align:right;border-bottom:1px solid var(--border)}.paper-table th:first-child,.paper-table td:first-child{text-align:left}.paper-table th{font-size:.77rem;color:var(--faint);background:var(--surface-2)}.paper-table tr:last-child td{border-bottom:0}.paper-table .total{background:var(--surface-2);font-weight:650}.paper-prose .paper-note{font-size:.77rem;color:var(--faint)}.paper-ending{border:0!important}.paper-ending .btn{margin-right:8px}@media(max-width:800px){.paper-layout{grid-template-columns:1fr;gap:0}.paper-aside{position:static;flex-direction:row;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--border);padding-bottom:22px}.paper-overline{width:100%}.paper-steps{grid-template-columns:1fr}.paper-features{grid-template-columns:1fr}.paper-metric{gap:25px;flex-wrap:wrap}}
+</style>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="nm">Fabio Furini</div>
+      <div>Associate Professor of Operations Research</div>
+      <div>Department of Computer, Control and Management Engineering &#34;Antonio Ruberti&#34;</div>
+      <div>Sapienza University of Rome</div>
+      <div class="faint" style="margin-top:8px">Via Ariosto 25, 00185 Rome, Italy</div>
+      <div style="margin-top:8px"><a href="mailto:fabio.furini@uniroma1.it">fabio.furini@uniroma1.it</a></div>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul><li><a href="/research/">Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/software/">Software</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/people/">Group</a></li><li><a href="/cv/">CV</a></li></ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul><li><a href="https://scholar.google.com/citations?user=Kx7v180AAAAJ&amp;hl=en" rel="me noopener" target="_blank">Google Scholar</a></li><li><a href="https://orcid.org/0000-0002-1839-5827" rel="me noopener" target="_blank">ORCID</a></li><li><a href="https://github.com/fabiofurini" rel="me noopener" target="_blank">GitHub</a></li><li><a href="https://dblp.org/search?q=Fabio+Furini" rel="me noopener" target="_blank">DBLP</a></li><li><a href="https://www.researchgate.net/profile/Fabio-Furini" rel="me noopener" target="_blank">ResearchGate</a></li><li><a href="https://www.linkedin.com/in/fabiofurini/" rel="me noopener" target="_blank">LinkedIn</a></li><li><a href="https://phd.uniroma1.it/web/FABIO-FURINI_nC4385_EN.aspx" rel="me noopener" target="_blank">Sapienza</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=nx;
+    try{localStorage.setItem('ff-theme',nx)}catch(e){}
+  });
+  var m=document.getElementById('menuBtn'),n=document.getElementById('nav');
+  m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',String(o))});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bdafa565420e4746930191ee997beeca"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
