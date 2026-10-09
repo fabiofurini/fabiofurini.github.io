@@ -191,6 +191,13 @@ def build():
         urls, site = build_lang(lang, env, papers, by_id, build_id, assets_done=(k > 0))
         all_urls += urls
 
+    # Preserve the standalone visual big-M teaching guide across site rebuilds.
+    guide_source = ROOT / 'static' / 'big-m-guide' / 'index.html'
+    if guide_source.is_file():
+        guide_target = DIST / 'big-m-guide' / 'index.html'
+        guide_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(guide_source, guide_target)
+
     (DIST / '.nojekyll').write_text('')
     urls = ''.join(f"<url><loc>{site['url']}{u}</loc></url>" for u in all_urls)
     (DIST / 'sitemap.xml').write_text(
