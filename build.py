@@ -196,7 +196,7 @@ def build():
     if guide_source.is_file():
         guide_target = DIST / 'big-m-guide' / 'index.html'
         guide_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(guide_source, guide_target)
+        shutil.copytree(ROOT / 'static' / 'big-m-guide', DIST / 'big-m-guide', dirs_exist_ok=True)
 
     (DIST / '.nojekyll').write_text('')
     urls = ''.join(f"<url><loc>{site['url']}{u}</loc></url>" for u in all_urls)
