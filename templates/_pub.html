@@ -6,6 +6,7 @@
   <div class="links">
     {% if p.doi %}<a class="lk primary" href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ t.published_version }}</a>{% endif %}
     {% if p.pdf %}<a class="lk" href="{{ p.pdf }}" target="_blank" rel="noopener">{{ t.pdf }}</a>{% endif %}
+    {% if p.id == 'J36' %}<a class="lk" href="https://github.com/fabiofurini/fabiofurini.github.io/blob/main/docs/markdown/J36.md" target="_blank" rel="noopener">MD ↗</a>{% endif %}
     {% if p.code %}<a class="lk" href="{{ p.code }}" target="_blank" rel="noopener">{{ t.code }}</a>{% endif %}
   </div>
 </article>
