@@ -203,7 +203,7 @@ def build():
         shutil.copy2(verification, DIST / verification.name)
 
     # Preserve the standalone interactive interdiction teaching guides.
-    for guide_name in ('benders-cut-guide', 'supervalid-guide'):
+    for guide_name in ('benders-cut-guide', 'supervalid-guide', 'benders-aggregation-guide'):
         guide_dir = ROOT / 'static' / guide_name
         if guide_dir.is_dir():
             shutil.copytree(guide_dir, DIST / guide_name, dirs_exist_ok=True)
