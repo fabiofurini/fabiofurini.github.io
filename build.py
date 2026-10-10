@@ -198,6 +198,10 @@ def build():
         guide_target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(ROOT / 'static' / 'big-m-guide', DIST / 'big-m-guide', dirs_exist_ok=True)
 
+    # Keep Google Search Console verification available after every site rebuild.
+    for verification in ROOT.glob('google*.html'):
+        shutil.copy2(verification, DIST / verification.name)
+
     (DIST / '.nojekyll').write_text('')
     urls = ''.join(f"<url><loc>{site['url']}{u}</loc></url>" for u in all_urls)
     (DIST / 'sitemap.xml').write_text(
