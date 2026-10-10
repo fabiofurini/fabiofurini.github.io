@@ -7,21 +7,22 @@
 <section><h2><span class="stepnum">5</span>Now read the strengthened cut</h2><p>Start at <b>5</b>. Closing arc 2→5 allows at most <b>+5</b>; closing arc 5→3 allows at most <b>+4</b>. We do not need to pay the full generic big-M penalty in this cut.</p><div class="eq">θ₂ ≤ 5 + <b>5</b>x₂₅ + <b>4</b>x₅₃</div><div class="note"><b>Why stronger?</b> In a maximization master, a smaller correct right-hand side restricts overoptimistic values of θ₂. The standard Benders coefficients are M(a,2) multiplied by the selected flow; whenever these are larger than 5 or 4, the new cut is tighter.</div><p><b>Important limitation:</b> we used budget 1. With budget 2, interdictions can reinforce each other: adding separately computed increases can be wrong. The v2 appendix proves the condition for valid cut coefficients over <em>every feasible interdiction set</em> and provides safe tree-based coefficients.</p></section>
 <section><h2>Connection to the paper</h2><p>This example illustrates the intuition behind the appendix <b>Cut-Specific Coefficients of the Benders Cuts</b>. The formal proof comes afterward, not before the picture.</p><p><a href="/big-m-guide/">Big-M guide</a> · <a href="/supervalid-guide/">Supervalid inequalities guide</a> · <a href="https://github.com/fabiofurini/APSP-interdiction/blob/main/paper/mpsp_interdiction_v2.tex">Current paper v2</a></p></section></main><script>
 const nodes={1:[110,105],2:[555,105],3:[555,425],4:[110,425],5:[330,263]};
-const arcs=[["12",1,2,3],["21",2,1,3],["43",4,3,5],["34",3,4,1],["32",3,2,2],["41",4,1,3],["15",1,5,3],["25",2,5,1],["53",5,3,4],["54",5,4,3]];
+const arcs=[["12",1,2,3,1],["21",2,1,3,2],["43",4,3,5,2],["34",3,4,1,1],["32",3,2,2,2],["41",4,1,3,1],["15",1,5,3,2],["25",2,5,1,1],["53",5,3,4,1],["54",5,4,3,2]];
 const steps=[{"title":"Start with an actual shortest path","hi":["25","53"],"cut":[],"text":"Original shortest path 2 to 5 to 3 has length 5"},{"title":"Close arc (2,5)","hi":["21","15","53"],"cut":["25"],"text":"The shortest surviving path becomes 2 to 1 to 5 to 3, length 10"},{"title":"Close arc (5,3)","hi":["25","54","43"],"cut":["53"],"text":"The shortest surviving path becomes 2 to 5 to 4 to 3, length 9"},{"title":"Look again at the original path","hi":["25","53"],"cut":[],"text":"The two selected arcs require coefficients 5 and 4"}];
-document.querySelectorAll("svg[data-graph]").forEach(el=>{
-const k=Number(el.dataset.graph),cfg=steps[k],uid="b"+k,colors={blue:"#116e9d",gray:"#a5b6c4",red:"#d1534b"};let h="<defs>";
-for(const [key,color] of Object.entries(colors)){h+='<marker id="'+uid+key+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="'+color+'"/></marker>'}h+="</defs>";
-for(const [id,u,v,len] of arcs){const p=nodes[u],q=nodes[v],dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy),nx=-dy/d,ny=dx/d;
-// SAME signed normal bend for both orientations means opposite physical sides.
-// The same edge in reverse has opposite normal, hence separate curved lanes.
-const curved=["12","21","43","34"].includes(id),bend=curved?62:0;
-const sx=p[0]+dx/d*30,sy=p[1]+dy/d*30,ex=q[0]-dx/d*35,ey=q[1]-dy/d*35,mx=(p[0]+q[0])/2+nx*bend,my=(p[1]+q[1])/2+ny*bend;
-const cut=cfg.cut.includes(id),hi=cfg.hi.includes(id),color=cut?"red":hi?"blue":"gray";
-h+='<path d="M'+sx+' '+sy+' Q'+mx+' '+my+' '+ex+' '+ey+'" stroke="'+colors[color]+'" stroke-width="'+(cut||hi?5.5:2.7)+'" '+(cut?'stroke-dasharray="9 6"':'')+' fill="none" marker-end="url(#'+uid+color+')"/>';
-const lx=(sx+2*mx+ex)/4+nx*(curved?13:12),ly=(sy+2*my+ey)/4+ny*(curved?13:12);
-h+='<text x="'+lx+'" y="'+ly+'" text-anchor="middle" font-size="17" font-weight="750" fill="'+(cut?"#c7443d":"#263d50")+'" stroke="white" stroke-width="8" paint-order="stroke">'+len+'</text>';
+document.querySelectorAll("svg[data-graph]").forEach((el,i)=>{
+const cfg=steps[Number(el.dataset.graph)],uid="p"+i,colors={blue:"#12689e",gray:"#a4b4c1",red:"#cf5345"};let h="<defs>";
+for(const [name,color] of Object.entries(colors))h+='<marker id="'+uid+name+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="'+color+'"/></marker>';
+h+="</defs>";
+for(const [id,u,v,len,cost] of arcs){
+const p=nodes[u],q=nodes[v],dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy),nx=-dy/d,ny=dx/d;
+const bend=["12","21","43","34"].includes(id)?65:0;
+const sx=p[0]+dx/d*29,sy=p[1]+dy/d*29,ex=q[0]-dx/d*34,ey=q[1]-dy/d*34,mx=(p[0]+q[0])/2+nx*bend,my=(p[1]+q[1])/2+ny*bend;
+const cut=cfg.cut.includes(id),hi=cfg.hi.includes(id),name=cut?"red":hi?"blue":"gray";
+h+='<path d="M'+sx+' '+sy+' Q'+mx+' '+my+' '+ex+' '+ey+'" fill="none" stroke="'+colors[name]+'" stroke-width="'+(cut||hi?5.2:2.8)+'" '+(cut?'stroke-dasharray="9 5"':'')+' marker-end="url(#'+uid+name+')"/>';
+const lx=(sx+2*mx+ex)/4+nx*13,ly=(sy+2*my+ey)/4+ny*13;
+h+='<text x="'+lx+'" y="'+ly+'" text-anchor="middle" font-size="16" font-weight="750" fill="#29465e" stroke="white" stroke-width="8" paint-order="stroke">'+len+', '+cost+'</text>';
 }
-for(const [id,p] of Object.entries(nodes)){h+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="27" stroke="#355671" stroke-width="3" fill="'+(id==="2"?"#dbeff8":"white")+'"/><text x="'+p[0]+'" y="'+(p[1]+8)+'" text-anchor="middle" fill="#203650" font-weight="800" font-size="22">'+id+'</text>';}el.innerHTML=h;
+for(const [id,p] of Object.entries(nodes))h+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="27" fill="white" stroke="'+(id==="2"?"#12689e":"#415b73")+'" stroke-width="'+(id==="2"?5:3)+'"/><text x="'+p[0]+'" y="'+(p[1]+8)+'" text-anchor="middle" fill="#203650" font-weight="800" font-size="22">'+id+'</text>';
+el.innerHTML=h;
 });
 function scenario(key,btn){document.querySelectorAll('.choices button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');let data={none:['The original path survives',5,0,5],25:['The road 2→5 is closed; the detour costs 10',10,5,10],53:['The road 5→3 is closed; the detour costs 9',9,4,9]}[key];document.getElementById('scenario').innerHTML='<b>'+data[0]+'.</b> Actual shortest distance: <b>'+data[1]+'</b>. Increase: <b>+'+data[2]+'</b>. Tightened cut upper bound: <b>'+data[3]+'</b>.';}scenario('none');</script></body></html>
