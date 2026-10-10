@@ -1,4 +1,4 @@
-intro: I teach integer programming, combinatorial optimization, linear algebra and mathematical analysis. All the course
+intro: I teach integer programming, combinatorial optimization, linear programming, convex optimization, linear algebra and mathematical analysis. All the course
   material — lecture notes, models, code and data — is published online and openly accessible.
 courses:
 - name: Integer Programming and Combinatorial Optimization
@@ -54,6 +54,36 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/algebra-lineare/
     repo: https://github.com/fabiofurini/algebra-lineare
+- name: Linear Programming
+  original: Programmazione lineare
+  level: ''
+  where: Sapienza University of Rome
+  since: ''
+  detail: lecture notes, a catalogue of LP problems and exercises with solutions
+  sites:
+  - label: Linear Programming
+    lang: EN
+    url: https://fabiofurini.github.io/linear-programming/
+    repo: https://github.com/fabiofurini/linear-programming
+  - label: Programmazione Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/programmazione-lineare/
+    repo: https://github.com/fabiofurini/programmazione-lineare
+- name: Convex Optimization
+  original: Ottimizzazione convessa
+  level: ''
+  where: Sapienza University of Rome
+  since: ''
+  detail: lecture notes, exercises, slides and interactive graphs
+  sites:
+  - label: Convex Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/convex-optimization/
+    repo: https://github.com/fabiofurini/convex-optimization
+  - label: Ottimizzazione Convessa
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-convessa/
+    repo: https://github.com/fabiofurini/ottimizzazione-convessa
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
