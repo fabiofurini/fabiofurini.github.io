@@ -7,6 +7,7 @@ courses:
   where: Sapienza University of Rome
   since: '2021'
   detail: 120 hours · about 300 students per year
+  notice: "These websites are under construction: the material is being completed and revised during the year."
   sites:
   - label: Linear Programming
     lang: EN

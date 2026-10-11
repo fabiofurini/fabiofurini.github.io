@@ -7,6 +7,7 @@ courses:
   where: Sapienza Università di Roma
   since: dal 2021
   detail: 120 ore · circa 300 studenti l'anno
+  notice: "Questi siti sono in costruzione: il materiale viene completato e rivisto nel corso dell'anno."
   sites:
   - label: Programmazione Lineare
     lang: IT

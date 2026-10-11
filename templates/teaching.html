@@ -16,6 +16,7 @@
       <div><h3>{{ c.name }}</h3>{% if c.original %}<div class="orig">{{ c.original }}</div>{% endif %}</div>
       <div class="lvl">{% if c.level %}{{ c.level }}<br>{% endif %}{{ c.where }}<br><span class="faint">{% if c.since %}{{ c.since }} · {% endif %}{{ c.detail }}</span></div>
     </div>
+    {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">⚠ {{ c.notice }}</p>{% endif %}
     {% if c.sites %}
     <div class="sites">
       {% for s in c.sites %}
