@@ -1,4 +1,4 @@
-intro: Insegno programmazione intera, ottimizzazione combinatoria, programmazione lineare, ottimizzazione convessa, algebra lineare e analisi matematica. Tutto il materiale
+intro: Insegno programmazione intera, ottimizzazione combinatoria, programmazione lineare, ottimizzazione convessa, algebra lineare, analisi matematica e algoritmi. Tutto il materiale
   dei corsi — dispense, modelli, codice e dati — è pubblicato online e liberamente accessibile.
 courses:
 - name: Programmazione intera e ottimizzazione combinatoria
@@ -84,6 +84,21 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/convex-optimization/
     repo: https://github.com/fabiofurini/convex-optimization
+- name: Algoritmi
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: rappresentazione dei numeri, pseudocodice, linguaggi C++, Python e Java, ordinamento e ricerca, notazione asintotica, analisi e algoritmi ricorsivi, con grafici interattivi
+  sites:
+  - label: Algoritmi
+    lang: IT
+    url: https://fabiofurini.github.io/algoritmi/
+    repo: https://github.com/fabiofurini/algoritmi
+  - label: Algorithms
+    lang: EN
+    url: https://fabiofurini.github.io/algorithms/
+    repo: https://github.com/fabiofurini/algorithms
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
