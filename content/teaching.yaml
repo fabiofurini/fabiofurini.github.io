@@ -99,6 +99,36 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/algoritmi/
     repo: https://github.com/fabiofurini/algoritmi
+- name: Integer Linear Programming
+  original: Programmazione lineare intera
+  level: ''
+  where: Sapienza University of Rome
+  since: ''
+  detail: models and bounds, ideal formulations and valid inequalities, cutting planes, branch-and-bound and branch-and-cut, MIP solvers and MIP heuristics (under construction)
+  sites:
+  - label: Integer Linear Programming
+    lang: EN
+    url: https://fabiofurini.github.io/integer-linear-programming/
+    repo: https://github.com/fabiofurini/integer-linear-programming
+  - label: Programmazione Lineare Intera
+    lang: IT
+    url: https://fabiofurini.github.io/programmazione-lineare-intera/
+    repo: https://github.com/fabiofurini/programmazione-lineare-intera
+- name: Combinatorial Optimization
+  original: Ottimizzazione combinatoria
+  level: ''
+  where: Sapienza University of Rome
+  since: ''
+  detail: knapsack, bin packing, coloring, TSP, scheduling and lot sizing solved in every way, with formulations, dynamic programming, heuristics and approximation algorithms (under construction)
+  sites:
+  - label: Combinatorial Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/combinatorial-optimization/
+    repo: https://github.com/fabiofurini/combinatorial-optimization
+  - label: Ottimizzazione Combinatoria
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
+    repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
