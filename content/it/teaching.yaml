@@ -8,6 +8,14 @@ courses:
   since: dal 2021
   detail: 120 ore · circa 300 studenti l'anno
   sites:
+  - label: Programmazione Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/programmazione-lineare/
+    repo: https://github.com/fabiofurini/programmazione-lineare
+  - label: Linear Programming
+    lang: EN
+    url: https://fabiofurini.github.io/linear-programming/
+    repo: https://github.com/fabiofurini/linear-programming
   - label: Programmazione Lineare Intera
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare-intera/
@@ -70,21 +78,6 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/linear-algebra/
     repo: https://github.com/fabiofurini/linear-algebra
-- name: Programmazione lineare
-  original: ''
-  level: ''
-  where: Sapienza Università di Roma
-  since: ''
-  detail: dispense, catalogo di problemi di PL ed esercizi con soluzioni
-  sites:
-  - label: Programmazione Lineare
-    lang: IT
-    url: https://fabiofurini.github.io/programmazione-lineare/
-    repo: https://github.com/fabiofurini/programmazione-lineare
-  - label: Linear Programming
-    lang: EN
-    url: https://fabiofurini.github.io/linear-programming/
-    repo: https://github.com/fabiofurini/linear-programming
 - name: Ottimizzazione convessa
   original: ''
   level: ''
