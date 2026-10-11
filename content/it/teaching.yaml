@@ -16,6 +16,14 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/linear-programming/
     repo: https://github.com/fabiofurini/linear-programming
+  - label: Ottimizzazione Convessa
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-convessa/
+    repo: https://github.com/fabiofurini/ottimizzazione-convessa
+  - label: Convex Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/convex-optimization/
+    repo: https://github.com/fabiofurini/convex-optimization
   - label: Algoritmi
     lang: IT
     url: https://fabiofurini.github.io/algoritmi/
@@ -86,21 +94,6 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/linear-algebra/
     repo: https://github.com/fabiofurini/linear-algebra
-- name: Ottimizzazione convessa
-  original: ''
-  level: ''
-  where: Sapienza Università di Roma
-  since: ''
-  detail: dispense, esercizi, slide e grafici interattivi
-  sites:
-  - label: Ottimizzazione Convessa
-    lang: IT
-    url: https://fabiofurini.github.io/ottimizzazione-convessa/
-    repo: https://github.com/fabiofurini/ottimizzazione-convessa
-  - label: Convex Optimization
-    lang: EN
-    url: https://fabiofurini.github.io/convex-optimization/
-    repo: https://github.com/fabiofurini/convex-optimization
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
