@@ -7,47 +7,57 @@ courses:
   where: Sapienza University of Rome
   since: '2021'
   detail: 120 hours · about 300 students per year
-  notice: "These websites are under construction: the material is being completed and revised during the year."
+  notice: "Sites marked 🚧 are under construction: the material is being completed and revised during the year."
   sites:
   - label: Linear Programming
     lang: EN
     url: https://fabiofurini.github.io/linear-programming/
+    wip: true
     repo: https://github.com/fabiofurini/linear-programming
   - label: Programmazione Lineare
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare/
+    wip: true
     repo: https://github.com/fabiofurini/programmazione-lineare
   - label: Convex Optimization
     lang: EN
     url: https://fabiofurini.github.io/convex-optimization/
+    wip: true
     repo: https://github.com/fabiofurini/convex-optimization
   - label: Ottimizzazione Convessa
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-convessa/
+    wip: true
     repo: https://github.com/fabiofurini/ottimizzazione-convessa
   - label: Algorithms
     lang: EN
     url: https://fabiofurini.github.io/algorithms/
+    wip: true
     repo: https://github.com/fabiofurini/algorithms
   - label: Algoritmi
     lang: IT
     url: https://fabiofurini.github.io/algoritmi/
+    wip: true
     repo: https://github.com/fabiofurini/algoritmi
   - label: Integer Linear Programming
     lang: EN
     url: https://fabiofurini.github.io/integer-linear-programming/
+    wip: true
     repo: https://github.com/fabiofurini/integer-linear-programming
   - label: Programmazione Lineare Intera
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare-intera/
+    wip: true
     repo: https://github.com/fabiofurini/programmazione-lineare-intera
   - label: Combinatorial Optimization
     lang: EN
     url: https://fabiofurini.github.io/combinatorial-optimization/
+    wip: true
     repo: https://github.com/fabiofurini/combinatorial-optimization
   - label: Ottimizzazione Combinatoria
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
+    wip: true
     repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - label: MIP Modelling
     lang: EN

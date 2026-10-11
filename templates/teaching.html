@@ -16,12 +16,12 @@
       <div><h3>{{ c.name }}</h3>{% if c.original %}<div class="orig">{{ c.original }}</div>{% endif %}</div>
       <div class="lvl">{% if c.level %}{{ c.level }}<br>{% endif %}{{ c.where }}<br><span class="faint">{% if c.since %}{{ c.since }} · {% endif %}{{ c.detail }}</span></div>
     </div>
-    {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">⚠ {{ c.notice }}</p>{% endif %}
+    {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">{{ c.notice }}</p>{% endif %}
     {% if c.sites %}
     <div class="sites">
       {% for s in c.sites %}
       <div class="site-link">
-        <div><span class="lg">{{ s.lang }}</span><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></div>
+        <div><span class="lg">{{ s.lang }}</span><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a>{% if s.wip %} <span title="{{ strings.wip if strings.wip else 'under construction' }}" style="margin-left:.3em">🚧</span>{% endif %}</div>
         <a class="rp" href="{{ s.repo }}" target="_blank" rel="noopener">{{ strings.source }}</a>
       </div>
       {% endfor %}
