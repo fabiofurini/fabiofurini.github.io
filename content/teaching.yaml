@@ -16,6 +16,14 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare/
     repo: https://github.com/fabiofurini/programmazione-lineare
+  - label: Algorithms
+    lang: EN
+    url: https://fabiofurini.github.io/algorithms/
+    repo: https://github.com/fabiofurini/algorithms
+  - label: Algoritmi
+    lang: IT
+    url: https://fabiofurini.github.io/algoritmi/
+    repo: https://github.com/fabiofurini/algoritmi
   - label: Integer Linear Programming
     lang: EN
     url: https://fabiofurini.github.io/integer-linear-programming/
@@ -93,21 +101,6 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-convessa/
     repo: https://github.com/fabiofurini/ottimizzazione-convessa
-- name: Algorithms
-  original: Algoritmi
-  level: ''
-  where: Sapienza University of Rome
-  since: ''
-  detail: number representation, pseudo-code, C++, Python and Java, sorting and searching, asymptotic notation, analysis and recursive algorithms, with interactive graphs
-  sites:
-  - label: Algorithms
-    lang: EN
-    url: https://fabiofurini.github.io/algorithms/
-    repo: https://github.com/fabiofurini/algorithms
-  - label: Algoritmi
-    lang: IT
-    url: https://fabiofurini.github.io/algoritmi/
-    repo: https://github.com/fabiofurini/algoritmi
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
