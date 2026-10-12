@@ -53,6 +53,25 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/operations-research-lab/
     repo: https://github.com/fabiofurini/operations-research-lab
+- name: Ottimizzazione su reti
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: grafi, alberi ricoprenti minimi, cammini minimi, flusso massimo, flusso a costo minimo, trasporto e assegnamento,
+    simplesso su reti e gestione dei progetti
+  sites:
+  - label: Ottimizzazione su Reti
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-su-reti/
+    wip: true
+    repo: https://github.com/fabiofurini/ottimizzazione-su-reti
+  - label: Network Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/network-optimization/
+    wip: true
+    repo: https://github.com/fabiofurini/network-optimization
+  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
 - name: Programmazione lineare
   original: ''
   level: ''

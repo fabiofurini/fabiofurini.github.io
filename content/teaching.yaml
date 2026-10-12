@@ -53,6 +53,25 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
     repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
+- name: Network Optimization
+  original: Ottimizzazione su reti
+  level: ''
+  where: Sapienza University of Rome
+  since: ''
+  detail: graphs, minimum spanning trees, shortest paths, maximum flow, minimum-cost flow, transportation and assignment,
+    network simplex and project management
+  sites:
+  - label: Network Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/network-optimization/
+    wip: true
+    repo: https://github.com/fabiofurini/network-optimization
+  - label: Ottimizzazione su Reti
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-su-reti/
+    wip: true
+    repo: https://github.com/fabiofurini/ottimizzazione-su-reti
+  notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
 - name: Linear Programming
   original: Programmazione lineare
   level: ''
