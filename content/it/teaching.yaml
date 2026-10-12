@@ -1,5 +1,6 @@
-intro: Insegno programmazione intera, ottimizzazione combinatoria, programmazione lineare, ottimizzazione convessa, algebra lineare, analisi matematica e algoritmi. Tutto il materiale
-  dei corsi — dispense, modelli, codice e dati — è pubblicato online e liberamente accessibile.
+intro: Insegno programmazione intera, ottimizzazione combinatoria, programmazione lineare, ottimizzazione convessa,
+  algebra lineare, analisi matematica e algoritmi. Tutto il materiale dei corsi — dispense, modelli, codice e dati
+  — è pubblicato online e liberamente accessibile.
 courses:
 - name: Programmazione intera e ottimizzazione combinatoria
   original: ''
@@ -7,38 +8,8 @@ courses:
   where: Sapienza Università di Roma
   since: dal 2021
   detail: 120 ore · circa 300 studenti l'anno
-  notice: "I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell'anno."
+  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
   sites:
-  - label: Programmazione Lineare
-    lang: IT
-    url: https://fabiofurini.github.io/programmazione-lineare/
-    wip: true
-    repo: https://github.com/fabiofurini/programmazione-lineare
-  - label: Linear Programming
-    lang: EN
-    url: https://fabiofurini.github.io/linear-programming/
-    wip: true
-    repo: https://github.com/fabiofurini/linear-programming
-  - label: Ottimizzazione Convessa
-    lang: IT
-    url: https://fabiofurini.github.io/ottimizzazione-convessa/
-    wip: true
-    repo: https://github.com/fabiofurini/ottimizzazione-convessa
-  - label: Convex Optimization
-    lang: EN
-    url: https://fabiofurini.github.io/convex-optimization/
-    wip: true
-    repo: https://github.com/fabiofurini/convex-optimization
-  - label: Algoritmi
-    lang: IT
-    url: https://fabiofurini.github.io/algoritmi/
-    wip: true
-    repo: https://github.com/fabiofurini/algoritmi
-  - label: Algorithms
-    lang: EN
-    url: https://fabiofurini.github.io/algorithms/
-    wip: true
-    repo: https://github.com/fabiofurini/algorithms
   - label: Programmazione Lineare Intera
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare-intera/
@@ -67,6 +38,13 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/mip-modelling/
     repo: https://github.com/fabiofurini/mip-modelling
+- name: Laboratorio di ricerca operativa
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: modelli di ottimizzazione continua (PL, PQ, PNL) con casi di studio, Python e Gurobi
+  sites:
   - label: Laboratorio di Ricerca Operativa
     lang: IT
     url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
@@ -75,6 +53,61 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/operations-research-lab/
     repo: https://github.com/fabiofurini/operations-research-lab
+- name: Programmazione lineare
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: dispense, catalogo di problemi di PL ed esercizi con soluzioni
+  sites:
+  - label: Programmazione Lineare
+    lang: IT
+    url: https://fabiofurini.github.io/programmazione-lineare/
+    wip: true
+    repo: https://github.com/fabiofurini/programmazione-lineare
+  - label: Linear Programming
+    lang: EN
+    url: https://fabiofurini.github.io/linear-programming/
+    wip: true
+    repo: https://github.com/fabiofurini/linear-programming
+  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
+- name: Ottimizzazione convessa
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: dispense, esercizi, slide e grafici interattivi
+  sites:
+  - label: Ottimizzazione Convessa
+    lang: IT
+    url: https://fabiofurini.github.io/ottimizzazione-convessa/
+    wip: true
+    repo: https://github.com/fabiofurini/ottimizzazione-convessa
+  - label: Convex Optimization
+    lang: EN
+    url: https://fabiofurini.github.io/convex-optimization/
+    wip: true
+    repo: https://github.com/fabiofurini/convex-optimization
+  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
+- name: Algoritmi
+  original: ''
+  level: ''
+  where: Sapienza Università di Roma
+  since: ''
+  detail: rappresentazione dei numeri, pseudocodice, linguaggi C++, Python e Java, ordinamento e ricerca, notazione
+    asintotica, analisi e algoritmi ricorsivi, con grafici interattivi
+  sites:
+  - label: Algoritmi
+    lang: IT
+    url: https://fabiofurini.github.io/algoritmi/
+    wip: true
+    repo: https://github.com/fabiofurini/algoritmi
+  - label: Algorithms
+    lang: EN
+    url: https://fabiofurini.github.io/algorithms/
+    wip: true
+    repo: https://github.com/fabiofurini/algorithms
+  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
 - name: Analisi matematica 1
   original: ''
   level: Laurea triennale
@@ -107,8 +140,7 @@ courses:
     repo: https://github.com/fabiofurini/linear-algebra
 advanced:
 - year: '2023'
-  name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems
-    on Graphs
+  name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
   where: Scuola CIMPA su struttura dei grafi e analisi delle reti complesse
 - year: '2019'
   name: Decomposizione di Benders
@@ -127,15 +159,15 @@ past:
 - where: Università di Parma
   courses: Quantitative Methods and Optimization (magistrale)
 - where: Université Paris Dauphine-PSL
-  courses: Programmation linéaire · Programmation linéaire avancée · Optimisation combinatoire · Outils
-    d'optimisation pour les sciences des données et de la décision · Optimisation en finance · Gestion
-    de la production · Humanitarian logistics · Système de gestion de bases de données
+  courses: Programmation linéaire · Programmation linéaire avancée · Optimisation combinatoire · Outils d'optimisation
+    pour les sciences des données et de la décision · Optimisation en finance · Gestion de la production · Humanitarian
+    logistics · Système de gestion de bases de données
 total_hours: '1.644'
 tools_intro: Strumenti interattivi che uso e sviluppo per la didattica.
 tools:
 - name: Bomberino
-  summary: 'Un banco di lavoro interattivo per gli algoritmi della ricerca operativa: simplesso primale
-    e duale, tagli di Gomory e branch-and-bound su piccoli problemi lineari e interi. Ogni pivot, bound,
-    taglio e ramificazione resta tracciato in frazioni esatte, e l''esercizio svolto si esporta in LaTeX.'
+  summary: 'Un banco di lavoro interattivo per gli algoritmi della ricerca operativa: simplesso primale e duale,
+    tagli di Gomory e branch-and-bound su piccoli problemi lineari e interi. Ogni pivot, bound, taglio e ramificazione
+    resta tracciato in frazioni esatte, e l''esercizio svolto si esporta in LaTeX.'
   url: https://fciccarelli.com/bomberino
   note: Realizzato con Fabio Ciccarelli
