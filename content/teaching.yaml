@@ -108,21 +108,6 @@ courses:
     wip: true
     repo: https://github.com/fabiofurini/algoritmi
   notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
-- name: Mathematical Analysis 1
-  original: Analisi matematica 1
-  level: Bachelor's degree
-  where: Sapienza University of Rome
-  since: 2021–2024
-  detail: lecture notes with proofs and exercises
-  sites:
-  - label: Mathematical Analysis 1
-    lang: EN
-    url: https://fabiofurini.github.io/mathematical-analysis-1/
-    repo: https://github.com/fabiofurini/mathematical-analysis-1
-  - label: Analisi Matematica 1
-    lang: IT
-    url: https://fabiofurini.github.io/analisi-matematica-1/
-    repo: https://github.com/fabiofurini/analisi-matematica-1
 - name: Linear Algebra
   original: Algebra lineare
   level: Bachelor's degree
@@ -138,6 +123,21 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/algebra-lineare/
     repo: https://github.com/fabiofurini/algebra-lineare
+- name: Mathematical Analysis 1
+  original: Analisi matematica 1
+  level: Bachelor's degree
+  where: Sapienza University of Rome
+  since: 2021–2024
+  detail: lecture notes with proofs and exercises
+  sites:
+  - label: Mathematical Analysis 1
+    lang: EN
+    url: https://fabiofurini.github.io/mathematical-analysis-1/
+    repo: https://github.com/fabiofurini/mathematical-analysis-1
+  - label: Analisi Matematica 1
+    lang: IT
+    url: https://fabiofurini.github.io/analisi-matematica-1/
+    repo: https://github.com/fabiofurini/analisi-matematica-1
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
