@@ -119,14 +119,11 @@ courses:
   - label: Algoritmi
     lang: IT
     url: https://fabiofurini.github.io/algoritmi/
-    wip: true
     repo: https://github.com/fabiofurini/algoritmi
   - label: Algorithms
     lang: EN
     url: https://fabiofurini.github.io/algorithms/
-    wip: true
     repo: https://github.com/fabiofurini/algorithms
-  notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
 - name: Algebra lineare
   original: ''
   level: Laurea triennale
