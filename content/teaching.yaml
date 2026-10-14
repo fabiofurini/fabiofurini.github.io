@@ -7,7 +7,7 @@ courses:
   level: Master's degree · Management Engineering
   where: Sapienza University of Rome
   since: '2021'
-  detail: 120 hours · about 300 students per year
+  detail: integer programming, combinatorial optimization, polyhedral methods and exact algorithms
   notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
   sites:
   - label: Integer Linear Programming
@@ -43,7 +43,7 @@ courses:
   level: ''
   where: Sapienza University of Rome
   since: ''
-  detail: continuous optimization models (LP, QP, NLP) with case studies, Python and Gurobi
+  detail: continuous optimization (LP, QP and NLP), case studies, Python and Gurobi
   sites:
   - label: Operations Research Lab
     lang: EN
@@ -58,8 +58,7 @@ courses:
   level: ''
   where: Sapienza University of Rome
   since: ''
-  detail: graphs, minimum spanning trees, shortest paths, maximum flow, minimum-cost flow, transportation and assignment,
-    network simplex and project management
+  detail: graph algorithms for spanning trees, shortest paths, flows, transportation, assignment and project planning
   sites:
   - label: Network Optimization
     lang: EN
@@ -77,7 +76,7 @@ courses:
   level: ''
   where: Sapienza University of Rome
   since: ''
-  detail: lecture notes, a catalogue of LP problems and exercises with solutions
+  detail: linear programming, the simplex method, duality and exercises with worked solutions
   sites:
   - label: Linear Programming
     lang: EN
@@ -95,7 +94,7 @@ courses:
   level: ''
   where: Sapienza University of Rome
   since: ''
-  detail: lecture notes, exercises, slides and interactive graphs
+  detail: convex sets and functions, optimality conditions, algorithms, exercises and interactive graphs
   sites:
   - label: Convex Optimization
     lang: EN
@@ -113,8 +112,7 @@ courses:
   level: ''
   where: Sapienza University of Rome
   since: ''
-  detail: number representation, pseudo-code, C++, Python and Java, sorting and searching, asymptotic notation,
-    analysis and recursive algorithms, with interactive graphs
+  detail: 'algorithm design and analysis: sorting, searching, asymptotic notation, recursion and interactive graphs'
   sites:
   - label: Algorithms
     lang: EN
@@ -129,7 +127,7 @@ courses:
   level: Bachelor's degree
   where: Sapienza University of Rome
   since: ''
-  detail: lecture notes, exercises and an interactive computation lab
+  detail: vectors, matrices, linear systems and eigenvalues, with an interactive computation lab
   sites:
   - label: Linear Algebra
     lang: EN
@@ -144,7 +142,7 @@ courses:
   level: Bachelor's degree
   where: Sapienza University of Rome
   since: 2021–2024
-  detail: lecture notes with proofs and exercises
+  detail: limits, derivatives and series, with proofs and exercises
   sites:
   - label: Mathematical Analysis 1
     lang: EN

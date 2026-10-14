@@ -7,7 +7,7 @@ courses:
   level: Laurea magistrale · Ingegneria gestionale
   where: Sapienza Università di Roma
   since: dal 2021
-  detail: 120 ore · circa 300 studenti l'anno
+  detail: programmazione intera, ottimizzazione combinatoria, metodi poliedrali e algoritmi esatti
   notice: 'I siti segnati con 🚧 sono in costruzione: il materiale viene completato e rivisto nel corso dell''anno.'
   sites:
   - label: Programmazione Lineare Intera
@@ -43,7 +43,7 @@ courses:
   level: ''
   where: Sapienza Università di Roma
   since: ''
-  detail: modelli di ottimizzazione continua (PL, PQ, PNL) con casi di studio, Python e Gurobi
+  detail: ottimizzazione continua (PL, PQ e PNL), casi di studio, Python e Gurobi
   sites:
   - label: Laboratorio di Ricerca Operativa
     lang: IT
@@ -58,8 +58,7 @@ courses:
   level: ''
   where: Sapienza Università di Roma
   since: ''
-  detail: grafi, alberi ricoprenti minimi, cammini minimi, flusso massimo, flusso a costo minimo, trasporto e assegnamento,
-    simplesso su reti e gestione dei progetti
+  detail: 'algoritmi su grafi: alberi ricoprenti, cammini minimi, flussi, trasporto, assegnamento e pianificazione dei progetti'
   sites:
   - label: Ottimizzazione su Reti
     lang: IT
@@ -77,7 +76,7 @@ courses:
   level: ''
   where: Sapienza Università di Roma
   since: ''
-  detail: dispense, catalogo di problemi di PL ed esercizi con soluzioni
+  detail: programmazione lineare, metodo del simplesso, dualità ed esercizi con soluzioni svolte
   sites:
   - label: Programmazione Lineare
     lang: IT
@@ -95,7 +94,7 @@ courses:
   level: ''
   where: Sapienza Università di Roma
   since: ''
-  detail: dispense, esercizi, slide e grafici interattivi
+  detail: insiemi e funzioni convesse, condizioni di ottimalità, algoritmi, esercizi e grafici interattivi
   sites:
   - label: Ottimizzazione Convessa
     lang: IT
@@ -113,8 +112,7 @@ courses:
   level: ''
   where: Sapienza Università di Roma
   since: ''
-  detail: rappresentazione dei numeri, pseudocodice, linguaggi C++, Python e Java, ordinamento e ricerca, notazione
-    asintotica, analisi e algoritmi ricorsivi, con grafici interattivi
+  detail: 'progettazione e analisi degli algoritmi: ordinamento, ricerca, notazione asintotica, ricorsione e grafici interattivi'
   sites:
   - label: Algoritmi
     lang: IT
@@ -129,7 +127,7 @@ courses:
   level: Laurea triennale
   where: Sapienza Università di Roma
   since: ''
-  detail: dispense, esercizi e un laboratorio di calcolo interattivo
+  detail: vettori, matrici, sistemi lineari e autovalori, con un laboratorio interattivo di calcolo
   sites:
   - label: Algebra Lineare
     lang: IT
@@ -144,7 +142,7 @@ courses:
   level: Laurea triennale
   where: Sapienza Università di Roma
   since: 2021–2024
-  detail: dispense con dimostrazioni ed esercizi
+  detail: limiti, derivate e serie, con dimostrazioni ed esercizi
   sites:
   - label: Analisi Matematica 1
     lang: IT
