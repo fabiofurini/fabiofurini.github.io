@@ -208,6 +208,11 @@ def build():
         if guide_dir.is_dir():
             shutil.copytree(guide_dir, DIST / guide_name, dirs_exist_ok=True)
 
+    # Preserve the poster competition portal during site rebuilds.
+    awards = ROOT / 'static' / 'mip-poster-awards'
+    if awards.is_dir():
+        shutil.copytree(awards, DIST / 'mip-poster-awards', dirs_exist_ok=True)
+
     (DIST / '.nojekyll').write_text('')
     urls = ''.join(f"<url><loc>{site['url']}{u}</loc></url>" for u in all_urls)
     (DIST / 'sitemap.xml').write_text(
