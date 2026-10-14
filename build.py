@@ -213,8 +213,28 @@ def build():
     (DIST / 'sitemap.xml').write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
         encoding='utf-8')
+    # Course sitemaps are served by separate GitHub Pages repositories.
+    course_sitemaps = [
+        'sitemap.xml',
+        'linear-algebra/sitemap.xml',
+        'algebra-lineare/sitemap.xml',
+        'mathematical-analysis-1/sitemap.xml',
+        'analisi-matematica-1/sitemap.xml',
+        'mip-modelling/sitemap.xml',
+        'modellazione-mip/sitemap.xml',
+        'operations-research-lab/sitemap.xml',
+    ]
+    sitemap_entries = '\n'.join(
+        f"  <sitemap><loc>{site['url']}/{path}</loc></sitemap>"
+        for path in course_sitemaps
+    )
+    (DIST / 'sitemap_index.xml').write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + sitemap_entries + '\n</sitemapindex>\n', encoding='utf-8')
     (DIST / 'robots.txt').write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n", encoding='utf-8')
+        f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap_index.xml\n",
+        encoding='utf-8')
 
     size = sum(f.stat().st_size for f in DIST.rglob('*') if f.is_file())
     npdf = len(list((DIST / 'papers').glob('*.pdf')))
