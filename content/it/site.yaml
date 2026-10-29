@@ -54,7 +54,6 @@ currently:
 
 # Standalone interactive teaching guides (static/<name>/, copied by build.py), listed on the home page.
 guides:
-  - {text: "Decomposizioni Boolean rank-one: AWCD, pseudoforeste e matching", url: "/boolean-rank-one-bounds/"}
   - {text: "Guida visuale al big-M <i>(in inglese)</i>", url: "/big-m-guide/"}
   - {text: "Disuguaglianze supervalide <i>(in inglese)</i>", url: "/supervalid-guide/"}
   - {text: "Come si rafforzano i tagli di Benders <i>(in inglese)</i>", url: "/benders-cut-guide/"}
