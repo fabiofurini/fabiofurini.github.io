@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>La catena completa · Boolean rank-one: AWCD, pseudoforeste e matching</title>
+<meta name="description" content="Guida visuale e interattiva alle relazioni fra il problema AWCD ancorato, il rilassamento unilaterale, il matroide bicircolare, il matching bipartito e il matroide grafico nella decomposizione di matrici in fattori Boolean rank-one.">
+<link rel="stylesheet" href="assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="en/catena.html" hreflang="en" lang="en" title="Read this page in English">English</a><a class="home" href="index.html">Guida visuale · decomposizioni Boolean rank-one</a><div class="ctitle"><span class="k">G</span> La catena completa</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Indice">
+  <div class="title">Indice</div>
+  <a href="index.html"><span class="k">·</span><span class="t">Il problema</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">Dalla matrice al grafo</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Fattori Boolean rank-one</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errori e rilassamento</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primale e duale</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">Dal bicircolare al matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">Il matching bound di AWCD</span></a>
+  <a href="catena.html" class="active" aria-current="page"><span class="k">G</span><span class="t">La catena completa</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Due matroidi diversi</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Esempi numerici</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratorio</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossario</span></a>
+</nav>
+<main>
+<section class="chapter" id="catena">
+<div class="kicker"><b>G</b> Capitolo G</div>
+<h2>La catena completa</h2>
+<p class="lead">Tutti i capitoli precedenti si riassumono in una sola riga. Sei relazioni collegano sette quantità:
+cinque sono uguaglianze, <b>una sola</b> è una disuguaglianza.</p>
+<div class="goal"><b>In questo capitolo:</b> la catena interattiva, con il valore di ogni anello sull'esempio scelto e
+la ragione matematica di ogni freccia; poi una seconda dimostrazione di $\LB=M$, tutta algebrica, che passa per i
+potenziali marginali e non usa i matroidi.</div>
+
+<h3>1. La catena</h3>
+<div class="eq">$$\begin{aligned}\Efull(\Gamma)\ &\overset{(1)}{=}\ z^*_{\mathrm{AWCD}}\ \overset{(2)}{\color{#b42318}{\boldsymbol{\ge}}}\ \LB\ \overset{(3)}{=}\ \val(R)-\gamma\\ &\overset{(4)}{=}\ w(F^*)-\gamma\ \overset{(5)}{=}\ M\ \overset{(6)}{=}\ \text{matching bound AWCD}\end{aligned}$$</div>
+<p>I simboli, in breve. $\Efull(\Gamma)$ è il minimo errore $L^1$ sul triangolo superiore (diagonale inclusa) di una
+combinazione conica $H=\sum_U p_U X_U$ di fattori $X_U=\one_U\one_U^\top$. $z^*_{\mathrm{AWCD}}$ è il valore della fase
+A di AWCD con una radice. $\gamma=\sum_i\Gamma_{ii}$ è la traccia.</p>
+<p>$\val(R)$ è il valore del rilassamento unilaterale $R$; $\LB$ è il lower bound che ne deriva. $F^*$ è la
+pseudoforesta di peso massimo e $w(F^*)$ il suo peso. $M$ è il massimo matching dei guadagni
+$(\Gamma_{ij}-\Gamma_{vv})^+$, con $(t)^+=\max(t,0)$.</p>
+
+<figure class="fig">
+  <div class="controls"><span class="small muted">Esempio</span><span id="ct-ex1"></span><button type="button" class="btn" id="ct-rnd1">↻ nuova 4×4</button></div>
+  <div id="ct-gamma" class="ct-gamma"></div>
+  <div id="ct-chain"></div>
+  <div class="legend ct-leg"><span><i class="ct-sw iseq">=</i>uguaglianza, vale per ogni $\Gamma$</span><span><i class="ct-sw geq">≥</i>disuguaglianza: l'unica della catena</span><span><i class="ct-sw gap"></i>gap $\Efull-\LB$</span></div>
+  <figcaption>Clicca un blocco per vedere da dove viene il suo numero, o una relazione per la sua dimostrazione.</figcaption>
+  <div id="ct-panel" class="ct-panel" aria-live="polite"></div>
+</figure>
+
+<div class="box key"><div class="h">Idea chiave</div>
+<p>Tutto il blocco in basso è <b>un solo numero</b>, visto da quattro lati: rilassamento, matroide, matching,
+certificato duale. L'unica perdita sta nel passaggio (2): rendere gratuita la sovrastima fuori diagonale.</p>
+</div>
+
+<div class="box warn"><div class="h">Attenzione</div>
+<p>Uguaglianza dei bound non significa esattezza. Sul $3\times3$ i quattro lati del blocco in basso valgono tutti
+$2$, ma $\Efull=3$.</p>
+</div>
+
+<h3>2. Una seconda dimostrazione: i potenziali marginali</h3>
+<p>Le relazioni (4) e (5) passano per il matroide bicircolare. Esiste anche una strada diretta da $R$ al matching,
+con soli cambi di variabile e dualità LP.</p>
+<p>Il <b>potenziale marginale</b> del vertice $i$ è la somma dei pesi dei fattori che lo contengono:</p>
+<div class="eq">$$\alpha_i=\sum_{U\ni i}p_U=H_{ii}(p).$$</div>
+<p>In $R$ il costo dei fattori è $\sum_U|U|\,p_U=\sum_i\alpha_i$: dipende <b>solo</b> dalle marginali.</p>
+
+<h4>La catena dei superlivelli copre ogni coppia il più possibile</h4>
+<p>Dati $\alpha$, ordiniamo i valori distinti $0<\theta_1<\dots<\theta_k$ e prendiamo gli insiemi di superlivello
+$S_t=\{v:\alpha_v\ge\theta_t\}$ con peso $\theta_t-\theta_{t-1}$ (e $\theta_0=0$). Questi insiemi sono annidati:
+una <b>catena</b>.</p>
+<p>La catena ha le stesse marginali $\alpha$ e copre la coppia $\{i,j\}$ esattamente $\min(\alpha_i,\alpha_j)$.
+Nessuna $p$ con marginali $\alpha$ fa meglio, perché $H_{ij}\le\min(H_{ii},H_{jj})$.</p>
+
+<figure class="fig">
+  <div class="controls"><span class="small muted">Esempio</span><span id="ct-ex2"></span><button type="button" class="btn" id="ct-rnd2">↻ nuova 4×4</button></div>
+  <div class="controls"><span class="small muted">Coppia</span><span id="ct-pair"></span></div>
+  <div id="ct-bars"></div>
+  <div class="controls" id="ct-alpha"></div>
+  <div class="legend"><span><i class="ct-sw lay"></i>insiemi della catena</span><span><i class="ct-sw cov"></i>copertura $\min(\alpha_i,\alpha_j)$</span><span><i class="ct-sw dia"></i>soglia $\Gamma_{ii}$</span><span><i class="ct-sw und"></i>$q_{ij}$, sottostima pagata</span></div>
+  <figcaption>Le barre partono dall'ottimo di $R$; con ＋/− cambi le marginali e vedi il costo $\sum_i\alpha_i+\sum_{i\lt j}q_{ij}-\gamma$.</figcaption>
+  <div id="ct-cost" class="ct-cost"></div>
+</figure>
+
+<details class="proof"><summary>Dimostrazione: copertura della catena $=\min(\alpha_i,\alpha_j)$</summary>
+<p>Il vertice $v$ sta in $S_t$ se e solo se $\theta_t\le\alpha_v$. Quindi la sua marginale nella catena è
+$\sum_{t:\,\theta_t\le\alpha_v}(\theta_t-\theta_{t-1})=\alpha_v$ (somma telescopica).</p>
+<p>La coppia $\{i,j\}$ sta in $S_t$ se e solo se $\theta_t\le\alpha_i$ e $\theta_t\le\alpha_j$, cioè
+$\theta_t\le\min(\alpha_i,\alpha_j)$; la stessa somma telescopica dà $\min(\alpha_i,\alpha_j)$.</p>
+<p>Per una $p$ qualsiasi, ogni $U\supseteq\{i,j\}$ contiene $i$ e $j$: dunque $H_{ij}\le\alpha_i$ e
+$H_{ij}\le\alpha_j$.</p>
+</details>
+
+<h4>La formulazione compatta</h4>
+<p>In $R$ la sovrastima fuori diagonale è gratuita: conviene coprire ogni coppia il più possibile. Basta quindi
+scegliere $\alpha$ e prendere la catena. $R$ diventa un LP con $n+\binom n2$ variabili:</p>
+<div class="eq">$$\begin{aligned}\val(R)=\min\ &\sum_i\alpha_i+\sum_{i\lt j}q_{ij}\\ \text{s.t.}\ &\alpha_i\ge\Gamma_{ii}\ \ (i\in V),\qquad \alpha_i+q_{ij}\ge\Gamma_{ij},\ \ \alpha_j+q_{ij}\ge\Gamma_{ij}\ \ (i\lt j),\qquad q\ge0 .\end{aligned}$$</div>
+<p>Il vincolo $\min(\alpha_i,\alpha_j)+q_{ij}\ge\Gamma_{ij}$ si è spezzato in due vincoli lineari, uno per estremo.</p>
+
+<h4>Cambio di variabili: l'eccesso diagonale</h4>
+<p>Poniamo $\beta_i=\alpha_i-\Gamma_{ii}\ge0$, l'eccesso di copertura sulla diagonale. Allora
+$\sum_i\alpha_i=\sum_i\beta_i+\gamma$ e la $\gamma$ si cancella con quella di $\LB$:</p>
+<div class="eq">$$\begin{aligned}\LB=\val(R)-\gamma=\min\ &\sum_i\beta_i+\sum_{i\lt j}q_{ij}\\ \text{s.t.}\ &\beta_i+q_{ij}\ge\Gamma_{ij}-\Gamma_{ii},\ \ \beta_j+q_{ij}\ge\Gamma_{ij}-\Gamma_{jj}\ \ (i\lt j),\qquad \beta,q\ge0 .\end{aligned}$$</div>
+
+<h4>Il duale è il matching bipartito</h4>
+<p>Diamo una variabile duale $y_{ij,i}\ge0$ al vincolo dell'estremo $i$ della coppia $\{i,j\}$ (e $y_{ij,j}$
+all'altro); in generale $y_{e,v}$ è la variabile della coppia arco $e$, estremo $v\in e$. Le colonne di
+$\beta_v$ e di $q_{ij}$ danno i vincoli duali:</p>
+<div class="eq">$$\begin{aligned}\max\ &\sum_{i\lt j}\Bigl[(\Gamma_{ij}-\Gamma_{ii})\,y_{ij,i}+(\Gamma_{ij}-\Gamma_{jj})\,y_{ij,j}\Bigr]\\ \text{s.t.}\ &\underbrace{\sum_{e\ni v}y_{e,v}\le1}_{\text{colonna }\beta_v},\qquad \underbrace{y_{ij,i}+y_{ij,j}\le1}_{\text{colonna }q_{ij}},\qquad y\ge0 .\end{aligned}$$</div>
+<p>È il matching frazionario nel grafo bipartito archi ↔ vertici: capacità 1 per vertice (dalle $\beta$), capacità 1
+per arco (dalle $q$).</p>
+<p>La matrice dei vincoli è la matrice di incidenza di un grafo bipartito, quindi è <b>totalmente unimodulare</b>:
+ogni sua sottomatrice quadrata ha determinante $0$, $+1$ o $-1$. Con termini noti interi l'LP ha un ottimo intero:
+un vero matching. Le coppie con guadagno negativo restano a zero, e il valore è $M$.</p>
+
+<div class="box thm"><div class="h">Conclusione</div>
+<p>$\LB=\val(R)-\gamma=M$, senza passare per i matroidi. Le $y_{ij,v}=1$ dell'ottimo sono proprio le coppie del
+certificato di AWCD del capitolo F: $+1$ sull'arco $\{i,j\}$, $-1$ sull'arco radice $(r,v)$.</p>
+</div>
+
+<details class="proof"><summary>Vedi la matrice dei vincoli sull'esempio scelto</summary>
+<p class="small">Righe: un vincolo per coppia $(\{i,j\},v)$. Colonne: le variabili $\beta_v$ e $q_{ij}$. Ogni riga ha
+esattamente un 1 nel blocco $\beta$ e uno nel blocco $q$. In arancio le righe con $y_{ij,v}=1$ nel matching
+ottimo.</p>
+<div id="ct-tu"></div>
+</details>
+
+<div class="box note"><div class="h">Cosa portarsi a casa</div>
+<ul>
+<li>$\Efull=z^*\ge\LB=\val(R)-\gamma=w(F^*)-\gamma=M=$ matching bound di AWCD. L'unica disuguaglianza è la (2).</li>
+<li>Il gap nasce solo dalla sovrastima fuori diagonale, che $R$ rende gratuita.</li>
+<li>In $R$ contano solo le marginali $\alpha$: la catena dei superlivelli copre la coppia $\{i,j\}$ esattamente
+$\min(\alpha_i,\alpha_j)$.</li>
+<li>Con $\beta_i=\alpha_i-\Gamma_{ii}$ il duale di $R$ è un matching bipartito, intero per totale
+unimodularità.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Capitoli"><a class="prev" href="matching-bound-awcd.html"><small>← precedente</small><span>F · Il matching bound di AWCD</span></a><a class="next" href="matroidi.html"><small>successivo →</small><span>H · Due matroidi diversi</span></a></nav>
+</main>
+</div>
+<footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calcolati nel browser.</footer>
+<script src="assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="assets/core.js?v=20261029153129"></script>
+<script src="assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="assets/ch-catena.js?v=20261029153129"></script>
+<script src="assets/app.js?v=20261029153129"></script>
+</body>
+</html>

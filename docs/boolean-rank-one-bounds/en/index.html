@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero"><a class="langsw" href="../index.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a>
+  <div class="eyebrow">AWCD · pseudoforests · matching</div>
+  <h1>Boolean rank-one decompositions</h1>
+  <p>A visual guide: one problem, two approaches, one shared bound. Every step is drawn and can be checked.</p>
+</header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html" class="active" aria-current="page"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter home" id="intro">
+  <div class="kicker"><b>·</b> The problem</div>
+  <h2>Approximating a matrix with 0/1 factors</h2>
+  <p class="lead">A summary in three steps: what we are looking for, three examples, the formulation.</p>
+
+  <div class="step">
+    <div class="num">1</div>
+    <div class="body">
+      <h3>What we are looking for</h3>
+      <p>We are given a symmetric $n\times n$ matrix $\Gamma$ with entries $\Gamma_{ij}\ge 0$.
+      Every nonempty subset $U\subseteq\{1,\dots,n\}$ gives a <b>factor</b> $X_U$: the 0/1 matrix equal to 1
+      in the cells $(i,j)$ with $i,j\in U$.</p>
+      <p>We look for weights $p_U\ge 0$ such that $H=\sum_U p_U X_U$ is as close as possible to $\Gamma$, summing
+      the errors $|\Gamma_{ij}-H_{ij}|$ over the upper triangle, diagonal included.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <div class="body">
+      <h3>Three examples</h3>
+      <div class="controls" id="intro-ex-tabs"></div>
+      <figure class="fig plain">
+        <div id="intro-ex"></div>
+        <div class="legend" id="intro-ex-legend"></div>
+        <figcaption id="intro-ex-cap"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <div class="body">
+      <h3>The formulation</h3>
+      <div class="eq">$$\begin{aligned}\Efull(\Gamma)=\min\ &\sum_{i\le j}\bigl(s^+_{ij}+s^-_{ij}\bigr)\\
+      \text{s.t.}\ &\sum_{U\supseteq\{i,j\}}p_U+s^+_{ij}-s^-_{ij}=\Gamma_{ij}\quad (i\le j),\qquad p,s^\pm\ge 0\end{aligned}$$</div>
+      <p class="small muted">$s^+_{ij}$ = underestimate, $s^-_{ij}$ = overestimate. One variable $p_U$ per subset:
+      $2^n-1$ in total.</p>
+    </div>
+  </div>
+
+  <div class="step last">
+    <div class="num">→</div>
+    <div class="body">
+      <h3>The route</h3>
+      <p>The pseudoforest lower bound and the AWCD matching bound are <b>the same number</b>, but in general
+      they are not the optimum:</p>
+      <div class="eq">$$\Efull(\Gamma)\ \textcolor{#b42318}{\boldsymbol{\ge}}\ \LB=M$$</div>
+      <div class="cards" id="intro-cards"></div>
+    </div>
+  </div>
+</section>
+<nav class="pager" aria-label="Chapters"><span></span><a class="next" href="matrice-grafo.html"><small>next →</small><span>A · From matrix to graph</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-intro.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

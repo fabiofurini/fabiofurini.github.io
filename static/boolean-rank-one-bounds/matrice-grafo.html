@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dalla matrice al grafo · Boolean rank-one: AWCD, pseudoforeste e matching</title>
+<meta name="description" content="Guida visuale e interattiva alle relazioni fra il problema AWCD ancorato, il rilassamento unilaterale, il matroide bicircolare, il matching bipartito e il matroide grafico nella decomposizione di matrici in fattori Boolean rank-one.">
+<link rel="stylesheet" href="assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="en/matrice-grafo.html" hreflang="en" lang="en" title="Read this page in English">English</a><a class="home" href="index.html">Guida visuale · decomposizioni Boolean rank-one</a><div class="ctitle"><span class="k">A</span> Dalla matrice al grafo</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Indice">
+  <div class="title">Indice</div>
+  <a href="index.html"><span class="k">·</span><span class="t">Il problema</span></a>
+  <a href="matrice-grafo.html" class="active" aria-current="page"><span class="k">A</span><span class="t">Dalla matrice al grafo</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Fattori Boolean rank-one</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errori e rilassamento</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primale e duale</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">Dal bicircolare al matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">Il matching bound di AWCD</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">La catena completa</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Due matroidi diversi</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Esempi numerici</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratorio</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossario</span></a>
+</nav>
+<main>
+<section class="chapter" id="matrice-grafo">
+<style>
+  #matrice-grafo .d .hit { stroke: transparent; stroke-width: 18; fill: none; pointer-events: stroke; cursor: pointer; }
+  #matrice-grafo .d .fade { opacity: .28; transition: opacity .15s; }
+  #matrice-grafo .d [data-k] { cursor: pointer; }
+  #matrice-grafo .d .cell.hl rect { stroke: #1d2433; stroke-width: 3.5; }
+  #matrice-grafo .d .wl { font-size: 16px; }
+  #matrice-grafo .d .wl.hl { font-size: 17px; font-weight: 800; }
+  #matrice-grafo .d .ghost-root { fill: none; stroke: var(--root); stroke-width: 2; stroke-dasharray: 4 4; }
+  #matrice-grafo .d .badge { font: italic 600 14px var(--serif); fill: var(--diag); text-anchor: middle; dominant-baseline: central; paint-order: stroke; stroke: #fff; stroke-width: 5px; }
+  #matrice-grafo .d .badge.hl { font-size: 16.5px; font-weight: 800; }
+  #matrice-grafo .d .qmark { font: 700 13px var(--sans); fill: var(--diag); text-anchor: middle; dominant-baseline: central; }
+  #matrice-grafo table.t tr[data-k] { cursor: pointer; transition: background .15s; }
+  #matrice-grafo table.t tr.hlrow td { background: #fff4d6; }
+  #matrice-grafo table.t td.dg { color: var(--diag); font-weight: 700; }
+  #matrice-grafo table.t td.of { color: var(--off); font-weight: 700; }
+  #matrice-grafo table.t tr.tot td { font-weight: 700; background: #f8f9fc; }
+  #matrice-grafo .verdict { font-size: 14.5px; min-height: 1.5em; margin: 4px 2px 0; }
+  #matrice-grafo .psub { font-size: 14px; color: var(--ink-2); margin: 4px 2px 0; }
+  #matrice-grafo .tstate { font-size: 14.5px; color: var(--ink-2); min-height: 3.2em; margin: 6px 2px 0; }
+  #matrice-grafo .panel.mid { border-color: var(--root); box-shadow: 0 0 0 2px var(--root-bg) inset; }
+  #matrice-grafo .tablewrap { overflow-x: auto; }
+  #matrice-grafo .fig-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 760px) { #matrice-grafo .fig-row.three { grid-template-columns: 1fr; } }
+</style>
+<div class="kicker"><b>A</b> Capitolo A</div>
+<h2>Dalla matrice al grafo</h2>
+<p class="lead">Una matrice simmetrica $n\times n$ contiene $n(n+1)/2$ numeri: $n$ sulla diagonale e $n(n-1)/2$ fuori.
+I numeri fuori diagonale diventano pesi di archi. Per i numeri sulla diagonale ci sono due codifiche naturali: sono
+proprio quelle dei due manoscritti.</p>
+<div class="goal"><b>In questo capitolo:</b> leggere $\Gamma$ come grafo pesato; vedere il loop $\ell_i$
+(codifica delle pseudoforeste) e l'arco radice $(r,i)$ (codifica di AWCD, <i>Anchored Weighted Clique
+Decomposition</i>) come due modi di scrivere lo stesso numero $\Gamma_{ii}$; capire perché
+le due codifiche portano gli stessi dati ma non la stessa struttura combinatoria.</div>
+
+<h3>Fuori diagonale: un arco per ogni coppia</h3>
+<p>Sia $V=\{1,\dots,n\}$ l'insieme degli indici e sia $\Gamma\in\mathbb R^{n\times n}_{\ge 0}$ una matrice
+simmetrica a valori non negativi. Per $i&lt;j$ il numero $\Gamma_{ij}=\Gamma_{ji}$ diventa il peso $w_{ij}$ dell'arco
+$\{i,j\}$ del grafo completo su $V$.</p>
+<p>Per la simmetria basta il triangolo superiore: ogni coppia si conta una volta sola. Le coppie sono
+$\binom n2=n(n-1)/2$.</p>
+<p>In questo capitolo usiamo una matrice con sei valori tutti distinti, così ogni numero si riconosce a colpo
+d'occhio. Dal capitolo C in poi useremo l'esempio di riferimento della guida.</p>
+
+<figure class="fig">
+  <div class="fig-row">
+    <div class="panel"><div class="ptitle">La matrice $\Gamma$</div><div id="mg-matrix"></div>
+      <div class="legend"><span><i class="sw diag"></i>diagonale $\Gamma_{ii}$</span><span><i class="sw off"></i>fuori diagonale $\Gamma_{ij}$</span></div></div>
+    <div class="panel"><div class="ptitle">Il grafo completo su $V=\{1,2,3\}$</div><div id="mg-base"></div>
+      <div class="legend"><span><i class="sw off"></i>arco $\{i,j\}$, peso $\Gamma_{ij}$</span><span><i class="sw diag"></i>$\Gamma_{ii}$: ancora senza posto</span></div></div>
+  </div>
+  <figcaption>Passa il mouse su una cella, un arco o un numero: lo stesso dato si illumina ovunque (un clic lo fissa).</figcaption>
+</figure>
+
+<h3>Diagonale: due codifiche</h3>
+<p>Un grafo semplice non ha un posto per $\Gamma_{ii}$. Ci sono due modi naturali per darglielo.</p>
+<div class="compare">
+  <div><h4>(1) Pseudoforeste: un loop per vertice</h4>
+    <p>Si aggiunge un <b>loop</b> $\ell_i$ (un arco che parte e torna in $i$) con peso $w_{\ell_i}=\Gamma_{ii}$.</p>
+    <p>Gli elementi sono $n$ loop e $\binom n2$ archi. Un loop è già un ciclo.</p></div>
+  <div><h4>(2) AWCD: una radice in più</h4>
+    <p>Si aggiunge un vertice <b>radice</b> $r$ (nel manoscritto anche $i_0$). Il <b>grafo bordato</b> è il grafo
+    completo su $V\cup\{r\}$, con $w_{ri}=\Gamma_{ii}$ e $w_{ij}=\Gamma_{ij}$.</p>
+    <p>L'<b>ancora</b> è $S=\{r\}$: il vertice che ogni clique di AWCD deve contenere. L'arco $(r,i)$ è un arco ordinario.</p></div>
+</div>
+
+<figure class="fig">
+  <div class="controls" id="mg-ctl"></div>
+  <div class="fig-row three">
+    <div class="panel"><div class="ptitle">(1) Loop $\ell_i$</div><div id="mg-loops"></div>
+      <div class="verdict" id="mg-v-loops"></div></div>
+    <div class="panel mid"><div class="ptitle">Transizione</div><div id="mg-morph"></div>
+      <div class="tstate" id="mg-tstate"></div></div>
+    <div class="panel"><div class="ptitle">(2) Arco radice $(r,i)$</div><div id="mg-root"></div>
+      <div class="verdict" id="mg-v-root"></div></div>
+  </div>
+  <div class="legend"><span><i class="sw diag"></i>loop $\ell_i$ / arco radice $(r,i)$, peso $\Gamma_{ii}$</span><span><i class="sw off"></i>arco $\{i,j\}$, peso $\Gamma_{ij}$</span><span><i class="sw root"></i>radice $r$</span></div>
+  <figcaption>Ogni loop $\ell_i$ si allunga fino alla radice e diventa l'arco $(r,i)$, con lo stesso peso $\Gamma_{ii}$.</figcaption>
+  <details class="proof"><summary>Tabella di corrispondenza</summary>
+  <div class="tablewrap">
+  <table class="t" id="mg-table" aria-label="Corrispondenza fra dati e elementi">
+    <thead><tr><th>Dato</th><th>Valore</th><th>(1) Pseudoforeste</th><th>(2) AWCD, grafo bordato</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  </details>
+</figure>
+
+<div class="box key"><div class="h">Stessi dati</div>
+<p>Le due codifiche sono in biiezione elemento per elemento:</p>
+<div class="eq">$$\Gamma_{ii}\ \longleftrightarrow\ \ell_i\ \longleftrightarrow\ (r,i),\qquad\qquad \Gamma_{ij}\ \longleftrightarrow\ \{i,j\}\ \ (i&lt;j).$$</div>
+<p>Entrambe hanno $n+\binom n2=\frac{n(n+1)}{2}$ elementi pesati, cioè esattamente i numeri del triangolo superiore
+di $\Gamma$. Per $n=3$: tre numeri diagonali e tre fuori diagonale, sei in tutto.</p>
+</div>
+
+<div class="box warn"><div class="h">Attenzione: stessi dati, struttura diversa</div>
+<p>La biiezione conserva i pesi, ma <b>non</b> dice quali insiemi di elementi sono «indipendenti». Questa
+informazione è un <b>matroide</b>, e le due codifiche suggeriscono matroidi diversi.</p>
+<ul>
+<li>Codifica (1): un loop è un ciclo da solo. Struttura naturale: il <b>matroide bicircolare</b>, i cui indipendenti
+sono le <b>pseudoforeste</b> (ogni componente connessa ha al più un ciclo).</li>
+<li>Codifica (2): $(r,i)$ è un arco come gli altri. Struttura naturale: il <b>matroide grafico</b> del grafo bordato,
+i cui indipendenti sono le <b>foreste</b> (nessun ciclo).</li>
+</ul>
+<p>Scegli un insieme e confronta il verdetto nei pannelli (1) e (2) qui sopra:</p>
+<div class="controls" id="mg-demo"></div>
+<div class="legend"><span><i class="sw exact"></i>insieme scelto, indipendente</span><span><i class="sw under"></i>insieme scelto, dipendente (contiene un circuito)</span></div>
+<p>Il triangolo è una pseudoforesta, ma nel grafo bordato è un ciclo. Con $\Gamma_{ii}=0$ e $\Gamma_{ij}=1$ su tre
+vertici, la pseudoforesta più pesante vale $3$ e la foresta più pesante del grafo bordato vale $2$. Ne parliamo nel
+capitolo H.</p>
+</div>
+
+<div class="box key"><div class="h">Cosa portarsi a casa</div>
+<ul>
+<li>Fuori diagonale: $\Gamma_{ij}$ è il peso dell'arco $\{i,j\}$ ($i&lt;j$); ogni coppia conta una volta.</li>
+<li>Diagonale, codifica delle pseudoforeste: $\Gamma_{ii}$ è il peso del loop $\ell_i$.</li>
+<li>Diagonale, codifica di AWCD: $\Gamma_{ii}$ è il peso dell'arco radice $(r,i)$ del grafo bordato su $V\cup\{r\}$.</li>
+<li>Le due codifiche portano gli stessi $n(n+1)/2$ numeri, ma un loop è un ciclo e un arco radice no: la struttura
+matroidale (bicircolare contro grafico) va scelta, non è automatica.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Capitoli"><a class="prev" href="index.html"><small>← precedente</small><span>Il problema</span></a><a class="next" href="fattori.html"><small>successivo →</small><span>B · Fattori Boolean rank-one</span></a></nav>
+</main>
+</div>
+<footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calcolati nel browser.</footer>
+<script src="assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="assets/core.js?v=20261029153129"></script>
+<script src="assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="assets/ch-matrice-grafo.js?v=20261029153129"></script>
+<script src="assets/app.js?v=20261029153129"></script>
+</body>
+</html>

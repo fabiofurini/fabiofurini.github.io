@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Two different matroids · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../matroidi.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">H</span> Two different matroids</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html" class="active" aria-current="page"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="matroidi">
+<style>
+  #matroidi .hx-id { list-style: none; padding: 0; margin: 6px 0 0; font-size: 15.5px; }
+  #matroidi .hx-id li { display: grid; grid-template-columns: 112px 1fr; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
+  #matroidi .hx-id li:first-child { border-top: 0; }
+  #matroidi .hx-id li > b { color: var(--ink-3); font-weight: 600; font-size: 13.5px; letter-spacing: .03em; text-transform: uppercase; padding-top: 2px; }
+  #matroidi .hx-col-bic { border-top: 4px solid var(--exact) !important; }
+  #matroidi .hx-col-gra { border-top: 4px solid var(--root) !important; }
+  #matroidi .hx-col-bic h4 { color: var(--exact); } #matroidi .hx-col-gra h4 { color: var(--root); }
+  #matroidi .hx-tag { display: inline-block; font: 700 12px var(--sans); letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; padding: 2px 9px; margin-left: 6px; vertical-align: 2px; }
+  #matroidi .hx-tag.bic { background: var(--exact-bg); color: var(--exact); } #matroidi .hx-tag.gra { background: var(--root-bg); color: var(--root); }
+  #matroidi .hx-step { font: 600 14px var(--mono); color: var(--ink-2); margin-left: 4px; }
+  #matroidi .hx-sidekpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin: 8px 0; }
+  #matroidi .hx-sidekpi .kpi .v { font-size: 20px; }
+  #matroidi .hx-trace .row { grid-template-columns: 22px 92px 22px 1fr; font-size: 14px; padding: 5px 10px; }
+  #matroidi .hx-trace .row .el { white-space: nowrap; }
+  #matroidi .d .loop.ghost { stroke: #c9d1df; stroke-width: 2; stroke-dasharray: 4 5; }
+  #matroidi .d .loop.thin { stroke-width: 1.8; opacity: .6; }
+  #matroidi .panel .legend { justify-content: center; font-size: 13px; margin: 2px 0 6px; }
+  #matroidi .hx-trace .row .el { font-family: var(--mono); font-weight: 600; }
+  #matroidi .hx-trace .row .el.d { color: var(--diag); } #matroidi .hx-trace .row .el.o { color: var(--off); }
+  #matroidi .hx-trace .row .why { color: var(--ink-2); font-size: 13.5px; line-height: 1.35; }
+  #matroidi .hx-trace .row.todo .why, #matroidi .hx-trace .row.todo .st { opacity: .45; }
+  #matroidi .hx-vline { display: flex; flex-wrap: wrap; gap: 10px 26px; justify-content: center; background: var(--soft); border-radius: 10px; padding: 10px 14px; margin: 10px 0; font-size: 16px; }
+  #matroidi details.small > summary { cursor: pointer; color: var(--brand-2); font-weight: 600; margin: 6px 0; }
+  #matroidi .hx-bal { margin-top: 14px; }
+  #matroidi .hx-bal td.n { font-family: var(--mono); font-weight: 700; text-align: right; white-space: nowrap; }
+  #matroidi .hx-bal td.c { text-align: center; white-space: nowrap; }
+  #matroidi .hx-gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 16px; margin-top: 8px; }
+  #matroidi .hx-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 12px; }
+  #matroidi .hx-card .ct { font-weight: 700; color: var(--brand); font-size: 15px; }
+  #matroidi .hx-card .cs { font: 13.5px var(--mono); color: var(--ink-3); margin-bottom: 4px; }
+  #matroidi .hx-card .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  #matroidi .hx-card .sub { font-size: 12px; text-align: center; color: var(--ink-3); margin-top: 2px; }
+  #matroidi .hx-card .vv { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+  #matroidi .hx-card .vv > div { border-radius: 8px; padding: 5px 8px; font-size: 13px; line-height: 1.35; }
+  #matroidi .hx-card .vv .y { background: var(--exact-bg); } #matroidi .hx-card .vv .n { background: var(--under-bg); }
+  #matroidi .hx-card .vv b { display: block; font-size: 15px; }
+  #matroidi .hx-card .vv .y b { color: var(--accept); } #matroidi .hx-card .vv .n b { color: var(--reject); }
+  #matroidi .d .edge, #matroidi .d .loop { transition: stroke .35s, stroke-width .35s, opacity .35s; }
+  @media (prefers-reduced-motion: reduce) { #matroidi .d .edge, #matroidi .d .loop { transition: none; } }
+</style>
+<div class="kicker"><b>H</b> Chapter H</div>
+<h2>The two matroids are not the same</h2>
+<p class="lead">In the AWCD bordered graph every loop $\ell_i$ becomes an edge $(r,i)$ to the root $r$. It looks as if
+pseudoforests thereby turn into forests. They do not, and the two optimal values measure different things.</p>
+<div class="goal"><b>In this chapter:</b> we compare the bicircular matroid and the graphic matroid, run them side by
+side on small graphs, and see why the value of the second is not a lower bound on the distance.</div>
+
+<h3>Two structures side by side</h3>
+<p>We start from the same matrix $\Gamma$ (symmetric, nonnegative, $n\times n$) and its trace
+$\gamma=\sum_i\Gamma_{ii}$. We build two weighted graphs and a matroid on each.</p>
+<div class="compare">
+  <div class="hx-col-bic">
+    <h4>Bicircular matroid <span class="hx-tag bic">relaxation $R$</span></h4>
+    <ul class="hx-id">
+      <li><b>Graph</b><span>Vertices $V=\{1,\dots,n\}$, one loop $\ell_i$ per vertex with weight $\Gamma_{ii}$, edges $\{i,j\}$ with weight $\Gamma_{ij}$.</span></li>
+      <li><b>Independent sets</b><span><em>Pseudoforests</em>: every component has at most one cycle (a loop counts as a cycle).</span></li>
+      <li><b>Origin</b><span>LP dual of the one-sided relaxation $(R)$.</span></li>
+      <li><b>Optimum</b><span>$F^*$, a maximum-weight pseudoforest (greedy): $w(F^*)=\val(R)$.</span></li>
+      <li><b>Bound</b><span>$\LB=w(F^*)-\gamma\le z^*$.</span></li>
+    </ul>
+  </div>
+  <div class="hx-col-gra">
+    <h4>Graphic matroid <span class="hx-tag gra">AWCD covering</span></h4>
+    <ul class="hx-id">
+      <li><b>Graph</b><span>Bordered graph: complete on $V\cup\{r\}$, root edges $(r,i)$ with weight $\Gamma_{ii}$, edges $\{i,j\}$ with weight $\Gamma_{ij}$.</span></li>
+      <li><b>Independent sets</b><span><em>Forests</em>: no cycles.</span></li>
+      <li><b>Origin</b><span>Dual of the AWCD covering over all subsets, with cost $|C|-1$.</span></li>
+      <li><b>Optimum</b><span>$T$, a maximum spanning forest (Kruskal): $\Zcov(w)=w(T)$.</span></li>
+      <li><b>Bound</b><span>$\Zcov(w)\le z^*+f_2^*$.</span></li>
+    </ul>
+  </div>
+</div>
+<p>Here $w(\cdot)$ is the total weight of a set of elements, $z^*=\Efull(\Gamma)$ is the optimal value of AWCD
+Stage A (the $L^1$ distance from the cone), and $f_2^*$ is the optimal value of Stage B. The precise definitions are
+in the box below.</p>
+
+<div class="box def"><div class="h">Definition · covering relaxation and Stage B</div>
+<p>Let $w$ be the weight vector of the bordered graph. The <em>covering relaxation</em> uses all subsets
+$C\subseteq V\cup\{r\}$ with $|C|\ge2$, not only those that contain $r$:</p>
+<div class="eq">$$\Zcov(w)=\min\Bigl\{\textstyle\sum_{C}(|C|-1)\,x_C:\ \sum_{C\supseteq e}x_C\ge w_e\ \text{for every edge } e,\ \ x\ge0\Bigr\}.$$</div>
+<p>Its dual is $\max\{w^\top y: y(E[C])\le|C|-1\ \forall C,\ y\ge0\}$, where $E[C]$ is the set of edges with both
+endpoints in $C$. This is the forest polytope, hence $\Zcov(w)=w(T)$.</p>
+<p>$f_2^*$ is the minimum of $\sum_C(|C|-1)x_C=\tr H$ over the optimal solutions of Stage A.</p>
+</div>
+
+<div class="box thm"><div class="h">Proposition 1 · forests and pseudoforests</div>
+<p>Read each loop $\ell_i$ as the edge $(r,i)$. The forests of the bordered graph are exactly the pseudoforests in
+which every cycle is a loop. Hence $w(T)\le w(F^*)$.</p>
+<p>The two matroids have the same rank $n$. For $n=2$ they coincide; for $n\ge3$ the triangle is a pseudoforest but
+not a forest.</p>
+<details class="proof"><summary>Proof</summary>
+<p>Let $T$ be a forest of the bordered graph. Without $r$, the ordinary edges of $T$ form a forest on $V$. Each of its
+trees meets $r$ through at most one edge: two such edges would close a cycle through $r$. Read with loops, every
+component is a tree with at most one loop, that is, a pseudoforest.</p>
+<p>Conversely, if every cycle of a pseudoforest is a loop, every component is a tree with at most one loop. Replacing
+the loop by $(r,i)$ attaches the tree to $r$ through a single edge: no cycle arises.</p>
+<p>Rank: a pseudoforest has at most $n$ elements, and a forest on $n+1$ vertices has at most $n$ edges; the set of all
+loops (the star of $r$) attains both. For $n=2$ a cycle without loops would need three vertices.</p>
+</details>
+</div>
+
+<div class="box thm"><div class="h">Proposition 2 · a bound on distance plus trace</div>
+<p>$\Zcov(w)\le z^*+f_2^*$. In general $\Zcov(w)$ is neither a lower bound nor an upper bound on $z^*$.</p>
+<details class="proof"><summary>Proof</summary>
+<p>Take an optimal solution $(x,q^+,q^-)$ of Stage B: $Bx+q^+-q^-=w$, $\sum_e(q^+_e+q^-_e)=z^*$ and
+$\sum_C(|C|-1)x_C=f_2^*$. Here $B$ is the edge–anchored-clique incidence matrix, $q^+$ the under-coverage and $q^-$
+the over-coverage.</p>
+<p>Every anchored clique is allowed in the covering. For each edge $e$ we add the set $C=e$ (cost $1$) with weight
+$q^+_e$. The coverage of $e$ becomes $(Bx)_e+q^+_e=w_e+q^-_e\ge w_e$. The cost is $f_2^*+\sum_e q^+_e\le f_2^*+z^*$.</p>
+<p>The figure below shows a case with $\Zcov\lt z^*$ ($t=0$) and one with $\Zcov\gt z^*$ ($t=\tfrac12$).</p>
+</details>
+</div>
+
+<h3>Two greedy algorithms side by side</h3>
+<p>We use the family $\Gamma_{ij}=1$ for $i\ne j$ and $\Gamma_{ii}=t$, on three vertices. Both algorithms receive the
+same order: nonincreasing weight, with ties broken in favour of loops (that is, root edges).</p>
+<p>On the left, the bicircular greedy rejects an element only if it would create a second cycle. On the right, Kruskal
+rejects every edge that closes a cycle.</p>
+<figure class="fig">
+  <div class="controls" id="hx-presets"></div>
+  <div class="controls" id="hx-tslider"></div>
+  <div class="controls" id="hx-play"></div>
+  <div class="fig-row">
+    <div class="panel">
+      <div class="ptitle">Bicircular · graph with loops</div>
+      <div id="hx-left"></div>
+      <div class="legend"><span><i class="sw exact"></i>accepted</span><span><i class="sw under"></i>rejected</span><span><i class="sw diag"></i>loop $\ell_i$</span><span><i class="sw off"></i>edge $\{i,j\}$</span><span><i class="sw" style="border:2px dashed #c9d1df;background:#fff"></i>weight $0$ (ignored)</span></div>
+      <div class="hx-sidekpi" id="hx-left-kpi"></div>
+      <div class="trace hx-trace" id="hx-left-trace"></div>
+    </div>
+    <div class="panel">
+      <div class="ptitle">Graphic · bordered graph</div>
+      <div id="hx-right"></div>
+      <div class="legend"><span><i class="sw exact"></i>accepted</span><span><i class="sw under"></i>rejected</span><span><i class="sw diag"></i>root edge $(r,i)$</span><span><i class="sw off"></i>edge $\{i,j\}$</span><span><i class="sw root"></i>root $r$</span><span><i class="sw" style="border:2px dashed #c9d1df;background:#fff"></i>weight $0$ (ignored)</span></div>
+      <div class="hx-sidekpi" id="hx-right-kpi"></div>
+      <div class="trace hx-trace" id="hx-right-trace"></div>
+    </div>
+  </div>
+  <div id="hx-verdict"></div>
+  <details class="small"><summary>Full balance sheet (with $z^*$ and $f_2^*$ computed by the simplex method)</summary>
+  <table class="t hx-bal" id="hx-balance"></table></details>
+  <figcaption>All values are computed in the browser: bicircular greedy, Kruskal on the bordered graph, and the simplex
+  method for Stages A and B.</figcaption>
+</figure>
+
+<h4>The minimal counterexample: $\Gamma_{ii}=0$, $\Gamma_{ij}=1$</h4>
+<p>With $t=0$ only the three edges of the triangle remain. The bicircular greedy takes all of them, because the
+triangle is a single cycle: $w(F^*)=3$. Kruskal stops at two edges: $w(T)=2$.</p>
+<p>Here $\gamma=0$, so $\LB=3$. And indeed $\Efull(\Gamma)=3$: the best reconstruction is $H=0$, which is off by $1$
+on each of the three pairs.</p>
+<div class="box warn"><div class="h">Caution</div>
+<p>$w(T)=2\lt 3=w(F^*)$ does not mean “a weaker bound on the same quantity”. $w(F^*)-\gamma$ bounds $z^*$ from below;
+$w(T)$ bounds $z^*+f_2^*$ from above. With $t=\tfrac12$: $w(T)=2.5$ exceeds $z^*=1.5$.</p>
+</div>
+
+<h4>Large diagonal: the forest is the star of the root</h4>
+<p>With $t=5$ the loops outweigh the edges. The greedy takes $\ell_1,\ell_2,\ell_3$; Kruskal takes the star
+$(r,1),(r,2),(r,3)$. It is the same set, independent in both matroids: $w(F^*)=w(T)=\gamma=15$.</p>
+<p>But $\Gamma=3\sum_i X_{\{i\}}+\sum_{i\lt j}X_{\{i,j\}}$ lies in the cone, where $X_U=\one_U\one_U^\top$ and $\one_U$ is the indicator vector of $U$. Hence $z^*=0$ and
+$\Zcov=15=z^*+f_2^*$: the whole value comes from the trace. The pseudoforest bound instead gives $\LB=15-15=0$.</p>
+<div class="box key"><div class="h">Key idea</div>
+<p>In the bordered graph, <strong>adding the root does not turn the bicircular matroid into the graphic one</strong>.
+The correspondence $\ell_i\leftrightarrow(r,i)$ preserves elements and rank, but the bicircular matroid also admits
+cycles made only of ordinary edges. When the diagonal dominates, the values coincide because of the weights, not
+because of the matroids.</p>
+</div>
+
+<h3>Gallery: the same set, two judges</h3>
+<p>Each card shows a set of elements on four vertices, in the graph with loops (left) and in the bordered graph
+(right). The verdicts are computed: <code>BR.isPseudoforest</code> for the bicircular matroid, Kruskal with unit
+weights for the graphic one.</p>
+<div class="legend"><span><i class="sw off"></i>edge $\{i,j\}$ of the set</span><span><i class="sw diag"></i>loop $\ell_i$ and its root edge $(r,i)$</span><span><i class="sw root"></i>root $r$</span><span><i class="sw exact"></i>independent</span><span><i class="sw under"></i>dependent</span></div>
+<div class="hx-gal" id="hx-gallery"></div>
+
+<div class="box key"><div class="h">Key takeaways</div>
+<ul>
+  <li>Bicircular: it arises from the dual of $(R)$ and gives $\LB=w(F^*)-\gamma\le z^*$.</li>
+  <li>Graphic: it arises from the AWCD covering with cost $|C|-1$ and gives $\Zcov(w)=w(T)\le z^*+f_2^*$. It is not the
+  dual of the anchored Stage A.</li>
+  <li>Under $\ell_i\leftrightarrow(r,i)$ every forest is a pseudoforest; the triangle shows that the converse fails.</li>
+  <li>The two values do not bound the same quantity: at $t=0$, $w(T)=2\lt 3=\Efull$; at $t=5$, $w(T)=15\gt 0=z^*$.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="catena.html"><small>← previous</small><span>G · The complete chain</span></a><a class="next" href="esempi.html"><small>next →</small><span>∑ · Numerical examples</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-matroidi.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

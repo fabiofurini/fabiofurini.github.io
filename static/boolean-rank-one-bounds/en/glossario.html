@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Glossary · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../glossario.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">≡</span> Glossary</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html" class="active" aria-current="page"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="glossario">
+  <div class="kicker"><b>≡</b> Glossary</div>
+  <h2>All the notation in one place</h2>
+  <p class="lead">Every symbol used in the guide, with its meaning. The chapters define each one where it first
+  appears; here you can find it again when you need it.</p>
+
+  <h3>Matrix and factors</h3>
+  <table class="t gl">
+    <tr><td>$V=\{1,\dots,n\}$</td><td>the row and column indices, i.e. the vertices of the graphs</td></tr>
+    <tr><td>$\Gamma\in\mathbb R^{n\times n}_{\ge 0}$</td><td>the matrix to approximate: symmetric, with nonnegative entries</td></tr>
+    <tr><td>$\Gamma_{ii}$, $\Gamma_{ij}$ ($i&lt;j$)</td><td>diagonal and off-diagonal entries; each pair $\{i,j\}$ is counted only once</td></tr>
+    <tr><td>$\gamma=\sum_i\Gamma_{ii}$</td><td>the trace of $\Gamma$</td></tr>
+    <tr><td>$\one_U$</td><td>the indicator vector of $U\subseteq V$ (1 on the indices in $U$, 0 elsewhere)</td></tr>
+    <tr><td>$X_U=\one_U\one_U^\top$</td><td>the Boolean rank-one factor of $U\neq\emptyset$: $(X_U)_{ij}=1$ if and only if $i,j\in U$</td></tr>
+    <tr><td>$p_U\ge 0$</td><td>the coefficient of the factor $X_U$</td></tr>
+    <tr><td>$H=H(p)=\sum_U p_UX_U$</td><td>the reconstructed matrix (the reconstruction)</td></tr>
+    <tr><td>$\COR(n)=\cone\{X_U\}$</td><td>the correlation cone: all the matrices $H(p)$ with $p\ge 0$</td></tr>
+    <tr><td>$\tr H$</td><td>the trace of $H$; it equals $\tr H=\sum_U|U|\,p_U$</td></tr>
+    <tr><td>$\one\one^\top$, $\mathrm{diag}(a)$</td><td>the all-ones matrix; the diagonal matrix with diagonal $a$</td></tr>
+    <tr><td>$bb^\top$</td><td>a rank-one matrix, with $b\in\mathbb R^n_{\ge 0}$</td></tr>
+  </table>
+
+  <h3>Errors and the full problem</h3>
+  <table class="t gl">
+    <tr><td>underestimate</td><td>$H_{ij}&lt;\Gamma_{ij}$ (positive error); in the full problem it is measured by the slack $s^+_{ij}\ge 0$</td></tr>
+    <tr><td>overestimate</td><td>$H_{ij}&gt;\Gamma_{ij}$ (negative error); measured by the slack $s^-_{ij}\ge 0$, with $H_{ij}+s^+_{ij}-s^-_{ij}=\Gamma_{ij}$</td></tr>
+    <tr><td>$\Efull(\Gamma)$</td><td>$\min_{p\ge0}\sum_{i\le j}|\Gamma_{ij}-H_{ij}(p)|$: the minimum $L^1$ error over the upper triangle, diagonal included (also called $\mathrm{OPT}_{\ell_1}(\Gamma)$)</td></tr>
+    <tr><td>$(x)^+$</td><td>$\max\{0,x\}$, the positive part</td></tr>
+    <tr><td>LP</td><td>linear program (linear programming); the LP dual is its dual problem</td></tr>
+  </table>
+
+  <h3>AWCD and the bordered graph</h3>
+  <table class="t gl">
+    <tr><td>AWCD</td><td><em>Anchored Weighted Clique Decomposition</em>: decomposition of the weight vector into weighted cliques that contain an anchor $S$</td></tr>
+    <tr><td>$r$ (also $i_0$)</td><td>the root added by AWCD; the anchor is $S=\{r\}$</td></tr>
+    <tr><td>bordered graph</td><td>the complete graph on $V\cup\{r\}$, with weights $w_{ri}=\Gamma_{ii}$ and $w_{ij}=\Gamma_{ij}$</td></tr>
+    <tr><td>$\K(G,\{r\})$</td><td>the family of anchored cliques $C=\{r\}\cup U$, $U\neq\emptyset$</td></tr>
+    <tr><td>$E(C)$, $\chi^{E(C)}$</td><td>the edges of the clique $C$ and their incidence vector (the column of $C$ in the matrix $B$)</td></tr>
+    <tr><td>$x_C$</td><td>the multiplicity of the clique $C$; it equals $x_C=p_U$</td></tr>
+    <tr><td>$q^+$, $q^-$</td><td>under-coverage and over-coverage of the edges in Stage A</td></tr>
+    <tr><td>Stage A, $z^*$</td><td>$z^*=\min\{e^\top q^++e^\top q^-:\ Bx+q^+-q^-=w,\ x,q^\pm\ge0\}$; it equals $z^*=\Efull(\Gamma)$</td></tr>
+    <tr><td>Stage B, $f_2^*$</td><td>among the optima of Stage A, minimizes $\sum_C(|C|-1)x_C=\tr H$ (the trace, not the number of factors); $f_2^*$ is its value</td></tr>
+    <tr><td>$(D_A)$</td><td>the LP dual of Stage A: $\max\{w^\top y:\ \sum_{e\in E(C)}y_e\le0\ \forall C,\ -1\le y\le1\}$</td></tr>
+    <tr><td>$\chi^{\{e\}}$</td><td>the vector with a 1 on the edge $e$ and 0 elsewhere</td></tr>
+    <tr><td>$\varphi$</td><td>in the matching bound: assigns to each chosen edge one of its endpoints, without repeating vertices</td></tr>
+  </table>
+
+  <h3>Relaxation, pseudoforests and certificates</h3>
+  <table class="t gl">
+    <tr><td>$(R)$</td><td>the one-sided relaxation: $\min\sum_U|U|p_U+\sum_{i&lt;j}q_{ij}$ with coverage of the diagonal and of the pairs; the off-diagonal overestimate is free</td></tr>
+    <tr><td>$q_{ij}$</td><td>the off-diagonal underestimate in $(R)$ (paid)</td></tr>
+    <tr><td>$\val(\cdot)$</td><td>the optimal value of a problem</td></tr>
+    <tr><td>$\LB=\val(R)-\gamma$</td><td>the lower bound on $\Efull(\Gamma)$; subtracting $\gamma$ is essential</td></tr>
+    <tr><td>$\ell_i$</td><td>the loop on vertex $i$, with weight $\Gamma_{ii}$</td></tr>
+    <tr><td>elements</td><td>the loops $\ell_i$ and the ordinary edges $\{i,j\}$ of the graph with loops</td></tr>
+    <tr><td>$E[U]$</td><td>the elements with all their endpoints in $U$</td></tr>
+    <tr><td>$(P)$</td><td>the LP dual of $(R)$: $\max\sum_i\Gamma_{ii}x_{\ell_i}+\sum_{i&lt;j}\Gamma_{ij}x_{ij}$ with $x(E[U])\le|U|$, $x_{ij}\le1$, $x\ge0$</td></tr>
+    <tr><td>pseudoforest</td><td>a set of elements in which every connected component has at most one cycle (a loop is a cycle)</td></tr>
+    <tr><td>bicircular matroid</td><td>the matroid whose independent sets are the pseudoforests</td></tr>
+    <tr><td>$w(F)=\sum_{e\in F}w_e$</td><td>the weight of a set of elements</td></tr>
+    <tr><td>$F^*$</td><td>a maximum-weight pseudoforest (returned by the greedy algorithm); $w(F^*)=\val(P)=\val(R)$</td></tr>
+    <tr><td>greedy</td><td>scans the elements by nonincreasing weight and keeps each one that leaves the set independent</td></tr>
+    <tr><td>component peeling</td><td>the component-by-component construction that derives an optimum $(p,q)$ of $(R)$ from the pseudoforest</td></tr>
+    <tr><td>laminar</td><td>a family of sets that are pairwise disjoint or nested (the support of the peeling, at most $2n-1$ sets)</td></tr>
+    <tr><td>$\alpha_v=\sum_{U\ni v}p_U$</td><td>the marginal of vertex $v$</td></tr>
+    <tr><td>$\theta_k$, $S_k$</td><td>the distinct values of the marginals and the superlevel sets $S_k=\{v:\alpha_v\ge\theta_k\}$</td></tr>
+    <tr><td>chain</td><td>a family of nested sets $S_1\supsetneq S_2\supsetneq\cdots$ (at most $n$); it covers the pair $\{i,j\}$ exactly $\min(\alpha_i,\alpha_j)$ times</td></tr>
+    <tr><td>$\beta_i=\alpha_i-\Gamma_{ii}$</td><td>the diagonal excess in the compact formulation</td></tr>
+  </table>
+
+  <h3>Matching and the graphic matroid</h3>
+  <table class="t gl">
+    <tr><td>transversal representation</td><td>a set of elements is independent if and only if each element can be assigned to one of its endpoints (a loop to its vertex), with all vertices distinct</td></tr>
+    <tr><td>gain</td><td>$\Gamma_{ij}-\Gamma_{vv}$: how much the weight changes when the edge $\{i,j\}$ replaces the loop of $v\in\{i,j\}$</td></tr>
+    <tr><td>$M$</td><td>the value of the maximum-weight bipartite matching between edges and vertices, with weights $(\Gamma_{ij}-\Gamma_{vv})^+$; $M=\LB=$ AWCD matching bound</td></tr>
+    <tr><td>$y_{ij,i}$</td><td>the matching variable that assigns the edge $\{i,j\}$ to vertex $i$</td></tr>
+    <tr><td>totally unimodular</td><td>a matrix whose every subdeterminant lies in $\{-1,0,1\}$: the LP has integral optima</td></tr>
+    <tr><td>forest</td><td>a set of edges without cycles (an independent set of the graphic matroid)</td></tr>
+    <tr><td>1-forest</td><td>ordinary edges with at most one cycle per component (bicircular without loops)</td></tr>
+    <tr><td>$T$, MST</td><td>a maximum spanning forest (MST: <em>maximum spanning tree</em>), computed with Kruskal's algorithm</td></tr>
+    <tr><td>$\Zcov(w)=w(T)$</td><td>the value of the unanchored covering of AWCD; it satisfies $\Zcov\le z^*+f_2^*$ and is not a bound on the distance alone</td></tr>
+  </table>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="laboratorio.html"><small>← previous</small><span>⚙ · Laboratory</span></a><span></span></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>
