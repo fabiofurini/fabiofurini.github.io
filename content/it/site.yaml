@@ -52,6 +52,14 @@ currently:
   - {text: "Associate Editor, <i>Omega</i>", url: "https://www.sciencedirect.com/journal/omega"}
   - {text: "PC Chair, EUROMIP 2026, Roma", url: "https://www.mixedinteger.org/EUROMIP/2026/"}
 
+# Standalone interactive teaching guides (static/<name>/, copied by build.py), listed on the home page.
+guides:
+  - {text: "Decomposizioni Boolean rank-one: AWCD, pseudoforeste e matching", url: "/boolean-rank-one-bounds/"}
+  - {text: "Guida visuale al big-M <i>(in inglese)</i>", url: "/big-m-guide/"}
+  - {text: "Disuguaglianze supervalide <i>(in inglese)</i>", url: "/supervalid-guide/"}
+  - {text: "Come si rafforzano i tagli di Benders <i>(in inglese)</i>", url: "/benders-cut-guide/"}
+  - {text: "Tre livelli di aggregazione di Benders <i>(in inglese)</i>", url: "/benders-aggregation-guide/"}
+
 profiles:
   - {name: Google Scholar, url: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=it"}
   - {name: ORCID,          url: "https://orcid.org/0000-0002-1839-5827"}

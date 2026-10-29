@@ -56,6 +56,16 @@
           <li><a href="{{ prefix }}/teaching/">{{ nav[3].label }}</a> — Sapienza</li>
         </ul>
       </div>
+      {% if site.guides %}
+      <div class="side-box">
+        <h3>{{ t.interactive_guides }}</h3>
+        <ul>
+          {% for g in site.guides %}
+          <li><a href="{{ g.url }}">{{ g.text|safe }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </aside>
   </div>
 </section>

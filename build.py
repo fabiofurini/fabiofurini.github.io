@@ -202,8 +202,8 @@ def build():
     for verification in ROOT.glob('google*.html'):
         shutil.copy2(verification, DIST / verification.name)
 
-    # Preserve the standalone interactive interdiction teaching guides.
-    for guide_name in ('benders-cut-guide', 'supervalid-guide', 'benders-aggregation-guide'):
+    # Preserve the standalone interactive teaching guides (interdiction; Boolean rank-one bounds).
+    for guide_name in ('benders-cut-guide', 'supervalid-guide', 'benders-aggregation-guide', 'boolean-rank-one-bounds'):
         guide_dir = ROOT / 'static' / guide_name
         if guide_dir.is_dir():
             shutil.copytree(guide_dir, DIST / guide_name, dirs_exist_ok=True)

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boolean rank-one: AWCD, pseudoforeste e matching</title>
+<meta name="description" content="Guida visuale e interattiva alle relazioni fra il problema AWCD ancorato, il rilassamento unilaterale, il matroide bicircolare, il matching bipartito e il matroide grafico nella decomposizione di matrici in fattori Boolean rank-one.">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">Guida visuale · decomposizioni Boolean rank-one</div>
+  <h1>Dalla matrice al matching: AWCD, pseudoforeste e matroidi</h1>
+  <p>Perché il lower bound delle pseudoforeste coincide con il matching bound di AWCD, perché nessuno dei due è in
+  generale l'ottimo, e dove entra invece il matroide grafico. Ogni passaggio è disegnato, animato e verificabile su
+  matrici che puoi modificare.</p>
+  <div class="chips"><span>$\Efull$ e fase A di AWCD</span><span>rilassamento unilaterale $R$</span><span>matroide bicircolare</span><span>matching bipartito</span><span>matroide grafico</span><span>laboratorio interattivo</span></div>
+</header>
+<div class="layout">
+<nav class="toc" aria-label="Indice">
+  <div class="title">Indice</div>
+  <a href="#intro"><span class="k">·</span><span class="t">Mappa della guida</span></a>
+</nav>
+<main>
+<section class="chapter" id="intro">
+  <div class="kicker"><b>·</b> Mappa della guida</div>
+  <h2>Due lavori, un problema comune, un bound condiviso</h2>
+  <p class="lead">Una matrice simmetrica non negativa $\Gamma$ si approssima con una combinazione conica di fattori
+  Boolean rank-one $X_U=\one_U\one_U^\top$. Due manoscritti affrontano questo problema da lati diversi: AWCD, il
+  lavoro guidato da Giovanni Rinaldi sulle clique ancorate, e il lavoro sulle pseudoforeste pesate. Questa guida
+  mostra, passaggio per passaggio, che cosa hanno in comune e che cosa no.</p>
+  <div class="goal"><b>In breve:</b> il problema completo è lo stesso ($\Efull$ = fase A di AWCD con una radice);
+  il lower bound delle pseudoforeste e il matching bound di AWCD sono lo <em>stesso numero</em>; ma quel numero non è
+  in generale l'ottimo, e il matroide grafico (massimo albero ricoprente) di AWCD appartiene a un'altra formulazione.</div>
+
+  <div class="introflow" id="intro-flow" aria-label="Mappa dei capitoli"></div>
+
+  <h3>Il risultato in sintesi</h3>
+  <div class="eq">$$\begin{aligned}\Efull(\Gamma)\;=\;z^*_{\text{AWCD}}\;&\textcolor{#b42318}{\boldsymbol{\ge}}\;\LB\;=\;\val(R)-\gamma\\&=\;w(F^*)-\gamma\;=\;M\;=\;\text{matching bound di AWCD}\end{aligned}$$</div>
+  <p>Tutte le relazioni sono uguaglianze esatte, valide per ogni $\Gamma$ simmetrica non negativa, tranne la prima,
+  che in generale è una disuguaglianza stretta. Il capitolo G le dimostra una per una; il Laboratorio permette di
+  verificarle su grafi scelti da te.</p>
+
+  <div class="compare">
+    <div>
+      <h4>Legenda dei colori</h4>
+      <div class="legend" style="flex-direction:column;gap:6px">
+        <span><i class="sw diag"></i>diagonale $\Gamma_{ii}$ · loop $\ell_i$ · arco radice $(r,i)$</span>
+        <span><i class="sw off"></i>fuori diagonale $\Gamma_{ij}$ · arco ordinario $\{i,j\}$</span>
+        <span><i class="sw root"></i>la radice $r$ aggiunta da AWCD</span>
+        <span><i class="sw under"></i>sottostima $H_{ij}&lt;\Gamma_{ij}$ (sempre pagata)</span>
+        <span><i class="sw over"></i>sovrastima $H_{ij}&gt;\Gamma_{ij}$</span>
+        <span><i class="sw free"></i>sovrastima fuori diagonale gratuita nel rilassamento $R$</span>
+        <span><i class="sw exact"></i>ricostruzione esatta · elemento accettato</span>
+        <span><i class="sw match"></i>matching · guadagni</span>
+        <span><span class="rel-eq">=</span> uguaglianza esatta &nbsp; <span class="rel-geq">≥</span> disuguaglianza</span>
+      </div>
+    </div>
+    <div>
+      <h4>Notazione essenziale</h4>
+      <table class="t small">
+        <tr><td>$V=\{1,\dots,n\}$, $\gamma=\sum_i\Gamma_{ii}$</td><td>indici e traccia di $\Gamma$</td></tr>
+        <tr><td>$X_U=\one_U\one_U^\top$, $H=\sum_U p_UX_U$</td><td>fattori e ricostruzione, $p\ge 0$</td></tr>
+        <tr><td>$\Efull(\Gamma)$</td><td>errore $L^1$ minimo sul triangolo superiore, diagonale inclusa</td></tr>
+        <tr><td>$r$, $w_{ri}=\Gamma_{ii}$, $C=\{r\}\cup U$</td><td>radice, archi radice e clique ancorate di AWCD</td></tr>
+        <tr><td>$(R)$, $\LB=\val(R)-\gamma$</td><td>rilassamento unilaterale e lower bound</td></tr>
+        <tr><td>$(P)$, $F^*$</td><td>pseudoforesta di peso massimo (matroide bicircolare)</td></tr>
+        <tr><td>$M$</td><td>matching bipartito dei guadagni $(\Gamma_{ij}-\Gamma_{vv})^+$</td></tr>
+        <tr><td>$\Zcov(w)=w(T)$</td><td>massima foresta ricoprente (matroide grafico)</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="box note"><div class="h">Come leggere la guida</div>
+  I capitoli A–C costruiscono il problema e il rilassamento; D–F mostrano le tre facce dello stesso bound
+  (pseudoforesta, matching, certificato duale di AWCD); G riunisce la catena; H separa i due matroidi. Gli esempi e il
+  Laboratorio rendono tutto verificabile: ogni numero della pagina è calcolato nel browser, con un LP esatto per
+  $\Efull$ quando $n\le 5$.</div>
+</section>
+</main>
+</div>
+<footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calcolati nel browser.</footer>
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/draw.js"></script>
+<script src="assets/ch-intro.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
