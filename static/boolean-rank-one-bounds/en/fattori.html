@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Boolean rank-one factors · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../fattori.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">B</span> Boolean rank-one factors</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html" class="active" aria-current="page"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="fattori">
+<style>
+  #fattori .d .cell.on.diag rect { fill: var(--diag); }
+  #fattori .d .cell.on.off rect { fill: var(--off); }
+  #fattori .d .cell.on.lower rect { fill: #8fb0e0; }
+  #fattori .d .cell.on text { fill: #fff; }
+  #fattori .d .cell.zero text { fill: #a0a8b8; font-weight: 500; }
+  #fattori .d .cell.hl rect { stroke: #1d2433; stroke-width: 3.5; }
+  #fattori .d .vec rect { fill: #f3f4f7; stroke: #fff; stroke-width: 2; }
+  #fattori .d .vec.on rect { fill: #33405a; } #fattori .d .vec.on text { fill: #fff; }
+  #fattori .d .vec text { font: 600 15px var(--mono); text-anchor: middle; dominant-baseline: central; fill: var(--ink-3); }
+  #fattori .d .lbl { font: italic 600 16px var(--serif); fill: var(--ink-2); text-anchor: middle; dominant-baseline: central; }
+  #fattori .d .hit { stroke: transparent; stroke-width: 16; fill: none; pointer-events: stroke; cursor: pointer; }
+  #fattori .d .fade { opacity: .2; }
+  #fattori .d .vtx { cursor: pointer; }
+  #fattori .d .vtx.in circle { fill: #fff4d6; stroke: #33405a; stroke-width: 3.4; }
+  #fattori .d .clique { fill: rgba(107,63,160,.08); stroke: rgba(107,63,160,.45); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  #fattori .d .colrow rect { fill: #fff; stroke: var(--line); }
+  #fattori .d .colrow.on.dg rect.v { fill: var(--diag); } #fattori .d .colrow.on.of rect.v { fill: var(--off); }
+  #fattori .d .colrow.on text.vv { fill: #fff; }
+  #fattori .d .colrow.hl rect { stroke: #1d2433; stroke-width: 2.5; }
+  #fattori .d .colrow text { font: 600 14px var(--mono); text-anchor: middle; dominant-baseline: central; fill: var(--ink-2); }
+  #fattori .d .colrow text.vv { fill: #a0a8b8; }
+  #fattori .d .colhead { font: 700 13px var(--sans); fill: var(--ink-3); text-anchor: middle; }
+  #fattori .d [data-k] { cursor: pointer; }
+  #fattori .fig-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 760px) { #fattori .fig-row.three { grid-template-columns: 1fr; } }
+  #fattori .ubtns { display: inline-flex; gap: 6px; }
+  #fattori .ubtns .btn { min-width: 44px; }
+  #fattori .formula { font-size: 16px; margin: 6px 2px; min-height: 1.8em; }
+  #fattori .sum { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+  #fattori .sum .op { align-self: center; font: 700 26px var(--serif); color: var(--ink-3); }
+  #fattori .fcard { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; width: 150px; padding: 6px 8px; }
+  #fattori .fcard.res { border-color: var(--brand-2); box-shadow: 0 0 0 2px var(--soft) inset; }
+  #fattori .fcard .cap { text-align: center; font-size: 15px; min-height: 1.6em; }
+  #fattori .fcard .row { display: flex; gap: 4px; justify-content: center; margin: 6px 0 2px; }
+  #fattori .fcard .row .btn { padding: 3px 9px; font-size: 13.5px; }
+  #fattori .fcard input[type=range] { width: 100%; accent-color: var(--brand-2); }
+  #fattori .fcard .pv { display: flex; justify-content: space-between; font-size: 13.5px; color: var(--ink-2); }
+  #fattori .fcard .pv output { font-family: var(--mono); }
+  #fattori .fcard .x { float: right; border: 0; background: none; color: var(--ink-3); cursor: pointer; font-size: 16px; line-height: 1; }
+  #fattori .note2 { font-size: 15px; color: var(--ink-2); min-height: 1.5em; }
+</style>
+<div class="kicker"><b>B</b> Chapter B</div>
+<h2>Boolean rank-one factors</h2>
+<p class="lead">Every subset $U$ of the vertices yields a rank-one matrix of zeros and ones. Summing these
+factors with nonnegative weights is the same as covering the bordered graph with cliques anchored at the root.</p>
+<div class="goal"><b>In this chapter:</b> the factor $X_U$; its anchored clique $C=\{r\}\cup U$; why
+the error $\Efull$ coincides with Stage A of AWCD (<i>Anchored Weighted Clique Decomposition</i>); why Stage B measures the trace and not the number of factors.</div>
+
+<h3>One subset, one matrix</h3>
+<div class="box def"><div class="h">Definition</div>
+<p>For $\emptyset\neq U\subseteq V$ let $\one_U$ be the indicator vector of $U$: it equals $1$ on the indices of $U$ and $0$
+elsewhere. The associated <b>factor</b> is</p>
+<div class="eq">$$X_U=\one_U\one_U^\top,\qquad (X_U)_{ij}=1\iff i,j\in U.$$</div>
+<p>It is a symmetric matrix of zeros and ones, of rank one: a block of ones on the rows and columns of $U$.</p>
+</div>
+<p>In the bordered graph (Chapter A: vertices $V\cup\{r\}$, root $r$) the same $U$ determines the <b>anchored clique</b>
+$C=\{r\}\cup U$. We write $E(C)$ for the edges with both endpoints in $C$.</p>
+
+<figure class="fig">
+  <div class="controls"><span class="small">Choose $U\subseteq\{1,2,3,4\}$ (or click the vertices of the graph):</span><span class="ubtns" id="fa-ubtns"></span></div>
+  <div class="fig-row three">
+    <div class="panel"><div class="ptitle">$X_U=\one_U\one_U^\top$</div><div id="fa-mat"></div>
+      <div class="legend"><span><i class="sw diag"></i>$1$ on the diagonal</span><span><i class="sw off"></i>$1$ off the diagonal</span></div></div>
+    <div class="panel"><div class="ptitle">Anchored clique $C=\{r\}\cup U$</div><div id="fa-graph"></div>
+      <div class="legend"><span><i class="sw diag"></i>root edge $(r,i)$</span><span><i class="sw off"></i>edge $\{i,j\}$</span><span><i class="sw root"></i>root $r$</span></div></div>
+    <div class="panel"><div class="ptitle">Column of $B$: $\chi^{E(C)}$</div><div id="fa-col"></div>
+      <div class="legend"><span><i class="sw diag"></i>root edge in $E(C)$</span><span><i class="sw off"></i>edge in $E(C)$</span></div></div>
+  </div>
+  <div class="formula" id="fa-formula"></div>
+  <figcaption>The cells equal to $1$ in the upper triangle of $X_U$ are exactly the edges of $E(C)$.</figcaption>
+</figure>
+
+<p>The vector $\chi^{E(C)}$ is the <b>incidence vector</b> of $E(C)$: it has one component for each edge of the bordered
+graph, equal to $1$ if the edge lies in $E(C)$ and to $0$ otherwise. The AWCD matrix $B$ has one column
+$\chi^{E(C)}$ for each anchored clique $C$.</p>
+<div class="box key"><div class="h">The dictionary</div>
+<p>Read the edge $(r,i)$ as the cell $(i,i)$ and the edge $\{i,j\}$ as the cell $(i,j)$, with $i&lt;j$. Then the
+column $\chi^{E(C)}$ of $B$ is the factor $X_U$ read on the upper triangle, diagonal included.</p>
+<p>In particular $|C|-1=|U|=\tr X_U$, where $\tr$ is the trace (the sum of the diagonal entries).</p>
+</div>
+
+<h3>Summing the factors</h3>
+<p>With coefficients $p_U\ge 0$ we reconstruct the matrix $H(p)=\sum_U p_U X_U$. In the language of AWCD the
+coefficient is called $x_C$, with $x_C=p_U$ for $C=\{r\}\cup U$.</p>
+
+<figure class="fig">
+  <div class="controls" id="fa-presets"></div>
+  <div class="sum" id="fa-sum"></div>
+  <div class="kpis" id="fa-kpis"></div>
+  <div class="legend"><span><i class="sw diag"></i>diagonal cells</span><span><i class="sw off"></i>off-diagonal cells</span></div>
+  <p class="note2" id="fa-note"></p>
+  <figcaption>Each card is a factor: choose $U$ with the buttons and the weight $p_U$ with the slider.</figcaption>
+</figure>
+
+<div class="box thm"><div class="h">Theorem (equivalence with Stage A of AWCD)</div>
+<p>Let $\Efull(\Gamma)$ be the full error: the minimum, over $p\ge 0$, of $\sum_{1\le i\le j\le n}|\Gamma_{ij}-H_{ij}(p)|$
+(each pair counted once, diagonal included). Let $z^*$ be the value of Stage A of AWCD with the single root $r$:</p>
+<div class="eq">$$z^*=\min\{e^\top q^++e^\top q^-:\ Bx+q^+-q^-=w,\ x,q^\pm\ge0\}.$$</div>
+<p>Here $w$ is the weight vector of the bordered graph, $e$ the all-ones vector, $q^+$ the under-coverage and $q^-$ the
+over-coverage. Then $\Efull(\Gamma)=z^*$.</p>
+</div>
+<details class="proof"><summary>Proof</summary>
+<p>The anchored cliques $C=\{r\}\cup U$ are in bijection with the subsets $\emptyset\ne U\subseteq V$; set
+$x_C=p_U$. By the dictionary, the component of $Bx$ on the edge $(r,i)$ equals $\sum_{U\ni i}p_U=H_{ii}(p)$, and the one
+on the edge $\{i,j\}$ equals $\sum_{U\supseteq\{i,j\}}p_U=H_{ij}(p)$. Hence $Bx$ is the upper triangle of $H(p)$.</p>
+<p>The constraint $Bx+q^+-q^-=w$ becomes, cell by cell, $H_{ij}(p)+q^+_{ij}-q^-_{ij}=\Gamma_{ij}$. At an optimum at most
+one of $q^+_{ij}$ and $q^-_{ij}$ is positive, so $q^+_{ij}+q^-_{ij}=|\Gamma_{ij}-H_{ij}(p)|$. The objectives
+coincide, and so do the minima. $\square$</p>
+</details>
+
+<div class="box warn"><div class="h">Stage B measures the trace, not the number of factors</div>
+<p>Among the optima of Stage A, Stage B minimizes $\sum_C(|C|-1)\,x_C=\sum_U|U|\,p_U$. Since $\tr X_U=|U|$,
+this sum is $\tr H$: it depends only on $H$, not on how $H$ is decomposed.</p>
+<div class="eq">$$X_{\{1,2\}}+X_{\{1,3\}}+X_{\{2,3\}}=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}=X_{\{1,2,3\}}+X_{\{1\}}+X_{\{2\}}+X_{\{3\}}$$</div>
+<p>Three factors on the left, four on the right: cost $2+2+2=6=3+1+1+1$ in both cases. Try the two decompositions
+with the buttons of the figure above.</p>
+</div>
+<details class="proof"><summary>An example where Stage B decides</summary>
+<p>For $\Gamma=\begin{pmatrix}0&1&2\\1&1&0\\2&0&1\end{pmatrix}$ (the reference example) both $H=\one\one^\top$
+(the all-ones matrix, $p_{\{1,2,3\}}=1$) and $H=\mathrm{diag}(0,1,1)$ ($p_{\{2\}}=p_{\{3\}}=1$; the diagonal matrix with diagonal $0,1,1$) have error $3=\Efull(\Gamma)$. Stage B
+chooses the second one, with trace $2$ instead of $3$. Here too the factors are one against two: what counts is the trace.</p>
+</details>
+
+<div class="box key"><div class="h">Key takeaways</div>
+<ul>
+<li>A subset $U$ gives the factor $X_U=\one_U\one_U^\top$ and the anchored clique $C=\{r\}\cup U$.</li>
+<li>The column $\chi^{E(C)}$ of $B$ is $X_U$ read on the upper triangle; $x_C=p_U$ and $Bx$ is the upper
+triangle of $H(p)$.</li>
+<li>Hence $\Efull(\Gamma)=z^*$: the full error is Stage A of AWCD with a single root.</li>
+<li>Stage B minimizes $\sum_U|U|p_U=\tr H$, not the number of factors.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="matrice-grafo.html"><small>← previous</small><span>A · From matrix to graph</span></a><a class="next" href="errori.html"><small>next →</small><span>C · Errors and relaxation</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-fattori.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

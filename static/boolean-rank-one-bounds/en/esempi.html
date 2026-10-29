@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Numerical examples · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../esempi.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">∑</span> Numerical examples</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html" class="active" aria-current="page"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="esempi">
+<style>
+  .ex-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 14px; align-items: start; }
+  .ex-grid2 > .panel { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .ex-grid2 > .panel > .ptitle { font-weight: 700; font-size: 14.5px; color: var(--brand); margin: 2px 0 4px; }
+  .ex-grid2 > .panel > .pnote { font-size: 13.5px; color: var(--ink-2); margin: 4px 0 0; text-align: center; }
+  .ex-grid2 .legend, .ex-dec .legend { justify-content: center; font-size: 13px; margin: 4px 0 2px; }
+  .ex-chain { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 10px; background: var(--soft); border-radius: 12px; padding: 14px 12px; margin: 14px 0; }
+  .ex-chain .ex-t { display: inline-flex; flex-direction: column; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 4px 12px 5px; min-width: 64px; }
+  .ex-chain .ex-t.first { border-color: var(--brand-2); }
+  .ex-chain .ex-l { font-size: 13.5px; color: var(--ink-3); }
+  .ex-chain .ex-v { font: 700 19px var(--mono); color: var(--brand); white-space: nowrap; }
+  .ex-chain .rel-eq, .ex-chain .rel-geq { font-size: 24px; }
+  .ex-badge { display: inline-block; font: 700 14px var(--sans); border-radius: 999px; padding: 4px 12px; margin-left: 6px; }
+  .ex-badge.ok { background: var(--exact-bg); color: var(--eq); border: 1px solid var(--exact); }
+  .ex-badge.gap { background: var(--under-bg); color: var(--geq); border: 1px solid var(--under); }
+  .ex-sum td.m { font-family: var(--mono); font-weight: 700; }
+  .ex-sum td, .ex-sum th { vertical-align: middle; }
+  details.ex-more { border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; margin: 14px 0; background: #fbfcff; }
+  details.ex-more > summary { cursor: pointer; font-weight: 700; color: var(--brand-2); }
+  details.ex-more[open] > summary { margin-bottom: 8px; }
+  .ex-dec { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; align-items: start; }
+  .ex-dec .panel { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .ex-dec .ptitle { font-weight: 700; font-size: 14.5px; color: var(--brand); }
+  .ex-sumline { text-align: center; font-size: 15.5px; margin: 6px 0 2px; }
+  .ex-dual td.m { font-family: var(--mono); }
+  .ex-inputs { display: inline-grid; gap: 6px; padding: 10px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+  .ex-inputs .ax { font: 600 13px var(--sans); color: var(--ink-3); text-align: center; align-self: center; }
+  .ex-inputs input.num.d { border-color: var(--diag); background: var(--diag-bg); }
+  .ex-inputs input.num.o { border-color: var(--off); background: #f7faff; }
+  .ex-inputs input.num:focus { outline: 2px solid var(--brand-2); outline-offset: 1px; }
+  .ex-edit { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .ex-edit .ex-hint { flex: 1 1 260px; font-size: 14.5px; color: var(--ink-2); }
+  .ex-check { font-size: 15px; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 10px 0 0; }
+  .ex-grid2 .d .loop.ghost { stroke: #c9d1df; stroke-width: 2; stroke-dasharray: 4 5; }
+  .ex-grid2 .d .loop.thin { stroke-width: 1.8; opacity: .55; }
+  .ex-grid2 .d .bp-link.ex-zero { opacity: .45; stroke-dasharray: 3 4; }
+  .ex-grid2 .d g.bp-node { stroke: none; }
+  .ex-lab { font-size: 13.5px; color: var(--ink-3); margin-right: 4px; }
+</style>
+<div class="kicker"><b>∑</b> Numerical examples</div>
+<h2>Three examples, every number</h2>
+<p class="lead">Three small matrices, each seen from every angle: the matrix, the two graphs, the matching and the
+chain of values. Every number is computed in the browser.</p>
+<div class="goal"><b>In this section:</b> a case in which the lower bound is exact, one in which it is not, and an
+example you can edit freely.</div>
+
+<h3>How to read an example</h3>
+<p>$\Gamma$ is a symmetric nonnegative $n\times n$ matrix, and $\gamma=\sum_i\Gamma_{ii}$ is its trace. For each
+example we show four panels:</p>
+<ul>
+  <li><strong>the matrix</strong> $\Gamma$ (diagonal in amber, off-diagonal in blue);</li>
+  <li><strong>the AWCD bordered graph</strong>: root $r$, edges $(r,i)$ of weight $\Gamma_{ii}$, edges $\{i,j\}$ of weight $\Gamma_{ij}$;</li>
+  <li><strong>the graph with loops</strong> and the optimal pseudoforest $F^*$ (one loop $\ell_i$ of weight $\Gamma_{ii}$ per vertex);</li>
+  <li><strong>the gain matching</strong>: the edge $\{i,j\}$ assigned to the vertex $v\in\{i,j\}$ gains $(\Gamma_{ij}-\Gamma_{vv})^+$; $M$ is the maximum value.</li>
+</ul>
+<p>Below the panels comes the chain</p>
+<div class="eq">$$\Efull(\Gamma)\ \ge\ \LB=\val(R)-\gamma=w(F^*)-\gamma=M.$$</div>
+<p>Here $\Efull(\Gamma)$ is the minimum error $\sum_{i\le j}|\Gamma_{ij}-H_{ij}|$ with $H=\sum_U p_UX_U$, $p\ge0$ and
+$X_U=\one_U\one_U^\top$ ($\one_U$ is the indicator vector of $U\subseteq V=\{1,\dots,n\}$). $\val(R)$ is the value of the one-sided relaxation and $w(F^*)$ the weight of $F^*$. Only the first
+relation can be strict.</p>
+<div id="ex-summary"></div>
+</section>
+
+<section class="chapter" id="esempio-2x2">
+<div class="kicker"><b>1</b> Example 1</div>
+<h2>A 2×2 case in which the bound is exact</h2>
+<p class="lead">$\Gamma=\begin{pmatrix}1&amp;3\\3&amp;2\end{pmatrix}$. The off-diagonal value exceeds both diagonal
+values: something is bound to be lost.</p>
+<div id="ex1-core"></div>
+<div id="ex1-chain"></div>
+<p>The matching assigns the edge $\{1,2\}$ to vertex $1$, with gain $3-1=2$. A decomposition with error $2$ exists,
+so the bound is attained.</p>
+<details class="ex-more"><summary>Two optimal decompositions, with their errors</summary>
+  <div class="controls" id="ex1-dec-sel"></div>
+  <div id="ex1-dec"></div>
+</details>
+<details class="ex-more"><summary>The matching certificate proves optimality</summary>
+  <p>The AWCD matching bound turns the pair “edge $\{1,2\}$ → vertex $1$” into the dual vector
+  $y_{12}=+1$, $y_{11}=-1$ (all others $0$).</p>
+  <p>It satisfies $-1\le y\le 1$ and, for every $U\ne\emptyset$, $\sum_{i\le j,\ i,j\in U}y_{ij}\le0$. Its value is
+  $\sum_{i\le j}\Gamma_{ij}y_{ij}=3-1=2$, which is exactly $\Efull(\Gamma)$.</p>
+  <div id="ex1-dual"></div>
+</details>
+</section>
+
+<section class="chapter" id="esempio-3x3">
+<div class="kicker"><b>2</b> Example 2</div>
+<h2>A 3×3 case: equal bounds, but not the optimum</h2>
+<p class="lead">$\Gamma=\begin{pmatrix}0&amp;1&amp;2\\1&amp;1&amp;0\\2&amp;0&amp;1\end{pmatrix}$. Here the pseudoforest lower bound and the
+matching bound are both $2$, but the minimum error is $3$.</p>
+<div id="ex2-core"></div>
+<div id="ex2-chain"></div>
+<p>$F^*$ contains the edge $\{1,3\}$ (weight $2$) and the loops $\ell_2,\ell_3$ (weight $1$ each): $w(F^*)=4$ and
+$\LB=4-2=2$. The matching assigns $\{1,3\}$ to vertex $1$ with gain $2$.</p>
+<div class="box warn"><div class="h">The central message</div>
+<p>$\LB=M$ is a theorem: the two lower bounds <em>always</em> coincide. But this equality does not say that the bound
+is exact. Here $\Efull(\Gamma)=3\gt 2$.</p>
+</div>
+<details class="ex-more"><summary>Two optimal decompositions (error 3) and the Stage B choice</summary>
+  <p>The all-ones matrix $\one\one^\top=X_{\{1,2,3\}}$ has error $3$ and trace $3$. The diagonal matrix
+  $\mathrm{diag}(0,1,1)=X_{\{2\}}+X_{\{3\}}$ also has error $3$, but trace $2$.</p>
+  <p>The optimum is not unique. AWCD Stage B, which minimizes the trace $\tr H=\sum_U|U|p_U$ among the optima, picks
+  $p_{\{2\}}=p_{\{3\}}=1$.</p>
+  <div class="controls" id="ex2-dec-sel"></div>
+  <div id="ex2-dec"></div>
+</details>
+<details class="ex-more"><summary>Dual certificate: why $3$ really is the minimum</summary>
+  <p>The dual of $\Efull$ asks for $y$ with $-1\le y_{ij}\le1$ and $\sum_{i\le j,\ i,j\in U}y_{ij}\le0$ for every
+  $U\ne\emptyset$; its value is $\sum_{i\le j}\Gamma_{ij}y_{ij}$. Take $y_{11}=-1$, $y_{12}=1$, $y_{13}=1$,
+  $y_{23}=-1$, all others $0$.</p>
+  <div id="ex2-dual"></div>
+  <p class="small">The matching certificate ($y_{13}=1$, $y_{11}=-1$) is worth only $2$: it offsets every $+1$ with a
+  $-1$ on the diagonal. Here, instead, the $+1$ on $y_{12}$ is offset by $y_{23}=-1$, which is off-diagonal and free
+  because $\Gamma_{23}=0$.</p>
+</details>
+</section>
+
+<section class="chapter" id="esempio-libero">
+<div class="kicker"><b>3</b> Example 3</div>
+<h2>Try it yourself: an editable example</h2>
+<p class="lead">Choose $n$, edit the cells (the matrix stays symmetric) or use the generators. Everything updates as
+you type.</p>
+<div class="controls"><span class="ex-lab">size</span><span class="controls" id="ex3-n" style="margin:0"></span></div>
+<div class="controls" id="ex3-gen"></div>
+<div class="ex-edit">
+  <div class="ex-inputs" id="ex3-inputs"></div>
+  <div class="ex-hint">Amber cells: diagonal $\Gamma_{ii}$. Blue cells: off-diagonal $\Gamma_{ij}$; editing one also
+  updates its symmetric counterpart. Allowed values: numbers $\ge0$.
+  <div id="ex3-gen-note" class="ex-check" hidden></div></div>
+</div>
+<div id="ex3-chain"></div>
+<div id="ex3-core"></div>
+<details class="ex-more"><summary>An optimal solution of $\Efull$ and the error matrix</summary>
+  <div id="ex3-dec"></div>
+</details>
+<div class="box note"><div class="h">Rank-one matrices</div>
+<p>The “rank-one” button generates $\Gamma=bb^\top$, with $b$ a vector of nonnegative integers. A recent result
+(October 2026, still to be checked against the literature) states that the bound is exact on these matrices:
+$\Efull(bb^\top)=\LB$.</p>
+<p>Every time you press the button, the site also checks it on 300 random vectors $b$.</p>
+</div>
+
+<div class="box key"><div class="h">Key takeaways</div>
+<ul>
+  <li>$\LB=\val(R)-\gamma=w(F^*)-\gamma=M$ always holds: three ways of computing the same number.</li>
+  <li>The bound can be exact (Example 1, matrices in the cone, $bb^\top$) or not (Example 2: $2\lt 3$).</li>
+  <li>Equality between the two lower bounds says nothing about their exactness.</li>
+  <li>The optimum of $\Efull$ need not be unique; AWCD Stage B picks the one with minimum trace.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="matroidi.html"><small>← previous</small><span>H · Two different matroids</span></a><a class="next" href="laboratorio.html"><small>next →</small><span>⚙ · Laboratory</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-esempi.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The complete chain · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../catena.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">G</span> The complete chain</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html" class="active" aria-current="page"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="catena">
+<div class="kicker"><b>G</b> Chapter G</div>
+<h2>The complete chain</h2>
+<p class="lead">All the previous chapters can be summed up in a single line. Six relations connect seven quantities:
+five are equalities, and <b>only one</b> is an inequality.</p>
+<div class="goal"><b>In this chapter:</b> the interactive chain, with the value of each link on the chosen example and
+the mathematical reason behind each arrow; then a second, purely algebraic proof of $\LB=M$, which goes through the
+marginal potentials and does not use matroids.</div>
+
+<h3>1. The chain</h3>
+<div class="eq">$$\begin{aligned}\Efull(\Gamma)\ &\overset{(1)}{=}\ z^*_{\mathrm{AWCD}}\ \overset{(2)}{\color{#b42318}{\boldsymbol{\ge}}}\ \LB\ \overset{(3)}{=}\ \val(R)-\gamma\\ &\overset{(4)}{=}\ w(F^*)-\gamma\ \overset{(5)}{=}\ M\ \overset{(6)}{=}\ \text{AWCD matching bound}\end{aligned}$$</div>
+<p>The symbols, in brief. $\Efull(\Gamma)$ is the minimum $L^1$ error on the upper triangle (diagonal included) of a
+conic combination $H=\sum_U p_U X_U$ of factors $X_U=\one_U\one_U^\top$. $z^*_{\mathrm{AWCD}}$ is the value of Stage A
+of AWCD with a single root. $\gamma=\sum_i\Gamma_{ii}$ is the trace.</p>
+<p>$\val(R)$ is the value of the one-sided relaxation $R$; $\LB$ is the lower bound derived from it. $F^*$ is the
+maximum-weight pseudoforest and $w(F^*)$ its weight. $M$ is the maximum matching of the gains
+$(\Gamma_{ij}-\Gamma_{vv})^+$, with $(t)^+=\max(t,0)$.</p>
+
+<figure class="fig">
+  <div class="controls"><span class="small muted">Example</span><span id="ct-ex1"></span><button type="button" class="btn" id="ct-rnd1">↻ new 4×4</button></div>
+  <div id="ct-gamma" class="ct-gamma"></div>
+  <div id="ct-chain"></div>
+  <div class="legend ct-leg"><span><i class="ct-sw iseq">=</i>equality, holds for every $\Gamma$</span><span><i class="ct-sw geq">≥</i>inequality: the only one in the chain</span><span><i class="ct-sw gap"></i>gap $\Efull-\LB$</span></div>
+  <figcaption>Click a block to see where its number comes from, or a relation to see its proof.</figcaption>
+  <div id="ct-panel" class="ct-panel" aria-live="polite"></div>
+</figure>
+
+<div class="box key"><div class="h">Key idea</div>
+<p>The whole bottom block is <b>a single number</b>, seen from four sides: relaxation, matroid, matching, dual
+certificate. The only loss occurs in step (2): making the off-diagonal overestimate free.</p>
+</div>
+
+<div class="box warn"><div class="h">Caution</div>
+<p>Equal bounds do not mean exactness. On the $3\times3$ the four sides of the bottom block are all equal to $2$, but
+$\Efull=3$.</p>
+</div>
+
+<h3>2. A second proof: the marginal potentials</h3>
+<p>Relations (4) and (5) go through the bicircular matroid. There is also a direct route from $R$ to the matching,
+using only changes of variables and LP duality.</p>
+<p>The <b>marginal potential</b> of vertex $i$ is the total weight of the factors that contain it:</p>
+<div class="eq">$$\alpha_i=\sum_{U\ni i}p_U=H_{ii}(p).$$</div>
+<p>In $R$ the cost of the factors is $\sum_U|U|\,p_U=\sum_i\alpha_i$: it depends <b>only</b> on the marginals.</p>
+
+<h4>The chain of superlevel sets covers every pair as much as possible</h4>
+<p>Given $\alpha$, sort its distinct values $0<\theta_1<\dots<\theta_k$ and take the superlevel sets
+$S_t=\{v:\alpha_v\ge\theta_t\}$ with weight $\theta_t-\theta_{t-1}$ (and $\theta_0=0$). These sets are nested:
+a <b>chain</b>.</p>
+<p>The chain has the same marginals $\alpha$ and covers the pair $\{i,j\}$ exactly $\min(\alpha_i,\alpha_j)$.
+No $p$ with marginals $\alpha$ does better, because $H_{ij}\le\min(H_{ii},H_{jj})$.</p>
+
+<figure class="fig">
+  <div class="controls"><span class="small muted">Example</span><span id="ct-ex2"></span><button type="button" class="btn" id="ct-rnd2">↻ new 4×4</button></div>
+  <div class="controls"><span class="small muted">Pair</span><span id="ct-pair"></span></div>
+  <div id="ct-bars"></div>
+  <div class="controls" id="ct-alpha"></div>
+  <div class="legend"><span><i class="ct-sw lay"></i>sets of the chain</span><span><i class="ct-sw cov"></i>coverage $\min(\alpha_i,\alpha_j)$</span><span><i class="ct-sw dia"></i>threshold $\Gamma_{ii}$</span><span><i class="ct-sw und"></i>$q_{ij}$, paid underestimate</span></div>
+  <figcaption>The bars start from the optimum of $R$; use ＋/− to change the marginals and see the cost $\sum_i\alpha_i+\sum_{i\lt j}q_{ij}-\gamma$.</figcaption>
+  <div id="ct-cost" class="ct-cost"></div>
+</figure>
+
+<details class="proof"><summary>Proof: coverage of the chain $=\min(\alpha_i,\alpha_j)$</summary>
+<p>Vertex $v$ belongs to $S_t$ if and only if $\theta_t\le\alpha_v$. Hence its marginal in the chain is
+$\sum_{t:\,\theta_t\le\alpha_v}(\theta_t-\theta_{t-1})=\alpha_v$ (telescoping sum).</p>
+<p>The pair $\{i,j\}$ lies in $S_t$ if and only if $\theta_t\le\alpha_i$ and $\theta_t\le\alpha_j$, i.e.
+$\theta_t\le\min(\alpha_i,\alpha_j)$; the same telescoping sum gives $\min(\alpha_i,\alpha_j)$.</p>
+<p>For an arbitrary $p$, every $U\supseteq\{i,j\}$ contains both $i$ and $j$: hence $H_{ij}\le\alpha_i$ and
+$H_{ij}\le\alpha_j$.</p>
+</details>
+
+<h4>The compact formulation</h4>
+<p>In $R$ the off-diagonal overestimate is free, so it pays to cover every pair as much as possible. It is therefore
+enough to choose $\alpha$ and take the chain. $R$ becomes an LP with $n+\binom n2$ variables:</p>
+<div class="eq">$$\begin{aligned}\val(R)=\min\ &\sum_i\alpha_i+\sum_{i\lt j}q_{ij}\\ \text{s.t.}\ &\alpha_i\ge\Gamma_{ii}\ \ (i\in V),\qquad \alpha_i+q_{ij}\ge\Gamma_{ij},\ \ \alpha_j+q_{ij}\ge\Gamma_{ij}\ \ (i\lt j),\qquad q\ge0 .\end{aligned}$$</div>
+<p>The constraint $\min(\alpha_i,\alpha_j)+q_{ij}\ge\Gamma_{ij}$ has split into two linear constraints, one per endpoint.</p>
+
+<h4>Change of variables: the diagonal excess</h4>
+<p>Set $\beta_i=\alpha_i-\Gamma_{ii}\ge0$, the excess coverage on the diagonal. Then
+$\sum_i\alpha_i=\sum_i\beta_i+\gamma$, and this $\gamma$ cancels the one in $\LB$:</p>
+<div class="eq">$$\begin{aligned}\LB=\val(R)-\gamma=\min\ &\sum_i\beta_i+\sum_{i\lt j}q_{ij}\\ \text{s.t.}\ &\beta_i+q_{ij}\ge\Gamma_{ij}-\Gamma_{ii},\ \ \beta_j+q_{ij}\ge\Gamma_{ij}-\Gamma_{jj}\ \ (i\lt j),\qquad \beta,q\ge0 .\end{aligned}$$</div>
+
+<h4>The dual is bipartite matching</h4>
+<p>Assign a dual variable $y_{ij,i}\ge0$ to the constraint of endpoint $i$ of the pair $\{i,j\}$ (and $y_{ij,j}$
+to the other one); in general, $y_{e,v}$ is the variable of the pair formed by edge $e$ and endpoint $v\in e$. The
+columns of $\beta_v$ and $q_{ij}$ give the dual constraints:</p>
+<div class="eq">$$\begin{aligned}\max\ &\sum_{i\lt j}\Bigl[(\Gamma_{ij}-\Gamma_{ii})\,y_{ij,i}+(\Gamma_{ij}-\Gamma_{jj})\,y_{ij,j}\Bigr]\\ \text{s.t.}\ &\underbrace{\sum_{e\ni v}y_{e,v}\le1}_{\text{column }\beta_v},\qquad \underbrace{y_{ij,i}+y_{ij,j}\le1}_{\text{column }q_{ij}},\qquad y\ge0 .\end{aligned}$$</div>
+<p>This is fractional matching in the bipartite graph edges ↔ vertices: capacity 1 per vertex (from the $\beta$),
+capacity 1 per edge (from the $q$).</p>
+<p>The constraint matrix is the incidence matrix of a bipartite graph, hence <b>totally unimodular</b>: every square
+submatrix has determinant $0$, $+1$ or $-1$. With integer right-hand sides the LP has an integral optimum: a true
+matching. Pairs with negative gain stay at zero, and the value is $M$.</p>
+
+<div class="box thm"><div class="h">Conclusion</div>
+<p>$\LB=\val(R)-\gamma=M$, without going through matroids. The $y_{ij,v}=1$ at the optimum are exactly the pairs of
+the AWCD certificate of Chapter F: $+1$ on edge $\{i,j\}$, $-1$ on root edge $(r,v)$.</p>
+</div>
+
+<details class="proof"><summary>See the constraint matrix on the chosen example</summary>
+<p class="small">Rows: one constraint per pair $(\{i,j\},v)$. Columns: the variables $\beta_v$ and $q_{ij}$. Each row
+has exactly one 1 in the $\beta$ block and one in the $q$ block. Highlighted in orange: the rows with $y_{ij,v}=1$ in
+the optimal matching.</p>
+<div id="ct-tu"></div>
+</details>
+
+<div class="box note"><div class="h">Key takeaways</div>
+<ul>
+<li>$\Efull=z^*\ge\LB=\val(R)-\gamma=w(F^*)-\gamma=M=$ AWCD matching bound. The only inequality is (2).</li>
+<li>The gap comes only from the off-diagonal overestimate, which $R$ makes free.</li>
+<li>In $R$ only the marginals $\alpha$ matter: the chain of superlevel sets covers the pair $\{i,j\}$ exactly
+$\min(\alpha_i,\alpha_j)$.</li>
+<li>With $\beta_i=\alpha_i-\Gamma_{ii}$, the dual of $R$ is a bipartite matching, integral by total
+unimodularity.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="matching-bound-awcd.html"><small>← previous</small><span>F · The AWCD matching bound</span></a><a class="next" href="matroidi.html"><small>next →</small><span>H · Two different matroids</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-catena.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

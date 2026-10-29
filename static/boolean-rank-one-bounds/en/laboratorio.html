@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Laboratory · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../laboratorio.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">⚙</span> Laboratory</div></header>
+<div class="layout wide">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html" class="active" aria-current="page"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="laboratorio">
+<div class="kicker"><b>⚙</b> Laboratory</div>
+<h2>Laboratory: change the graph, watch the solutions change</h2>
+<p class="lead">One matrix $\Gamma$, seven structures that read it in different ways. Change a weight or load an
+example: forest, 1-forest, pseudoforest, forest of the bordered graph, matching and exact optimum are recomputed
+at once, together with the chain of bounds.</p>
+<div class="goal"><b>In this laboratory:</b> see where the graphic and the bicircular matroid part ways, why
+$\LB=\val(R)-\gamma=w(F^*)-\gamma=M$ always holds, and when $\Efull(\Gamma)$ is strictly larger instead.</div>
+
+<details class="lab-howto">
+  <summary>How to use it</summary>
+  <ul>
+    <li><b>Select</b> an element with a click: an edge $\{i,j\}$, a vertex (that is, its loop $\ell_i$, of weight
+      $\Gamma_{ii}$) or a matrix cell. This also works on the graphs of the cards.</li>
+    <li><b>Change the weight</b> in the sticky bar at the top: slider, number field, $\pm$ buttons, mouse wheel
+      over the selected element, or ↑/↓ arrows (with Shift: $\pm 0.1$). Weight $0$ = missing edge, drawn dashed.</li>
+    <li><b>Drag</b> the vertices to redraw the graph; “Re-align” puts them back on the polygon.</li>
+    <li><b>Undo / redo</b> with ↶ ↷ (or ⌘/Ctrl+Z, Shift+⌘/Ctrl+Z). “Copy link” copies the address with the
+      state encoded in <code>#laboratorio=…</code>.</li>
+    <li>In the cards, <b>▶ greedy</b> opens the step-by-step replay of the algorithm; below, the tabs show bounds,
+      formulations, certificates and a few challenges.</li>
+  </ul>
+</details>
+
+<div class="lab-dock" id="lab-dock" role="region" aria-label="Selected element and chain of bounds"></div>
+
+<div class="lab-toolbar" id="lab-toolbar" role="toolbar" aria-label="Laboratory examples and tools"></div>
+
+<div class="lab-editor">
+  <div class="lab-card lab-gcard">
+    <div class="lab-ch"><span class="lab-ct">The graph with loops</span><span class="lab-cs">loops $\ell_i$ of weight $\Gamma_{ii}$ · edges $\{i,j\}$ of weight $\Gamma_{ij}$</span></div>
+    <div id="lab-ed-graph"></div>
+  </div>
+  <div class="lab-card lab-mcard">
+    <div class="lab-ch"><span class="lab-ct">The matrix $\Gamma$</span><span class="lab-cs">symmetric, $\gamma=\tr\Gamma$</span></div>
+    <div id="lab-ed-matrix"></div>
+    <div class="legend"><span><i class="sw diag"></i>diagonal / loop</span><span><i class="sw off"></i>off-diagonal / edge</span></div>
+    <p class="small muted lab-mnote" id="lab-mnote"></p>
+  </div>
+</div>
+
+<h3 class="lab-h3">Seven structures on the same graph</h3>
+<p class="small muted">Each card highlights an optimal solution on the same graph; below each drawing is its legend.
+The “?” button next to each card defines its symbols.</p>
+<div class="lab-grid" id="lab-grid">
+  <article class="lab-panel" data-k="forest">
+    <header><span class="lab-pn">1</span><h4>Maximum forest</h4><span class="lab-tag">graphic matroid</span></header>
+    <div class="lab-f">maximum weight of edges $\{i,j\}$ with no cycle (Kruskal); loops ignored<span class="lab-q" data-def="forest" data-label="forest"></span></div>
+    <div class="lab-fig" id="lab-p-forest"></div>
+    <div class="lab-leg" id="lab-lg-forest"></div>
+    <footer><span class="lab-big"><span class="lab-bl">weight</span><b id="lab-v-forest">–</b></span><button type="button" class="btn lab-play" data-mode="forest" aria-label="Animate the greedy for the forest">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="oneforest">
+    <header><span class="lab-pn">2</span><h4>Maximum 1-forest</h4><span class="lab-tag">bicircular without loops</span></header>
+    <div class="lab-f">maximum weight of edges $\{i,j\}$ with at most one cycle per component; diagonal ignored<span class="lab-q" data-def="oneF" data-label="1-forest"></span></div>
+    <div class="lab-fig" id="lab-p-oneforest"></div>
+    <div class="lab-leg" id="lab-lg-oneforest"></div>
+    <footer><span class="lab-big"><span class="lab-bl">weight</span><b id="lab-v-oneforest">–</b></span><button type="button" class="btn lab-play" data-mode="oneforest" aria-label="Animate the greedy for the 1-forest">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="pseudo">
+    <header><span class="lab-pn">3</span><h4>Pseudoforest with loops</h4><span class="lab-tag">bicircular of the problem</span></header>
+    <div class="lab-f">$\val(P)=\max w(F)$ with $|F\cap E[U]|\le|U|$ for every $U$ · a loop is a cycle<span class="lab-q" data-def="pseudo" data-label="pseudoforest"></span></div>
+    <div class="lab-fig" id="lab-p-pseudo"></div>
+    <div class="lab-leg" id="lab-lg-pseudo"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$w(F^*)=\val(P)$</span><b id="lab-v-pseudo">–</b></span><button type="button" class="btn lab-play" data-mode="pseudo" aria-label="Animate the greedy for the pseudoforest">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="rooted">
+    <header><span class="lab-pn">4</span><h4>Forest of the bordered graph</h4><span class="lab-tag">AWCD, root $r$</span></header>
+    <div class="lab-f">$\Zcov(w)=w(T)$, $T$ maximum forest on $V\cup\{r\}$, $w_{ri}=\Gamma_{ii}$ · no cycles<span class="lab-q" data-def="Zcov" data-label="Z_cov"></span></div>
+    <div class="lab-fig" id="lab-p-rooted"></div>
+    <div class="lab-leg" id="lab-lg-rooted"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$\Zcov$</span><b id="lab-v-rooted">–</b></span><button type="button" class="btn lab-play" data-mode="rooted" aria-label="Animate Kruskal on the bordered graph">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="matching">
+    <header><span class="lab-pn">5</span><h4>Gain matching</h4><span class="lab-tag">bipartite edges ↔ vertices</span></header>
+    <div class="lab-f">$\{i,j\}\to v$, with $v\in\{i,j\}$, gains $(\Gamma_{ij}-\Gamma_{vv})^+$ · each edge and each vertex used at most once<span class="lab-q" data-def="matching" data-label="gain matching"></span></div>
+    <div class="lab-fig" id="lab-p-matching"></div>
+    <div class="lab-leg" id="lab-lg-matching"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$M$</span><b id="lab-v-matching">–</b></span><span class="lab-foot" id="lab-n-matching"></span></footer>
+  </article>
+  <article class="lab-panel" data-k="transv">
+    <header><span class="lab-pn">6</span><h4>Transversal assignment</h4><span class="lab-tag">of $F^*$</span></header>
+    <div class="lab-f">each element of the optimal pseudoforest $F^*$ on one of its endpoints, all vertices distinct<span class="lab-q" data-def="transv" data-label="transversal assignment"></span></div>
+    <div class="lab-fig" id="lab-p-transv"></div>
+    <div class="lab-leg" id="lab-lg-transv"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$\sum$ gains</span><b id="lab-v-transv">–</b></span><span class="lab-foot" id="lab-n-transv"></span></footer>
+  </article>
+  <article class="lab-panel lab-wide" data-k="efull">
+    <header><span class="lab-pn">7</span><h4>Exact optimum $\Efull(\Gamma)$</h4><span class="lab-tag">LP in the browser, $n\le5$</span></header>
+    <div class="lab-f">$\min_{p\ge0}\sum_{i\le j}|\Gamma_{ij}-H_{ij}(p)|$ with any $H(p)=\sum_U p_U X_U$, no structure imposed<span class="lab-q" data-def="efullCard" data-label="E_full"></span></div>
+    <div class="lab-efull">
+      <div class="lab-efig">
+        <div class="controls lab-eftog" id="lab-ef-tog" role="group" aria-label="View of the E_full card"></div>
+        <div id="lab-p-efull"></div>
+      </div>
+      <div class="lab-eside" id="lab-ef-side"></div>
+    </div>
+    <footer><span class="lab-big"><span class="lab-bl">$\Efull$</span><b id="lab-v-efull">–</b></span><span class="lab-foot" id="lab-n-efull"></span></footer>
+  </article>
+</div>
+
+<div class="lab-tabs" role="tablist" aria-label="Further details">
+  <button type="button" role="tab" id="lab-tab-bound" aria-controls="lab-tp-bound" aria-selected="true">Chain of bounds</button>
+  <button type="button" role="tab" id="lab-tab-anim" aria-controls="lab-tp-anim" aria-selected="false" tabindex="-1">Greedy replay</button>
+  <button type="button" role="tab" id="lab-tab-form" aria-controls="lab-tp-form" aria-selected="false" tabindex="-1">Formulations</button>
+  <button type="button" role="tab" id="lab-tab-cert" aria-controls="lab-tp-cert" aria-selected="false" tabindex="-1">Certificates</button>
+  <button type="button" role="tab" id="lab-tab-sfide" aria-controls="lab-tp-sfide" aria-selected="false" tabindex="-1">Challenges <span class="lab-count" id="lab-sfide-count">0/5</span></button>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-bound" aria-labelledby="lab-tab-bound">
+  <div class="lab-chain" id="lab-chain"></div>
+  <p class="lab-verdict" id="lab-verdict"></p>
+  <div class="lab-bars" id="lab-bars"></div>
+  <p class="small muted">The first four bars are weights of structures (maximization), the last one is an error
+  (minimization). It always holds: forest $\le$ 1-forest $\le\val(P)$ and forest $\le\Zcov\le\val(P)=\gamma+M$.
+  $\Zcov$<span class="lab-q" data-def="Zcov"></span> satisfies $\Zcov(w)\le z^*+f_2^*$ (with $z^*$<span class="lab-q" data-def="zstar"></span> and $f_2^*$<span class="lab-q" data-def="f2"></span>): it is <b>not</b> a bound on the distance $z^*=\Efull(\Gamma)$ alone.</p>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-anim" aria-labelledby="lab-tab-anim" hidden>
+  <div class="controls" id="lab-an-mode" role="group" aria-label="Structure to animate"></div>
+  <div class="lab-anim">
+    <div class="lab-astage"><div id="lab-an-graph"></div><p class="lab-acap" id="lab-an-cap" aria-live="polite"></p></div>
+    <div class="lab-aside">
+      <div class="controls" id="lab-an-ctl"></div>
+      <div class="trace lab-trace" id="lab-an-trace"></div>
+    </div>
+  </div>
+  <div class="legend" id="lab-an-leg"></div>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-form" aria-labelledby="lab-tab-form" hidden>
+  <div class="lab-forms">
+    <div class="lab-fcard">
+      <div class="lab-fh">$(R)$ one-sided relaxation</div>
+      <div class="eq">$$\begin{aligned}\min\ &\textstyle\sum_{U}|U|\,p_U+\sum_{i\lt j}q_{ij}\\ \text{s.t. }&\textstyle\sum_{U\supseteq\{i,j\}}p_U+q_{ij}\ge\Gamma_{ij}\ \ (i\lt j)\\ &\textstyle\sum_{U\ni i}p_U\ge\Gamma_{ii}\ \ (i\in V),\qquad p,q\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-R"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">$(P)$ pseudoforests, LP dual of $(R)$</div>
+      <div class="eq">$$\begin{aligned}\max\ &\textstyle\sum_i\Gamma_{ii}x_{\ell_i}+\sum_{i\lt j}\Gamma_{ij}x_{ij}\\ \text{s.t. }&x(E[U])\le|U|\quad\forall U\ne\emptyset\\ &x_{ij}\le1,\qquad x\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-P"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">$(D_A)$ dual of AWCD Stage A</div>
+      <div class="eq">$$\begin{aligned}\max\ &\textstyle\sum_{i\le j}\Gamma_{ij}\,y_{ij}\\ \text{s.t. }&\textstyle\sum_{i\le j,\ i,j\in U}y_{ij}\le0\quad\forall U\ne\emptyset\\ &-1\le y\le1\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-D"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">Matching and its dual (totally unimodular matrix)</div>
+      <div class="eq">$$\begin{aligned}M=\min\ &\textstyle\sum_i\beta_i+\sum_{i\lt j}q_{ij}\\ \text{s.t. }&\beta_i+q_{ij}\ge\Gamma_{ij}-\Gamma_{ii}\quad(i\lt j)\\ &\beta_j+q_{ij}\ge\Gamma_{ij}-\Gamma_{jj}\quad(i\lt j)\\ &\beta,q\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-B"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-cert" aria-labelledby="lab-tab-cert" hidden>
+  <div class="lab-certs">
+    <figure class="fig lab-cfig">
+      <div class="lab-fh">Laminar certificate (component peeling)</div>
+      <div id="lab-c-lam"></div>
+      <figcaption id="lab-c-lamcap"></figcaption>
+    </figure>
+    <figure class="fig lab-cfig">
+      <div class="lab-fh">Chain certificate (marginals $\alpha_i=\sum_{U\ni i}p_U$)</div>
+      <div id="lab-c-chain"></div>
+      <figcaption id="lab-c-chaincap"></figcaption>
+    </figure>
+  </div>
+  <details class="proof"><summary>Peeling steps</summary><ol class="small" id="lab-c-steps"></ol></details>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-sfide" aria-labelledby="lab-tab-sfide" hidden>
+  <p class="small muted">Only matrices obtained by editing the weights by hand count (examples and random matrices
+  do not). A light turns on when you succeed.</p>
+  <div class="lab-sfide" id="lab-sfide"></div>
+</div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="esempi.html"><small>← previous</small><span>∑ · Numerical examples</span></a><a class="next" href="glossario.html"><small>next →</small><span>≡ · Glossary</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-laboratorio.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

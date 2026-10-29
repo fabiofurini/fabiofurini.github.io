@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>From bicircular to matching · Boolean rank-one: AWCD, pseudoforests and matching</title>
+<meta name="description" content="A visual, interactive guide to the relations between the anchored AWCD problem, the one-sided relaxation, the bicircular matroid, bipartite matching and the graphic matroid in the decomposition of matrices into Boolean rank-one factors.">
+<link rel="stylesheet" href="../assets/katex/katex.min.css?v=20261029153129">
+<link rel="stylesheet" href="../assets/style.css?v=20261029153129">
+</head>
+<body>
+<header class="hero compact"><a class="langsw" href="../matching.html" hreflang="it" lang="it" title="Leggi questa pagina in italiano">Italiano</a><a class="home" href="index.html">Visual guide · Boolean rank-one decompositions</a><div class="ctitle"><span class="k">E</span> From bicircular to matching</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="title">Contents</div>
+  <a href="index.html"><span class="k">·</span><span class="t">The problem</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">From matrix to graph</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Boolean rank-one factors</span></a>
+  <a href="errori.html"><span class="k">C</span><span class="t">Errors and relaxation</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primal and dual</span></a>
+  <a href="matching.html" class="active" aria-current="page"><span class="k">E</span><span class="t">From bicircular to matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">The AWCD matching bound</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">The complete chain</span></a>
+  <a href="matroidi.html"><span class="k">H</span><span class="t">Two different matroids</span></a>
+  <a href="esempi.html"><span class="k">∑</span><span class="t">Numerical examples</span></a>
+  <a href="laboratorio.html"><span class="k">⚙</span><span class="t">Laboratory</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossary</span></a>
+</nav>
+<main>
+<section class="chapter" id="matching">
+  <div class="kicker"><b>E</b> Chapter E</div>
+  <h2>From the bicircular matroid to matching</h2>
+  <p class="lead">A pseudoforest can be recognized with a matching: every element “occupies” one of its endpoints, and no
+  vertex is occupied twice. As a consequence, the value of the optimal pseudoforest becomes the trace $\gamma$ plus the value
+  of a bipartite gain matching.</p>
+  <div class="goal"><b>In this chapter:</b> we see the transversal representation of the bicircular matroid;
+  we start from all the loops and exchange loops for edges; we arrive at the identity $w(F^*)=\gamma+M$.</div>
+
+  <div class="box note"><div class="h">Notation</div>
+  $V=\{1,\dots,n\}$ is the vertex set, $\Gamma$ is a symmetric nonnegative matrix and $\gamma=\sum_i\Gamma_{ii}$ is its
+  trace. The graph has a <b>loop</b> $\ell_i$ (an edge from $i$ to $i$) at every vertex, and the edges $\{i,j\}$, $i\neq j$:
+  these are the <b>elements</b>, with weights $w_{\ell_i}=\Gamma_{ii}$ and $w_{ij}=\Gamma_{ij}$. For a set $F$ of elements,
+  $w(F)=\sum_{e\in F}w_e$. A <b>pseudoforest</b> is a set in which every component has at most one cycle (a loop is a
+  cycle); $F^*$ is the maximum-weight pseudoforest returned by the greedy algorithm (Chapter D). Finally, $(t)^+=\max\{0,t\}$.</div>
+
+  <h3>1. Every element occupies a vertex</h3>
+  <p>An <b>assignment</b> sends every element to one of its endpoints: the edge $\{i,j\}$ to $i$ or to $j$, the loop
+  $\ell_i$ only to $i$. We require it to be <b>injective</b>: all vertices distinct.</p>
+  <div class="box thm"><div class="h">Transversal representation</div>
+  $F$ is a pseudoforest $\iff$ there exists an injective assignment $\varphi:F\to V$ with $\varphi(e)\in e$.</div>
+  <details class="proof"><summary>Proof</summary>
+  <p>($\Leftarrow$) The elements of a component occupy distinct vertices of that component, so
+  $\#\text{elements}\le\#\text{vertices}$, i.e. there is at most one cycle (Chapter D).</p>
+  <p>($\Rightarrow$) In a tree, choose a root and send every edge to its endpoint farther from the root. In a
+  component with a cycle, traverse the cycle in one direction and send every cycle edge to the vertex it enters (a loop
+  to its own vertex); the trees hanging from the cycle send every edge to the endpoint farther from the cycle.</p>
+  <p>Hall's theorem says the same thing in the bipartite elements–vertices graph: the assignment exists if and only
+  if every set $S$ of elements has at least $|S|$ endpoints. A component with two cycles is precisely a set $S$ that violates it.</p>
+  </details>
+  <figure class="fig">
+    <div class="controls" id="mt-t-ex" role="group" aria-label="Example"></div>
+    <div class="controls" id="mt-t-pre" role="group" aria-label="Preset sets"></div>
+    <div class="fig-row mt-row">
+      <div class="panel"><div class="ptitle">Elements → vertices (click an element)</div><div id="mt-t-bip"></div>
+        <div class="legend"><span><i class="sw diag"></i>loop</span><span><i class="sw off"></i>edge</span>
+        <span><i class="sw match"></i>assignment</span><span><i class="sw under"></i>Hall violation</span></div></div>
+      <div class="panel"><div class="ptitle">The set in the graph</div><div id="mt-t-graph"></div></div>
+    </div>
+    <div class="mt-msg" id="mt-t-msg" aria-live="polite"></div>
+    <figcaption>The assignment is computed by <code>BR.transversal</code>; if none exists, the figure marks the elements that violate Hall's condition.</figcaption>
+  </figure>
+
+  <h3>2. Start from the loops and exchange</h3>
+  <p>The set of all loops is a pseudoforest: every vertex is occupied by its own loop, and the weight is $\gamma$.</p>
+  <p>Now replace the loop of $v$ with an edge $\{i,j\}$ that contains $v$, assigned to $v$. The assignment remains
+  injective, and the weight changes by</p>
+  <div class="eq">$$\Gamma_{ij}-\Gamma_{vv}\qquad\text{(the gain of the exchange).}$$</div>
+  <figure class="fig">
+    <div class="controls" id="mt-x-ex" role="group" aria-label="Example"></div>
+    <div id="mt-x-graph" class="mt-xg"></div>
+    <div class="legend"><span><i class="sw diag"></i>loop</span><span><i class="sw off"></i>edge</span>
+      <span><i class="sw match"></i>gain · vertex the edge is assigned to</span><span><i class="sw ghostsw"></i>replaced loop</span></div>
+    <div id="mt-x-bar"></div>
+    <div class="mt-msg" id="mt-x-msg" aria-live="polite"></div>
+    <div class="controls" id="mt-x-ctl"></div>
+    <figcaption>The exchanges are those of the optimal gain matching (<code>BR.maxGainMatching</code>).</figcaption>
+  </figure>
+
+  <h3>3. Two matchings not to be confused</h3>
+  <p>Each exchange uses an edge and a vertex at most once. Choosing the exchanges is therefore a <b>bipartite matching</b>
+  between edges and vertices, with capacity 1 on both sides.</p>
+  <div class="box def"><div class="h">Gain matching</div>
+  The edge $\{i,j\}$ assigned to $v\in\{i,j\}$ is worth $(\Gamma_{ij}-\Gamma_{vv})^+$. $M$ is the maximum weight of a matching
+  between edges and vertices with these weights.</div>
+  <p>Panel (1) shows the <b>transversal</b> matching: all elements, loops included, with their weights.
+  Panel (2) shows the <b>gain</b> matching: edges only, with weight = gain. Click a link in (2)
+  to change the exchanges.</p>
+  <figure class="fig">
+    <div class="controls" id="mt-m-ex" role="group" aria-label="Example"></div>
+    <div class="controls" id="mt-m-pre" role="group" aria-label="Preset matchings"></div>
+    <div class="fig-row">
+      <div class="panel"><div class="ptitle">(1) Transversal matching: elements → vertices</div><div id="mt-m-tr"></div>
+        <div class="legend"><span><i class="sw diag"></i>loop, weight $\Gamma_{vv}$</span><span><i class="sw off"></i>edge, weight $\Gamma_{ij}$</span><span><i class="sw match"></i>assigned</span></div></div>
+      <div class="panel"><div class="ptitle">(2) Gain matching: edges → vertices</div><div id="mt-m-gain"></div>
+        <div class="legend"><span><i class="sw match"></i>selected, weight = gain</span><span><i class="sw ghostsw"></i>gain $\le 0$</span></div></div>
+    </div>
+    <div class="mt-msg" id="mt-m-msg" aria-live="polite"></div>
+    <figcaption>The loops of the vertices not used by matching (2) complete the pseudoforest (1): <code>BR.pseudoforestFromMatching</code>.</figcaption>
+  </figure>
+
+  <h3>4. The identity</h3>
+  <div class="box thm"><div class="h">Theorem</div>
+  $$w(F^*)\;=\;\val(P)\;=\;\gamma+M.$$
+  Hence the pseudoforest lower bound is $\LB=\val(R)-\gamma=M$.</div>
+  <details class="proof"><summary>Proof</summary>
+  <p>($\ge$) Given a gain matching, take the selected edges, each assigned to its vertex, and the loops
+  of the remaining free vertices. The assignment is injective, so this is a pseudoforest. Its weight is
+  $\sum_{v\text{ free}}\Gamma_{vv}+\sum_{(\{i,j\},v)}\Gamma_{ij}=\gamma+\sum_{(\{i,j\},v)}(\Gamma_{ij}-\Gamma_{vv})$.
+  With the optimal matching (positive gains only) it equals $\gamma+M$.</p>
+  <p>($\le$) Let $F$ be a pseudoforest with assignment $\varphi$. <em>Unselected elements:</em> if a vertex
+  $v$ is not occupied, add $\ell_v$; the set remains a pseudoforest and the weight does not decrease ($\Gamma_{vv}\ge 0$). Now every
+  vertex is occupied, either by $\ell_v$ or by an edge $e$ with $\varphi(e)=v$:
+  $$w(F)\le\gamma+\sum_{e\text{ edge}}\bigl(\Gamma_e-\Gamma_{\varphi(e)\varphi(e)}\bigr)\le\gamma+\sum_{e\text{ edge}}\bigl(\Gamma_e-\Gamma_{\varphi(e)\varphi(e)}\bigr)^+\le\gamma+M.$$
+  The edges together with their $\varphi$ form a gain matching, which gives the last inequality.</p>
+  <p><em>Negative gains:</em> an exchange with $\Gamma_{ij}&lt;\Gamma_{vv}$ lowers the weight; keeping the loop $\ell_v$ is
+  better. This is why the matching uses $(\cdot)^+$ and discards those links.</p>
+  </details>
+  <div class="mt-scale" id="mt-scale"></div>
+
+  <div class="box key"><div class="h">Key takeaways</div>
+  <ul class="mt-ul">
+    <li>Pseudoforest $\iff$ every element occupies one of its own endpoints, with distinct vertices (Hall).</li>
+    <li>All the loops together weigh $\gamma$; replacing $\ell_v$ with an edge assigned to $v$ gains $\Gamma_{ij}-\Gamma_{vv}$.</li>
+    <li>The transversal matching uses all the elements; the gain matching uses only the edges, with weight $(\Gamma_{ij}-\Gamma_{vv})^+$.</li>
+    <li>$w(F^*)=\gamma+M$, hence the pseudoforest lower bound is $\LB=M$.</li>
+  </ul></div>
+</section>
+<nav class="pager" aria-label="Chapters"><a class="prev" href="pseudoforeste.html"><small>← previous</small><span>D · Primal and dual</span></a><a class="next" href="matching-bound-awcd.html"><small>next →</small><span>F · The AWCD matching bound</span></a></nav>
+</main>
+</div>
+<footer class="site">A teaching guide based on manuscripts in preparation by F. Furini, C. Gentile, L. Liberti and
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Original text, figures and computations; every number is computed in the browser.</footer>
+<script src="../assets/katex/katex.min.js?v=20261029153129"></script>
+<script src="../assets/katex/auto-render.min.js?v=20261029153129"></script>
+<script src="../assets/core.js?v=20261029153129"></script>
+<script src="../assets/draw.js?v=20261029153129"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "matroidi.html", "esempi.html", "laboratorio.html", "glossario.html"];</script>
+<script src="../assets/en/ch-matching.js?v=20261029153129"></script>
+<script src="../assets/app.js?v=20261029153129"></script>
+</body>
+</html>

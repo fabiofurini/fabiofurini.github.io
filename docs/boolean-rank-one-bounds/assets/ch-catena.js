@@ -156,7 +156,7 @@
     valR: { tag: 'Rilassamento $R$', f: '$\\val(R)-\\gamma$', c: '#5b6576' },
     pf: { tag: 'Matroide bicircolare', f: '$w(F^*)-\\gamma$', c: '#c47a12' },
     M: { tag: 'Matching', f: '$M$', c: '#d4570f' },
-    bound: { tag: 'AWCD · duale', f: '$y^{F,\\varphi}$ migliore', c: '#6b3fa0' },
+    bound: { tag: 'AWCD · duale', f: '$y^{F,\\varphi}$&nbsp;migliore', c: '#6b3fa0' },
   };
   const RELS = {
     1: { a: 'efull', b: 'awcd', eq: true, t: 'Teorema di equivalenza' },
