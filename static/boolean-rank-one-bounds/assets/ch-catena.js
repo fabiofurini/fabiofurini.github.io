@@ -82,7 +82,9 @@
   #catena .d .lv { font: 600 12.5px var(--mono); fill: var(--brand); }
   #catena .d .lbl { font: 600 13px var(--mono); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
   #catena .ct-alpha { justify-content: center; }
-  #catena #ct-bars svg.d { max-width: 600px; margin: 0 auto; }
+  #catena #ct-bars svg.d { max-width: 470px; margin: 0 auto; }
+  #catena .ct-card .hd { padding-right: 26px; }
+  @media (max-width: 560px) { #catena .ct-card .eq { font-size: .86em; padding: 10px 8px; } #catena .ct-card { padding: 12px 12px; } }
   
   #catena .ct-sw { line-height: 1; padding-bottom: 1px; }
   #catena .ct-alpha .grp { display: inline-flex; align-items: center; gap: 4px; background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 3px 6px; }
@@ -102,9 +104,13 @@
   const st = document.createElement('style'); st.textContent = css; sec.appendChild(st);
 
   // ---------------------------------------------------------------- esempi
-  const randG = () => {
-    const n = 4; const G = BR.zeros(n);
-    for (let i = 0; i < n; i++) for (let j = i; j < n; j++) G[i][j] = G[j][i] = Math.floor(Math.random() * 5);
+  const randG = () => { // interi 0..4; si scartano i casi banali con M = 0
+    const n = 4; let G;
+    for (let t = 0; t < 60; t++) {
+      G = BR.zeros(n);
+      for (let i = 0; i < n; i++) for (let j = i; j < n; j++) G[i][j] = G[j][i] = Math.floor(Math.random() * 5);
+      if (BR.maxGainMatching(G).value > 0) break;
+    }
     return G;
   };
   const EX = {
@@ -285,7 +291,7 @@
     const c = D.c, v = D.v; let body = '';
     if (r === 1) body = `<p>Nel grafo bordato la clique $C=\\{r\\}\\cup U$ contiene l'arco radice $(r,i)$ se e solo se $i\\in U$,
       e l'arco $\\{i,j\\}$ se e solo se $i,j\\in U$. Con il cambio di variabili $x_C=p_U$:</p>
-      <div class="eq">$$(Bx)_{ri}=\\sum_{U\\ni i}p_U=H_{ii},\\qquad (Bx)_{ij}=\\sum_{U\\supseteq\\{i,j\\}}p_U=H_{ij}.$$</div>
+      <div class="eq">$$\\begin{aligned}(Bx)_{ri}&=\\sum_{C\\ni r,i}x_C=\\sum_{U\\ni i}p_U=H_{ii},\\\\ (Bx)_{ij}&=\\sum_{C\\ni i,j}x_C=\\sum_{U\\supseteq\\{i,j\\}}p_U=H_{ij}.\\end{aligned}$$</div>
       <p>Con $w_{ri}=\\Gamma_{ii}$ e $w_{ij}=\\Gamma_{ij}$, il residuo $q^+-q^-=w-Bx$ è $\\Gamma-H$ cella per cella. All'ottimo
       $q^+$ e $q^-$ non sono mai entrambi positivi sulla stessa cella, quindi $e^\\top q^++e^\\top q^-=\\sum_{i\\le j}|\\Gamma_{ij}-H_{ij}|$.
       I due problemi sono lo stesso LP: $\\Efull(\\Gamma)=z^*$.</p>
@@ -311,7 +317,7 @@
       <li><b>Greedy di Edmonds.</b> Su un matroide il greedy (elementi in ordine di peso, si tiene ciò che resta indipendente)
       trova l'insieme indipendente di peso massimo: $\\val(P)=w(F^*)$.</li></ol>
       <div class="ex">Peeling: $\\val(R)=${F(c.valR)}$. Greedy: $w(F^*)=${F(c.pseudoforest)}$. Sottraendo $\\gamma=${F(c.gamma)}$: $${F(v.valR)}=${F(v.pf)}$.</div>`;
-    else if (r === 5) body = `<p><b>Rappresentazione trasversale.</b> $F$ è una pseudoforesta se e solo se ogni suo elemento si assegna
+    else if (r === 5) body = `<p><b>Fatto chiave.</b> $F$ è una pseudoforesta se e solo se ogni suo elemento si assegna
       a un proprio estremo (un loop al suo vertice) con vertici tutti distinti.</p>
       <ol><li><b>$\\ge$.</b> Partiamo da tutti i loop, peso $\\gamma$. Per ogni coppia $\\{i,j\\}\\to v$ del matching
       sostituiamo il loop $\\ell_v$ con l'arco: il peso cresce di $\\Gamma_{ij}-\\Gamma_{vv}$ e l'assegnazione resta iniettiva.
@@ -355,23 +361,22 @@
   function drawBars() {
     const G = D.G, n = D.n, a = S.alpha; const [pi, pj] = S.pair;
     const maxV = Math.max(1, ...a, ...G.flat()) + 0.5;
-    const W = 560, H = 268, y0 = 222, top = 22, sy = (v) => y0 - (y0 - top) * v / maxV;
-    const bw = 62, gapx = n === 2 ? 120 : 92, xL = 70;
+    const bw = 60, gapx = n === 2 ? 120 : 88, xL = 46;
+    const W = xL + (n - 1) * gapx + bw + 16, H = 268, y0 = 222, top = 22, sy = (v) => y0 - (y0 - top) * v / maxV;
     const bx = (v) => xL + v * gapx;
     const svg = DR.svg($('ct-bars'), W, H, `Barre delle marginali α: ${a.map((x, i) => `α${i + 1}=${F(x)}`).join(', ')}`);
     // asse
     for (let t = 0; t <= Math.floor(maxV); t++) {
       DR.el('line', { x1: xL - 18, y1: sy(t), x2: bx(n - 1) + bw + 8, y2: sy(t), stroke: '#eef1f6', 'stroke-width': 1 }, svg);
-      DR.text(svg, xL - 30, sy(t), String(t), 'axis');
+      DR.text(svg, xL - 28, sy(t), String(t), 'axis');
     }
     const chain = BR.chainFromAlpha(a);
     const palette = ['#dbe7f8', '#bcd2f1', '#9dbdea', '#7fa8e2', '#6393d6'];
     let prev = 0;
     chain.forEach((s, t) => {
       for (const v of BR.toList(s.U)) DR.el('rect', { x: bx(v), y: sy(s.level), width: bw, height: sy(prev) - sy(s.level), fill: palette[t % palette.length], class: 'lay' }, svg);
-      // etichetta del livello a destra
-      const xr = bx(n - 1) + bw + 14;
-      DR.text(svg, xr, (sy(prev) + sy(s.level)) / 2, `S${t + 1} = ${BR.setLabel(s.U)}, peso ${F(s.c)}`, 'lv', { 'dominant-baseline': 'central' });
+      // etichetta S_t dentro lo strato (barra più a sinistra dell'insieme), se c'è spazio
+      if (sy(prev) - sy(s.level) >= 16) DR.text(svg, bx(BR.toList(s.U)[0]) + 6, (sy(prev) + sy(s.level)) / 2, `S${t + 1}`, 'lv', { 'dominant-baseline': 'central' });
       prev = s.level;
     });
     // soglie diagonali e valori
@@ -396,7 +401,8 @@
     const Hc = BR.combine(n, chain); // verifica: la catena copre min(α_i, α_j)
     const ok = BR.offPairs(n).every(([i, j]) => Math.abs(Hc[i][j] - Math.min(a[i], a[j])) < 1e-9);
     const cost = $('ct-cost');
-    cost.innerHTML = `<p>Coppia $\\{${pi + 1},${pj + 1}\\}$: copertura $\\min(\\alpha_${pi + 1},\\alpha_${pj + 1})=${F(m)}$${gij > m + 1e-9 ? `, sottostima $q_{${pi + 1}${pj + 1}}=${F(gij - m)}$` : `$\\ge\\Gamma_{${pi + 1}${pj + 1}}$, $q_{${pi + 1}${pj + 1}}=0$`}.</p>` +
+    const chainTxt = chain.map((s2, t) => `$S_${t + 1}=${BR.setLabel(s2.U).replace(/[{}]/g, (c2) => '\\' + c2)}$ (peso ${F(s2.c)})`).join(', ');
+    cost.innerHTML = `<p class="small muted">Catena: ${chainTxt || 'vuota'}.</p><p>Coppia $\\{${pi + 1},${pj + 1}\\}$: copertura $\\min(\\alpha_${pi + 1},\\alpha_${pj + 1})=${F(m)}$${gij > m + 1e-9 ? `, sottostima $q_{${pi + 1}${pj + 1}}=${F(gij - m)}$` : `$\\ge\\Gamma_{${pi + 1}${pj + 1}}$, $q_{${pi + 1}${pj + 1}}=0$`}.</p>` +
       (feas ? `<p>Costo $=${F(sumA)}+${F(sumQ)}-${F(D.c.gamma)}=\\mathbf{${F(sumA + sumQ - D.c.gamma)}}$ &nbsp;·&nbsp; ottimo $\\LB=${F(D.v.lb)}$${Math.abs(sumA + sumQ - D.c.gamma - D.v.lb) < 1e-9 ? ' <span class="ok">✓ ottimo</span>' : ''}</p>`
         : `<p class="no">Inammissibile: serve $\\alpha_i\\ge\\Gamma_{ii}$ per ogni $i$.</p>`) +
       (ok ? '' : '<p class="no">errore interno nella catena</p>');

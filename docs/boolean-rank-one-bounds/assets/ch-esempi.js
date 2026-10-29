@@ -11,8 +11,9 @@
   const signed = (v, first) => (first ? (v < 0 ? '−' + f(-v) : f(v)) : (v < 0 ? ' − ' + f(-v) : ' + ' + f(v)));
 
   // ---------------------------------------------------------------- geometria dei grafi
-  function geo(n) {
-    if (n === 2) return { W: 330, H: 260, pos: [[95, 110], [235, 110]], root: [165, 215], cen: [165, 110] };
+  function geo(n, mode) {
+    if (n === 2) return mode === 'rooted' ? { W: 330, H: 240, pos: [[95, 80], [235, 80]], root: [165, 190], cen: [165, 80] }
+      : { W: 330, H: 160, pos: [[95, 80], [235, 80]], cen: [165, 80] };
     if (n === 3) return { W: 330, H: 300, pos: DR.layout(3, { cx: 165, cy: 168, r: 92 }).pos, root: [165, 168], cen: [165, 168] };
     const c = [165, 158], a = 80;
     return { W: 330, H: 312, pos: [[c[0] - a, c[1] - a], [c[0] + a, c[1] - a], [c[0] + a, c[1] + a], [c[0] - a, c[1] + a]], root: c, cen: c, square: true };
@@ -23,7 +24,10 @@
     const [x1, y1] = g.pos[i], [x2, y2] = g.pos[j]; const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy);
     const nx = -dy / L, ny = dx / L;
     const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
-    if (bend) { const s = Math.sign(bend); return [mx + nx * (bend / 2 + 13 * s), my + ny * (bend / 2 + 13 * s)]; }
+    if (bend) { // punto della curva quadratica a t = 0.28, spostato verso l'esterno della curva
+      const t = 0.36, cx = mx + nx * bend, cy = my + ny * bend;
+      const px = (1 - t) * (1 - t) * x1 + 2 * t * (1 - t) * cx + t * t * x2, py = (1 - t) * (1 - t) * y1 + 2 * t * (1 - t) * cy + t * t * y2;
+      return [px + nx * 14 * Math.sign(bend), py + ny * 14 * Math.sign(bend)]; }
     if (n === 2) return [mx, my - 17];
     const ox = mx - g.cen[0], oy = my - g.cen[1], ol = Math.hypot(ox, oy);
     if (ol < 5) { const t = 0.27; return [x1 + dx * t + nx * 13, y1 + dy * t + ny * 13]; }
@@ -32,21 +36,21 @@
 
   /** mode: 'loop' (grafo con loop, evidenzia sel) oppure 'rooted' (grafo bordato). */
   function drawGraph(box, G, mode, sel, label) {
-    const n = G.length; const g = geo(n);
+    const n = G.length; const g = geo(n, mode);
     const svg = DR.svg(box, g.W, g.H, label);
     svg.style.maxWidth = '380px'; svg.style.margin = '0 auto';
     const cls = (id, w) => (w <= EPS ? 'ghost' : sel ? (sel.has(id) ? 'sel' : 'thin') : '');
     const edges = [], loops = [], rootEdges = [], labs = [];
     for (const [i, j] of BR.offPairs(n)) {
       const id = 'e' + (i + 1) + (j + 1); const w = G[i][j];
-      const bend = g.square && mode === 'rooted' && j - i === 2 ? 64 : 0;
+      const bend = g.square && mode === 'rooted' && j - i === 2 ? 88 : 0;
       edges.push({ i, j, cls: cls(id, w), bend });
       labs.push({ p: edgeLabelPos(g, n, i, j, bend), s: f(w), c: w > EPS ? 'off' : 'muted' });
     }
     for (let i = 0; i < n; i++) {
       const id = 'l' + (i + 1); const w = G[i][i];
       const o = { cls: cls(id, w), label: f(w), labelCls: w > EPS ? 'diag' : 'muted' };
-      if (mode === 'loop') loops.push(Object.assign({ i }, o)); else rootEdges.push(Object.assign({ v: i, t: 0.6 }, o));
+      if (mode === 'loop') loops.push(Object.assign({ i }, o)); else rootEdges.push(Object.assign({ v: i, t: n === 2 ? 0.5 : 0.45 }, o));
     }
     DR.graph(svg, n, { pos: g.pos, edges, loops, rootEdges, root: mode === 'rooted' ? g.root : null,
       loopDir: g.square ? (i) => LOOPDIR4[i] : undefined });
@@ -71,8 +75,9 @@
     const links = [];
     for (const [i, j] of pairs) for (const v of [i, j]) {
       const gain = G[i][j] - G[v][v]; const key = 'e' + (i + 1) + (j + 1) + '|v' + (v + 1); const on = chosen.has(key);
-      links.push({ l: 'e' + (i + 1) + (j + 1), r: 'v' + (v + 1), cls: on ? 'on' : gain > EPS ? '' : 'ex-zero',
-        label: gain > EPS ? f(gain) : '', labelCls: on ? 'match' : 'muted', t: 0.34 });
+      if (gain <= EPS) continue; // guadagno nullo: nessun collegamento utile
+      links.push({ l: 'e' + (i + 1) + (j + 1), r: 'v' + (v + 1), cls: on ? 'on' : '',
+        label: on || n <= 3 ? f(gain) : '', labelCls: on ? 'match' : 'muted', t: on ? 0.5 : 0.3 });
     }
     const dy = 44, rows = Math.max(left.length, n);
     const svg = DR.svg(box, 330, 66 + rows * dy, 'Grafo bipartito archi–vertici del matching dei guadagni; in arancio le assegnazioni scelte');
@@ -99,7 +104,8 @@
         <div class="legend">${sw('exact', 'in $F^*$')}${swStyle('border:2px solid #9aa6bb;background:#fff;opacity:.6', 'non in $F^*$')}${hasZero ? swStyle(ZERO_SW, 'peso $0$') : ''}</div>
         <div class="pnote f"></div></div>
       <div class="panel"><div class="ptitle">Matching dei guadagni</div><div class="bp"></div>
-        <div class="legend">${sw('match', 'assegnazione scelta')}<span class="small muted">numero = guadagno $(\\Gamma_{ij}-\\Gamma_{vv})^+$</span></div>
+        <div class="legend">${sw('match', 'assegnazione scelta')}${swStyle('border:2px solid #c9d1df;background:#fff', 'altro guadagno positivo')}</div>
+        <div class="pnote small muted">numero sul collegamento = guadagno $(\\Gamma_{ij}-\\Gamma_{vv})^+$${n > 3 ? ' (mostrato solo sulle assegnazioni scelte)' : ''}</div>
         <div class="pnote mm"></div></div>
     </div>`;
     drawMatrix(box.querySelector('.m'), G, `Matrice Gamma ${n} per ${n}`);
@@ -166,7 +172,7 @@
       const expr = parts.length ? parts.map((v, k) => signed(v, k === 0)).join('') + (parts.length > 1 ? ' = ' + signed(r.sum, true) : '') : '0';
       return `<tr><td>${tex('U=' + setTex(r.U))}</td><td class="m">${expr}</td><td>${r.ok ? '<span class="ok">✓ ≤ 0</span>' : '<span class="no">✗</span>'}</td></tr>`;
     }).join('');
-    const vparts = []; for (const [i, j] of BR.entries(n)) if (Math.abs(y[i][j]) > EPS) vparts.push(`${f(G[i][j])}\\cdot(${f(y[i][j])})`);
+    const vparts = []; for (const [i, j] of BR.entries(n)) if (Math.abs(y[i][j]) > EPS) vparts.push(`${f(G[i][j])}\\cdot${y[i][j] < 0 ? '(' + f(y[i][j]) + ')' : f(y[i][j])}`);
     box.innerHTML = `<div class="ex-dec">
         <div class="panel"><div class="ptitle">Il vettore $y$ (triangolo superiore)</div><div class="ym"></div></div>
         <div class="panel"><div class="ptitle">Vincoli: tutti i ${d.rows.length} sottoinsiemi</div>
@@ -227,7 +233,7 @@
 
   // ---------------------------------------------------------------- esempio modificabile
   if (!$('ex3-core')) return;
-  const st = { n: 3, G: BR.clone(G2) };
+  const st = { n: 4, G: [[0, 2, 1, 0], [2, 1, 0, 2], [1, 0, 0, 3], [0, 2, 3, 1]] };
   const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
   const inputs = [];
 
@@ -269,7 +275,7 @@
   }
   function setG(G, note) { st.G = G; syncInputs(); if (note) showNote(note); else hideNote(); update(); }
 
-  DR.toggle($('ex3-n'), [2, 3, 4].map((n) => ({ label: `$n=${n}$`, value: n })), setN, 3);
+  DR.toggle($('ex3-n'), [2, 3, 4].map((n) => ({ label: `$n=${n}$`, value: n })), setN, 4);
   DR.texAll($('ex3-n'));
   const gen = $('ex3-gen');
   const btn = (label, fn) => { const b = DR.h('button', 'btn', label, gen); b.type = 'button'; b.addEventListener('click', fn); DR.texAll(b); return b; };
@@ -280,7 +286,7 @@
   });
   btn('rank-one $bb^\\top$', () => {
     const n = st.n; let b;
-    do { b = Array.from({ length: n }, () => rint(0, 3)); } while (b.every((x) => x === 0));
+    do { b = Array.from({ length: n }, () => rint(1, 4)); } while (new Set(b).size < 2);
     const G = b.map((x) => b.map((z) => x * z));
     // verifica numerica su 300 vettori casuali
     let ok = 0; const N = 300;

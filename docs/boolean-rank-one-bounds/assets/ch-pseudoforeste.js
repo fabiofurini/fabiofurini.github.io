@@ -10,10 +10,11 @@
 
   // ------------------------------------------------------------------ stile locale
   const css = `
+  #pseudoforeste .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
   #pseudoforeste .cc{border-radius:5px;padding:1px 2px;transition:opacity .2s,background .2s}
   #pseudoforeste .cc-p{color:#1f3a68} #pseudoforeste .cc-q{color:var(--under)}
   #pseudoforeste .cc-d{color:var(--diag)} #pseudoforeste .cc-o{color:var(--off)}
-  #pseudoforeste .pf-lp.pick .cc{opacity:.32}
+  #pseudoforeste .pf-lp.pick .cc{opacity:.42}
   #pseudoforeste .pf-lp.pick-p .cc-p{opacity:1;background:#e3e9f5;box-shadow:inset 0 -2px 0 #1f3a68}
   #pseudoforeste .pf-lp.pick-q .cc-q{opacity:1;background:var(--under-bg);box-shadow:inset 0 -2px 0 var(--under)}
   #pseudoforeste .pf-lp.pick-d .cc-d{opacity:1;background:var(--diag-bg);box-shadow:inset 0 -2px 0 var(--diag)}
@@ -27,6 +28,8 @@
   @media (max-width:640px){#pseudoforeste .pf-gallery{grid-template-columns:repeat(2,1fr)}}
   #pseudoforeste .pf-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 8px 10px;text-align:center}
   #pseudoforeste .pf-card.good{border-top:4px solid var(--accept)} #pseudoforeste .pf-card.bad{border-top:4px solid var(--reject)}
+  #pseudoforeste .pf-card svg.d{max-width:170px;margin:0 auto}
+  #pseudoforeste .pf-lp .katex-display{margin:.2em 0}
   #pseudoforeste .pf-card .nm{font-weight:700;font-size:14.5px;color:var(--ink)}
   #pseudoforeste .pf-card .ct{font-size:13.5px;color:var(--ink-2)}
   #pseudoforeste .pf-card .vd{font-size:14px;margin-top:2px}
@@ -446,13 +449,16 @@
         DR.el('circle', { cx: vx[v], cy: vy, r: VR }, g); DR.text(g, vx[v], vy, String(v + 1));
         DR.text(gV, vx[v], yTop0 + maxH + 24, 'α=' + fmt(alpha[v]), 'alab');
       }
+      return { svg: s, W: Wd, H: Hd };
     }
     const laminar = (fam) => fam.every((a) => fam.every((b) => (a.U & b.U) === 0 || (a.U & b.U) === a.U || (a.U & b.U) === b.U));
     const load = (ex) => {
       const G = ex.G, n = G.length, pe = BR.peeling(G);
       const alpha = BR.marginals(n, pe.p), ch = BR.chainFromAlpha(alpha);
-      nested(lamHost, n, pe.p, alpha, `Certificato laminare con ${pe.p.length} insiemi`);
-      nested(chHost, n, ch, BR.marginals(n, ch), `Certificato a catena con ${ch.length} insiemi`);
+      const d1 = nested(lamHost, n, pe.p, alpha, `Certificato laminare con ${pe.p.length} insiemi`);
+      const d2 = nested(chHost, n, ch, BR.marginals(n, ch), `Certificato a catena con ${ch.length} insiemi`);
+      const Hm = Math.max(d1.H, d2.H), Wm = Math.max(d1.W, d2.W); // stessa scala e legende allineate
+      for (const d of [d1, d2]) d.svg.setAttribute('viewBox', `${-(Wm - d.W) / 2} 0 ${Wm} ${Hm}`);
       const vL = BR.valueR(G, pe.p, pe.q), vC = BR.valueR(G, ch, pe.q);
       const okL = BR.checkR(G, pe.p, pe.q).ok, okC = BR.checkR(G, ch, pe.q).ok;
       const isLam = laminar(pe.p), isChain = ch.every((a, k) => k === 0 || (a.U & ch[k - 1].U) === a.U);

@@ -6,10 +6,10 @@
   const EX = [
     { label: 'Errore nullo', G: [[3, 3, 1], [3, 3, 1], [1, 1, 1]], terms: [{ U: M([1, 2]), c: 2 }, { U: M([1, 2, 3]), c: 1 }],
       cap: '$\\Gamma=2\\,X_{\\{1,2\\}}+X_{\\{1,2,3\\}}$ esattamente: errore 0. Si dice che $\\Gamma$ sta nel cono $\\COR(3)$.' },
-    { label: 'Solo sovrastime', G: [[0, 1, 1], [1, 0, 1], [1, 1, 1]], terms: [{ U: M([1, 2, 3]), c: 1 }],
-      cap: 'L\'ottimo $H=X_{\\{1,2,3\\}}$ sbaglia solo per eccesso, su $\\Gamma_{11}$ e $\\Gamma_{22}$: errore 2. Con sole sottostime non si scende sotto 3.' },
-    { label: 'Sovrastime e sottostime', G: [[0, 1, 1], [1, 0, 2], [1, 2, 1]], terms: [{ U: M([1, 2, 3]), c: 1 }],
-      cap: 'L\'ottimo sbaglia per eccesso su $\\Gamma_{11},\\Gamma_{22}$ e per difetto su $\\Gamma_{23}$: errore 3. Con un solo tipo di errore il minimo sarebbe 4.' },
+    { label: 'Solo errori positivi', G: [[1, 0, 0], [0, 1, 2], [0, 2, 1]], terms: [{ U: M([1]), c: 1 }, { U: M([2, 3]), c: 1 }],
+      cap: 'Errori positivi = sottostime ($\\Gamma_{ij}-H_{ij}>0$). L\'ottimo $H=X_{\\{1\\}}+X_{\\{2,3\\}}$ sottostima solo $\\Gamma_{23}$: errore 1. Con sole sovrastime il minimo sarebbe 2.' },
+    { label: 'Errori di entrambi i segni', G: [[0, 1, 1], [1, 0, 2], [1, 2, 1]], terms: [{ U: M([1, 2, 3]), c: 1 }],
+      cap: 'L\'ottimo sottostima $\\Gamma_{23}$ (errore positivo) e sovrastima $\\Gamma_{11},\\Gamma_{22}$ (errori negativi): errore 3. Con errori di un solo segno il minimo sarebbe 4.' },
   ];
   const cell = 44;
   const legendEl = document.getElementById('intro-ex-legend');
@@ -38,14 +38,14 @@
     const byCell = new Map(er.cells.map((c) => [c.i + ',' + c.j, c]));
     DR.matrix(s, H, { x, y: y2, cell, labels: false, upperOnly: true,
       cls: (i, j) => (byCell.get(i + ',' + j) || {}).kind || '',
-      value: (i, j) => { const c = byCell.get(i + ',' + j); if (!c) return ''; return c.kind === 'exact' ? '0' : (c.d > 0 ? '+' : '−') + BR.fmt(Math.abs(c.d)); } });
-    lab(x + w / 2, y2 + w + 20, 'H − Γ  ·  errore totale ' + BR.fmt(er.full));
+      value: (i, j) => { const c = byCell.get(i + ',' + j); if (!c) return ''; return c.kind === 'exact' ? '0' : (c.d < 0 ? '+' : '−') + BR.fmt(Math.abs(c.d)); } });
+    lab(x + w / 2, y2 + w + 20, 'Γ − H  ·  errore totale ' + BR.fmt(er.full));
     const used = new Set(er.cells.map((c) => c.kind));
     legendEl.innerHTML = '<span><i class="sw diag"></i>diagonale</span><span><i class="sw off"></i>fuori diagonale</span><span><i class="sw on"></i>1 nel fattore</span>' +
-      (used.has('over') ? '<span><i class="sw over"></i>sovrastima (+)</span>' : '') +
-      (used.has('under') ? '<span><i class="sw under"></i>sottostima (−)</span>' : '') +
+      (used.has('under') ? '<span><i class="sw under"></i>sottostima: $\\Gamma_{ij}-H_{ij}&gt;0$ (slack $s^+$)</span>' : '') +
+      (used.has('over') ? '<span><i class="sw over"></i>sovrastima: $H_{ij}-\\Gamma_{ij}&gt;0$ (slack $s^-$)</span>' : '') +
       '<span><i class="sw exact"></i>esatto</span>';
-    capEl.innerHTML = ex.cap; DR.texAll(capEl);
+    capEl.innerHTML = ex.cap; DR.texAll(capEl); DR.texAll(legendEl);
   }
   DR.toggle(document.getElementById('intro-ex-tabs'), EX.map((e, k) => ({ label: e.label, value: k })), draw, 0);
   draw(0);

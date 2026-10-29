@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Errori e rilassamento · Boolean rank-one: AWCD, pseudoforeste e matching</title>
+<meta name="description" content="Guida visuale e interattiva alle relazioni fra il problema AWCD ancorato, il rilassamento unilaterale, il matroide bicircolare, il matching bipartito e il matroide grafico nella decomposizione di matrici in fattori Boolean rank-one.">
+<link rel="stylesheet" href="assets/katex/katex.min.css?v=20261029145838">
+<link rel="stylesheet" href="assets/style.css?v=20261029145838">
+</head>
+<body>
+<header class="hero compact"><a class="home" href="index.html">Guida visuale · decomposizioni Boolean rank-one</a><div class="ctitle"><span class="k">C</span> Errori e rilassamento</div></header>
+<div class="layout">
+<nav class="toc" aria-label="Indice">
+  <div class="title">Indice</div>
+  <a href="index.html"><span class="k">·</span><span class="t">Il problema</span></a>
+  <a href="matrice-grafo.html"><span class="k">A</span><span class="t">Dalla matrice al grafo</span></a>
+  <a href="fattori.html"><span class="k">B</span><span class="t">Fattori Boolean rank-one</span></a>
+  <a href="errori.html" class="active" aria-current="page"><span class="k">C</span><span class="t">Errori e rilassamento</span></a>
+  <a href="pseudoforeste.html"><span class="k">D</span><span class="t">Primale e duale</span></a>
+  <a href="matching.html"><span class="k">E</span><span class="t">Dal bicircolare al matching</span></a>
+  <a href="matching-bound-awcd.html"><span class="k">F</span><span class="t">Il matching bound di AWCD</span></a>
+  <a href="catena.html"><span class="k">G</span><span class="t">La catena completa</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossario</span></a>
+</nav>
+<main>
+<section class="chapter" id="errori">
+<style>
+  #errori .fig-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 760px) { #errori .fig-row.three { grid-template-columns: 1fr; } }
+  #errori .d .cell.hl rect { stroke: #1d2433; stroke-width: 3.5; }
+  #errori .d .cell .tag { font: 700 13px var(--sans); fill: var(--ink-2); }
+  #errori .d .cell.under .tag, #errori .d .cell.under text.v { fill: var(--under); }
+  #errori .d .cell.over .tag, #errori .d .cell.over text.v { fill: var(--over); }
+  #errori .d .cell.exact .tag, #errori .d .cell.exact text.v { fill: var(--exact); }
+  #errori .d .cell.free .tag, #errori .d .cell.free text.v { fill: #5b6475; }
+  #errori .d [data-k] { cursor: pointer; }
+  @keyframes errflash { 0% { opacity: 1; } 30% { opacity: .25; } 60% { opacity: 1; } 80% { opacity: .5; } 100% { opacity: 1; } }
+  #errori .d .cell.flash { animation: errflash 1.1s ease-in-out 1; }
+  @media (prefers-reduced-motion: reduce) { #errori .d .cell.flash { animation: none; } }
+  #errori .sliders { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+  #errori .msg { min-height: 1.6em; font-size: 15px; color: var(--ink-2); margin: 4px 2px 10px; }
+  #errori .vt { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
+  #errori .vt .vt { margin: 0; }
+  #errori .vt .btn { padding: 3px 10px; font-size: 13.5px; }
+  #errori .bars { margin: 14px 0 4px; display: grid; gap: 12px; }
+  #errori .bar .bl { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; color: var(--ink-2); margin-bottom: 4px; }
+  #errori .bar .bl b { font-family: var(--mono); color: var(--brand); font-size: 16px; }
+  #errori .bar .track { position: relative; height: 34px; border-radius: 8px; background: #f3f5f9; display: flex; overflow: hidden; }
+  #errori .seg { height: 100%; display: flex; align-items: center; justify-content: center; font: 700 13px var(--mono); white-space: nowrap; overflow: hidden; border-top: 5px solid transparent; transition: width .25s; box-sizing: border-box; }
+  #errori .seg.u { background: var(--under-bg); color: var(--under); box-shadow: inset 0 0 0 1.5px var(--under); }
+  #errori .seg.o { background: var(--over-bg); color: var(--over); box-shadow: inset 0 0 0 1.5px var(--over); }
+  #errori .seg.f { background: repeating-linear-gradient(45deg, #fff 0 4px, #e3e7ee 4px 8px); color: #5b6475; box-shadow: inset 0 0 0 1.5px #b6bdca; }
+  #errori .seg.x { background: repeating-linear-gradient(45deg, #fbe3e7 0 4px, #fff 4px 8px); color: var(--under); box-shadow: inset 0 0 0 2px var(--under); }
+  #errori .seg.dg { border-top-color: var(--diag); } #errori .seg.of { border-top-color: var(--off); }
+  #errori .sw.tdg { background: #fff; border: 0; border-top: 5px solid var(--diag); border-radius: 2px; }
+  #errori .sw.tof { background: #fff; border: 0; border-top: 5px solid var(--off); border-radius: 2px; }
+  #errori ol.steps { list-style: none; counter-reset: st; padding: 0; margin: 14px 0; }
+  #errori ol.steps > li { counter-increment: st; position: relative; padding: 4px 0 14px 46px; margin: 0 0 8px; border-bottom: 1px solid var(--line); }
+  #errori ol.steps > li:last-child { border-bottom: 0; }
+  #errori ol.steps > li::before { content: counter(st); position: absolute; left: 0; top: 4px; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+  #errori ol.steps > li > b:first-child { color: var(--brand); }
+</style>
+<div class="kicker"><b>C</b> Capitolo C</div>
+<h2>Errori positivi e negativi</h2>
+<p class="lead">Una ricostruzione $H$ può sbagliare in due direzioni: dare troppo poco o dare troppo. Il rilassamento
+delle pseudoforeste tratta le due direzioni in modo diverso, e la differenza dipende dalla posizione della cella:
+sulla diagonale o fuori.</p>
+<div class="goal"><b>In questo capitolo:</b> sottostima e sovrastima; perché la sottostima diagonale si può sempre
+eliminare; come si passa dall'errore completo $\Efull$ al rilassamento unilaterale $(R)$; perché il lower bound è
+$\LB=\val(R)-\gamma$ (con $\val(R)$ il valore ottimo di $(R)$) e non $\val(R)$.</div>
+
+<h3>Due tipi di errore</h3>
+<p>Fissiamo una ricostruzione $H=H(p)=\sum_U p_U X_U$, con $p_U\ge0$ e $X_U=\one_U\one_U^\top$ (capitolo B). Per ogni
+cella $i\le j$ del triangolo superiore confrontiamo $\Gamma_{ij}$ con $H_{ij}$.</p>
+<div class="box def"><div class="h">Definizione</div>
+<p>Con $(a)^+=\max\{0,a\}$ definiamo la <b>sottostima</b> $s^+_{ij}$ e la <b>sovrastima</b> $s^-_{ij}$:</p>
+<div class="eq">$$s^+_{ij}=(\Gamma_{ij}-H_{ij})^+,\qquad s^-_{ij}=(H_{ij}-\Gamma_{ij})^+.$$</div>
+<p>Così $H_{ij}+s^+_{ij}-s^-_{ij}=\Gamma_{ij}$, e al più uno dei due scarti è positivo.</p>
+<p>Sottostima: $H_{ij}&lt;\Gamma_{ij}$, cioè errore <b>positivo</b> $\Gamma_{ij}-H_{ij}>0$. Sovrastima:
+$H_{ij}>\Gamma_{ij}$, cioè errore <b>negativo</b>. L'errore della cella è $s^+_{ij}+s^-_{ij}=|\Gamma_{ij}-H_{ij}|$.</p>
+</div>
+<p>Usiamo l'esempio di riferimento della guida, con traccia $\gamma=\sum_i\Gamma_{ii}=0+1+1=2$:</p>
+<div class="eq">$$\Gamma=\begin{pmatrix}0&1&2\\1&1&0\\2&0&1\end{pmatrix}.$$</div>
+
+<figure class="fig">
+  <div class="controls" id="er-presets"></div>
+  <div class="sliders" id="er-sliders"></div>
+  <div class="msg" id="er-msg" aria-live="polite"></div>
+  <div class="vt"><span class="small">Terza matrice:</span><span class="vt" id="er-view"></span></div>
+  <div class="fig-row three">
+    <div class="panel"><div class="ptitle">Dati $\Gamma$</div><div id="er-G"></div></div>
+    <div class="panel"><div class="ptitle">Ricostruzione $H(p)$</div><div id="er-H"></div></div>
+    <div class="panel"><div class="ptitle" id="er-Dt"></div><div id="er-D"></div></div>
+  </div>
+  <div class="legend" id="er-legend"></div>
+  <div class="bars" id="er-bars"></div>
+  <div class="legend"><span><i class="sw tdg"></i>bordo ambra: cella diagonale</span><span><i class="sw tof"></i>bordo blu: cella fuori diagonale</span></div>
+  <div class="kpis" id="er-kpis"></div>
+  <figcaption>Muovi i coefficienti: le due barre misurano la stessa $H$ con le regole del problema completo e di $(R)$.</figcaption>
+</figure>
+
+<h3>Dal problema completo a $(R)$ in cinque passi</h3>
+<ol class="steps">
+<li><b>Problema completo.</b> Le variabili sono $p\ge0$ e gli scarti $s^\pm\ge0$; si paga ogni scarto.
+<div class="eq">$$\begin{aligned}\Efull(\Gamma)=\min\ & \sum_{i\le j}\bigl(s^+_{ij}+s^-_{ij}\bigr)\\ \text{s.t. }\ & \sum_{U\supseteq\{i,j\}}p_U+s^+_{ij}-s^-_{ij}=\Gamma_{ij}\quad (i\le j),\qquad p,s^\pm\ge0.\end{aligned}$$</div>
+Per $i=j$ la somma è su $U\ni i$; «s.t.» si legge «soggetto ai vincoli».</li>
+<li><b>Niente sottostima sulla diagonale.</b> Si può assumere $s^+_{ii}=0$: una sottostima diagonale si elimina
+aumentando $p_{\{i\}}$, il coefficiente del singoletto $\{i\}$, e l'errore non aumenta. Il vincolo diagonale diventa
+<div class="eq">$$\sum_{U\ni i}p_U\ \ge\ \Gamma_{ii},\qquad s^-_{ii}=\sum_{U\ni i}p_U-\Gamma_{ii}.$$</div>
+<details class="proof"><summary>Perché l'errore non aumenta</summary>
+<p>Sia $\delta=s^+_{ii}>0$. Il fattore $X_{\{i\}}$ ha un solo $1$, nella cella $(i,i)$. Ponendo
+$p_{\{i\}}\leftarrow p_{\{i\}}+\delta$ e $s^+_{ii}\leftarrow0$ tutti i vincoli restano soddisfatti e cambia solo la
+cella $(i,i)$. L'errore scende esattamente di $\delta$. È il bottone «Correggi con singleton» della figura.</p>
+</details></li>
+<li><b>La diagonale paga la traccia in eccesso.</b> Sommando su $i$, ogni $U$ compare $|U|$ volte:
+$\sum_i s^-_{ii}=\sum_U|U|\,p_U-\gamma$. La sovrastima diagonale resta pagata, anche in $(R)$.</li>
+<li><b>Fuori diagonale, la sovrastima diventa gratuita.</b> Si toglie $s^-_{ij}$ ($i&lt;j$) dall'obiettivo. Il
+vincolo diventa una disuguaglianza e la sottostima $q_{ij}=s^+_{ij}$ resta pagata:
+<div class="eq">$$\begin{aligned}(R)\quad \min\ & \sum_{U}|U|\,p_U+\sum_{i&lt;j}q_{ij}\\ \text{s.t. }\ & \sum_{U\supseteq\{i,j\}}p_U+q_{ij}\ge\Gamma_{ij}\quad (i&lt;j),\\ & \sum_{U\ni i}p_U\ge\Gamma_{ii}\quad (i\in V),\qquad p,q\ge0.\end{aligned}$$</div></li>
+<li><b>Il bound.</b> Il passo 4 può solo abbassare il minimo, e la costante $\gamma$ del passo 3 non compare in $(R)$.
+Con $\val(R)$ il valore ottimo di $(R)$, il <i>lower bound</i> è
+<div class="eq">$$\LB=\val(R)-\gamma\ \le\ \Efull(\Gamma).$$</div></li>
+</ol>
+
+<div class="box warn"><div class="h">Perché sottrarre la traccia</div>
+<p>$\val(R)$ include la copertura della diagonale, $\sum_U|U|p_U\ge\gamma$, che non è un errore. Per
+$\Gamma=\one\one^\top$ (tutti uni, $n=3$) la ricostruzione è esatta, $\Efull=0$, ma $\val(R)=3$.</p>
+<p>Nell'esempio di riferimento $\val(R)=4>\Efull(\Gamma)=3$, mentre $\LB=4-2=2\le3$.</p>
+</div>
+
+<div class="box key"><div class="h">Cosa portarsi a casa</div>
+<ul>
+<li>Sottostima $s^+_{ij}$: $H_{ij}&lt;\Gamma_{ij}$. Sovrastima $s^-_{ij}$: $H_{ij}>\Gamma_{ij}$.</li>
+<li>Sulla diagonale la sottostima si elimina con il singleton $p_{\{i\}}$: si può imporre $\sum_{U\ni i}p_U\ge\Gamma_{ii}$.</li>
+<li>In $(R)$ la sovrastima diagonale resta pagata ($\sum_U|U|p_U-\gamma$); la sovrastima fuori diagonale è
+gratuita; la sottostima fuori diagonale $q_{ij}$ è pagata.</li>
+<li>$\LB=\val(R)-\gamma\le\Efull(\Gamma)$; la sottrazione di $\gamma$ è essenziale.</li>
+</ul>
+</div>
+</section>
+<nav class="pager" aria-label="Capitoli"><a class="prev" href="fattori.html"><small>← precedente</small><span>B · Fattori Boolean rank-one</span></a><a class="next" href="pseudoforeste.html"><small>successivo →</small><span>D · Primale e duale</span></a></nav>
+</main>
+</div>
+<footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calcolati nel browser.</footer>
+<script src="assets/katex/katex.min.js?v=20261029145838"></script>
+<script src="assets/katex/auto-render.min.js?v=20261029145838"></script>
+<script src="assets/core.js?v=20261029145838"></script>
+<script src="assets/draw.js?v=20261029145838"></script>
+<script>window.BR_PAGES=["index.html", "matrice-grafo.html", "fattori.html", "errori.html", "pseudoforeste.html", "matching.html", "matching-bound-awcd.html", "catena.html", "glossario.html"];</script>
+<script src="assets/ch-errori.js?v=20261029145838"></script>
+<script src="assets/app.js?v=20261029145838"></script>
+</body>
+</html>

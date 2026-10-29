@@ -9,6 +9,7 @@
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const css = `
+  #matching .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
   #matching .mt-row{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
   @media (max-width:760px){#matching .mt-row{grid-template-columns:1fr}}
   #matching .mt-msg{background:var(--soft);border-radius:10px;padding:9px 14px;margin:10px 0 0;min-height:44px;font-size:15.5px}
@@ -234,8 +235,8 @@
         links.push({ l: e.id, r: 'v' + v, cls: (e.type === 'loop' ? 'loopl ' : '') + (on ? 'on' : (badEl.has(e.id) ? 'bad' : '')) });
       }
       const Hh = 56 + Math.max(all.length, n) * 40;
-      const s = DR.svg(bHost, 420, Hh, 'Grafo bipartito elementi-vertici con l\'assegnazione trasversale');
-      bip(s, left, right, links, { x1: 70, x2: 345, titles: ['elementi · peso', 'vertici'] });
+      const s = DR.svg(bHost, 340, Hh, 'Grafo bipartito elementi-vertici con l\'assegnazione trasversale');
+      bip(s, left, right, links, { x1: 62, x2: 290, titles: ['elementi · peso', 'vertici'] });
       // grafo
       const sg = DR.svg(gHost, W, H, `Insieme selezionato con ${F.length} elementi`);
       drawGraph(sg, n, geo, all.map((e) => {
@@ -270,7 +271,11 @@
   (function exchangeFig() {
     const gHost = $('mt-x-graph'), barHost = $('mt-x-bar'), msg = $('mt-x-msg'), ctl = $('mt-x-ctl');
     if (!gHost) return;
-    let cur = null;
+    let cur = null, reRender = null, rt = null, lastW = barHost.clientWidth;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { const w = barHost.clientWidth; if (reRender && (w < 520) !== (lastW < 520)) reRender(); lastW = w; }, 150);
+    });
     const load = (ex) => {
       const G = ex.G, n = G.length, geo = geometry(n), g = BR.gamma(G);
       const mm = BR.maxGainMatching(G), gr = BR.greedyPseudoforest(G);
@@ -293,10 +298,11 @@
         const s = DR.svg(gHost, W, H, `Pseudoforesta dopo ${k} scambi, peso ${fmt(pf.value)}`);
         drawGraph(s, n, geo, items, { vcls: (v) => (last && last.v === v ? 'hl' : '') });
         // barra: per ogni vertice il suo occupante (Γ_vv in ambra, più il guadagno in arancio)
-        const BW = 640, X0 = 150, SC = (BW - X0 - 40) / scaleMax;
-        const sb = DR.svg(barHost, BW, 168, `Bilancia: gamma più guadagni uguale a w(F*)`);
+        const narrow = (barHost.clientWidth || 640) < 520;
+        const BW = narrow ? 360 : 640, X0 = narrow ? 2 : 150, SC = (BW - X0 - 52) / scaleMax;
+        const sb = DR.svg(barHost, BW, narrow ? 196 : 168, `Bilancia: gamma più guadagni uguale a w(F*)`);
         const row = (y, label, segs, total) => {
-          DR.text(sb, 0, y + 15, label, 'bar-l');
+          if (narrow) DR.text(sb, 0, y - 32, label, 'bar-l'); else DR.text(sb, 0, y + 15, label, 'bar-l');
           let x = X0;
           for (const sg of segs) {
             const wpx = sg.w * SC;
@@ -323,11 +329,12 @@
           if (p) segA.push({ w: p.gain, cls: 'seg-g', t: '+' + fmt(p.gain) });
         }
         const sumG = pairs.reduce((a, p) => a + p.gain, 0);
-        row(40, 'γ + guadagni', segA, g + sumG);
+        const yA = narrow ? 64 : 40, yB = narrow ? 150 : 104;
+        row(yA, 'γ + guadagni', segA, g + sumG);
         const segB = gr.F.map((e) => ({ w: e.w, cls: e.type === 'loop' ? 'seg-l' : 'seg-e', t: lab(e), v: fmt(e.w) }));
-        row(104, 'w(F*) greedy', segB, gr.value);
+        row(yB, 'w(F*) greedy', segB, gr.value);
         const xe = X0 + gr.value * SC;
-        DR.el('line', { x1: xe, y1: 30, x2: xe, y2: 142, class: 'eqline' }, sb);
+        DR.el('line', { x1: xe, y1: yA - 10, x2: xe, y2: yB + 38, class: 'eqline' }, sb);
         // messaggio
         let m;
         if (k === 0) m = `Tutti i loop: ogni vertice è occupato dal proprio loop. Peso $\\gamma=${fmt(g)}$.`;
@@ -342,7 +349,10 @@
         msg.innerHTML = m; DR.texAll(msg);
       };
       if (cur) cur.stop();
-      cur = stepper(ctl, frames.length, render, { delay: 1800 });
+      let lastK = 0;
+      const r2 = (k) => { lastK = k; render(k); };
+      cur = stepper(ctl, frames.length, r2, { delay: 1800 });
+      reRender = () => render(lastK);
     };
     exBar($('mt-x-ex'), load);
   })();
@@ -378,8 +388,8 @@
       const links = [];
       for (const e of all) for (const v of (e.type === 'loop' ? [e.i] : [e.i, e.j]))
         links.push({ l: e.id, r: 'v' + v, cls: (e.type === 'loop' ? 'loopl ' : '') + (to.get(e.id) === v ? 'on' : '') });
-      const s1 = DR.svg(trHost, 400, 56 + all.length * 40, 'Matching trasversale: elementi con il loro peso assegnati ai vertici');
-      bip(s1, left, right, links, { x1: 70, x2: 330, titles: ['elementi · peso', 'vertici'] });
+      const s1 = DR.svg(trHost, 340, 56 + all.length * 40, 'Matching trasversale: elementi con il loro peso assegnati ai vertici');
+      bip(s1, left, right, links, { x1: 62, x2: 290, titles: ['elementi · peso', 'vertici'] });
       // (2) matching dei guadagni
       const edges = all.filter((e) => e.type === 'edge');
       const gl = BR.gains(G);
@@ -393,8 +403,8 @@
           label: x.gain > EPS || on ? fmt(x.gain) : '', labelCls: x.gain > EPS ? 'match' : 'muted', t: 0.3,
           title: `{${x.i + 1},${x.j + 1}} → ${x.v + 1}: Γ${x.i + 1}${x.j + 1} − Γ${x.v + 1}${x.v + 1} = ${fmt(x.gain)}` };
       });
-      const s2 = DR.svg(gHost, 400, 56 + Math.max(edges.length, n) * 46, 'Matching dei guadagni fra archi e vertici; clic su un collegamento per sceglierlo');
-      bip(s2, left2, right2, links2, { x1: 70, x2: 330, dy: 46, w: 72, titles: ['archi', 'vertici'],
+      const s2 = DR.svg(gHost, 340, 56 + Math.max(edges.length, n) * 46, 'Matching dei guadagni fra archi e vertici; clic su un collegamento per sceglierlo');
+      bip(s2, left2, right2, links2, { x1: 56, x2: 290, dy: 46, w: 72, titles: ['archi', 'vertici'],
         onLink: (ln) => {
           const x = ln.g;
           if (chosen(x.i, x.j, x.v)) pairs = pairs.filter((p) => !(p.i === x.i && p.j === x.j && p.v === x.v));
@@ -435,7 +445,7 @@
       const ok = Math.abs(c.gamma + c.M - c.pseudoforest) < 1e-9 && Math.abs(c.valR - c.pseudoforest) < 1e-9;
       h += `<tr><td>${ex.label}</td><td>${fmt(c.gamma)}</td><td>${fmt(c.M)}</td><td>${fmt(c.gamma + c.M)}</td><td>${fmt(c.pseudoforest)}</td><td>${fmt(c.valR)}</td><td>${ok ? '<span class="ok">✓</span>' : '<span class="no">✗</span>'}</td></tr>`;
     }
-    host.innerHTML = h + '</tbody></table>';
+    host.innerHTML = h.replace('<table', '<div style="overflow-x:auto"><table') + '</tbody></table></div>';
     DR.texAll(host);
   })();
 })();

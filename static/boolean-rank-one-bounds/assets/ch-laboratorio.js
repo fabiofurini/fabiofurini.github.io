@@ -192,6 +192,7 @@
     matching: 'Matching dei guadagni: a sinistra gli archi $\\{i,j\\}$ con almeno un guadagno positivo, a destra i vertici; il collegamento $\\{i,j\\}\\to v$ pesa $(\\Gamma_{ij}-\\Gamma_{vv})^+$. Ogni nodo usato al più una volta; $M$ è il valore massimo.',
     transv: 'Rappresentazione trasversale del bicircolare: un insieme è indipendente se e solo se ogni elemento si assegna a un suo estremo (un loop al proprio vertice) con vertici tutti distinti. Partendo da tutti i loop (peso $\\gamma$) e sostituendo $\\ell_v$ con l\'arco assegnato a $v$, si guadagna $\\Gamma_{ij}-\\Gamma_{vv}$: la somma dei guadagni è $w(F^*)-\\gamma=M$.',
     efullCard: '$\\Efull(\\Gamma)$ è il valore di un LP con un fattore $X_U=\\one_U\\one_U^\\top$ ($(X_U)_{ij}=1$ se e solo se $i,j\\in U$) per ogni $\\emptyset\\ne U\\subseteq V$ ($2^n-1$ variabili $p_U$). Colori di $H$: rosso = sottostima $H_{ij}<\\Gamma_{ij}$, verde acqua = sovrastima $H_{ij}>\\Gamma_{ij}$, verde = esatto. Il duale $y$ è una soluzione ottima di $(D_A)$.',
+    dist: 'Grafo bordato con pesi $w_{ri}=\\Gamma_{ii}$, $w_{ij}=\\Gamma_{ij}$; $\\K(G,\\{r\\})$ = clique ancorate $C=\\{r\\}\\cup U$, $\\C(G,\\{r\\})$ = cono generato dai loro vettori di incidenza sugli archi; $\\dist_1(w,\\C(G,\\{r\\}))$ = distanza $\\ell_1$ di $w$ da questo cono. Le variabili $y_{ij}$ di $(D_A)$ sono indicizzate dagli archi: $y_{ii}$ sta sull\'arco radice $(r,i)$.',
     gap: 'gap $=\\Efull(\\Gamma)-\\LB\\ge0$: quanto il lower bound sottostima l\'errore ottimo. È l\'unica disuguaglianza della catena.',
     lam: 'Famiglia laminare: due insiemi qualsiasi sono disgiunti oppure uno contiene l\'altro. Il peeling produce un ottimo $(p,q)$ di $(R)$ con supporto laminare di al più $2n-1$ insiemi.',
     chain: 'Catena: con le marginali $\\alpha_i=\\sum_{U\\ni i}p_U$ e le soglie $\\theta_1<\\theta_2<\\dots$ (valori distinti di $\\alpha$), gli insiemi di superlivello $S_k=\\{v:\\alpha_v\\ge\\theta_k\\}$ con $p_{S_k}=\\theta_k-\\theta_{k-1}$ danno un ottimo di $(R)$ con al più $n$ insiemi annidati. La copertura della coppia $\\{i,j\\}$ diventa $\\min(\\alpha_i,\\alpha_j)$.',
@@ -213,7 +214,7 @@
 #laboratorio .lab-seld{font-size:13.5px;color:var(--ink-3);line-height:1.25}
 #laboratorio .lab-wc{display:flex;align-items:center;gap:6px}
 #laboratorio .lab-wc input[type=range]{width:120px;accent-color:var(--brand-2)}
-#laboratorio .lab-ib{font:700 16px var(--sans);width:32px;height:32px;padding:0;border-radius:9px;border:1px solid var(--line-2);background:#fff;color:var(--brand);cursor:pointer}
+#laboratorio .lab-ib{display:inline-grid;place-items:center;font:700 16px var(--sans);width:32px;height:32px;padding:0;border-radius:9px;border:1px solid var(--line-2);background:#fff;color:var(--brand);cursor:pointer}
 #laboratorio .lab-ib:hover{background:var(--soft)} #laboratorio .lab-ib:disabled{opacity:.4;cursor:default}
 #laboratorio .lab-mini{display:flex;align-items:baseline;gap:7px;font:600 14px var(--mono);color:var(--ink-2);margin-left:auto}
 #laboratorio .lab-mini b{font-size:17px;color:var(--ink)}
@@ -242,10 +243,12 @@
 #laboratorio #lab-ed-matrix{max-width:330px;margin:6px auto 0}
 #laboratorio .lab-mnote{margin:6px 0 0}
 #laboratorio .lab-h3{margin-top:40px}
-#laboratorio .lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin:16px 0 8px}
+#laboratorio .lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:18px;margin:16px 0 8px}
 #laboratorio .lab-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s}
 #laboratorio .lab-panel:hover{box-shadow:0 6px 22px rgba(20,30,60,.07);border-color:var(--line-2)}
 #laboratorio .lab-panel.lab-wide{grid-column:1/-1}
+#laboratorio .lab-grid>*,#laboratorio .lab-editor>*,#laboratorio .lab-forms>*,#laboratorio .lab-certs>*,#laboratorio .lab-anim>*{min-width:0}
+#laboratorio .lab-fcard .eq{overflow-x:auto}
 #laboratorio .lab-panel header{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 #laboratorio .lab-panel h4{margin:0;font:700 16px var(--sans);color:var(--ink)}
 #laboratorio .lab-pn{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--soft);color:var(--brand-2);font:800 12.5px var(--sans)}
@@ -285,7 +288,7 @@
 #laboratorio .lab-tok.ef{border-color:var(--brand-2);background:var(--soft)}
 #laboratorio .lab-tok.mm .tv{color:var(--match)}
 #laboratorio .lab-rel{display:grid;place-items:center;font:800 26px var(--sans);min-width:24px}
-#laboratorio .lab-rel.eq{color:var(--eq)} #laboratorio .lab-rel.geq{color:var(--geq)} #laboratorio .lab-rel.unk{color:var(--ink-3)}
+#laboratorio .lab-rel.is-eq{color:var(--eq)} #laboratorio .lab-rel.is-geq{color:var(--geq)} #laboratorio .lab-rel.unk{color:var(--ink-3)}
 #laboratorio .lab-verdict{text-align:center;font-size:15.5px;margin:14px 0 18px}
 #laboratorio .lab-bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px 12px;align-items:center;max-width:720px;margin:0 auto 6px}
 #laboratorio .lab-bars .bl{font-size:14px;color:var(--ink-2);white-space:nowrap}
@@ -306,13 +309,13 @@
 #laboratorio .lab-trace .row .rs{font-size:12.5px;color:var(--ink-3)}
 #laboratorio .lab-sw-cur,#laboratorio .lab-sw-cyc{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
 #laboratorio .lab-sw-cur{background:#f0b429} #laboratorio .lab-sw-cyc{background:#fff1c2;border:2px solid #b7791f;border-radius:50%}
-#laboratorio .lab-forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+#laboratorio .lab-forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px}
 #laboratorio .lab-fcard{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
 #laboratorio .lab-fh{font:700 14.5px var(--sans);color:var(--brand);margin-bottom:4px}
 #laboratorio .lab-fcard .eq{font-size:15px;padding:8px 10px}
 #laboratorio .lab-live{font-size:14.5px;color:var(--ink-2);line-height:1.6}
 #laboratorio .lab-live .pill{margin:1px 2px}
-#laboratorio .lab-certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+#laboratorio .lab-certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px}
 #laboratorio .lab-cfig{margin:0}
 #laboratorio .lab-sfide{display:grid;gap:10px}
 #laboratorio .lab-sf{display:grid;grid-template-columns:30px 1fr;gap:4px 12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff;transition:border-color .3s,background .3s}
@@ -333,6 +336,7 @@
 #laboratorio .lab-svg .vtx circle{transition:fill .35s,stroke .35s}
 #laboratorio .lab-svg .lab-hide{opacity:0!important;pointer-events:none}
 #laboratorio .lab-svg .wl{transition:opacity .3s}
+#laboratorio .lab-svg .bp-node text{stroke:none}
 #laboratorio .lab-svg .lab-hit{stroke:transparent;stroke-width:18;fill:none;pointer-events:stroke;cursor:pointer;outline:none}
 #laboratorio .lab-svg circle.lab-hit{stroke-width:13}
 #laboratorio .lab-svg .lab-hit:focus-visible{stroke:rgba(240,180,41,.45)}
@@ -367,6 +371,8 @@
 #laboratorio .lab-svg .lab-tick{stroke:var(--diag);stroke-width:3;stroke-linecap:round}
 #laboratorio .lab-svg .lab-lvl{stroke:#9aa5b8;stroke-width:1;stroke-dasharray:3 4}
 #laboratorio .lab-svg .lab-sm{font:600 12.5px var(--mono);fill:var(--ink-2);text-anchor:middle;dominant-baseline:central}
+#laboratorio .lab-svg .lab-sml{font:600 12.5px var(--mono);fill:var(--ink-2);text-anchor:start;dominant-baseline:central}
+#laboratorio .lab-svg .lab-smr{font:600 12.5px var(--mono);fill:var(--ink-3);text-anchor:end;dominant-baseline:central}
 #laboratorio .lab-svg .lab-smd{font:600 12px var(--mono);fill:var(--diag);text-anchor:middle;dominant-baseline:central}
 @media (prefers-reduced-motion:reduce){#laboratorio .lab-svg *,#laboratorio .lab-bars i,#laboratorio .lab-sf .lamp{transition:none!important}}
 `;
@@ -579,8 +585,8 @@
     </div>
     <div class="lab-mini" id="lab-mini" aria-live="polite"></div>
     <div class="lab-hist">
-      <button type="button" class="lab-ib" id="lab-undo" aria-label="Annulla (Ctrl/⌘+Z)" title="Annulla">↶</button>
-      <button type="button" class="lab-ib" id="lab-redo" aria-label="Ripristina (Maiusc+Ctrl/⌘+Z)" title="Ripristina">↷</button>
+      <button type="button" class="lab-ib" id="lab-undo" aria-label="Annulla (Ctrl/⌘+Z)" title="Annulla"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 8H12a5 5 0 0 1 0 10H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <button type="button" class="lab-ib" id="lab-redo" aria-label="Ripristina (Maiusc+Ctrl/⌘+Z)" title="Ripristina"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="transform:scaleX(-1)"><path d="M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 8H12a5 5 0 0 1 0 10H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
     <div class="lab-toast" id="lab-toast" role="status"></div>`;
   const wn = $('lab-wn'), wr = $('lab-wr');
@@ -622,13 +628,14 @@
   });
 
   // --- viste
+  const narrowEd = ($('lab-ed-graph').clientWidth || 600) < 440;
   const views = {
-    ed: GraphView($('lab-ed-graph'), { W: 500, H: 430, vr: 22, pad: 58, lr: 17, fs: 1.25, focusable: true, label: 'Editor del grafo: vertici trascinabili, clic su archi e loop per selezionarli' }),
-    forest: GraphView($('lab-p-forest'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: 'Foresta di peso massimo sugli archi ordinari' }),
-    oneforest: GraphView($('lab-p-oneforest'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: '1-foresta di peso massimo' }),
-    pseudo: GraphView($('lab-p-pseudo'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: 'Pseudoforesta con loop di peso massimo' }),
-    rooted: GraphView($('lab-p-rooted'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, root: true, label: 'Massima foresta ricoprente del grafo bordato con radice r' }),
-    transv: GraphView($('lab-p-transv'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: 'Assegnazione trasversale della pseudoforesta ottima' }),
+    ed: GraphView($('lab-ed-graph'), narrowEd ? { W: 360, H: 330, vr: 22, pad: 52, lr: 16, fs: 1.2, focusable: true, label: 'Editor del grafo: vertici trascinabili, clic su archi e loop per selezionarli' } : { W: 500, H: 430, vr: 22, pad: 58, lr: 17, fs: 1.25, focusable: true, label: 'Editor del grafo: vertici trascinabili, clic su archi e loop per selezionarli' }),
+    forest: GraphView($('lab-p-forest'), { W: 320, H: 256, vr: 16, pad: 52, lr: 12, label: 'Foresta di peso massimo sugli archi ordinari' }),
+    oneforest: GraphView($('lab-p-oneforest'), { W: 320, H: 256, vr: 16, pad: 52, lr: 12, label: '1-foresta di peso massimo' }),
+    pseudo: GraphView($('lab-p-pseudo'), { W: 320, H: 256, vr: 16, pad: 52, lr: 12, label: 'Pseudoforesta con loop di peso massimo' }),
+    rooted: GraphView($('lab-p-rooted'), { W: 320, H: 256, vr: 16, pad: 52, lr: 12, root: true, label: 'Massima foresta ricoprente del grafo bordato con radice r' }),
+    transv: GraphView($('lab-p-transv'), { W: 320, H: 256, vr: 16, pad: 52, lr: 12, label: 'Assegnazione trasversale della pseudoforesta ottima' }),
     anim: GraphView($('lab-an-graph'), { W: 520, H: 400, vr: 21, pad: 62, lr: 16, root: true, label: 'Moviola del greedy' }),
   };
   const panelKeys = ['forest', 'oneforest', 'pseudo', 'rooted', 'transv'];
@@ -756,7 +763,7 @@
   const efCache = new Map();
   function changed(kind) {
     if (kind === 'n') pendingN = true;
-    if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); });
+    if (!raf) { raf = 1; const go = () => { if (!raf) return; raf = 0; update(); }; requestAnimationFrame(go); setTimeout(go, 40); }
     scheduleHash();
   }
   function update() {
@@ -809,7 +816,7 @@
     if (mat) for (const [k, g] of mat.cells) {
       const [i, j] = k.split(',').map(Number); const a = Math.min(i, j), b = Math.max(i, j);
       g.querySelector('text').textContent = fmt(G[i][j]);
-      g.setAttribute('class', 'cell ' + (i === j ? 'diag' : 'off') + (isSel(a, b) ? ' hl' : '') + (i !== j && G[i][j] <= EPS ? ' lab-zero' : ''));
+      g.setAttribute('class', 'cell ' + (i === j ? 'diag' : 'off') + (isSel(a, b) ? ' hl' : '') + (G[i][j] <= EPS ? ' lab-zero' : ''));
       if (i <= j) g.setAttribute('aria-label', `${gName(i, j)} = ${fmt(G[i][j])}`);
     }
   }
@@ -827,10 +834,10 @@
       wr.max = Math.max(10, Math.ceil(w)); wr.value = w;
     } else { chip.textContent = 'nessuna selezione'; chip.className = 'lab-chip'; seld.textContent = 'clic su arco, vertice o cella'; }
     const r = res; if (!r) return;
-    const efv = ef ? `<b class="${efStale ? 'lab-stale' : ''}" title="E_full(Γ): errore ℓ1 ottimo (LP esatto)">${fmt(ef.value)}</b>` : `<b title="E_full non calcolato per n = 6">·</b>`;
+    const efv = ef ? `<b class="${efStale ? 'lab-stale' : ''}" title="E_full(Γ): errore ℓ1 ottimo (LP esatto)">${fmt(ef.value)}</b>` : '';
     const gap = ef ? ef.value - r.LB : null;
     const rel = gap === null ? '≥' : gap > 1e-6 ? '<span class="rel-geq">≥</span>' : '<span class="rel-eq">=</span>';
-    $('lab-mini').innerHTML = `<span title="E_full(Γ): errore ℓ1 ottimo">E<sub>full</sub></span> ${efv} ${rel} <span title="LB = val(R) − γ: lower bound del rilassamento unilaterale">LB</span> <span class="rel-eq">=</span> <span title="M: valore del matching dei guadagni">M</span> <b>${fmt(r.M)}</b>` +
+    $('lab-mini').innerHTML = (ef ? `<span title="E_full(Γ): errore ℓ1 ottimo">E<sub>full</sub></span> ${efv} ${rel} ` : '<span class="small" title="con n = 6 l\'LP esatto non viene risolto">E<sub>full</sub> solo per n ≤ 5 ·</span> ') + `<span title="LB = val(R) − γ: lower bound del rilassamento unilaterale">LB</span> <span class="rel-eq">=</span> <span title="M: valore del matching dei guadagni">M</span> <b>${fmt(r.M)}</b>` +
       (gap === null ? '' : gap > 1e-6 ? `<span class="lab-gapb pos" title="gap = E_full − LB">gap ${fmt(gap)}</span>` : '<span class="lab-gapb zero">esatto</span>');
   }
 
@@ -988,9 +995,9 @@
         <div class="lab-tok ef"><div class="tl">$\\Efull(\\Gamma)$<span class="lab-q" data-def="Efull"></span></div><div class="tv" id="lab-k-ef">–</div><div class="td">LP esatto $=z^*$<span class="lab-q" data-def="zstar"></span></div></div>
         <div class="lab-rel" id="lab-k-rel">≥</div>
         <div class="lab-tok"><div class="tl">$\\LB=\\val(R)-\\gamma$<span class="lab-q" data-def="LB"></span></div><div class="tv" id="lab-k-lb">–</div><div class="td" id="lab-k-lbd"></div></div>
-        <div class="lab-rel eq">=</div>
+        <div class="lab-rel is-eq">=</div>
         <div class="lab-tok"><div class="tl">$w(F^*)-\\gamma$<span class="lab-q" data-def="wF"></span></div><div class="tv" id="lab-k-wf">–</div><div class="td" id="lab-k-wfd"></div></div>
-        <div class="lab-rel eq">=</div>
+        <div class="lab-rel is-eq">=</div>
         <div class="lab-tok mm"><div class="tl">$M$<span class="lab-q" data-def="M"></span></div><div class="tv" id="lab-k-m">–</div><div class="td">matching dei guadagni</div></div>`;
       box.querySelectorAll('span.lab-q').forEach((s) => s.replaceWith(qBtn(s.dataset.def)));
       DR.texAll(box); chainBuilt = true;
@@ -999,7 +1006,7 @@
     $('lab-k-lb').textContent = fmt(r.LB); $('lab-k-wf').textContent = fmt(r.pseudo - r.gamma); $('lab-k-m').textContent = fmt(r.M);
     $('lab-k-lbd').textContent = `= ${fmt(r.valR)} − ${fmt(r.gamma)}  (peeling)`; $('lab-k-wfd').textContent = `= ${fmt(r.pseudo)} − ${fmt(r.gamma)}  (greedy)`;
     const gap = ef ? ef.value - r.LB : null; const rel = $('lab-k-rel');
-    rel.textContent = gap !== null && gap <= 1e-6 ? '=' : '≥'; rel.className = 'lab-rel ' + (gap === null ? 'unk' : gap > 1e-6 ? 'geq' : 'eq');
+    rel.textContent = gap !== null && gap <= 1e-6 ? '=' : '≥'; rel.className = 'lab-rel ' + (gap === null ? 'unk' : gap > 1e-6 ? 'is-geq' : 'is-eq');
     const v = $('lab-verdict');
     v.innerHTML = gap === null ? 'Con $n=6$ l\'ottimo $\\Efull$ non è calcolato; le tre uguaglianze valgono comunque.'
       : gap > 1e-6 ? `<span class="no">Il bound non è esatto:</span> gap $=\\Efull(\\Gamma)-\\LB=${fmt(gap)}$<span class="lab-q" data-def="gap"></span>. Le uguaglianze a destra valgono sempre; l'unica disuguaglianza è la prima.`
@@ -1033,9 +1040,9 @@
     setTex('lab-fv-R', `$\\val(R)=${fmt(r.valR)}$<span class="lab-q" data-def="valR"></span>. Un ottimo dal peeling: ${ps}; sottostime pagate ${qs}. ${r.lamOk.ok ? '<span class="ok">ammissibile ✓</span>' : '<span class="no">non ammissibile</span>'} · $\\LB=${fmt(r.valR)}-${fmt(r.gamma)}=${fmt(r.LB)}$.`);
     const F = r.ch.greedy.F; const nl = F.filter((e) => e.type === 'loop').length;
     setTex('lab-fv-P', `$\\val(P)=w(F^*)=${fmt(r.pseudo)}$<span class="lab-q" data-def="wF"></span> con $F^*=\\{${F.map((e) => (e.type === 'loop' ? '\\ell_{' + (e.i + 1) + '}' : '\\{' + (e.i + 1) + ',' + (e.j + 1) + '\\}')).join(',\\ ')}\\}$ (${nl} loop, ${F.length - nl} archi). Dualità LP: $\\val(P)=\\val(R)$ ${Math.abs(r.pseudo - r.valR) < 1e-7 ? '<span class="ok">✓</span>' : '<span class="no">✗</span>'}.`);
-    setTex('lab-fv-D', (ef ? `Ottimo $=\\dist_1(w,\\C(G,\\{r\\}))=\\Efull(\\Gamma)=${fmt(ef.value)}$<span class="lab-q" data-def="Efull"></span>. ` : 'Ottimo non calcolato per $n=6$. ') +
+    setTex('lab-fv-D', (ef ? `Ottimo $=\\dist_1(w,\\C(G,\\{r\\}))$<span class="lab-q" data-def="dist"></span> $=\\Efull(\\Gamma)=${fmt(ef.value)}$<span class="lab-q" data-def="Efull"></span>. ` : 'Ottimo non calcolato per $n=6$. ') +
       `Il certificato del matching ($+1$ sugli archi assegnati, $-1$ sugli archi radice dei vertici usati) vale $M=${fmt(r.dM.value)}$: ${r.dM.ok ? '<span class="ok">ammissibile ✓</span>' : '<span class="no">non ammissibile</span>'}.`);
-    setTex('lab-fv-B', `Dalla catena: $\\beta_i=\\alpha_i-\\Gamma_{ii}$, cioè $\\beta=(${r.beta.map(fmt).join(',\\ ')})$, con le stesse $q$. ${r.betaOk ? '<span class="ok">ammissibile ✓</span>' : '<span class="no">non ammissibile</span>'}; $\\sum_i\\beta_i+\\sum_{i<j}q_{ij}=${fmt(r.sumBetaQ)}$ e $M=${fmt(r.M)}$ ${Math.abs(r.sumBetaQ - r.M) < 1e-7 ? '<span class="ok">✓</span>' : ''}.`);
+    setTex('lab-fv-B', `Dalla catena: $\\beta_i=\\alpha_i-\\Gamma_{ii}$, cioè $\\beta=(${r.beta.map(fmt).join(',\\ ')})$, con le stesse $q$. ${r.betaOk ? '<span class="ok">ammissibile ✓</span>' : '<span class="no">non ammissibile</span>'}; $\\sum_i\\beta_i+\\sum_{i\\lt j}q_{ij}=${fmt(r.sumBetaQ)}$ e $M=${fmt(r.M)}$ ${Math.abs(r.sumBetaQ - r.M) < 1e-7 ? '<span class="ok">✓</span>' : ''}.`);
     for (const id of ['lab-fv-R', 'lab-fv-P', 'lab-fv-D', 'lab-fv-B']) $(id).querySelectorAll('span.lab-q').forEach((s) => s.replaceWith(qBtn(s.dataset.def)));
   }
 
@@ -1046,7 +1053,7 @@
     const sets = pe.p.map((t) => t.U); const lay = laminarLayout(n, sets);
     const D = Math.max(1, ...sets.map((U) => lay.depth.get(U) + 1)); const cw = Math.min(70, 380 / n), x0 = 20, rh = 30;
     const W = x0 * 2 + n * cw, Hh = 20 + D * (rh + 6) + 64;
-    const svg = DR.svg($('lab-c-lam'), W, Hh, 'Famiglia laminare del peeling disegnata a livelli'); svg.classList.add('lab-svg');
+    const svg = DR.svg($('lab-c-lam'), W, Hh, 'Famiglia laminare del peeling disegnata a livelli'); svg.classList.add('lab-svg'); svg.style.maxWidth = Math.round(W * 1.1) + 'px'; svg.style.margin = '0 auto';
     const col = (v) => x0 + lay.order.indexOf(v) * cw;
     const shades = ['#1f3a68', '#2f5ea8', '#5482c6', '#7ea2d6', '#a9c1e6'];
     if (!sets.length) DR.text(svg, W / 2, 30, 'p = 0: nessun insieme', 'note', { 'text-anchor': 'middle' });
@@ -1071,17 +1078,17 @@
     const ord = [...Array(n).keys()].sort((a, b) => r.alpha[b] - r.alpha[a] || a - b);
     const top = Math.max(1, ...r.alpha, ...ord.map((v) => G[v][v]));
     const cw2 = Math.min(56, 300 / n), X0 = 34, Hc = 190, Y0 = 20, yS = (x) => Y0 + Hc - (Hc * x) / top;
-    const W2 = X0 + n * cw2 + 170; const svg2 = DR.svg($('lab-c-chain'), W2, Hc + 70, 'Marginali alfa e insiemi di superlivello della catena'); svg2.classList.add('lab-svg');
+    const W2 = X0 + n * cw2 + 170; const svg2 = DR.svg($('lab-c-chain'), W2, Hc + 70, 'Marginali alfa e insiemi di superlivello della catena'); svg2.classList.add('lab-svg'); svg2.style.maxWidth = Math.round(W2 * 1.1) + 'px'; svg2.style.margin = '0 auto';
     const cs2 = r.chainSets; const blues = ['#a9c1e6', '#7ea2d6', '#5482c6', '#2f5ea8', '#1f3a68', '#142a4f'];
     DR.el('line', { x1: X0 - 6, y1: yS(0), x2: X0 + n * cw2, y2: yS(0), class: 'axis', stroke: '#cfd6e4' }, svg2);
     cs2.forEach((t, k) => {
       const lo = k ? cs2[k - 1].level : 0;
       DR.el('line', { x1: X0 - 6, y1: yS(t.level), x2: X0 + n * cw2, y2: yS(t.level), class: 'lab-lvl' }, svg2);
-      DR.text(svg2, X0 - 12, yS(t.level), 'θ' + sub(k + 1), 'lab-sm', { 'text-anchor': 'end' });
+      DR.text(svg2, X0 - 10, yS(t.level), 'θ' + sub(k + 1), 'lab-smr');
       ord.forEach((v, c) => { if (BR.has(t.U, v)) DR.el('rect', { x: X0 + c * cw2 + 4, y: yS(t.level), width: cw2 - 8, height: Math.max(0.5, yS(lo) - yS(t.level)), fill: blues[Math.min(k, 5)], stroke: '#fff', 'stroke-width': 2 }, svg2); });
       const lx = X0 + n * cw2 + 16;
       DR.el('rect', { x: lx, y: 14 + k * 24, width: 12, height: 12, rx: 3, fill: blues[Math.min(k, 5)] }, svg2);
-      DR.text(svg2, lx + 18, 20 + k * 24, `S${sub(k + 1)}=${BR.setLabel(t.U)}  p=${fmt(t.c)}`, 'lab-sm', { 'text-anchor': 'start' });
+      DR.text(svg2, lx + 18, 20 + k * 24, `S${sub(k + 1)}=${BR.setLabel(t.U)}  p=${fmt(t.c)}`, 'lab-sml');
     });
     ord.forEach((v, c) => {
       const x = X0 + c * cw2 + cw2 / 2;
@@ -1186,7 +1193,7 @@
   const fromHash = h0.startsWith('#laboratorio=') ? decodeState(h0.slice('#laboratorio='.length)) : null;
   if (fromHash) {
     st = { n: fromHash.n, G: fromHash.G, pos: fromHash.pos }; posCustom = fromHash.custom; hashOn = true;
-    const m = PRESETS.find((p) => encodeState({ n: fromHash.n, G: p.G(), pos: [] }, false) === encodeState(st, false)); presetId = m ? m.id : null;
+    const m = PRESETS.find((p) => { const G = p.G(); return G.length === st.n && encodeState({ n: G.length, G, pos: [] }, false) === encodeState(st, false); }); presetId = m ? m.id : null;
   } else { const p = PRESETS[0]; st = { n: 3, G: p.G(), pos: defaultPos(3) }; presetId = p.id; }
   sel = firstEdge(st.G);
   for (const k of Object.keys(views)) views[k].build(st.n);
