@@ -208,3 +208,8 @@ nav.pager a:hover { border-color: var(--brand-2); }
 .cards .card.soon { opacity: .55; background: #fafbfd; } .cards .card .tag { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
 /* i nodi del grafo bipartito usano anche le classi 'edge'/'loop': niente tratto ereditato sul testo */
 .d g.bp-node { stroke: none; stroke-width: 0; stroke-dasharray: none; }
+
+/* ---------- selettore di lingua */
+.hero { position: relative; }
+.langsw { position: absolute; top: 16px; right: max(20px, calc((100vw - 1240px)/2)); color: #fff; text-decoration: none; font: 600 13.5px var(--sans); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 4px 12px; background: rgba(255,255,255,.08); }
+.langsw:hover, .langsw:focus-visible { background: rgba(255,255,255,.2); }

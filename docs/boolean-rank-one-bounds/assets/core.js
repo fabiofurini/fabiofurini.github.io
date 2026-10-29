@@ -10,6 +10,33 @@
  */
 const BR = (() => {
   const EPS = 1e-9;
+  // Messaggi mostrati all'utente, in due lingue (la lingua è quella di <html lang>).
+  const MSG = {
+    it: {
+      loopAcc: 'loop in una componente aciclica: crea il suo unico ciclo',
+      loopRej: 'loop rifiutato: la componente ha già un ciclo',
+      joinMixed: 'unisce una componente con un ciclo e una aciclica',
+      joinAcyc: 'unisce due componenti acicliche',
+      joinRej: 'arco rifiutato: unirebbe due componenti che hanno già un ciclo ciascuna',
+      innerAcc: 'arco interno a una componente aciclica: chiude il suo unico ciclo',
+      innerRej: 'arco rifiutato: chiuderebbe un secondo ciclo nella stessa componente',
+      treeAcc: 'collega due componenti',
+      treeRej: 'chiuderebbe un ciclo (vietato nel matroide grafico)',
+    },
+    en: {
+      loopAcc: 'loop in an acyclic component: it creates its only cycle',
+      loopRej: 'loop rejected: the component already has a cycle',
+      joinMixed: 'joins a component with a cycle and an acyclic one',
+      joinAcyc: 'joins two acyclic components',
+      joinRej: 'edge rejected: it would join two components that already have a cycle each',
+      innerAcc: 'edge inside an acyclic component: it closes its only cycle',
+      innerRej: 'edge rejected: it would close a second cycle in the same component',
+      treeAcc: 'joins two components',
+      treeRej: 'would close a cycle (forbidden in the graphic matroid)',
+    },
+  };
+  const lang = () => (typeof document !== 'undefined' && document.documentElement.lang === 'en' ? 'en' : 'it');
+  const msg = (k) => MSG[lang()][k];
 
   // ------------------------------------------------------------------ insiemi
   const popcount = (U) => { let c = 0; while (U) { U &= U - 1; c++; } return c; };
@@ -106,19 +133,19 @@ const BR = (() => {
       let accepted, reason;
       if (e.type === 'loop') {
         accepted = !cyc[a];
-        reason = accepted ? 'loop in una componente aciclica: crea il suo unico ciclo'
-                          : 'loop rifiutato: la componente ha già un ciclo';
+        reason = accepted ? msg('loopAcc')
+                          : msg('loopRej');
         if (accepted) cyc[a] = true;
       } else if (a !== b) {
         accepted = !(cyc[a] && cyc[b]);
-        reason = accepted ? (cyc[a] || cyc[b] ? 'unisce una componente con un ciclo e una aciclica'
-                                              : 'unisce due componenti acicliche')
-                          : 'arco rifiutato: unirebbe due componenti che hanno già un ciclo ciascuna';
+        reason = accepted ? (cyc[a] || cyc[b] ? msg('joinMixed')
+                                              : msg('joinAcyc'))
+                          : msg('joinRej');
         if (accepted) { parent[a] = b; cyc[b] = cyc[a] || cyc[b]; }
       } else {
         accepted = !cyc[a];
-        reason = accepted ? 'arco interno a una componente aciclica: chiude il suo unico ciclo'
-                          : 'arco rifiutato: chiuderebbe un secondo ciclo nella stessa componente';
+        reason = accepted ? msg('innerAcc')
+                          : msg('innerRej');
         if (accepted) cyc[a] = true;
       }
       if (accepted) F.push(e);
@@ -280,7 +307,7 @@ const BR = (() => {
     for (const e of edges.filter((e) => e.w > EPS).sort((a, b) => b.w - a.w)) {
       const a = find(e.u), b = find(e.v); const ok = a !== b;
       if (ok) { parent[a] = b; T.push(e); }
-      steps.push({ e, accepted: ok, reason: ok ? 'collega due componenti' : 'chiuderebbe un ciclo (vietato nel matroide grafico)' });
+      steps.push({ e, accepted: ok, reason: ok ? msg('treeAcc') : msg('treeRej') });
     }
     return { T, steps, value: T.reduce((s, e) => s + e.w, 0) };
   }
@@ -419,7 +446,7 @@ const BR = (() => {
     gains, maxGainMatching, pseudoforestFromMatching,
     peeling, valueR, checkR, marginals, chainFromAlpha, chain,
     maxSpanningForest, rootedEdges, matchingCertificate, checkDual,
-    simplex, efull, efullDual, fmt,
+    simplex, efull, efullDual, fmt, lang, MSG,
   };
 })();
 if (typeof module !== 'undefined') module.exports = BR;
