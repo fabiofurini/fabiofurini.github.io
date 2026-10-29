@@ -2,7 +2,8 @@
 (() => {
   DR.texAll(document.body);
   const links = [...document.querySelectorAll('nav.toc a')];
-  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+  const byId = new Map(links.filter((a) => a.getAttribute('href').startsWith('#')).map((a) => [a.getAttribute('href').slice(1), a]));
+  if (!byId.size) return; // sito multipagina: la voce attiva è già marcata
   const obs = new IntersectionObserver((entries) => {
     for (const e of entries) if (e.isIntersecting) {
       links.forEach((a) => a.classList.remove('active'));

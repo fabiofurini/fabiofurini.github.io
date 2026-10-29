@@ -1,73 +1,71 @@
-/* ch-intro.js — mappa cliccabile dei capitoli. */
+/* ch-intro.js — prima pagina: tre esempi di decomposizione e schede del percorso. */
 (() => {
-  const host = document.getElementById('intro-flow');
+  const host = document.getElementById('intro-ex');
   if (!host) return;
-  const W = 900, H = 560;
-  const s = DR.svg(host, W, H, 'Mappa: dalla matrice Γ alle due codifiche, al problema completo, al rilassamento, alla pseudoforesta, al matching e al bound di AWCD; il matroide grafico è un ramo separato');
-  const rich = (parent, x, y, str, cls) => {
-    const t = DR.text(parent, x, y, '', cls);
-    for (const part of str.split(/(_\{[^}]*\}|\^\{[^}]*\})/)) {
-      if (!part) continue;
-      const m = part.match(/^([_^])\{([^}]*)\}$/);
-      const ts = DR.el('tspan', m ? { 'baseline-shift': m[1] === '_' ? 'sub' : 'super', 'font-size': '72%' } : {}, t);
-      ts.textContent = m ? m[2] : part;
-    }
-    return t;
-  };
-  const node = (x, y, w, h, title, sub, cls, href) => {
-    const a = DR.el('a', { href }, s);
-    const g = DR.el('g', { class: 'fnode ' + cls }, a);
-    DR.el('rect', { x: x - w / 2, y: y - h / 2, width: w, height: h, rx: 14 }, g);
-    rich(g, x, y - (sub ? 10 : 0), title, 'ft');
-    if (sub) rich(g, x, y + 14, sub, 'fs');
-    return [x, y, w, h];
-  };
-  const link = (a, b, label, cls = '') => {
-    const [x1, y1, , h1] = a, [x2, y2, , h2] = b;
-    const p = DR.arrow(s, x1, y1 + h1 / 2 + 2, x2, y2 - h2 / 2 - 6, { cls: 'arrow ' + cls });
-    if (label) DR.text(s, (x1 + x2) / 2 + (x2 >= x1 ? 10 : -10), (y1 + h1 / 2 + y2 - h2 / 2) / 2, label, 'fl', { 'text-anchor': x2 > x1 ? 'start' : x2 < x1 ? 'end' : 'start' });
-    return p;
-  };
-  const G = node(450, 40, 230, 50, 'matrice Γ simmetrica ≥ 0', '', 'n-mat', '#matrice-grafo');
-  const L = node(230, 130, 270, 58, 'loop ℓ_{i} su ogni vertice', 'codifica delle pseudoforeste · A', 'n-diag', '#matrice-grafo');
-  const Rr = node(670, 130, 270, 58, 'radice r, archi (r,i)', 'codifica di AWCD · A', 'n-root', '#matrice-grafo');
-  const E = node(450, 230, 380, 58, 'E_{full}(Γ) = fase A di AWCD', 'stesso problema: fattore X_{U} ↔ clique {r}∪U · B', 'n-full', '#fattori');
-  const Rx = node(450, 330, 380, 58, 'rilassamento unilaterale (R)', 'sovrastime fuori diagonale gratuite · C', 'n-rel', '#errori');
-  const P = node(150, 450, 240, 58, 'pseudoforesta (P)', 'matroide bicircolare · D', 'n-pf', '#pseudoforeste');
-  const Mt = node(450, 450, 240, 58, 'matching dei guadagni', 'trasversale · E', 'n-match', '#matching');
-  const F = node(750, 450, 240, 58, 'matching bound AWCD', 'certificato di (D_{A}) · F', 'n-awcd', '#giovanni');
-  const T = node(770, 330, 200, 50, 'matroide grafico', 'covering · MST · H', 'n-graph', '#matroidi');
-  const C = node(450, 530, 420, 44, 'catena completa:  E_{full} ≥ LB = w(F^{*}) − γ = M  · G', '', 'n-chain', '#catena');
-  link(G, L); link(G, Rr); link(L, E); link(Rr, E);
-  link(E, Rx, '≥  (rilassamento)', 'geq');
-  DR.arrow(s, 300, 359, 190, 419, { cls: 'arrow eqa' }); DR.text(s, 238, 378, '= dualità LP', 'fl eqs', { 'text-anchor': 'end' });
-  DR.arrow(s, 270, 450, 328, 450, { cls: 'arrow eqa' }); DR.text(s, 299, 438, '=', 'fl eqt', { 'text-anchor': 'middle' });
-  DR.arrow(s, 570, 450, 628, 450, { cls: 'arrow eqa' }); DR.text(s, 599, 438, '=', 'fl eqt', { 'text-anchor': 'middle' });
-  const d = DR.el('path', { d: 'M740 160 C 760 220, 790 260, 770 300', class: 'arrow dashed' }, s);
-  d.setAttribute('marker-end', 'url(#arrowhead)');
-  DR.text(s, 770, 372, 'covering non ancorato:', 'fl', { 'text-anchor': 'middle' });
-  rich(s, 770, 390, 'non è un bound su E_{full}', 'fl');
-  s.lastChild.setAttribute('text-anchor', 'middle');
-  const st = document.createElement('style');
-  st.textContent = `
-  #intro-flow { margin: 18px 0 6px; }
-  #intro-flow .fnode rect { fill: #fff; stroke: var(--line-2); stroke-width: 2; transition: transform .15s, filter .15s; }
-  #intro-flow a:hover .fnode rect, #intro-flow a:focus .fnode rect { filter: drop-shadow(0 4px 10px rgba(31,58,104,.18)); stroke-width: 3; }
-  #intro-flow .ft { font: 700 16px var(--sans); fill: var(--ink); text-anchor: middle; dominant-baseline: central; }
-  #intro-flow .fs { font: 13px var(--sans); fill: var(--ink-2); text-anchor: middle; dominant-baseline: central; }
-  #intro-flow .fl { font: 600 13.5px var(--sans); fill: var(--ink-2); dominant-baseline: central; }
-  #intro-flow .fl.eqt { fill: var(--eq); font-size: 18px; }
-  #intro-flow .fl.eqs { fill: var(--eq); }
-  #intro-flow .n-mat rect { fill: #f1f4fa; stroke: var(--brand); }
-  #intro-flow .n-diag rect { fill: var(--diag-bg); stroke: var(--diag); }
-  #intro-flow .n-root rect { fill: var(--root-bg); stroke: var(--root); }
-  #intro-flow .n-full rect { fill: #eef3fb; stroke: var(--brand-2); stroke-width: 2.6; }
-  #intro-flow .n-rel rect { fill: #f7f8fb; stroke: var(--ink-3); }
-  #intro-flow .n-pf rect, #intro-flow .n-match rect, #intro-flow .n-awcd rect { fill: var(--match-bg); stroke: var(--match); }
-  #intro-flow .n-graph rect { fill: #f3f4f6; stroke: #9aa3b2; stroke-dasharray: 6 4; }
-  #intro-flow .n-chain rect { fill: var(--brand); stroke: var(--brand); } #intro-flow .n-chain .ft { fill: #fff; }
-  #intro-flow .arrow.geq { stroke: var(--geq); stroke-width: 2.6; }
-  #intro-flow .arrow.eqa { stroke: var(--eq); stroke-width: 2.6; }
-  #intro-flow .arrow.dashed { stroke: #9aa3b2; stroke-dasharray: 6 5; }`;
-  document.head.appendChild(st);
+  const M = (U) => BR.toMask(U.map((i) => i - 1));
+  const EX = [
+    { label: 'Errore nullo', G: [[3, 3, 1], [3, 3, 1], [1, 1, 1]], terms: [{ U: M([1, 2]), c: 2 }, { U: M([1, 2, 3]), c: 1 }],
+      cap: '$\\Gamma=2\\,X_{\\{1,2\\}}+X_{\\{1,2,3\\}}$ esattamente: errore 0. Si dice che $\\Gamma$ sta nel cono $\\COR(3)$.' },
+    { label: 'Solo sovrastime', G: [[0, 1, 1], [1, 0, 1], [1, 1, 1]], terms: [{ U: M([1, 2, 3]), c: 1 }],
+      cap: 'L\'ottimo $H=X_{\\{1,2,3\\}}$ sbaglia solo per eccesso, su $\\Gamma_{11}$ e $\\Gamma_{22}$: errore 2. Con sole sottostime non si scende sotto 3.' },
+    { label: 'Sovrastime e sottostime', G: [[0, 1, 1], [1, 0, 2], [1, 2, 1]], terms: [{ U: M([1, 2, 3]), c: 1 }],
+      cap: 'L\'ottimo sbaglia per eccesso su $\\Gamma_{11},\\Gamma_{22}$ e per difetto su $\\Gamma_{23}$: errore 3. Con un solo tipo di errore il minimo sarebbe 4.' },
+  ];
+  const cell = 44;
+  const legendEl = document.getElementById('intro-ex-legend');
+  const capEl = document.getElementById('intro-ex-cap');
+
+  function draw(k) {
+    const ex = EX[k]; const n = ex.G.length; const H = BR.combine(n, ex.terms); const er = BR.errors(ex.G, H);
+    const w = n * cell, sp = 42;
+    const W = Math.max(2 * w + 3 * sp + 40, w + ex.terms.length * (w + sp + 36) + 2 * sp + 20);
+    const s = DR.svg(host, W, 2 * w + 120, 'Matrice, fattori, ricostruzione ed errori');
+    const lab = (x, y, t) => DR.text(s, x, y, t, 'note', { 'text-anchor': 'middle' });
+    const op = (x, y, t) => DR.text(s, x, y, t, 'axis', { style: 'font-size:28px;font-weight:500' });
+    let x = 10; const y1 = 14;
+    DR.matrix(s, ex.G, { x, y: y1, cell, labels: false }); lab(x + w / 2, y1 + w + 20, 'Γ');
+    x += w + sp; op(x - sp / 2, y1 + w / 2, er.full < 1e-9 ? '=' : '≈');
+    ex.terms.forEach((t, idx) => {
+      if (idx) op(x - sp / 2 + 4, y1 + w / 2, '+');
+      DR.text(s, x + 10, y1 + w / 2, BR.fmt(t.c), 'axis', { style: 'font-size:22px;fill:#1d2433' }); x += 28;
+      const F = BR.factor(n, t.U);
+      DR.matrix(s, F, { x, y: y1, cell, labels: false, cls: (i, j) => (F[i][j] ? 'on' : ''), value: (i, j) => String(F[i][j]) });
+      lab(x + w / 2, y1 + w + 20, 'X' + BR.setLabel(t.U)); x += w + sp;
+    });
+    const y2 = y1 + w + 50; x = 10;
+    DR.matrix(s, H, { x, y: y2, cell, labels: false }); lab(x + w / 2, y2 + w + 20, 'H (ricostruzione)');
+    x += w + sp + 30; op(x - sp / 2 - 22, y2 + w / 2, '→');
+    const byCell = new Map(er.cells.map((c) => [c.i + ',' + c.j, c]));
+    DR.matrix(s, H, { x, y: y2, cell, labels: false, upperOnly: true,
+      cls: (i, j) => (byCell.get(i + ',' + j) || {}).kind || '',
+      value: (i, j) => { const c = byCell.get(i + ',' + j); if (!c) return ''; return c.kind === 'exact' ? '0' : (c.d > 0 ? '+' : '−') + BR.fmt(Math.abs(c.d)); } });
+    lab(x + w / 2, y2 + w + 20, 'H − Γ  ·  errore totale ' + BR.fmt(er.full));
+    const used = new Set(er.cells.map((c) => c.kind));
+    legendEl.innerHTML = '<span><i class="sw diag"></i>diagonale</span><span><i class="sw off"></i>fuori diagonale</span><span><i class="sw on"></i>1 nel fattore</span>' +
+      (used.has('over') ? '<span><i class="sw over"></i>sovrastima (+)</span>' : '') +
+      (used.has('under') ? '<span><i class="sw under"></i>sottostima (−)</span>' : '') +
+      '<span><i class="sw exact"></i>esatto</span>';
+    capEl.innerHTML = ex.cap; DR.texAll(capEl);
+  }
+  DR.toggle(document.getElementById('intro-ex-tabs'), EX.map((e, k) => ({ label: e.label, value: k })), draw, 0);
+  draw(0);
+
+  const cards = [
+    ['A', 'matrice-grafo.html', 'Dalla matrice al grafo', 'Loop sui vertici o una radice in più: due codifiche degli stessi numeri.'],
+    ['B', 'fattori.html', 'Fattori e clique', 'Ogni fattore $X_U$ è una clique ancorata: $\\Efull$ è la fase A di AWCD.'],
+    ['C', 'errori.html', 'Errori e rilassamento', 'Le sovrastime fuori diagonale diventano gratuite: nasce $(R)$.'],
+    ['D', 'pseudoforeste.html', 'Primale e duale', 'Il duale di $(R)$ è una pseudoforesta di peso massimo.'],
+    ['E', 'matching.html', 'Il matching', 'Il bicircolare si risolve con un matching bipartito.'],
+    ['F', 'matching-bound-awcd.html', 'Il bound di AWCD', 'Lo stesso matching come certificato duale di AWCD.'],
+    ['G', 'catena.html', 'La catena completa', 'Tutte le uguaglianze, e l\'unica disuguaglianza.'],
+    ['H', 'matroidi.html', 'Due matroidi', 'Bicircolare e grafico non sono la stessa cosa.'],
+    ['∑', 'esempi.html', 'Esempi', 'Tre esempi completi, uno modificabile.'],
+    ['⚙', 'laboratorio.html', 'Laboratorio', 'Cambia il grafo e guarda cambiare soluzioni e bound.'],
+  ];
+  const box = document.getElementById('intro-cards');
+  const avail = window.BR_PAGES || cards.map((c) => c[1]);
+  box.innerHTML = cards.map(([k, href, t, d]) => avail.includes(href)
+    ? `<a class="card" href="${href}"><span class="k">${k}</span><b>${t}</b><span class="d">${d}</span></a>`
+    : `<div class="card soon" aria-disabled="true"><span class="k">${k}</span><b>${t}</b><span class="d">${d}</span><span class="tag">in preparazione</span></div>`).join('');
+  DR.texAll(box);
 })();

@@ -10,200 +10,70 @@
 </head>
 <body>
 <header class="hero">
-  <div class="eyebrow">Guida visuale · decomposizioni Boolean rank-one</div>
-  <h1>Dalla matrice al matching: AWCD, pseudoforeste e matroidi</h1>
-  <p>Perché il lower bound delle pseudoforeste coincide con il matching bound di AWCD, perché nessuno dei due è in
-  generale l'ottimo, e dove entra invece il matroide grafico. Ogni passaggio è disegnato, animato e verificabile su
-  matrici che puoi modificare.</p>
-  <div class="chips"><span>$\Efull$ e fase A di AWCD</span><span>rilassamento unilaterale $R$</span><span>matroide bicircolare</span><span>matching bipartito</span><span>matroide grafico</span><span>laboratorio interattivo</span></div>
+  <div class="eyebrow">AWCD · pseudoforeste · matching</div>
+  <h1>Decomposizioni Boolean rank-one</h1>
+  <p>Una guida visuale: il problema, due approcci, un bound condiviso. Ogni passaggio è disegnato e verificabile.</p>
 </header>
 <div class="layout">
 <nav class="toc" aria-label="Indice">
   <div class="title">Indice</div>
-  <a href="#intro"><span class="k">·</span><span class="t">Il problema e la mappa</span></a>
-  <a href="#glossario"><span class="k">≡</span><span class="t">Glossario</span></a>
+  <a href="index.html" class="active" aria-current="page"><span class="k">·</span><span class="t">Il problema</span></a>
+  <a href="glossario.html"><span class="k">≡</span><span class="t">Glossario</span></a>
 </nav>
 <main>
-<section class="chapter" id="intro">
-  <div class="kicker"><b>·</b> Il problema e la mappa</div>
-  <h2>Due lavori, un problema comune, un bound condiviso</h2>
-  <p class="lead">Una matrice simmetrica non negativa $\Gamma$ si approssima con una combinazione conica di fattori
-  Boolean rank-one $X_U=\one_U\one_U^\top$. Due manoscritti affrontano questo problema da lati diversi: AWCD, il
-  lavoro guidato da Giovanni Rinaldi sulle clique ancorate, e il lavoro sulle pseudoforeste pesate. Questa guida
-  mostra, passaggio per passaggio, che cosa hanno in comune e che cosa no.</p>
-  <div class="goal"><b>In breve:</b> il problema completo è lo stesso ($\Efull$ = fase A di AWCD con una radice);
-  il lower bound delle pseudoforeste e il matching bound di AWCD sono lo <em>stesso numero</em>; ma quel numero non è
-  in generale l'ottimo, e il matroide grafico (massimo albero ricoprente) di AWCD appartiene a un'altra formulazione.</div>
+<section class="chapter home" id="intro">
+  <div class="kicker"><b>·</b> Il problema</div>
+  <h2>Approssimare una matrice con fattori 0/1</h2>
+  <p class="lead">Un riepilogo in tre passi: che cosa si cerca, tre esempi, la formulazione.</p>
 
-  <h3>Il problema</h3>
-  <div class="box def"><div class="h">Definizione · approssimazione Boolean rank-one in norma $L^1$</div>
-  <p><b>Dati.</b> Una matrice $\Gamma\in\mathbb R^{n\times n}$ simmetrica, con elementi $\Gamma_{ij}\ge 0$. Gli indici
-  formano l'insieme $V=\{1,\dots,n\}$.</p>
-  <p><b>Fattori.</b> Per ogni sottoinsieme non vuoto $U\subseteq V$ il fattore $X_U=\one_U\one_U^\top$ è la matrice 0/1
-  con $(X_U)_{ij}=1$ se e solo se $i\in U$ e $j\in U$ ($\one_U$ è il vettore indicatore di $U$).</p>
-  <p><b>Obiettivo.</b> Scegliere coefficienti $p_U\ge 0$ in modo che la ricostruzione $H(p)=\sum_U p_U X_U$ sia il più
-  vicina possibile a $\Gamma$, misurando l'errore su ogni elemento del triangolo superiore, diagonale inclusa
-  (ogni coppia $\{i,j\}$ è contata una sola volta).</p></div>
-
-  <p>Come programma lineare (LP), con uno slack per ogni elemento:</p>
-  <div class="eq">$$\begin{aligned}\Efull(\Gamma)=\min\ &\sum_{1\le i\le j\le n}\bigl(s^+_{ij}+s^-_{ij}\bigr)\\
-  \text{s.t.}\ &\sum_{U\supseteq\{i,j\}}p_U+s^+_{ij}-s^-_{ij}=\Gamma_{ij}\qquad 1\le i\le j\le n,\\
-  &p\ge 0,\quad s^+,s^-\ge 0.\end{aligned}$$</div>
-  <ul class="small">
-    <li>$s^+_{ij}$ misura la <b>sottostima</b> ($H_{ij}&lt;\Gamma_{ij}$), $s^-_{ij}$ la <b>sovrastima</b>
-    ($H_{ij}&gt;\Gamma_{ij}$). All'ottimo uno dei due è nullo, quindi il valore è $\sum_{i\le j}|\Gamma_{ij}-H_{ij}|$.</li>
-    <li>Per $i=j$ la condizione $U\supseteq\{i,j\}$ diventa $U\ni i$: la diagonale di $H$ conta quanto peso ricevono
-    i fattori che contengono $i$.</li>
-    <li>Le variabili $p_U$ sono $2^n-1$, una per sottoinsieme: il problema ha un numero esponenziale di colonne.</li>
-  </ul>
-
-  <div class="compare">
-    <div><h4>Due domande</h4>
-    <p class="small"><b>Appartenenza.</b> $\Efull(\Gamma)=0$ se e solo se $\Gamma$ sta nel cono di correlazione
-    $\COR(n)=\cone\{X_U\}$. Decidere se è così è NP-completo.</p>
-    <p class="small"><b>Distanza.</b> Se $\Gamma\notin\COR(n)$, quanto vale $\Efull(\Gamma)$? Calcolarlo
-    esattamente richiede di gestire $2^n-1$ colonne; un <b>lower bound</b> economico dice quanto si è lontani almeno.
-    Questa guida è dedicata a quel lower bound.</p></div>
-    <div><h4>Un esempio $2\times 2$</h4>
-    <p class="small">$\Gamma=\begin{pmatrix}1&3\\3&2\end{pmatrix}$. Con il solo fattore $X_{\{1,2\}}$ e
-    $p_{\{1,2\}}=2$ si ottiene $H=\begin{pmatrix}2&2\\2&2\end{pmatrix}$: errore $|1-2|+|3-2|+|2-2|=2$.</p>
-    <p class="small">Non si può fare meglio: ogni $H\in\COR(2)$ soddisfa $H_{12}\le H_{11}$, quindi
-    $|\Gamma_{12}-H_{12}|+|\Gamma_{11}-H_{11}|\ge \Gamma_{12}-\Gamma_{11}=2$. Dunque $\Efull(\Gamma)=2$.</p></div>
-  </div>
-
-  <div class="box note"><div class="h">Lo stesso problema in AWCD</div>
-  Il manoscritto AWCD (<em>Anchored Weighted Clique Decomposition</em>) formula lo stesso problema su un grafo con un
-  vertice in più, la radice $r$: la sua <b>fase A</b> calcola esattamente $\Efull(\Gamma)$ (capitoli A e B). La sua
-  <b>fase B</b> sceglie poi, fra le $H$ ottime, una di traccia minima.</div>
-
-  <h3>Mappa della guida</h3>
-  <div class="introflow" id="intro-flow" aria-label="Mappa dei capitoli"></div>
-
-  <h3>Il risultato in sintesi</h3>
-  <div class="eq">$$\begin{aligned}\Efull(\Gamma)\;=\;z^*_{\text{AWCD}}\;&\textcolor{#b42318}{\boldsymbol{\ge}}\;\LB\;=\;\val(R)-\gamma\\&=\;w(F^*)-\gamma\;=\;M\;=\;\text{matching bound di AWCD}\end{aligned}$$</div>
-  <p>Tutte le relazioni sono uguaglianze esatte, valide per ogni $\Gamma$ simmetrica non negativa, tranne la prima,
-  che in generale è una disuguaglianza stretta. Il capitolo G le dimostra una per una; il Laboratorio permette di
-  verificarle su grafi scelti da te.</p>
-
-  <div class="compare">
-    <div>
-      <h4>Legenda dei colori</h4>
-      <div class="legend" style="flex-direction:column;gap:6px">
-        <span><i class="sw diag"></i>diagonale $\Gamma_{ii}$ · loop $\ell_i$ · arco radice $(r,i)$</span>
-        <span><i class="sw off"></i>fuori diagonale $\Gamma_{ij}$ · arco ordinario $\{i,j\}$</span>
-        <span><i class="sw root"></i>la radice $r$ aggiunta da AWCD</span>
-        <span><i class="sw under"></i>sottostima $H_{ij}&lt;\Gamma_{ij}$ (sempre pagata)</span>
-        <span><i class="sw over"></i>sovrastima $H_{ij}&gt;\Gamma_{ij}$</span>
-        <span><i class="sw free"></i>sovrastima fuori diagonale gratuita nel rilassamento $R$</span>
-        <span><i class="sw exact"></i>ricostruzione esatta · elemento accettato</span>
-        <span><i class="sw match"></i>matching · guadagni</span>
-        <span><span class="rel-eq">=</span> uguaglianza esatta &nbsp; <span class="rel-geq">≥</span> disuguaglianza</span>
-      </div>
-    </div>
-    <div>
-      <h4>Notazione essenziale</h4>
-      <table class="t small">
-        <tr><td>$V=\{1,\dots,n\}$, $\gamma=\sum_i\Gamma_{ii}$</td><td>indici e traccia di $\Gamma$</td></tr>
-        <tr><td>$X_U=\one_U\one_U^\top$, $H=\sum_U p_UX_U$</td><td>fattori e ricostruzione, $p\ge 0$</td></tr>
-        <tr><td>$\Efull(\Gamma)$</td><td>errore $L^1$ minimo sul triangolo superiore, diagonale inclusa</td></tr>
-        <tr><td>$r$, $w_{ri}=\Gamma_{ii}$, $C=\{r\}\cup U$</td><td>radice, archi radice e clique ancorate di AWCD</td></tr>
-        <tr><td>$(R)$, $\LB=\val(R)-\gamma$</td><td>rilassamento unilaterale e lower bound</td></tr>
-        <tr><td>$(P)$, $F^*$</td><td>pseudoforesta di peso massimo (matroide bicircolare)</td></tr>
-        <tr><td>$M$</td><td>matching bipartito dei guadagni $(\Gamma_{ij}-\Gamma_{vv})^+$</td></tr>
-        <tr><td>$\Zcov(w)=w(T)$</td><td>massima foresta ricoprente (matroide grafico)</td></tr>
-      </table>
+  <div class="step">
+    <div class="num">1</div>
+    <div class="body">
+      <h3>Che cosa si cerca</h3>
+      <p>È data una matrice $\Gamma$ simmetrica $n\times n$ con elementi $\Gamma_{ij}\ge 0$.
+      Ogni sottoinsieme $U\subseteq\{1,\dots,n\}$ non vuoto dà un <b>fattore</b> $X_U$: la matrice 0/1 che vale 1
+      nelle celle $(i,j)$ con $i,j\in U$.</p>
+      <p>Si cercano pesi $p_U\ge 0$ tali che $H=\sum_U p_U X_U$ sia il più vicina possibile a $\Gamma$, sommando
+      gli errori $|\Gamma_{ij}-H_{ij}|$ sul triangolo superiore, diagonale inclusa.</p>
     </div>
   </div>
-  <div class="box note"><div class="h">Come leggere la guida</div>
-  I capitoli A–C costruiscono il problema e il rilassamento; D–F mostrano le tre facce dello stesso bound
-  (pseudoforesta, matching, certificato duale di AWCD); G riunisce la catena; H separa i due matroidi. Gli esempi e il
-  Laboratorio rendono tutto verificabile: ogni numero della pagina è calcolato nel browser, con un LP esatto per
-  $\Efull$ quando $n\le 5$.</div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <div class="body">
+      <h3>Tre esempi</h3>
+      <div class="controls" id="intro-ex-tabs"></div>
+      <figure class="fig plain">
+        <div id="intro-ex"></div>
+        <div class="legend" id="intro-ex-legend"></div>
+        <figcaption id="intro-ex-cap"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">3</div>
+    <div class="body">
+      <h3>La formulazione</h3>
+      <div class="eq">$$\begin{aligned}\Efull(\Gamma)=\min\ &\sum_{i\le j}\bigl(s^+_{ij}+s^-_{ij}\bigr)\\
+      \text{s.t.}\ &\sum_{U\supseteq\{i,j\}}p_U+s^+_{ij}-s^-_{ij}=\Gamma_{ij}\quad (i\le j),\qquad p,s^\pm\ge 0\end{aligned}$$</div>
+      <p class="small muted">$s^+_{ij}$ = sottostima, $s^-_{ij}$ = sovrastima. Una variabile $p_U$ per sottoinsieme:
+      $2^n-1$ in tutto.</p>
+    </div>
+  </div>
+
+  <div class="step last">
+    <div class="num">→</div>
+    <div class="body">
+      <h3>Il percorso</h3>
+      <p>Il lower bound delle pseudoforeste e il matching bound di AWCD sono <b>lo stesso numero</b>, ma in generale
+      non sono l'ottimo:</p>
+      <div class="eq">$$\Efull(\Gamma)\ \textcolor{#b42318}{\boldsymbol{\ge}}\ \LB=M$$</div>
+      <div class="cards" id="intro-cards"></div>
+    </div>
+  </div>
 </section>
-
-<section class="chapter" id="glossario">
-  <div class="kicker"><b>≡</b> Glossario</div>
-  <h2>Tutta la notazione, in un posto solo</h2>
-  <p class="lead">Ogni simbolo usato nella guida, con il suo significato. I capitoli lo definiscono alla prima
-  comparsa; qui lo ritrovi quando serve.</p>
-
-  <h3>Matrice e fattori</h3>
-  <table class="t gl">
-    <tr><td>$V=\{1,\dots,n\}$</td><td>gli indici di righe e colonne, cioè i vertici dei grafi</td></tr>
-    <tr><td>$\Gamma\in\mathbb R^{n\times n}_{\ge 0}$</td><td>la matrice da approssimare: simmetrica, a elementi non negativi</td></tr>
-    <tr><td>$\Gamma_{ii}$, $\Gamma_{ij}$ ($i&lt;j$)</td><td>elementi diagonali e fuori diagonale; ogni coppia $\{i,j\}$ è contata una sola volta</td></tr>
-    <tr><td>$\gamma=\sum_i\Gamma_{ii}$</td><td>la traccia di $\Gamma$</td></tr>
-    <tr><td>$\one_U$</td><td>il vettore indicatore di $U\subseteq V$ (vale 1 sugli indici in $U$, 0 altrove)</td></tr>
-    <tr><td>$X_U=\one_U\one_U^\top$</td><td>il fattore Boolean rank-one di $U\neq\emptyset$: $(X_U)_{ij}=1$ se e solo se $i,j\in U$</td></tr>
-    <tr><td>$p_U\ge 0$</td><td>il coefficiente del fattore $X_U$</td></tr>
-    <tr><td>$H=H(p)=\sum_U p_UX_U$</td><td>la matrice ricostruita</td></tr>
-    <tr><td>$\COR(n)=\cone\{X_U\}$</td><td>il cono di correlazione: tutte le $H(p)$ con $p\ge 0$</td></tr>
-    <tr><td>$\tr H$</td><td>la traccia di $H$; vale $\tr H=\sum_U|U|\,p_U$</td></tr>
-    <tr><td>$\one\one^\top$, $\mathrm{diag}(a)$</td><td>la matrice di tutti 1; la matrice diagonale con diagonale $a$</td></tr>
-    <tr><td>$bb^\top$</td><td>matrice rank-one, con $b\in\mathbb R^n_{\ge 0}$</td></tr>
-  </table>
-
-  <h3>Errori e problema completo</h3>
-  <table class="t gl">
-    <tr><td>sottostima</td><td>$H_{ij}&lt;\Gamma_{ij}$; nel problema completo misurata dallo slack $s^+_{ij}\ge 0$</td></tr>
-    <tr><td>sovrastima</td><td>$H_{ij}&gt;\Gamma_{ij}$; misurata dallo slack $s^-_{ij}\ge 0$, con $H_{ij}+s^+_{ij}-s^-_{ij}=\Gamma_{ij}$</td></tr>
-    <tr><td>$\Efull(\Gamma)$</td><td>$\min_{p\ge0}\sum_{i\le j}|\Gamma_{ij}-H_{ij}(p)|$: l'errore $L^1$ minimo sul triangolo superiore, diagonale inclusa (detto anche $\mathrm{OPT}_{\ell_1}(\Gamma)$)</td></tr>
-    <tr><td>$(x)^+$</td><td>$\max\{0,x\}$, la parte positiva</td></tr>
-    <tr><td>LP</td><td>programma lineare (programmazione lineare); il duale LP è il suo problema duale</td></tr>
-  </table>
-
-  <h3>AWCD e grafo bordato</h3>
-  <table class="t gl">
-    <tr><td>AWCD</td><td><em>Anchored Weighted Clique Decomposition</em>: decomposizione del vettore dei pesi in clique pesate che contengono un'ancora $S$</td></tr>
-    <tr><td>$r$ (anche $i_0$)</td><td>la radice aggiunta da AWCD; l'ancora è $S=\{r\}$</td></tr>
-    <tr><td>grafo bordato</td><td>il grafo completo su $V\cup\{r\}$, con pesi $w_{ri}=\Gamma_{ii}$ e $w_{ij}=\Gamma_{ij}$</td></tr>
-    <tr><td>$\K(G,\{r\})$</td><td>la famiglia delle clique ancorate $C=\{r\}\cup U$, $U\neq\emptyset$</td></tr>
-    <tr><td>$E(C)$, $\chi^{E(C)}$</td><td>gli archi della clique $C$ e il loro vettore di incidenza (la colonna di $C$ nella matrice $B$)</td></tr>
-    <tr><td>$x_C$</td><td>la molteplicità della clique $C$; vale $x_C=p_U$</td></tr>
-    <tr><td>$q^+$, $q^-$</td><td>sotto-copertura e sovra-copertura degli archi nella fase A</td></tr>
-    <tr><td>fase A, $z^*$</td><td>$z^*=\min\{e^\top q^++e^\top q^-:\ Bx+q^+-q^-=w,\ x,q^\pm\ge0\}$; vale $z^*=\Efull(\Gamma)$</td></tr>
-    <tr><td>fase B, $f_2^*$</td><td>fra gli ottimi della fase A minimizza $\sum_C(|C|-1)x_C=\tr H$ (la traccia, non il numero di fattori); $f_2^*$ è il suo valore</td></tr>
-    <tr><td>$(D_A)$</td><td>il duale LP della fase A: $\max\{w^\top y:\ \sum_{e\in E(C)}y_e\le0\ \forall C,\ -1\le y\le1\}$</td></tr>
-    <tr><td>$\chi^{\{e\}}$</td><td>il vettore con un 1 sull'arco $e$ e 0 altrove</td></tr>
-    <tr><td>$\varphi$</td><td>nel matching bound: assegna a ogni arco scelto uno dei suoi estremi, senza ripetere vertici</td></tr>
-  </table>
-
-  <h3>Rilassamento, pseudoforeste e certificati</h3>
-  <table class="t gl">
-    <tr><td>$(R)$</td><td>il rilassamento unilaterale: $\min\sum_U|U|p_U+\sum_{i&lt;j}q_{ij}$ con copertura della diagonale e delle coppie; la sovrastima fuori diagonale è gratuita</td></tr>
-    <tr><td>$q_{ij}$</td><td>la sottostima fuori diagonale in $(R)$ (pagata)</td></tr>
-    <tr><td>$\val(\cdot)$</td><td>il valore ottimo di un problema</td></tr>
-    <tr><td>$\LB=\val(R)-\gamma$</td><td>il lower bound su $\Efull(\Gamma)$; la sottrazione di $\gamma$ è essenziale</td></tr>
-    <tr><td>$\ell_i$</td><td>il loop sul vertice $i$, di peso $\Gamma_{ii}$</td></tr>
-    <tr><td>elementi</td><td>i loop $\ell_i$ e gli archi ordinari $\{i,j\}$ del grafo con loop</td></tr>
-    <tr><td>$E[U]$</td><td>gli elementi con tutti gli estremi in $U$</td></tr>
-    <tr><td>$(P)$</td><td>il duale LP di $(R)$: $\max\sum_i\Gamma_{ii}x_{\ell_i}+\sum_{i&lt;j}\Gamma_{ij}x_{ij}$ con $x(E[U])\le|U|$, $x_{ij}\le1$, $x\ge0$</td></tr>
-    <tr><td>pseudoforesta</td><td>insieme di elementi in cui ogni componente connessa ha al più un ciclo (un loop è un ciclo)</td></tr>
-    <tr><td>matroide bicircolare</td><td>il matroide i cui insiemi indipendenti sono le pseudoforeste</td></tr>
-    <tr><td>$w(F)=\sum_{e\in F}w_e$</td><td>il peso di un insieme di elementi</td></tr>
-    <tr><td>$F^*$</td><td>una pseudoforesta di peso massimo (restituita dal greedy); $w(F^*)=\val(P)=\val(R)$</td></tr>
-    <tr><td>greedy</td><td>esamina gli elementi per peso non crescente e tiene ognuno che lascia l'insieme indipendente</td></tr>
-    <tr><td>peeling</td><td>la costruzione per componenti che ricava un ottimo $(p,q)$ di $(R)$ dalla pseudoforesta</td></tr>
-    <tr><td>laminare</td><td>famiglia di insiemi a due a due disgiunti o annidati (il supporto del peeling, al più $2n-1$ insiemi)</td></tr>
-    <tr><td>$\alpha_v=\sum_{U\ni v}p_U$</td><td>la marginale del vertice $v$</td></tr>
-    <tr><td>$\theta_k$, $S_k$</td><td>i valori distinti delle marginali e gli insiemi di superlivello $S_k=\{v:\alpha_v\ge\theta_k\}$</td></tr>
-    <tr><td>catena</td><td>famiglia di insiemi annidati $S_1\supsetneq S_2\supsetneq\cdots$ (al più $n$); copre la coppia $\{i,j\}$ esattamente $\min(\alpha_i,\alpha_j)$</td></tr>
-    <tr><td>$\beta_i=\alpha_i-\Gamma_{ii}$</td><td>l'eccesso diagonale nella formulazione compatta</td></tr>
-  </table>
-
-  <h3>Matching e matroide grafico</h3>
-  <table class="t gl">
-    <tr><td>rappresentazione trasversale</td><td>un insieme di elementi è indipendente se e solo se ogni elemento si assegna a un suo estremo (il loop al suo vertice) con vertici tutti distinti</td></tr>
-    <tr><td>guadagno</td><td>$\Gamma_{ij}-\Gamma_{vv}$: quanto cambia il peso se l'arco $\{i,j\}$ prende il posto del loop di $v\in\{i,j\}$</td></tr>
-    <tr><td>$M$</td><td>il valore del matching bipartito di peso massimo fra archi e vertici, con pesi $(\Gamma_{ij}-\Gamma_{vv})^+$; $M=\LB=$ matching bound di AWCD</td></tr>
-    <tr><td>$y_{ij,i}$</td><td>la variabile del matching che assegna l'arco $\{i,j\}$ al vertice $i$</td></tr>
-    <tr><td>totalmente unimodulare</td><td>matrice con ogni sottodeterminante in $\{-1,0,1\}$: l'LP ha ottimi interi</td></tr>
-    <tr><td>foresta</td><td>insieme di archi senza cicli (insieme indipendente del matroide grafico)</td></tr>
-    <tr><td>1-foresta</td><td>archi ordinari con al più un ciclo per componente (bicircolare senza loop)</td></tr>
-    <tr><td>$T$, MST</td><td>una massima foresta ricoprente (<em>maximum spanning tree/forest</em>), calcolata con Kruskal</td></tr>
-    <tr><td>$\Zcov(w)=w(T)$</td><td>il valore del covering non ancorato di AWCD; vale $\Zcov\le z^*+f_2^*$ e non è un bound sulla sola distanza</td></tr>
-  </table>
-</section>
+<nav class="pager" aria-label="Capitoli"><span></span><a class="next" href="glossario.html"><small>successivo →</small><span>≡ · Glossario</span></a></nav>
 </main>
 </div>
 <footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
@@ -213,6 +83,7 @@ pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calc
 <script src="assets/katex/auto-render.min.js"></script>
 <script src="assets/core.js"></script>
 <script src="assets/draw.js"></script>
+<script>window.BR_PAGES=["index.html", "glossario.html"];</script>
 <script src="assets/ch-intro.js"></script>
 <script src="assets/app.js"></script>
 </body>
