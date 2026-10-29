@@ -173,3 +173,6 @@ footer.site { text-align: center; color: var(--ink-3); font-size: 14px; padding:
 @keyframes dash { to { stroke-dashoffset: -20; } }
 .d .flow { stroke-dasharray: 6 4; animation: dash 1s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .d .flow { animation: none; } html { scroll-behavior: auto; } }
+
+table.t.gl td:first-child { width: 34%; white-space: normal; color: var(--brand); }
+table.t.gl td { vertical-align: top; }
