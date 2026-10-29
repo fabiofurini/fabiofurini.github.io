@@ -51,8 +51,7 @@
     #catena .ct-r::before { left: 50%; right: auto; top: 0; bottom: 0; height: auto; width: 3px; margin: 0 0 0 -1.5px; }
     #catena .ct-r .n { top: auto; left: calc(50% + 24px); }
     #catena .ct-r .sym { transform: rotate(90deg); }
-    #catena .ct-r.eq .sym { transform: rotate(90deg); }
-  }
+      }
   #catena .ct-panel { margin-top: 14px; }
   #catena .ct-panel:empty { display: none; }
   #catena .ct-card { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 18px; border-left: 5px solid var(--c, var(--brand-2)); position: relative; }
@@ -64,14 +63,15 @@
   #catena .ct-card .viz { display: flex; justify-content: center; margin: 8px 0; }
   #catena .ct-card .viz svg.d { max-width: 300px; }
   #catena .ct-card ol { padding-left: 22px; margin: 6px 0; } #catena .ct-card li { margin: 4px 0; }
-  #catena .ct-sw { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; margin-right: 6px; vertical-align: -5px; font: 800 14px var(--sans); font-style: normal; }
-  #catena .ct-sw.eq { background: #e3f3ea; border: 2px solid var(--eq); color: var(--eq); }
+  #catena .ct-sw { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; margin-right: 6px; vertical-align: middle; font: 800 14px var(--sans); font-style: normal; }
+  #catena .ct-sw.iseq { background: #e3f3ea; border: 2px solid var(--eq); color: var(--eq); }
   #catena .ct-sw.geq { background: var(--geq); color: #fff; width: 26px; height: 26px; font-size: 17px; }
   #catena .ct-sw.gap { border-radius: 3px; width: 26px; height: 12px; vertical-align: 0; background: repeating-linear-gradient(45deg, var(--under-bg) 0 3px, var(--under) 3px 5px); border: 1.5px solid var(--under); }
   #catena .ct-sw.lay { border-radius: 3px; width: 16px; height: 16px; background: linear-gradient(#cfe0f7 50%, #a9c6ee 50%); border: 1px solid var(--brand-2); }
   #catena .ct-sw.cov { border-radius: 3px; width: 16px; height: 16px; border: 3px solid var(--match); }
   #catena .ct-sw.dia { border-radius: 0; width: 22px; height: 0; border-top: 3px dashed var(--diag); vertical-align: 4px; }
   #catena .ct-sw.und { border-radius: 3px; width: 10px; height: 18px; background: var(--under); }
+  #catena .d .loop.ghost { stroke: #c9d1df; stroke-width: 2; stroke-dasharray: 4 5; }
   #catena .d .lay { stroke: #fff; stroke-width: 1.5; }
   #catena .d .barbg { fill: #f3f5f9; stroke: var(--line-2); stroke-width: 1; }
   #catena .d .cov { fill: none; stroke: var(--match); stroke-width: 3.5; }
@@ -83,7 +83,7 @@
   #catena .d .lbl { font: 600 13px var(--mono); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
   #catena .ct-alpha { justify-content: center; }
   #catena #ct-bars svg.d { max-width: 600px; margin: 0 auto; }
-  #catena .ct-leg span, #catena .legend span { display: inline-flex; align-items: center; }
+  
   #catena .ct-sw { line-height: 1; padding-bottom: 1px; }
   #catena .ct-alpha .grp { display: inline-flex; align-items: center; gap: 4px; background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 3px 6px; }
   #catena .ct-alpha .grp .btn { padding: 2px 9px; }
@@ -173,7 +173,7 @@
       blockEl[k] = el;
     };
     const mkR = (n, parent) => {
-      const el = h('button', 'ct-r eq', `<span class="sym">=</span><span class="n">(${n})</span>`, parent);
+      const el = h('button', 'ct-r iseq', `<span class="sym">=</span><span class="n">(${n})</span>`, parent);
       el.type = 'button'; el.title = `(${n}) ${RELS[n].t}`; el.setAttribute('aria-label', `relazione ${n}: ${RELS[n].t}`);
       el.addEventListener('click', () => select('r:' + n));
       relEl[n] = el;
@@ -258,8 +258,8 @@
         <div class="ex">$F^*=\\{${Fs.map((e) => (e.type === 'loop' ? `\\ell_${e.i + 1}` : `\\{${e.i + 1},${e.j + 1}\\}`)).join(',\\ ')}\\}$,
         $w(F^*)=${Fs.map((e) => F(e.w)).join('+')}=${F(c.pseudoforest)}$; meno $\\gamma=${F(c.gamma)}$ fa $${F(v.pf)}$.</div>`;
       viz = (box) => {
-        const svg = DR.svg(box, 300, n === 2 ? 170 : 250, 'Pseudoforesta massima F*');
-        const L = n === 2 ? DR.layout(2, { cx: 150, cy: 95, r: 80 }) : DR.layout(n, { cx: 150, cy: 132, r: 82, start: n === 4 ? -Math.PI * 3 / 4 : -Math.PI / 2 });
+        const svg = DR.svg(box, 300, n === 2 ? 170 : 270, 'Pseudoforesta massima F*');
+        const L = n === 2 ? DR.layout(2, { cx: 150, cy: 95, r: 80 }) : DR.layout(n, { cx: 150, cy: 145, r: 82, start: n === 4 ? -Math.PI * 3 / 4 : -Math.PI / 2 });
         const ids = new Set(Fs.map((e) => e.id));
         const edges = BR.offPairs(n).map(([i, j]) => ({ i, j, cls: ids.has('e' + (i + 1) + (j + 1)) ? 'sel' : 'ghost', label: F(G[i][j]), labelCls: ids.has('e' + (i + 1) + (j + 1)) ? 'off' : 'muted' }));
         const loops = [...Array(n).keys()].map((i) => ({ i, cls: ids.has('l' + (i + 1)) ? 'sel' : 'ghost', label: F(G[i][i]), labelCls: ids.has('l' + (i + 1)) ? 'diag' : 'muted' }));
@@ -297,7 +297,7 @@
       <li><b>Sovrastima fuori diagonale gratuita.</b> Fuori diagonale $|\\Gamma_{ij}-H_{ij}|\\ge(\\Gamma_{ij}-H_{ij})^+=\\min\\{q_{ij}\\ge0:\\ H_{ij}+q_{ij}\\ge\\Gamma_{ij}\\}$:
       si azzera il costo di $s^-_{ij}$.</li></ol>
       <div class="eq">$$\\Efull(\\Gamma)\\ \\ge\\ \\min\\Bigl\\{\\sum_U|U|\\,p_U+\\sum_{i\\lt j}q_{ij}\\Bigr\\}-\\gamma=\\val(R)-\\gamma .$$</div>
-      <p>Il gap è esattamente la sovrastima fuori diagonale che ogni ottimo di $\\Efull$ è costretto a pagare.</p>
+      <p>Per ogni $p$ con diagonale coperta, errore $=$ costo in $R-\\gamma\\,+$ sovrastima fuori diagonale di $p$. Quindi il gap è nullo se e solo se qualche ottimo di $R$ non sovrastima nessuna coppia.</p>
       <div class="ex">${v.efull - v.lb > 1e-9 ? `Qui $\\Efull=${F(v.efull)}$ e $\\LB=${F(v.lb)}$: gap $${F(v.efull - v.lb)}$. L'ottimo di $R$ copre le coppie più del dovuto, gratis; nel problema vero quella sovrastima costa.` : `Qui $\\Efull=\\LB=${F(v.efull)}$: il rilassamento non perde nulla, il bound è esatto.`}</div>`;
     else if (r === 3) body = `<p>È la definizione: $\\LB:=\\val(R)-\\gamma$.</p>
       <p>Sottrarre $\\gamma$ è essenziale. In $R$ la diagonale deve essere coperta, quindi $\\sum_U|U|\\,p_U\\ge\\gamma$ sempre:

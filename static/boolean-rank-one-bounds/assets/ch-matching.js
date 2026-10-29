@@ -15,9 +15,11 @@
   #matching .mt-ul{margin:4px 0 0;padding-left:22px} #matching .mt-ul li{margin:3px 0}
   #matching .sw.ghostsw{background:#fff;border:2px dashed #c9d1df}
   #matching .stepinfo{font-size:14.5px;color:var(--ink-2);margin-left:auto}
-  #matching .mt-xg{max-width:560px;margin:0 auto}
+  #matching .mt-xg{max-width:360px;margin:0 auto}
   #matching .panel .legend{font-size:13px;gap:4px 12px;margin:6px 0 0}
-  #matching .d .bp-node{cursor:default}
+  #matching .d .bp-node{cursor:default;stroke:none}
+  #matching .d .bp-node text{stroke:none;fill:var(--ink)}
+  #matching .d .bp-node.loop text{fill:#8a5208} #matching .d .bp-node.edge text{fill:#1b4f94}
   #matching .d .bp-node.click{cursor:pointer}
   #matching .d .bp-node.click:hover rect{filter:brightness(.96)}
   #matching .d .bp-node.out rect{fill:#fff;stroke:#d5dbe6;stroke-dasharray:4 3}
@@ -292,14 +294,22 @@
         drawGraph(s, n, geo, items, { vcls: (v) => (last && last.v === v ? 'hl' : '') });
         // barra: per ogni vertice il suo occupante (Γ_vv in ambra, più il guadagno in arancio)
         const BW = 640, X0 = 150, SC = (BW - X0 - 40) / scaleMax;
-        const sb = DR.svg(barHost, BW, 150, `Bilancia: gamma più guadagni uguale a w(F*)`);
+        const sb = DR.svg(barHost, BW, 168, `Bilancia: gamma più guadagni uguale a w(F*)`);
         const row = (y, label, segs, total) => {
           DR.text(sb, 0, y + 15, label, 'bar-l');
           let x = X0;
           for (const sg of segs) {
-            const wpx = sg.w * SC; if (wpx < 0.5) continue;
+            const wpx = sg.w * SC;
+            if (sg.group) { // parentesi sopra loop + guadagno: il nuovo occupante del vertice
+              const gw = sg.group.w * SC;
+              DR.el('path', { d: `M${x + 1} ${y - 4} V${y - 10} H${x + gw - 1} V${y - 4}`, fill: 'none', stroke: 'var(--off)', 'stroke-width': 1.6 }, sb);
+              DR.text(sb, x + gw / 2, y - 19, sg.group.t, 'seg-t', { fill: 'var(--off)' });
+            }
+            if (wpx < 0.5) continue;
             DR.el('rect', { x, y, width: wpx, height: 30, rx: 4, class: sg.cls }, sb);
-            if (wpx > 34) DR.text(sb, x + wpx / 2, y + 15, sg.t, 'seg-t');
+            const full = sg.t + (sg.v !== undefined ? ' = ' + sg.v : '');
+            if (wpx > full.length * 8 + 10) DR.text(sb, x + wpx / 2, y + 15, full, 'seg-t');
+            else if (wpx > sg.t.length * 8 + 8) DR.text(sb, x + wpx / 2, y + 15, sg.t, 'seg-t');
             x += wpx;
           }
           DR.text(sb, x + 8, y + 15, '= ' + fmt(total), 'bar-v');
@@ -307,16 +317,17 @@
         };
         const segA = [];
         for (let v = 0; v < n; v++) {
-          segA.push({ w: G[v][v], cls: 'seg-l', t: 'ℓ' + (v + 1) });
           const p = pairs.find((q) => q.v === v);
+          segA.push({ w: G[v][v], cls: 'seg-l', t: 'ℓ' + (v + 1), v: fmt(G[v][v]),
+            group: p ? { w: G[p.i][p.j], t: `{${p.i + 1},${p.j + 1}} = ${fmt(G[p.i][p.j])}` } : null });
           if (p) segA.push({ w: p.gain, cls: 'seg-g', t: '+' + fmt(p.gain) });
         }
         const sumG = pairs.reduce((a, p) => a + p.gain, 0);
-        row(22, 'γ + guadagni', segA, g + sumG);
-        const segB = gr.F.map((e) => ({ w: e.w, cls: e.type === 'loop' ? 'seg-l' : 'seg-e', t: lab(e) }));
-        row(84, 'w(F*) greedy', segB, gr.value);
+        row(40, 'γ + guadagni', segA, g + sumG);
+        const segB = gr.F.map((e) => ({ w: e.w, cls: e.type === 'loop' ? 'seg-l' : 'seg-e', t: lab(e), v: fmt(e.w) }));
+        row(104, 'w(F*) greedy', segB, gr.value);
         const xe = X0 + gr.value * SC;
-        DR.el('line', { x1: xe, y1: 10, x2: xe, y2: 124, class: 'eqline' }, sb);
+        DR.el('line', { x1: xe, y1: 30, x2: xe, y2: 142, class: 'eqline' }, sb);
         // messaggio
         let m;
         if (k === 0) m = `Tutti i loop: ogni vertice è occupato dal proprio loop. Peso $\\gamma=${fmt(g)}$.`;

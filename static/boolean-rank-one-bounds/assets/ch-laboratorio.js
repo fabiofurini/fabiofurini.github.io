@@ -204,7 +204,7 @@
 #laboratorio .lab-howto>summary{cursor:pointer;font-weight:700;color:var(--brand)}
 #laboratorio .lab-howto ul{margin:8px 0 2px;padding-left:20px;font-size:15.5px;color:var(--ink-2)}
 #laboratorio .lab-howto li{margin:4px 0}
-#laboratorio .lab-dock{position:sticky;top:10px;z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:18px 0 12px;padding:10px 14px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px rgba(20,30,60,.10)}
+#laboratorio .lab-dock{position:sticky;top:10px;z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:18px 0 12px;padding:9px 12px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px rgba(20,30,60,.10)}
 @media (max-width:980px){#laboratorio .lab-dock{top:58px}}
 #laboratorio .lab-sel{display:flex;align-items:center;gap:8px;min-width:150px}
 #laboratorio .lab-chip{font:700 15px var(--mono);padding:3px 10px;border-radius:999px;border:2px solid var(--line-2);background:#fff;white-space:nowrap}
@@ -212,7 +212,7 @@
 #laboratorio .lab-chip.diag{color:var(--diag);border-color:var(--diag);background:var(--diag-bg)}
 #laboratorio .lab-seld{font-size:13.5px;color:var(--ink-3);line-height:1.25}
 #laboratorio .lab-wc{display:flex;align-items:center;gap:6px}
-#laboratorio .lab-wc input[type=range]{width:150px;accent-color:var(--brand-2)}
+#laboratorio .lab-wc input[type=range]{width:120px;accent-color:var(--brand-2)}
 #laboratorio .lab-ib{font:700 16px var(--sans);width:32px;height:32px;padding:0;border-radius:9px;border:1px solid var(--line-2);background:#fff;color:var(--brand);cursor:pointer}
 #laboratorio .lab-ib:hover{background:var(--soft)} #laboratorio .lab-ib:disabled{opacity:.4;cursor:default}
 #laboratorio .lab-mini{display:flex;align-items:baseline;gap:7px;font:600 14px var(--mono);color:var(--ink-2);margin-left:auto}
@@ -225,6 +225,9 @@
 #laboratorio .lab-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 14px;font-size:14.5px;color:var(--ink-2)}
 #laboratorio .lab-toolbar select{font:600 14.5px var(--sans);padding:6px 10px;border-radius:9px;border:1px solid var(--line-2);background:#fff;color:var(--brand);max-width:100%}
 #laboratorio .lab-toolbar .lab-sp{flex:1}
+#laboratorio .lab-ch .lab-relay,#laboratorio .lab-ch .lab-nst{margin-left:auto}
+#laboratorio .lab-ch .lab-relay{padding:3px 10px;font-size:13px}
+#laboratorio .lab-nst .lab-ib{width:28px;height:28px}
 #laboratorio .lab-nst{display:inline-flex;align-items:center;gap:6px;font:600 14.5px var(--mono);color:var(--ink)}
 #laboratorio .btn.ghost{background:transparent}
 #laboratorio .lab-editor{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:stretch}
@@ -233,7 +236,9 @@
 #laboratorio .lab-gcard{background:linear-gradient(180deg,#fbfcff,#fff)}
 #laboratorio .lab-ch{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:4px}
 #laboratorio .lab-ct{font:700 16px var(--serif);color:var(--brand)} #laboratorio .lab-cs{font-size:13.5px;color:var(--ink-3)}
-#laboratorio #lab-ed-graph svg{max-height:470px}
+#laboratorio #lab-ed-graph svg{max-height:480px}
+#laboratorio #lab-ed-graph .wl{font-size:17px;stroke-width:6px}
+#laboratorio #lab-ed-graph .vtx text{font-size:19px}
 #laboratorio #lab-ed-matrix{max-width:330px;margin:6px auto 0}
 #laboratorio .lab-mnote{margin:6px 0 0}
 #laboratorio .lab-h3{margin-top:40px}
@@ -599,9 +604,9 @@
     <button type="button" class="btn ghost" id="lab-ri">Casuale intera</button>
     <button type="button" class="btn ghost" id="lab-rr">Casuale reale</button>
     <span class="lab-sp"></span>
-    <span class="lab-nst"><button type="button" class="lab-ib" id="lab-nm" aria-label="Rimuovi l'ultimo vertice">−</button><span id="lab-nv">n = 3</span><button type="button" class="lab-ib" id="lab-np" aria-label="Aggiungi un vertice">+</button></span>
-    <button type="button" class="btn ghost" id="lab-relay">Riallinea</button>
     <button type="button" class="btn ghost" id="lab-share">Copia link</button>`;
+  sec.querySelector('.lab-gcard .lab-ch').insertAdjacentHTML('beforeend', '<button type="button" class="btn ghost lab-relay" id="lab-relay" title="Rimetti i vertici sul poligono regolare">Riallinea</button>');
+  sec.querySelector('.lab-mcard .lab-ch').insertAdjacentHTML('beforeend', `<span class="lab-nst"><button type="button" class="lab-ib" id="lab-nm" aria-label="Rimuovi l'ultimo vertice">−</button><span id="lab-nv">n = 3</span><button type="button" class="lab-ib" id="lab-np" aria-label="Aggiungi un vertice">+</button></span>`);
   $('lab-preset').addEventListener('change', (ev) => { if (ev.target.value) loadPreset(ev.target.value); });
   $('lab-ri').addEventListener('click', () => randomG('int'));
   $('lab-rr').addEventListener('click', () => randomG('real'));
@@ -618,7 +623,7 @@
 
   // --- viste
   const views = {
-    ed: GraphView($('lab-ed-graph'), { W: 560, H: 440, vr: 22, pad: 66, lr: 17, focusable: true, label: 'Editor del grafo: vertici trascinabili, clic su archi e loop per selezionarli' }),
+    ed: GraphView($('lab-ed-graph'), { W: 500, H: 430, vr: 22, pad: 58, lr: 17, fs: 1.25, focusable: true, label: 'Editor del grafo: vertici trascinabili, clic su archi e loop per selezionarli' }),
     forest: GraphView($('lab-p-forest'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: 'Foresta di peso massimo sugli archi ordinari' }),
     oneforest: GraphView($('lab-p-oneforest'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: '1-foresta di peso massimo' }),
     pseudo: GraphView($('lab-p-pseudo'), { W: 320, H: 250, vr: 16, pad: 44, lr: 12, label: 'Pseudoforesta con loop di peso massimo' }),

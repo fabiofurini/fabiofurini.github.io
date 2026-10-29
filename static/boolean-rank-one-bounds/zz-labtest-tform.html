@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boolean rank-one: AWCD, pseudoforeste e matching</title>
+<meta name="description" content="Guida visuale e interattiva alle relazioni fra il problema AWCD ancorato, il rilassamento unilaterale, il matroide bicircolare, il matching bipartito e il matroide grafico nella decomposizione di matrici in fattori Boolean rank-one.">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">AWCD · pseudoforeste · matching</div>
+  <h1>Decomposizioni Boolean rank-one</h1>
+  <p>Una guida visuale: il problema, due approcci, un bound condiviso. Ogni passaggio è disegnato e verificabile.</p>
+</header>
+<div class="layout">
+<nav class="toc" aria-label="Indice">
+  <div class="title">Indice</div>
+  <a href="#laboratorio"><span class="k">⚙</span><span class="t">Laboratorio</span></a>
+</nav>
+<main>
+<section class="chapter" id="laboratorio">
+<div class="kicker"><b>⚙</b> Laboratorio</div>
+<h2>Laboratorio: cambia il grafo, guarda cambiare le soluzioni</h2>
+<p class="lead">Una sola matrice $\Gamma$, sette strutture che la leggono in modi diversi. Modifica un peso o carica un
+esempio: foresta, 1-foresta, pseudoforesta, foresta del grafo bordato, matching e ottimo esatto si ricalcolano subito,
+insieme alla catena dei bound.</p>
+<div class="goal"><b>In questo laboratorio:</b> vedi dove il matroide grafico e quello bicircolare si separano,
+perché $\LB=\val(R)-\gamma=w(F^*)-\gamma=M$ vale sempre e quando invece $\Efull(\Gamma)$ è strettamente più grande.</div>
+
+<details class="lab-howto">
+  <summary>Come usarlo</summary>
+  <ul>
+    <li><b>Seleziona</b> un elemento con un clic: un arco $\{i,j\}$, un vertice (cioè il suo loop $\ell_i$, peso
+      $\Gamma_{ii}$) o una cella della matrice. Funziona anche sui grafi delle schede.</li>
+    <li><b>Cambia il peso</b> nella barra fissa in alto: slider, campo numerico, bottoni $\pm$, rotella del mouse
+      sull'elemento selezionato o frecce ↑/↓ (con Maiusc: $\pm 0{,}1$). Peso $0$ = arco assente, disegnato tratteggiato.</li>
+    <li><b>Trascina</b> i vertici per ridisegnare il grafo; «Riallinea» li rimette sul poligono.</li>
+    <li><b>Annulla / ripristina</b> con ↶ ↷ (o ⌘/Ctrl+Z, Maiusc+⌘/Ctrl+Z). «Copia link» copia l'indirizzo con lo
+      stato codificato in <code>#laboratorio=…</code>.</li>
+    <li>Nelle schede, <b>▶ greedy</b> apre la moviola dell'algoritmo; sotto, le linguette mostrano bound,
+      formulazioni, certificati e qualche sfida.</li>
+  </ul>
+</details>
+
+<div class="lab-dock" id="lab-dock" role="region" aria-label="Elemento selezionato e catena dei bound"></div>
+
+<div class="lab-toolbar" id="lab-toolbar" role="toolbar" aria-label="Esempi e strumenti del laboratorio"></div>
+
+<div class="lab-editor">
+  <div class="lab-card lab-gcard">
+    <div class="lab-ch"><span class="lab-ct">Il grafo con loop</span><span class="lab-cs">loop $\ell_i$ di peso $\Gamma_{ii}$ · archi $\{i,j\}$ di peso $\Gamma_{ij}$</span></div>
+    <div id="lab-ed-graph"></div>
+  </div>
+  <div class="lab-card lab-mcard">
+    <div class="lab-ch"><span class="lab-ct">La matrice $\Gamma$</span><span class="lab-cs">simmetrica, $\gamma=\tr\Gamma$</span></div>
+    <div id="lab-ed-matrix"></div>
+    <div class="legend"><span><i class="sw diag"></i>diagonale / loop</span><span><i class="sw off"></i>fuori diagonale / arco</span></div>
+    <p class="small muted lab-mnote" id="lab-mnote"></p>
+  </div>
+</div>
+
+<h3 class="lab-h3">Sette strutture sullo stesso grafo</h3>
+<p class="small muted">Ogni scheda evidenzia una soluzione ottima dello stesso grafo; sotto ogni disegno, la sua legenda. Il
+bottone «?» accanto a ogni scheda ne definisce i simboli.</p>
+<div class="lab-grid" id="lab-grid">
+  <article class="lab-panel" data-k="forest">
+    <header><span class="lab-pn">1</span><h4>Foresta massima</h4><span class="lab-tag">matroide grafico</span></header>
+    <div class="lab-f">massimo peso di archi $\{i,j\}$ senza cicli (Kruskal); loop ignorati<span class="lab-q" data-def="forest" data-label="foresta"></span></div>
+    <div class="lab-fig" id="lab-p-forest"></div>
+    <div class="lab-leg" id="lab-lg-forest"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$w(T)$</span><b id="lab-v-forest">–</b></span><button type="button" class="btn lab-play" data-mode="forest" aria-label="Anima il greedy della foresta">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="oneforest">
+    <header><span class="lab-pn">2</span><h4>1-foresta massima</h4><span class="lab-tag">bicircolare senza loop</span></header>
+    <div class="lab-f">massimo peso di archi $\{i,j\}$ con al più un ciclo per componente; diagonale ignorata<span class="lab-q" data-def="oneF" data-label="1-foresta"></span></div>
+    <div class="lab-fig" id="lab-p-oneforest"></div>
+    <div class="lab-leg" id="lab-lg-oneforest"></div>
+    <footer><span class="lab-big"><span class="lab-bl">peso</span><b id="lab-v-oneforest">–</b></span><button type="button" class="btn lab-play" data-mode="oneforest" aria-label="Anima il greedy della 1-foresta">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="pseudo">
+    <header><span class="lab-pn">3</span><h4>Pseudoforesta con loop</h4><span class="lab-tag">bicircolare del problema</span></header>
+    <div class="lab-f">$\val(P)=\max\{w(F): |F\cap E[U]|\le|U|\ \forall U\}$ · un loop è un ciclo<span class="lab-q" data-def="pseudo" data-label="pseudoforesta"></span></div>
+    <div class="lab-fig" id="lab-p-pseudo"></div>
+    <div class="lab-leg" id="lab-lg-pseudo"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$w(F^*)=\val(P)=\val(R)$</span><b id="lab-v-pseudo">–</b></span><button type="button" class="btn lab-play" data-mode="pseudo" aria-label="Anima il greedy della pseudoforesta">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="rooted">
+    <header><span class="lab-pn">4</span><h4>Foresta del grafo bordato</h4><span class="lab-tag">AWCD, radice $r$</span></header>
+    <div class="lab-f">$\Zcov(w)=\max\{w(T): T$ foresta su $V\cup\{r\}\}$, $w_{ri}=\Gamma_{ii}$ · nessun ciclo<span class="lab-q" data-def="Zcov" data-label="Z_cov"></span></div>
+    <div class="lab-fig" id="lab-p-rooted"></div>
+    <div class="lab-leg" id="lab-lg-rooted"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$\Zcov$</span><b id="lab-v-rooted">–</b></span><button type="button" class="btn lab-play" data-mode="rooted" aria-label="Anima Kruskal sul grafo bordato">▶ greedy</button></footer>
+  </article>
+  <article class="lab-panel" data-k="matching">
+    <header><span class="lab-pn">5</span><h4>Matching dei guadagni</h4><span class="lab-tag">bipartito archi ↔ vertici</span></header>
+    <div class="lab-f">$\{i,j\}\to v\in\{i,j\}$ guadagna $(\Gamma_{ij}-\Gamma_{vv})^+$ · ogni arco e ogni vertice al più una volta<span class="lab-q" data-def="matching" data-label="matching dei guadagni"></span></div>
+    <div class="lab-fig" id="lab-p-matching"></div>
+    <div class="lab-leg" id="lab-lg-matching"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$M$</span><b id="lab-v-matching">–</b></span><span class="lab-foot" id="lab-n-matching"></span></footer>
+  </article>
+  <article class="lab-panel" data-k="transv">
+    <header><span class="lab-pn">6</span><h4>Assegnazione trasversale</h4><span class="lab-tag">di $F^*$</span></header>
+    <div class="lab-f">ogni elemento della pseudoforesta ottima $F^*$ su un suo estremo, vertici tutti distinti<span class="lab-q" data-def="transv" data-label="assegnazione trasversale"></span></div>
+    <div class="lab-fig" id="lab-p-transv"></div>
+    <div class="lab-leg" id="lab-lg-transv"></div>
+    <footer><span class="lab-big"><span class="lab-bl">$\sum$ guadagni</span><b id="lab-v-transv">–</b></span><span class="lab-foot" id="lab-n-transv"></span></footer>
+  </article>
+  <article class="lab-panel lab-wide" data-k="efull">
+    <header><span class="lab-pn">7</span><h4>Ottimo esatto $\Efull(\Gamma)$</h4><span class="lab-tag">LP nel browser, $n\le5$</span></header>
+    <div class="lab-f">$\min_{p\ge0}\sum_{i\le j}|\Gamma_{ij}-H_{ij}(p)|$ · $H(p)=\sum_U p_U X_U$ qualsiasi, nessuna struttura imposta<span class="lab-q" data-def="efullCard" data-label="E_full"></span></div>
+    <div class="lab-efull">
+      <div class="lab-efig">
+        <div class="controls lab-eftog" id="lab-ef-tog" role="group" aria-label="Vista della scheda E_full"></div>
+        <div id="lab-p-efull"></div>
+      </div>
+      <div class="lab-eside" id="lab-ef-side"></div>
+    </div>
+    <footer><span class="lab-big"><span class="lab-bl">$\Efull$</span><b id="lab-v-efull">–</b></span><span class="lab-foot" id="lab-n-efull"></span></footer>
+  </article>
+</div>
+
+<div class="lab-tabs" role="tablist" aria-label="Approfondimenti">
+  <button type="button" role="tab" id="lab-tab-bound" aria-controls="lab-tp-bound" aria-selected="true">Catena dei bound</button>
+  <button type="button" role="tab" id="lab-tab-anim" aria-controls="lab-tp-anim" aria-selected="false" tabindex="-1">Moviola del greedy</button>
+  <button type="button" role="tab" id="lab-tab-form" aria-controls="lab-tp-form" aria-selected="false" tabindex="-1">Formulazioni</button>
+  <button type="button" role="tab" id="lab-tab-cert" aria-controls="lab-tp-cert" aria-selected="false" tabindex="-1">Certificati</button>
+  <button type="button" role="tab" id="lab-tab-sfide" aria-controls="lab-tp-sfide" aria-selected="false" tabindex="-1">Sfide <span class="lab-count" id="lab-sfide-count">0/5</span></button>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-bound" aria-labelledby="lab-tab-bound">
+  <div class="lab-chain" id="lab-chain"></div>
+  <p class="lab-verdict" id="lab-verdict"></p>
+  <div class="lab-bars" id="lab-bars"></div>
+  <p class="small muted">Le prime quattro barre sono pesi di strutture (massimizzazione), l'ultima è un errore
+  (minimizzazione). Vale sempre $w(T)\le w(\text{1-foresta})\le\val(P)$ e $w(T)\le\Zcov\le\val(P)=\gamma+M$.
+  $\Zcov$<span class="lab-q" data-def="Zcov"></span> soddisfa $\Zcov(w)\le z^*+f_2^*$ (con $z^*$<span class="lab-q" data-def="zstar"></span> e $f_2^*$<span class="lab-q" data-def="f2"></span>): <b>non</b> è un bound sulla sola distanza $z^*=\Efull(\Gamma)$.</p>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-anim" aria-labelledby="lab-tab-anim" hidden>
+  <div class="controls" id="lab-an-mode" role="group" aria-label="Struttura da animare"></div>
+  <div class="lab-anim">
+    <div class="lab-astage"><div id="lab-an-graph"></div><p class="lab-acap" id="lab-an-cap" aria-live="polite"></p></div>
+    <div class="lab-aside">
+      <div class="controls" id="lab-an-ctl"></div>
+      <div class="trace lab-trace" id="lab-an-trace"></div>
+    </div>
+  </div>
+  <div class="legend" id="lab-an-leg"></div>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-form" aria-labelledby="lab-tab-form" hidden>
+  <div class="lab-forms">
+    <div class="lab-fcard">
+      <div class="lab-fh">$(R)$ rilassamento unilaterale</div>
+      <div class="eq">$$\begin{aligned}\min\ &\textstyle\sum_{U}|U|\,p_U+\sum_{i<j}q_{ij}\\ \text{s.t. }&\textstyle\sum_{U\supseteq\{i,j\}}p_U+q_{ij}\ge\Gamma_{ij}\ \ (i<j)\\ &\textstyle\sum_{U\ni i}p_U\ge\Gamma_{ii}\ \ (i\in V),\qquad p,q\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-R"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">$(P)$ pseudoforeste, duale LP di $(R)$</div>
+      <div class="eq">$$\begin{aligned}\max\ &\textstyle\sum_i\Gamma_{ii}x_{\ell_i}+\sum_{i<j}\Gamma_{ij}x_{ij}\\ \text{s.t. }&x(E[U])\le|U|\quad\forall U\ne\emptyset\\ &x_{ij}\le1,\qquad x\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-P"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">$(D_A)$ duale della fase A di AWCD</div>
+      <div class="eq">$$\begin{aligned}\max\ &\textstyle\sum_{i\le j}\Gamma_{ij}\,y_{ij}\\ \text{s.t. }&\textstyle\sum_{i\le j,\ i,j\in U}y_{ij}\le0\quad\forall U\ne\emptyset\\ &-1\le y\le1\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-D"></div>
+    </div>
+    <div class="lab-fcard">
+      <div class="lab-fh">Matching e il suo duale (matrice totalmente unimodulare)</div>
+      <div class="eq">$$\begin{aligned}M=\min\ &\textstyle\sum_i\beta_i+\sum_{i<j}q_{ij}\\ \text{s.t. }&\beta_i+q_{ij}\ge\Gamma_{ij}-\Gamma_{ii},\ \ \beta_j+q_{ij}\ge\Gamma_{ij}-\Gamma_{jj}\\ &\beta,q\ge0\end{aligned}$$</div>
+      <div class="lab-live" id="lab-fv-B"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-cert" aria-labelledby="lab-tab-cert" hidden>
+  <div class="lab-certs">
+    <figure class="fig lab-cfig">
+      <div class="lab-fh">Certificato laminare (component peeling)</div>
+      <div id="lab-c-lam"></div>
+      <figcaption id="lab-c-lamcap"></figcaption>
+    </figure>
+    <figure class="fig lab-cfig">
+      <div class="lab-fh">Certificato a catena (marginali $\alpha_i=\sum_{U\ni i}p_U$)</div>
+      <div id="lab-c-chain"></div>
+      <figcaption id="lab-c-chaincap"></figcaption>
+    </figure>
+  </div>
+  <details class="proof"><summary>Passi del peeling</summary><ol class="small" id="lab-c-steps"></ol></details>
+</div>
+
+<div class="lab-tp" role="tabpanel" id="lab-tp-sfide" aria-labelledby="lab-tab-sfide" hidden>
+  <p class="small muted">Contano solo le matrici ottenute modificando i pesi a mano (gli esempi e le matrici casuali
+  non valgono). Una spia si accende quando ci riesci.</p>
+  <div class="lab-sfide" id="lab-sfide"></div>
+</div>
+</section>
+</main>
+</div>
+<footer class="site">Guida didattica basata sui manoscritti in preparazione di F. Furini, C. Gentile, L. Liberti e
+G. Rinaldi (<em>Optimization over Anchored Clique Cones</em>; <em>Sparse subset-indexed dual certificates for weighted
+pseudoforests</em>). Testi, figure e calcoli originali; tutti i numeri sono calcolati nel browser.</footer>
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/draw.js"></script>
+<script>window.BR_PAGES=["laboratorio.html"];</script>
+<script src="assets/ch-laboratorio.js"></script>
+<script src="assets/app.js"></script>
+<script>window.addEventListener('load',()=>setTimeout(()=>{document.documentElement.style.scrollBehavior='auto';document.getElementById('lab-tab-form').click();document.querySelector('header.hero').style.display='none';let t=document.querySelector('.lab-tabs');let p=t.previousElementSibling;while(p){if(p.tagName!=='STYLE'&&!p.classList.contains('lab-bubble'))p.style.display='none';p=p.previousElementSibling;}window.scrollTo(0,0);},200));</script></body>
+</html>
