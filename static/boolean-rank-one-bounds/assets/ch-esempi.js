@@ -151,7 +151,7 @@
       <div class="ex-dec">
         <div class="panel"><div class="ptitle">Ricostruzione $H(p)$</div><div class="h1"></div><div class="ex-sumline small">$\\tr H=${f(tr)}$</div></div>
         <div class="panel"><div class="ptitle">Errori $|\\Gamma_{ij}-H_{ij}|$, $i\\le j$</div><div class="h2"></div>
-          <div class="legend">${kinds.has('under') ? sw('under', 'sottostima $H_{ij}<\\Gamma_{ij}$') : ''}${kinds.has('over') ? sw('over', 'sovrastima $H_{ij}>\\Gamma_{ij}$') : ''}${kinds.has('exact') ? sw('exact', 'esatto') : ''}</div></div>
+          <div class="legend">${kinds.has('under') ? sw('under', 'sottostima $H_{ij}\\lt \\Gamma_{ij}$') : ''}${kinds.has('over') ? sw('over', 'sovrastima $H_{ij}\\gt \\Gamma_{ij}$') : ''}${kinds.has('exact') ? sw('exact', 'esatto') : ''}</div></div>
       </div>
       <p class="ex-sumline">errore $=${er.cells.map((x) => f(Math.abs(x.d))).join('+')}=${f(er.full)}$</p>`;
     drawMatrix(box.querySelector('.h1'), H, 'Matrice ricostruita H(p)');
