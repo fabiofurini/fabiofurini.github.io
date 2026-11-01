@@ -56,15 +56,15 @@ research_lead: >-
   branch-and-bound — that solve to proven optimality problems of practical size.
   The {n} publications fall into the {k} lines of work below.
 pubs_lead: >-
-  {j} journal articles and {c} conference papers, {from}–{to}. Each entry links to
-  the version of record and to the author's version for direct download.
+  {j} journal articles and {c} conference papers, {from}–{to}. Links to the
+  published version and the author's PDF are provided when available.
 paper_label: "Paper:"
 library_eyebrow: Benchmark library
 libraries: Libraries
 visit: Visit ↗
 software_callout: >-
-  Every paper on this site comes with the author's version as a PDF and a BibTeX
-  entry — see
+  Publication details and available author PDFs are listed on the publications
+  page — see
 current_courses: Current courses
 courses: Courses
 hours_since: "{h} hours taught since 2012"

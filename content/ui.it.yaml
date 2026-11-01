@@ -46,7 +46,7 @@ ui:
   download_cv: Scarica il CV completo (PDF)
   current: Attuali
   alumni: Ex allievi
-  accepted: in corso di stampa
+  accepted: accettato
   note_english: I lavori e il curriculum sono in inglese.
 tagline_eyebrow: Ricerca Operativa · Ottimizzazione Combinatoria
 research_title: Algoritmi esatti per problemi combinatori difficili
@@ -57,15 +57,15 @@ research_lead: >-
   problemi di dimensione reale. Le {n} pubblicazioni si distribuiscono nei {k}
   filoni qui sotto.
 pubs_lead: >-
-  {j} articoli su rivista e {c} lavori in atti di convegno, {from}–{to}. Ogni voce
-  rimanda alla versione pubblicata e alla versione d'autore, scaricabile.
+  {j} articoli su rivista e {c} lavori in atti di convegno, {from}–{to}. I link
+  alla versione pubblicata e al PDF d'autore sono presenti quando disponibili.
 paper_label: "Lavoro:"
 library_eyebrow: Libreria di riferimento
 libraries: Librerie
 visit: Vai al sito ↗
 software_callout: >-
-  Di ogni lavoro su questo sito trovi la versione d'autore in PDF e la voce
-  BibTeX — vedi
+  I dettagli delle pubblicazioni e i PDF d'autore disponibili sono nella pagina
+  delle pubblicazioni — vedi
 current_courses: Corsi attuali
 courses: Corsi
 hours_since: "{h} ore di didattica dal 2012"

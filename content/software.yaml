@@ -43,8 +43,8 @@ tools:
     url: https://github.com/fabiofurini/COVER_MAX_DEPTH
   - name: BP-k-VCP
     summary: Branch-and-price for the k-Vertex Cut Problem.
-    paper: ""
-    note: Associated paper under review
+    paper: J49
+    note: Associated paper accepted in INFORMS Journal on Optimization
     url: https://github.com/FabioCiccarelli/BP_k-vertex-cut
   - name: Ramsey lower bounds
     summary: Integer programming approach to compute lower bounds for Ramsey numbers using circulant graphs.
