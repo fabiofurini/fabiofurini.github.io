@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .DS_Store
 .directory
+
+# copie generate dalla build, già pubblicate in docs/<nome>/
+docs/static/*-guide/
+docs/static/boolean-rank-one-bounds/
+docs/static/mip-poster-awards/
