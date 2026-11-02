@@ -9,7 +9,7 @@ edit the YAML, re-run this script.
     python3 build.py            # build into docs/
     python3 build.py --serve    # build, then serve on http://localhost:8000
 """
-import json, os, re, shutil, sys, subprocess, hashlib
+import json, os, re, shutil, sys, subprocess, hashlib, tempfile
 from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -181,9 +181,22 @@ def build():
                       autoescape=select_autoescape(['html']),
                       trim_blocks=True, lstrip_blocks=True)
 
+    # Pagine scritte a mano direttamente in docs/ (non generate da qui):
+    # vanno messe da parte prima di svuotare docs/ e rimesse dopo.
+    keep_dirs = ('reading', 'markdown')
+    kept = Path(tempfile.mkdtemp(prefix='site-keep-'))
+    for name in keep_dirs:
+        if (DIST / name).is_dir():
+            shutil.copytree(DIST / name, kept / name)
+
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
+
+    for name in keep_dirs:
+        if (kept / name).is_dir():
+            shutil.copytree(kept / name, DIST / name)
+    shutil.rmtree(kept)
 
     all_urls = []
     site = None
