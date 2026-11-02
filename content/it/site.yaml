@@ -51,6 +51,7 @@ selected: [J36, J41, J29, J23, J06]
 currently:
   - {text: "Associate Editor, <i>Omega</i>", url: "https://www.sciencedirect.com/journal/omega"}
   - {text: "PC Chair, EUROMIP 2026, Roma", url: "https://www.mixedinteger.org/EUROMIP/2026/"}
+  - {text: "Lower bound per i numeri di Ramsey", url: "https://fabiofurini.github.io/ramsey-number-lower-bounds/"}
 
 # Standalone interactive teaching guides (static/<name>/, copied by build.py) are deliberately NOT listed on the home page
 # (unlisted, noindex): add a `guides:` list here only to show them again.
