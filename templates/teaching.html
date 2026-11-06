@@ -13,7 +13,7 @@
   {% for c in teaching.courses %}
   <div class="course">
     <div class="head">
-      <div><h3>{{ c.name }}</h3>{% if c.original %}<div class="orig">{{ c.original }}</div>{% endif %}</div>
+      <div><h3>{{ c.name }}</h3></div>
       <div class="lvl"><span class="faint">{{ c.detail }}</span></div>
     </div>
     {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">{{ c.notice }}</p>{% endif %}
@@ -29,6 +29,7 @@
     {% endif %}
   </div>
   {% endfor %}
+  <p class="faint" style="margin-top:1.4em;font-style:italic">{% if lang == "it" %}Tutto il materiale è disponibile anche in inglese.{% else %}All the material is also available in Italian.{% endif %}</p>
 </div></section>
 
 
