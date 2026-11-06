@@ -8,27 +8,22 @@ courses:
   where: Sapienza University of Rome
   since: '2021'
   detail: integer programming, combinatorial optimization, polyhedral methods and exact algorithms
-  notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
   sites:
   - label: Integer Linear Programming
     lang: EN
     url: https://fabiofurini.github.io/integer-linear-programming/
-    wip: true
     repo: https://github.com/fabiofurini/integer-linear-programming
   - label: Programmazione Lineare Intera
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare-intera/
-    wip: true
     repo: https://github.com/fabiofurini/programmazione-lineare-intera
   - label: Combinatorial Optimization
     lang: EN
     url: https://fabiofurini.github.io/combinatorial-optimization/
-    wip: true
     repo: https://github.com/fabiofurini/combinatorial-optimization
   - label: Ottimizzazione Combinatoria
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
-    wip: true
     repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - label: MIP Modelling
     lang: EN
@@ -63,14 +58,11 @@ courses:
   - label: Network Optimization
     lang: EN
     url: https://fabiofurini.github.io/network-optimization/
-    wip: true
     repo: https://github.com/fabiofurini/network-optimization
   - label: Ottimizzazione su Reti
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-su-reti/
-    wip: true
     repo: https://github.com/fabiofurini/ottimizzazione-su-reti
-  notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
 - name: Linear Programming
   original: Programmazione lineare
   level: ''
@@ -81,14 +73,11 @@ courses:
   - label: Linear Programming
     lang: EN
     url: https://fabiofurini.github.io/linear-programming/
-    wip: true
     repo: https://github.com/fabiofurini/linear-programming
   - label: Programmazione Lineare
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare/
-    wip: true
     repo: https://github.com/fabiofurini/programmazione-lineare
-  notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
 - name: Convex Optimization
   original: Ottimizzazione convessa
   level: ''
@@ -99,14 +88,11 @@ courses:
   - label: Convex Optimization
     lang: EN
     url: https://fabiofurini.github.io/convex-optimization/
-    wip: true
     repo: https://github.com/fabiofurini/convex-optimization
   - label: Ottimizzazione Convessa
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-convessa/
-    wip: true
     repo: https://github.com/fabiofurini/ottimizzazione-convessa
-  notice: 'Sites marked 🚧 are under construction: the material is being completed and revised during the year.'
 - name: Algorithms
   original: Algoritmi
   level: ''
