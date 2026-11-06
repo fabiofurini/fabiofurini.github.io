@@ -19,15 +19,19 @@
     {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">{{ c.notice }}</p>{% endif %}
     {% if c.sites %}
     <div class="sites">
-      {# ogni sito nella lingua della pagina, con accanto il gemello nell'altra lingua (stessa posizione) #}
+      {# un riquadro per sito: il nome nella lingua della pagina e i due badge EN / IT, ognuno apre il suo sito #}
       {% set prima = c.sites|selectattr("lang", "equalto", lang|upper)|list %}
       {% set altra = c.sites|rejectattr("lang", "equalto", lang|upper)|list %}
-      {% set coppie = [] %}
-      {% for i in range([prima|length, altra|length]|max) %}{% if i < prima|length %}{% set _ = coppie.append(prima[i]) %}{% endif %}{% if i < altra|length %}{% set _ = coppie.append(altra[i]) %}{% endif %}{% endfor %}
-      {% for s in coppie %}
+      {% for i in range([prima|length, altra|length]|max) %}
+      {% set s = prima[i] if i < prima|length else altra[i] %}
+      {% set gemello = altra[i] if (i < prima|length and i < altra|length) else none %}
+      {% set en = s if s.lang == "EN" else gemello %}{% set it = s if s.lang == "IT" else gemello %}
       <div class="site-link">
-        <div><span class="lg">{{ s.lang }}</span><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a>{% if s.wip %} <span title="{{ strings.wip if strings.wip else 'under construction' }}" style="margin-left:.3em">🚧</span>{% endif %}</div>
-        <a class="rp" href="{{ s.repo }}" target="_blank" rel="noopener">{{ strings.source }}</a>
+        <div><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></div>
+        <div style="display:flex;gap:6px;align-items:center">
+          {% if en %}<a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}" style="margin-right:0;text-decoration:none">EN</a>{% endif %}
+          {% if it %}<a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}" style="margin-right:0;text-decoration:none">IT</a>{% endif %}
+        </div>
       </div>
       {% endfor %}
     </div>
