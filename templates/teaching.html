@@ -19,7 +19,12 @@
     {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">{{ c.notice }}</p>{% endif %}
     {% if c.sites %}
     <div class="sites">
-      {% for s in c.sites if s.lang|lower == lang %}
+      {# ogni sito nella lingua della pagina, con accanto il gemello nell'altra lingua (stessa posizione) #}
+      {% set prima = c.sites|selectattr("lang", "equalto", lang|upper)|list %}
+      {% set altra = c.sites|rejectattr("lang", "equalto", lang|upper)|list %}
+      {% set coppie = [] %}
+      {% for i in range([prima|length, altra|length]|max) %}{% if i < prima|length %}{% set _ = coppie.append(prima[i]) %}{% endif %}{% if i < altra|length %}{% set _ = coppie.append(altra[i]) %}{% endif %}{% endfor %}
+      {% for s in coppie %}
       <div class="site-link">
         <div><span class="lg">{{ s.lang }}</span><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a>{% if s.wip %} <span title="{{ strings.wip if strings.wip else 'under construction' }}" style="margin-left:.3em">🚧</span>{% endif %}</div>
         <a class="rp" href="{{ s.repo }}" target="_blank" rel="noopener">{{ strings.source }}</a>
@@ -29,7 +34,6 @@
     {% endif %}
   </div>
   {% endfor %}
-  <p class="faint" style="margin-top:1.4em;font-style:italic">{% if lang == "it" %}Tutto il materiale è disponibile anche in inglese.{% else %}All the material is also available in Italian.{% endif %}</p>
 </div></section>
 
 
