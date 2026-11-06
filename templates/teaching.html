@@ -9,7 +9,7 @@
 
 <section class="block"><div class="wrap">
   <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div>
-    <span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span></div>
+    {% if teaching.total_hours %}<span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span>{% endif %}</div>
   {% for c in teaching.courses %}
   <div class="course">
     <div class="head">
