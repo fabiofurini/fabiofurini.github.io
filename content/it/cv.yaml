@@ -42,10 +42,10 @@ grants:
   - {years: "2014 – 2017", name: "Efficient exact algorithms for Graph Partitioning Problems", funder: "PGMO", role: "responsabile"}
 
 industry:
-  - {years: "2020 – 2022", partner: "Huawei, Parigi", what: "Dottorato industriale — ottimizzazione di rete, interdizione e robustezza"}
-  - {years: "2017 – 2019", partner: "Orange, Parigi", what: "Dottorato industriale — ottimizzazione per reti di telecomunicazione di nuova generazione"}
-  - {years: "2015 – 2017", partner: "DecisionBrain, Parigi", what: "Dottorato industriale — pianificazione della produzione e scheduling"}
-  - {years: "2010 – 2012", partner: "Ferrovie dello Stato", what: "Software di ottimizzazione degli orari ferroviari"}
+  - {years: "2020 – 2022", partner: "Huawei, Parigi", what: "Dottorato industriale — modelli e algoritmi per interdizione delle reti, flussi critici e robustezza"}
+  - {years: "2017 – 2019", partner: "Orange, Parigi", what: "Dottorato industriale — ottimizzazione del posizionamento e dell'instradamento di funzioni di rete virtualizzate"}
+  - {years: "2015 – 2017", partner: "DecisionBrain, Parigi", what: "Dottorato industriale — pianificazione e schedulazione della produzione; metodi di ottimizzazione per un sistema di supporto alle decisioni"}
+  - {years: "2010 – 2012", partner: "Ferrovie dello Stato", what: "Software per l'ottimizzazione degli orari ferroviari"}
 
 awards:
   - {years: "2014 – 2021", role: "Prime d'encadrement doctoral et de recherche (PEDR)", where: "Riconoscimento nazionale francese per ricerca e supervisione"}

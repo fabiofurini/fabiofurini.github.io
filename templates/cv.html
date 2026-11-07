@@ -8,7 +8,17 @@
     <a class="btn" href="{{ prefix }}/publications/">{{ nav[1].label }}</a></div>
 </div></div>
 <div class="wrap">
-  {% for sec, label in [('appointments',strings.cv_appointments),('education',strings.cv_education),('qualifications',strings.cv_qualifications),('service',strings.cv_service),('awards',strings.cv_awards)] %}
+  <section class="cv-grid"><div><h2>{{ strings.cv_appointments }}</h2></div>
+    <ul class="tl">{% for it in cv.appointments %}
+      <li><div class="y">{{ it.years }}</div><div><div class="r">{{ it.role }}</div><div class="w">{{ it.where }}</div>{% if it.note %}<div class="x">{{ it.note }}</div>{% endif %}</div></li>
+    {% endfor %}</ul>
+  </section>
+  <section class="cv-grid" id="industry"><div><h2>{{ strings.cv_industry }}</h2></div>
+    <ul class="tl">{% for g in cv.industry %}
+      <li><div class="y">{{ g.years }}</div><div><div class="r">{{ g.partner }}</div><div class="w">{{ g.what }}</div></div></li>
+    {% endfor %}</ul>
+  </section>
+  {% for sec, label in [('education',strings.cv_education),('qualifications',strings.cv_qualifications),('service',strings.cv_service),('awards',strings.cv_awards)] %}
   <section class="cv-grid"><div><h2>{{ label }}</h2></div>
     <ul class="tl">{% for it in cv[sec] %}
       <li><div class="y">{{ it.years }}</div><div><div class="r">{{ it.role }}</div><div class="w">{{ it.where }}</div>{% if it.note %}<div class="x">{{ it.note }}</div>{% endif %}</div></li>
@@ -18,11 +28,6 @@
   <section class="cv-grid"><div><h2>{{ strings.cv_grants }}</h2></div>
     <ul class="tl">{% for g in cv.grants %}
       <li><div class="y">{{ g.years }}</div><div><div class="r">{{ g.name }}</div><div class="w">{{ g.funder }} · {{ g.role }}</div></div></li>
-    {% endfor %}</ul>
-  </section>
-  <section class="cv-grid"><div><h2>{{ strings.cv_industry }}</h2></div>
-    <ul class="tl">{% for g in cv.industry %}
-      <li><div class="y">{{ g.years }}</div><div><div class="r">{{ g.partner }}</div><div class="w">{{ g.what }}</div></div></li>
     {% endfor %}</ul>
   </section>
 </div>
