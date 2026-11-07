@@ -33,6 +33,7 @@ ui:
   of: su
   published_version: Versione pubblicata ↗
   pdf: PDF
+  preprint: Preprint ↗
   code: Codice ↗
   cite: Cita
   copied: Copiato
@@ -58,7 +59,7 @@ research_lead: >-
   filoni qui sotto.
 pubs_lead: >-
   {j} articoli su rivista e {c} lavori in atti di convegno, {from}–{to}. I link
-  alla versione pubblicata e al PDF d'autore sono presenti quando disponibili.
+  alla versione pubblicata, al PDF d'autore e al preprint sono presenti quando disponibili.
 paper_label: "Lavoro:"
 library_eyebrow: Libreria di riferimento
 libraries: Librerie

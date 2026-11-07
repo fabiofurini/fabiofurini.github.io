@@ -3,7 +3,7 @@ bin-packing-cutting-stock:
   description: >-
     Algoritmi esatti per impacchettare oggetti in contenitori e per tagliare
     materiale: branch-price-and-cut, enumerazione di pattern e bound duali
-    numericamente sicuri, comprese le varianti temporali e bidimensionali.
+    numericamente sicuri, comprese le varianti con setup, temporali e bidimensionali.
 knapsack:
   name: Problemi di Knapsack
   description: >-

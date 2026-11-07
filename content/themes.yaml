@@ -1,8 +1,8 @@
 bin-packing-cutting-stock:
   name: Bin Packing & Cutting Stock
   description: 'Exact algorithms for packing items into bins and cutting stock into pieces: branch-price-and-cut,
-    pattern enumeration, and numerically safe dual bounds, including the temporal and two-dimensional
-    variants.'
+    pattern enumeration, and numerically safe dual bounds, including variants with setups and the temporal
+    and two-dimensional variants.'
   journal:
   - 2
   - 4
@@ -13,6 +13,7 @@ bin-packing-cutting-stock:
   - 42
   - 44
   - 46
+  - 50
 knapsack:
   name: Knapsack Problems
   description: Exact and approximation algorithms for knapsack variants with setups, conflicts, products,

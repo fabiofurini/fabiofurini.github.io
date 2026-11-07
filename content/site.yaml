@@ -53,13 +53,13 @@ interests:
 
 # `href`: a site path (gets the language prefix) or a full URL (opens in a new tab).
 stats:
-  - {value: "61", label: "Refereed publications", note: "49 journal articles, 12 proceedings", href: "/publications/"}
+  - {value: "62", label: "Refereed publications", note: "50 journal articles, 12 proceedings", href: "/publications/"}
   - {value: "31", label: "h-index", note: "Google Scholar", href: "https://scholar.google.com/citations?user=Kx7v180AAAAJ&hl=en"}
   - {value: "7",  label: "Researchers supervised", note: "6 PhD students, 1 postdoc", href: "/people/"}
   - {value: "~ €800k", label: "Research funding", note: "grants and contracts"}
 
 # Papers featured on the home page, in this order. Ids from the paper archive.
-selected: [J36, J41, J29, J23, J06]
+selected: [J50, J36, J41, J29, J23]
 
 # The "Currently" box on the home page. `url` is optional.
 currently:

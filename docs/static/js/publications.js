@@ -36,6 +36,7 @@
     var links = [];
     if (p.doi) links.push('<a class="lk primary" href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener">' + esc(T('published', 'Published version ↗')) + '</a>');
     if (p.pdf) links.push('<a class="lk" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">' + esc(T('pdf', 'PDF')) + '</a>');
+    if (p.preprint) links.push('<a class="lk" href="' + esc(p.preprint) + '" target="_blank" rel="noopener">' + esc(T('preprint', 'Preprint ↗')) + '</a>');
     if (['J36','J41','J29','J23','J06'].indexOf(p.id) !== -1) links.push('<a class="lk" href="/reading/' + esc(p.id) + '/" target="_blank" rel="noopener">MD ↗</a>');
     if (p.code) links.push('<a class="lk" href="' + esc(p.code) + '" target="_blank" rel="noopener">' + esc(T('code', 'Code ↗')) + '</a>');
     links.push('<button class="lk" type="button" data-cite="' + esc(p.id) + '">' + esc(T('cite', 'Cite')) + '</button>');
@@ -86,7 +87,8 @@
       '  title   = {' + p.title + '},\n' +
       '  ' + field + ' = {' + p.venue + '},\n' +
       '  year    = {' + p.year + '},\n' +
-      (p.doi ? '  doi     = {' + p.doi + '},\n' : '') + '}';
+      (p.doi ? '  doi     = {' + p.doi + '},\n' : '') +
+      (p.doi ? '  url     = {https://doi.org/' + p.doi + '},\n' : (p.preprint ? '  url     = {' + p.preprint + '},\n' : '')) + '}';
   }
 
   document.addEventListener('click', function (e) {

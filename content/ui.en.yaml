@@ -33,6 +33,7 @@ ui:
   of: of
   published_version: Published version ↗
   pdf: PDF
+  preprint: Preprint ↗
   code: Code ↗
   cite: Cite
   copied: Copied
@@ -57,7 +58,7 @@ research_lead: >-
   The {n} publications fall into the {k} lines of work below.
 pubs_lead: >-
   {j} journal articles and {c} conference papers, {from}–{to}. Links to the
-  published version and the author's PDF are provided when available.
+  published version, author's PDF and preprint are provided when available.
 paper_label: "Paper:"
 library_eyebrow: Benchmark library
 libraries: Libraries

@@ -24,5 +24,5 @@
   </div>
 </div>
 {% endblock %}
-{% block scripts %}<script>window.FP_LANG={{ ({"data":"/static/publications.json" if lang=="en" else "/static/publications."+lang+".json","of":t.of,"pubs":nav[1].label|lower,"published":t.published_version,"pdf":t.pdf,"code":t.code,"cite":t.cite,"copied":t.copied,"more":t.read_more,"less":t.show_less,"none":t.no_match,"accepted":t.accepted|default("accepted")})|tojson }};</script>
+{% block scripts %}<script>window.FP_LANG={{ ({"data":"/static/publications.json" if lang=="en" else "/static/publications."+lang+".json","of":t.of,"pubs":nav[1].label|lower,"published":t.published_version,"pdf":t.pdf,"preprint":t.preprint,"code":t.code,"cite":t.cite,"copied":t.copied,"more":t.read_more,"less":t.show_less,"none":t.no_match,"accepted":t.accepted|default("accepted")})|tojson }};</script>
 <script src="/static/js/publications.js?v={{ build_id }}"></script>{% endblock %}

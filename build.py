@@ -50,7 +50,8 @@ def load_papers():
             'id': m['id'], 'title': m['title'], 'authors': m['authors'],
             'year': m['year'], 'kind': m['kind'], 'venue': clean_venue(m['venue']),
             'doi': m.get('doi'), 'themes': m.get('themes') or [],
-            'code': m.get('code_url'), 'abstract': m.get('abstract'),
+            'code': m.get('code_url'), 'preprint': m.get('preprint_url'),
+            'abstract': m.get('abstract'),
             'status': m.get('status'), '_pdf_src': pdf_src,
             'pdf': f"/papers/{d.name}.pdf" if pdf_src else None,
         })
@@ -71,6 +72,8 @@ def write_bib(papers, out):
                   f"  year    = {{{p['year']}}},"]
         if p.get('doi'):
             lines += [f"  doi     = {{{p['doi']}}},", f"  url     = {{https://doi.org/{p['doi']}}},"]
+        elif p.get('preprint'):
+            lines += [f"  url     = {{{p['preprint']}}},"]
         lines += ["}", ""]
     out.write_text('\n'.join(lines), encoding='utf-8')
 
