@@ -29,6 +29,7 @@ service:
   - {years: "2017 – 2019", role: "Guest Editor", where: "Annals of Operations Research — numero speciale sui metodi di decomposizione per problemi difficili"}
   - {years: "2018 – 2020", role: "Comitato organizzatore locale", where: "CTW 2018 (Parigi), SPOC 2018 (Parigi), CTW 2020"}
   - {years: "2009 – oggi",  role: "Referee", where: "Operations Research, Mathematical Programming, INFORMS Journal on Computing, Transportation Science, EJOR e molte altre"}
+  - {years: "2013 – oggi", role: "Valutatore per agenzie di ricerca", where: "NSERC Discovery Grants (Canada), FONDECYT (Cile), ANR e ANRT CIFRE (Francia)"}
 
 grants:
   - {years: "2025", name: "Towards EXplainable BIlevel Learning", funder: "Sapienza Università di Roma", role: "co-responsabile"}

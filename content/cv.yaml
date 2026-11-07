@@ -29,6 +29,7 @@ service:
   - {years: "2017 – 2019", role: "Guest Editor", where: "Annals of Operations Research — special issue on Recent Advances in Decomposition Methods for Hard Optimization Problems"}
   - {years: "2018 – 2020", role: "Local organization committee", where: "CTW 2018 (Paris), SPOC 2018 (Paris), CTW 2020"}
   - {years: "2009 – now",  role: "Referee", where: "Operations Research, Mathematical Programming, INFORMS Journal on Computing, Transportation Science, EJOR and many others"}
+  - {years: "2013 – now",  role: "Reviewer for research agencies", where: "NSERC Discovery Grants (Canada), FONDECYT (Chile), ANR and ANRT CIFRE (France)"}
 
 grants:
   - {years: "2025", name: "Towards EXplainable BIlevel Learning", funder: "Sapienza University of Rome", role: "co-PI"}
