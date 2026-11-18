@@ -50,6 +50,10 @@ stats:
   - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista", href: "/people/"}
   - {value: "~ 800 mila €", label: "Finanziamenti", note: "progetti e contratti"}
 
+# Pubblicazioni della home, in quest'ordine (id dell'archivio dei paper).
+# REGOLA (Fabio): solo paper su Mathematical Programming (MP), Operations Research (OR)
+# o Mathematical Programming Computation (MPC), o riviste dello stesso livello. Niente EJOR.
+# Tenere questa lista uguale a quella di content/site.yaml.
 selected: [J36, J41, J29, J23, J06]
 
 currently:
