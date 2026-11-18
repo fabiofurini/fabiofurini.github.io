@@ -50,7 +50,7 @@ stats:
   - {value: "7",  label: "Ricercatori formati", note: "6 dottorandi, 1 assegnista", href: "/people/"}
   - {value: "~ 800 mila €", label: "Finanziamenti", note: "progetti e contratti"}
 
-selected: [J50, J36, J41, J29, J23]
+selected: [J36, J41, J29, J23, J06]
 
 currently:
   - {text: "Associate Editor, <i>Omega</i>", url: "https://www.sciencedirect.com/journal/omega"}

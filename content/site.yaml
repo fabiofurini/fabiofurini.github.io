@@ -59,7 +59,7 @@ stats:
   - {value: "~ €800k", label: "Research funding", note: "grants and contracts"}
 
 # Papers featured on the home page, in this order. Ids from the paper archive.
-selected: [J50, J36, J41, J29, J23]
+selected: [J36, J41, J29, J23, J06]
 
 # The "Currently" box on the home page. `url` is optional.
 currently:
