@@ -277,3 +277,4 @@ select{width:auto;cursor:pointer}
 .series-lg{display:flex;gap:6px;flex-shrink:0}
 .series-lg .lg{font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--accent);border:1px solid var(--accent-line);border-radius:5px;padding:1px 6px;text-decoration:none}
 .series-d{margin:.5em 0 0;color:var(--muted);font-size:.9rem;line-height:1.45}
+.series-wip{display:inline-block;margin-left:6px;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a5200;background:#ffe08a;border-radius:5px;padding:1px 7px;vertical-align:2px}

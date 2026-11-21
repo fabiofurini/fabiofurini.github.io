@@ -56,6 +56,7 @@ courses:
     url: https://fabiofurini.github.io/integer-linear-programming/
     repo: https://github.com/fabiofurini/integer-linear-programming
 - name: "Ottimizzazione convessa"
+  notice: In costruzione
   detail: "insiemi e funzioni convesse, problemi di ottimizzazione convessa, con grafici interattivi"
   sites:
   - label: "Ottimizzazione convessa"

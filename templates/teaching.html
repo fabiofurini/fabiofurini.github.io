@@ -18,7 +18,7 @@
     {% set it = (c.sites|selectattr("lang", "equalto", "IT")|list)[0] %}
     <div class="series-card">
       <div class="series-top">
-        <a class="nm" href="{{ mio.url }}" target="_blank" rel="noopener">{{ c.name }} ↗</a>
+        <a class="nm" href="{{ mio.url }}" target="_blank" rel="noopener">{{ c.name }} ↗</a>{% if c.notice %} <span class="series-wip" title="{{ c.notice }}">🚧 {{ c.notice }}</span>{% endif %}
         <span class="series-lg">
           <a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}">EN</a>
           <a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}">IT</a>
