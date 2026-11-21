@@ -234,16 +234,37 @@ def build():
     (DIST / 'sitemap.xml').write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
         encoding='utf-8')
-    # Course sitemaps are served by separate GitHub Pages repositories.
+    # Course sitemaps are served by separate GitHub Pages repositories (the courses of the series, EN and IT).
     course_sitemaps = [
         'sitemap.xml',
-        'linear-algebra/sitemap.xml',
-        'algebra-lineare/sitemap.xml',
         'mathematical-analysis-1/sitemap.xml',
         'analisi-matematica-1/sitemap.xml',
+        'linear-algebra/sitemap.xml',
+        'algebra-lineare/sitemap.xml',
+        'algorithms/sitemap.xml',
+        'algoritmi/sitemap.xml',
+        'linear-programming/sitemap.xml',
+        'programmazione-lineare/sitemap.xml',
+        'integer-linear-programming/sitemap.xml',
+        'programmazione-lineare-intera/sitemap.xml',
+        'convex-optimization/sitemap.xml',
+        'ottimizzazione-convessa/sitemap.xml',
+        'network-optimization/sitemap.xml',
+        'ottimizzazione-su-reti/sitemap.xml',
+        'combinatorial-optimization/sitemap.xml',
+        'ottimizzazione-combinatoria/sitemap.xml',
+        'dynamic-programming/sitemap.xml',
+        'programmazione-dinamica/sitemap.xml',
+        'heuristic-algorithms/sitemap.xml',
+        'algoritmi-euristici/sitemap.xml',
+        'approximation-algorithms/sitemap.xml',
+        'algoritmi-di-approssimazione/sitemap.xml',
+        'lp-modelling/sitemap.xml',
+        'modellazione-pl/sitemap.xml',
+        'nlp-modelling/sitemap.xml',
+        'modellazione-pnl/sitemap.xml',
         'mip-modelling/sitemap.xml',
         'modellazione-mip/sitemap.xml',
-        'operations-research-lab/sitemap.xml',
     ]
     sitemap_entries = '\n'.join(
         f"  <sitemap><loc>{site['url']}/{path}</loc></sitemap>"

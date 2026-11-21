@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap><loc>https://fabiofurini.github.io/sitemap.xml</loc></sitemap>
-  <sitemap><loc>https://fabiofurini.github.io/linear-algebra/sitemap.xml</loc></sitemap>
-  <sitemap><loc>https://fabiofurini.github.io/algebra-lineare/sitemap.xml</loc></sitemap>
   <sitemap><loc>https://fabiofurini.github.io/mathematical-analysis-1/sitemap.xml</loc></sitemap>
   <sitemap><loc>https://fabiofurini.github.io/analisi-matematica-1/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/linear-algebra/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/algebra-lineare/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/algorithms/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/algoritmi/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/linear-programming/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/programmazione-lineare/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/integer-linear-programming/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/programmazione-lineare-intera/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/convex-optimization/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/ottimizzazione-convessa/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/network-optimization/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/ottimizzazione-su-reti/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/combinatorial-optimization/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/ottimizzazione-combinatoria/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/dynamic-programming/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/programmazione-dinamica/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/heuristic-algorithms/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/algoritmi-euristici/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/approximation-algorithms/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/algoritmi-di-approssimazione/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/lp-modelling/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/modellazione-pl/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/nlp-modelling/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://fabiofurini.github.io/modellazione-pnl/sitemap.xml</loc></sitemap>
   <sitemap><loc>https://fabiofurini.github.io/mip-modelling/sitemap.xml</loc></sitemap>
   <sitemap><loc>https://fabiofurini.github.io/modellazione-mip/sitemap.xml</loc></sitemap>
-  <sitemap><loc>https://fabiofurini.github.io/operations-research-lab/sitemap.xml</loc></sitemap>
 </sitemapindex>
