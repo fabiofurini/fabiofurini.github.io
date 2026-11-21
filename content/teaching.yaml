@@ -17,14 +17,38 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/programmazione-lineare-intera/
     repo: https://github.com/fabiofurini/programmazione-lineare-intera
-  - label: Combinatorial Optimization
+  - label: Combinatorial Optimization Problems
     lang: EN
     url: https://fabiofurini.github.io/combinatorial-optimization/
     repo: https://github.com/fabiofurini/combinatorial-optimization
-  - label: Ottimizzazione Combinatoria
+  - label: Problemi di Ottimizzazione Combinatoria
     lang: IT
     url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
     repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
+  - label: Dynamic Programming
+    lang: EN
+    url: https://fabiofurini.github.io/dynamic-programming/
+    repo: https://github.com/fabiofurini/dynamic-programming
+  - label: Programmazione Dinamica
+    lang: IT
+    url: https://fabiofurini.github.io/programmazione-dinamica/
+    repo: https://github.com/fabiofurini/programmazione-dinamica
+  - label: Heuristic Algorithms
+    lang: EN
+    url: https://fabiofurini.github.io/heuristic-algorithms/
+    repo: https://github.com/fabiofurini/heuristic-algorithms
+  - label: Algoritmi Euristici
+    lang: IT
+    url: https://fabiofurini.github.io/algoritmi-euristici/
+    repo: https://github.com/fabiofurini/algoritmi-euristici
+  - label: Approximation Algorithms
+    lang: EN
+    url: https://fabiofurini.github.io/approximation-algorithms/
+    repo: https://github.com/fabiofurini/approximation-algorithms
+  - label: Algoritmi di Approssimazione
+    lang: IT
+    url: https://fabiofurini.github.io/algoritmi-di-approssimazione/
+    repo: https://github.com/fabiofurini/algoritmi-di-approssimazione
   - label: MIP Modelling
     lang: EN
     url: https://fabiofurini.github.io/mip-modelling/
