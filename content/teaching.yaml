@@ -1,4 +1,4 @@
-intro: "My teaching material is organised as a series of 13 courses built the same way: lecture notes online and in PDF, exercises with solutions, an interactive lab and self-assessment quizzes, in English and Italian, openly accessible. At Sapienza, the master's course Integer Programming and Combinatorial Optimization (Management Engineering, since 2021) uses Integer Linear Programming, Combinatorial Optimization Problems, Dynamic Programming, Heuristic Algorithms, Approximation Algorithms and MIP Modelling."
+intro: "My teaching material is organised as a series of 14 courses built the same way: lecture notes online and in PDF, exercises with solutions, an interactive lab and self-assessment quizzes, in English and Italian, openly accessible. At Sapienza, the master's course Integer Programming and Combinatorial Optimization (Management Engineering, since 2021) uses Integer Linear Programming, Combinatorial Optimization Problems, Dynamic Programming, Heuristic Algorithms, Approximation Algorithms and MIP Modelling."
 courses:
 - name: "Mathematical Analysis 1"
   detail: "real numbers, functions, limits, derivatives and series, with interactive graphs"
@@ -122,6 +122,29 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/algoritmi-di-approssimazione/
     repo: https://github.com/fabiofurini/algoritmi-di-approssimazione
+- name: "LP Modelling"
+  detail: "linear programming models of managerial problems, solved with Python and Gurobi"
+  sites:
+  - label: "LP Modelling"
+    lang: EN
+    url: https://fabiofurini.github.io/lp-modelling/
+    repo: https://github.com/fabiofurini/lp-modelling
+  - label: "Modellazione PL"
+    lang: IT
+    url: https://fabiofurini.github.io/modellazione-pl/
+    repo: https://github.com/fabiofurini/modellazione-pl
+- name: "NLP Modelling"
+  notice: Under construction
+  detail: "nonlinear programming models, from portfolios to machine learning, with Python and Gurobi"
+  sites:
+  - label: "NLP Modelling"
+    lang: EN
+    url: https://fabiofurini.github.io/nlp-modelling/
+    repo: https://github.com/fabiofurini/nlp-modelling
+  - label: "Modellazione PNL"
+    lang: IT
+    url: https://fabiofurini.github.io/modellazione-pnl/
+    repo: https://github.com/fabiofurini/modellazione-pnl
 - name: "MIP Modelling"
   detail: "integer linear programming models, from the formulation to the solution with solvers"
   sites:
@@ -133,17 +156,6 @@ courses:
     lang: IT
     url: https://fabiofurini.github.io/modellazione-mip/
     repo: https://github.com/fabiofurini/modellazione-mip
-- name: "Operations Research Lab"
-  detail: "modelling and solving optimization problems with Python and solvers"
-  sites:
-  - label: "Operations Research Lab"
-    lang: EN
-    url: https://fabiofurini.github.io/operations-research-lab/
-    repo: https://github.com/fabiofurini/operations-research-lab
-  - label: "Laboratorio di Ricerca Operativa"
-    lang: IT
-    url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
-    repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs

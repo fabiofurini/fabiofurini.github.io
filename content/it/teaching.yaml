@@ -1,4 +1,4 @@
-intro: "Il mio materiale didattico è organizzato in una collana di 13 corsi con la stessa impostazione: dispense online e in PDF, esercizi con le soluzioni, laboratorio interattivo e quiz di autovalutazione, in italiano e in inglese, liberamente accessibili. Alla Sapienza, il corso di laurea magistrale Programmazione intera e ottimizzazione combinatoria (Ingegneria gestionale, dal 2021) usa Programmazione lineare intera, Problemi di ottimizzazione combinatoria, Programmazione dinamica, Algoritmi euristici, Algoritmi di approssimazione e Modellazione MIP."
+intro: "Il mio materiale didattico è organizzato in una collana di 14 corsi con la stessa impostazione: dispense online e in PDF, esercizi con le soluzioni, laboratorio interattivo e quiz di autovalutazione, in italiano e in inglese, liberamente accessibili. Alla Sapienza, il corso di laurea magistrale Programmazione intera e ottimizzazione combinatoria (Ingegneria gestionale, dal 2021) usa Programmazione lineare intera, Problemi di ottimizzazione combinatoria, Programmazione dinamica, Algoritmi euristici, Algoritmi di approssimazione e Modellazione MIP."
 courses:
 - name: "Analisi Matematica 1"
   detail: "numeri reali, funzioni, limiti, derivate e serie, con i grafici interattivi"
@@ -122,6 +122,29 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/approximation-algorithms/
     repo: https://github.com/fabiofurini/approximation-algorithms
+- name: "Modellazione PL"
+  detail: "modelli di programmazione lineare per problemi gestionali, risolti con Python e Gurobi"
+  sites:
+  - label: "Modellazione PL"
+    lang: IT
+    url: https://fabiofurini.github.io/modellazione-pl/
+    repo: https://github.com/fabiofurini/modellazione-pl
+  - label: "LP Modelling"
+    lang: EN
+    url: https://fabiofurini.github.io/lp-modelling/
+    repo: https://github.com/fabiofurini/lp-modelling
+- name: "Modellazione PNL"
+  notice: In costruzione
+  detail: "modelli di programmazione non lineare, dal portafoglio al machine learning, con Python e Gurobi"
+  sites:
+  - label: "Modellazione PNL"
+    lang: IT
+    url: https://fabiofurini.github.io/modellazione-pnl/
+    repo: https://github.com/fabiofurini/modellazione-pnl
+  - label: "NLP Modelling"
+    lang: EN
+    url: https://fabiofurini.github.io/nlp-modelling/
+    repo: https://github.com/fabiofurini/nlp-modelling
 - name: "Modellazione MIP"
   detail: "modelli di programmazione lineare a variabili intere, dalla formulazione alla soluzione con i solver"
   sites:
@@ -133,17 +156,6 @@ courses:
     lang: EN
     url: https://fabiofurini.github.io/mip-modelling/
     repo: https://github.com/fabiofurini/mip-modelling
-- name: "Laboratorio di Ricerca Operativa"
-  detail: "modellazione e risoluzione di problemi di ottimizzazione con Python e i solver"
-  sites:
-  - label: "Laboratorio di Ricerca Operativa"
-    lang: IT
-    url: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
-    repo: https://github.com/fabiofurini/laboratorio-ricerca-operativa
-  - label: "Operations Research Lab"
-    lang: EN
-    url: https://fabiofurini.github.io/operations-research-lab/
-    repo: https://github.com/fabiofurini/operations-research-lab
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
