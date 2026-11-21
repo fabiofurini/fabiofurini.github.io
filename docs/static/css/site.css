@@ -266,3 +266,14 @@ select{width:auto;cursor:pointer}
 /* ---------- language switch ---------- */
 .lang-btn{font-size:.75rem;font-weight:700;letter-spacing:.04em;text-decoration:none}
 .lang-btn:hover{text-decoration:none;color:var(--accent);border-color:var(--accent)}
+
+/* pagina Teaching: i corsi della collana in schede compatte, senza ripetere il nome */
+.series{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+@media(max-width:640px){.series{grid-template-columns:1fr}}
+.series-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+.series-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.series-card .nm{font-weight:650;color:var(--ink);font-size:1.02rem;text-decoration:none}
+.series-card .nm:hover{color:var(--accent)}
+.series-lg{display:flex;gap:6px;flex-shrink:0}
+.series-lg .lg{font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--accent);border:1px solid var(--accent-line);border-radius:5px;padding:1px 6px;text-decoration:none}
+.series-d{margin:.5em 0 0;color:var(--muted);font-size:.9rem;line-height:1.45}

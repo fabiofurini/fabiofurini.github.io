@@ -10,34 +10,24 @@
 <section class="block"><div class="wrap">
   <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div>
     {% if teaching.total_hours %}<span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span>{% endif %}</div>
+  {# un corso della collana = una scheda: nome (link al sito nella lingua della pagina), descrizione, badge EN / IT #}
+  <div class="series">
   {% for c in teaching.courses %}
-  <div class="course">
-    <div class="head">
-      <div><h3>{{ c.name }}</h3></div>
-      <div class="lvl"><span class="faint">{{ c.detail }}</span></div>
-    </div>
-    {% if c.notice %}<p class="faint" style="margin:.6em 0 .2em;font-style:italic">{{ c.notice }}</p>{% endif %}
-    {% if c.sites %}
-    <div class="sites">
-      {# un riquadro per sito: il nome nella lingua della pagina e i due badge EN / IT, ognuno apre il suo sito #}
-      {% set prima = c.sites|selectattr("lang", "equalto", lang|upper)|list %}
-      {% set altra = c.sites|rejectattr("lang", "equalto", lang|upper)|list %}
-      {% for i in range([prima|length, altra|length]|max) %}
-      {% set s = prima[i] if i < prima|length else altra[i] %}
-      {% set gemello = altra[i] if (i < prima|length and i < altra|length) else none %}
-      {% set en = s if s.lang == "EN" else gemello %}{% set it = s if s.lang == "IT" else gemello %}
-      <div class="site-link">
-        <div><a class="nm" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></div>
-        <div style="display:flex;gap:6px;align-items:center">
-          {% if en %}<a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}" style="margin-right:0;text-decoration:none">EN</a>{% endif %}
-          {% if it %}<a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}" style="margin-right:0;text-decoration:none">IT</a>{% endif %}
-        </div>
+    {% set mio = (c.sites|selectattr("lang", "equalto", lang|upper)|list)[0] %}
+    {% set en = (c.sites|selectattr("lang", "equalto", "EN")|list)[0] %}
+    {% set it = (c.sites|selectattr("lang", "equalto", "IT")|list)[0] %}
+    <div class="series-card">
+      <div class="series-top">
+        <a class="nm" href="{{ mio.url }}" target="_blank" rel="noopener">{{ c.name }} ↗</a>
+        <span class="series-lg">
+          <a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}">EN</a>
+          <a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}">IT</a>
+        </span>
       </div>
-      {% endfor %}
+      <p class="series-d">{{ c.detail }}</p>
     </div>
-    {% endif %}
-  </div>
   {% endfor %}
+  </div>
 </div></section>
 
 
