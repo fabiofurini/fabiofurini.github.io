@@ -291,7 +291,7 @@ groups:
     parts:
     - {label: "Modelling", url: "https://fabiofurini.github.io/mip-modelling/modelling/"}
     - {label: "Assignment and scheduling", url: "https://fabiofurini.github.io/mip-modelling/scheduling/"}
-    - {label: "Location and covering", url: "https://fabiofurini.github.io/mip-modelling/location/"}
+    - {label: "Location and coverage", url: "https://fabiofurini.github.io/mip-modelling/location/"}
     - {label: "Production planning", url: "https://fabiofurini.github.io/mip-modelling/production/"}
     - {label: "Mixed problems", url: "https://fabiofurini.github.io/mip-modelling/mixed/"}
     material:
