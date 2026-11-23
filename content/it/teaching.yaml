@@ -5,7 +5,7 @@ groups:
 - name: "Matematica"
   courses:
   - name: "Analisi Matematica 1"
-    detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali, con grafici interattivi per i risultati principali."
+    detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali."
     material:
     - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/"}
     - {label: "Esempi svolti", url: "https://fabiofurini.github.io/analisi-matematica-1/indice/"}
@@ -24,7 +24,7 @@ groups:
       repo: https://github.com/fabiofurini/mathematical-analysis-1
   - name: "Algebra lineare"
     notice: In costruzione
-    detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss. Un laboratorio di calcolo mostra tutti i passaggi dei metodi in frazioni esatte."
+    detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss."
     material:
     - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algebra-lineare/materiale/"}
     - {label: "Esempi svolti", url: "https://fabiofurini.github.io/algebra-lineare/indice/"}
@@ -177,7 +177,7 @@ groups:
       url: https://fabiofurini.github.io/dynamic-programming/
       repo: https://github.com/fabiofurini/dynamic-programming
   - name: "Algoritmi euristici"
-    detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione, con notebook Colab."
+    detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione."
     material:
     - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/"}
     - {label: "Esempi svolti", url: "https://fabiofurini.github.io/algoritmi-euristici/indice/"}

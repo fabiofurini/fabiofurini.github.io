@@ -5,7 +5,7 @@ groups:
 - name: "Mathematics"
   courses:
   - name: "Mathematical Analysis 1"
-    detail: "Calculus of one real variable, from the foundations to integrals. The course starts from logic, proof techniques, sets and number systems, then covers functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals, with interactive graphs for the main results."
+    detail: "Calculus of one real variable, from the foundations to integrals. The course starts from logic, proof techniques, sets and number systems, then covers functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals."
     material:
     - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/"}
     - {label: "Worked examples", url: "https://fabiofurini.github.io/mathematical-analysis-1/indice/"}
@@ -24,7 +24,7 @@ groups:
       repo: https://github.com/fabiofurini/analisi-matematica-1
   - name: "Linear Algebra"
     notice: Under construction
-    detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination. A computation lab shows every step of the methods in exact fractions."
+    detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination."
     material:
     - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/linear-algebra/downloads/"}
     - {label: "Worked examples", url: "https://fabiofurini.github.io/linear-algebra/index-full/"}
@@ -177,7 +177,7 @@ groups:
       url: https://fabiofurini.github.io/programmazione-dinamica/
       repo: https://github.com/fabiofurini/programmazione-dinamica
   - name: "Heuristic Algorithms"
-    detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems, with Colab notebooks."
+    detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems."
     material:
     - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/"}
     - {label: "Worked examples", url: "https://fabiofurini.github.io/heuristic-algorithms/full-index/"}
