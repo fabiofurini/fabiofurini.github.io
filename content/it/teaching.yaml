@@ -7,6 +7,7 @@ groups:
   courses:
   - name: "Analisi Matematica 1"
     detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali, con grafici interattivi per i risultati principali."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Analisi Matematica 1"
       lang: IT
@@ -18,6 +19,7 @@ groups:
       repo: https://github.com/fabiofurini/mathematical-analysis-1
   - name: "Algebra lineare"
     detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss. Un laboratorio di calcolo mostra tutti i passaggi dei metodi in frazioni esatte."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Algebra lineare"
       lang: IT
@@ -31,6 +33,7 @@ groups:
   courses:
   - name: "Algoritmi"
     detail: "Un'introduzione agli algoritmi e alla loro analisi. Rappresentazione dei numeri, pseudocodice, ordinamento, ricerca e algoritmi numerici; la loro implementazione in C++, Python e Java; notazione asintotica, tempo di esecuzione, correttezza, ricorsione ed equazioni di ricorrenza fino al Master theorem."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Algoritmi"
       lang: IT
@@ -44,6 +47,7 @@ groups:
   courses:
   - name: "Programmazione lineare"
     detail: "La teoria e gli algoritmi della programmazione lineare. Poliedri e problemi di programmazione lineare con i loro esiti possibili, l'algoritmo del simplesso con la fase 0, la teoria della dualità e il simplesso duale, il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Programmazione lineare"
       lang: IT
@@ -55,6 +59,7 @@ groups:
       repo: https://github.com/fabiofurini/linear-programming
   - name: "Ottimizzazione su reti"
     detail: "I problemi di ottimizzazione su grafi e reti e gli algoritmi che li risolvono. Alberi ricoprenti di costo minimo, cammini minimi, flusso massimo, flusso di costo minimo, problemi di trasporto e di assegnamento, il simplesso su reti e la gestione dei progetti con il cammino critico."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Ottimizzazione su reti"
       lang: IT
@@ -67,6 +72,7 @@ groups:
   - name: "Ottimizzazione convessa"
     notice: In costruzione
     detail: "Le basi matematiche dell'ottimizzazione non lineare. Insiemi convessi, funzioni di più variabili, funzioni convesse e quadratiche con le loro caratterizzazioni, problemi di ottimizzazione convessi e concavi e le proprietà delle loro soluzioni ottime."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Ottimizzazione convessa"
       lang: IT
@@ -81,6 +87,7 @@ groups:
   courses:
   - name: "Programmazione lineare intera"
     detail: "La programmazione lineare intera e mista e i metodi esatti per risolverla. Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, il funzionamento dei solver MIP e le euristiche che usano."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Programmazione lineare intera"
       lang: IT
@@ -92,6 +99,7 @@ groups:
       repo: https://github.com/fabiofurini/integer-linear-programming
   - name: "Problemi di ottimizzazione combinatoria"
     detail: "I problemi classici di ottimizzazione combinatoria, uno per uno. Zaino, bin packing, colorazione, clique, routing, scheduling e lot sizing: le definizioni, le formulazioni di programmazione intera con le loro proprietà e i bound, e gli algoritmi ad hoc per ciascun problema."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Problemi di ottimizzazione combinatoria"
       lang: IT
@@ -103,6 +111,7 @@ groups:
       repo: https://github.com/fabiofurini/combinatorial-optimization
   - name: "Programmazione dinamica"
     detail: "La programmazione dinamica come metodo esatto per i problemi combinatori. I principi del metodo, ricorrenze, pseudocodice e complessità degli algoritmi di PD per la famiglia dello zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup), il lot sizing, il cambio monete e il taglio delle aste."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
     - label: "Programmazione dinamica"
       lang: IT
@@ -114,6 +123,7 @@ groups:
       repo: https://github.com/fabiofurini/dynamic-programming
   - name: "Algoritmi euristici"
     detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione, con notebook Colab."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Algoritmi euristici"
       lang: IT
@@ -125,6 +135,7 @@ groups:
       repo: https://github.com/fabiofurini/heuristic-algorithms
   - name: "Algoritmi di approssimazione"
     detail: "Gli algoritmi con una garanzia dimostrata sulla qualità delle soluzioni. Analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele, gli schemi di approssimazione e i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Algoritmi di approssimazione"
       lang: IT
@@ -138,6 +149,7 @@ groups:
   courses:
   - name: "Modellazione PL"
     detail: "Dalla descrizione di un problema di decisione al modello di programmazione lineare risolto con Python e Gurobi. Tecniche di modellazione, il solver e l'interpretazione della soluzione, e casi di studio: produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Modellazione PL"
       lang: IT
@@ -149,6 +161,7 @@ groups:
       repo: https://github.com/fabiofurini/lp-modelling
   - name: "Modellazione MIP"
     detail: "Modelli di programmazione lineare intera per problemi di decisione reali, implementati in Python e Gurobi. Che cos'è un modello MIP, rilassamenti e bound, logica con le variabili binarie e legami fra variabili, euristiche costruttive, e modelli di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Modellazione MIP"
       lang: IT
@@ -161,6 +174,7 @@ groups:
   - name: "Modellazione PNL"
     notice: In costruzione
     detail: "Modelli di programmazione non lineare risolti con Python e Gurobi. Richiami di teoria e solver per i modelli non lineari, e casi di studio: produzione con smoothing quadratico, supply chain e CO2, portafoglio di Markowitz, pricing, budget pubblicitario, localizzazione continua, code, support vector machine e minimi quadrati."
+    material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz", "Notebook Colab"]
     sites:
     - label: "Modellazione PNL"
       lang: IT

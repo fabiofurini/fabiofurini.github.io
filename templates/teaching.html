@@ -30,6 +30,7 @@
           </span>
         </div>
         <p class="series-d">{{ c.detail }}</p>
+        {% if c.material %}<div class="series-mat">{% for m in c.material %}<span>{{ m }}</span>{% endfor %}</div>{% endif %}
       </div>
     {% endfor %}
     </div>

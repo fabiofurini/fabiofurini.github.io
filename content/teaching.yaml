@@ -7,6 +7,7 @@ groups:
   courses:
   - name: "Mathematical Analysis 1"
     detail: "Calculus of one real variable, from the foundations to integrals. The course starts from logic, proof techniques, sets and number systems, then covers functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals, with interactive graphs for the main results."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Mathematical Analysis 1"
       lang: EN
@@ -18,6 +19,7 @@ groups:
       repo: https://github.com/fabiofurini/analisi-matematica-1
   - name: "Linear Algebra"
     detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination. A computation lab shows every step of the methods in exact fractions."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Linear Algebra"
       lang: EN
@@ -31,6 +33,7 @@ groups:
   courses:
   - name: "Algorithms"
     detail: "An introduction to algorithms and their analysis. Representation of numbers, pseudo-code, sorting, searching and numerical algorithms; their implementation in C++, Python and Java; asymptotic notation, running time, correctness, recursion and recurrence relations up to the Master Theorem."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "Algorithms"
       lang: EN
@@ -44,6 +47,7 @@ groups:
   courses:
   - name: "Linear Programming"
     detail: "The theory and algorithms of linear programming. Polyhedra and linear programming problems with their possible outcomes, the simplex algorithm with phase 0, duality theory and the dual simplex method, the revised simplex, the primal-dual method, sensitivity analysis and the geometry of linear programming."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "Linear Programming"
       lang: EN
@@ -55,6 +59,7 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-lineare
   - name: "Network Optimization"
     detail: "Optimization problems on graphs and networks and the algorithms that solve them. Minimum spanning trees, shortest paths, maximum flow, minimum cost flow, transportation and assignment problems, the network simplex method and project management with critical paths."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Network Optimization"
       lang: EN
@@ -67,6 +72,7 @@ groups:
   - name: "Convex Optimization"
     notice: Under construction
     detail: "The mathematical basis of nonlinear optimization. Convex sets, functions of several variables, convex and quadratic functions and their characterizations, convex and concave optimization problems and the properties of their optimal solutions."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Convex Optimization"
       lang: EN
@@ -81,6 +87,7 @@ groups:
   courses:
   - name: "Integer Linear Programming"
     detail: "Integer and mixed integer linear programming and the exact methods to solve it. The LP relaxation and bounds, valid inequalities and cutting planes, the branch-and-bound and branch-and-cut algorithms, how MIP solvers work and the heuristics they use."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Integer Linear Programming"
       lang: EN
@@ -92,6 +99,7 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-lineare-intera
   - name: "Combinatorial Optimization Problems"
     detail: "The classical combinatorial optimization problems, one by one. Knapsack, bin packing, coloring, clique, routing, scheduling and lot sizing problems: their definitions, integer programming formulations with their properties and bounds, and the ad hoc algorithms for each problem."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Combinatorial Optimization Problems"
       lang: EN
@@ -103,6 +111,7 @@ groups:
       repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - name: "Dynamic Programming"
     detail: "Dynamic programming as an exact method for combinatorial problems. The principles of the method, recurrences, pseudo-code and complexity of DP algorithms for the knapsack family (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups), lot sizing, coin change and rod cutting."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
     - label: "Dynamic Programming"
       lang: EN
@@ -114,6 +123,7 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-dinamica
   - name: "Heuristic Algorithms"
     detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems, with Colab notebooks."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "Heuristic Algorithms"
       lang: EN
@@ -125,6 +135,7 @@ groups:
       repo: https://github.com/fabiofurini/algoritmi-euristici
   - name: "Approximation Algorithms"
     detail: "Algorithms with a proven guarantee on the quality of their solutions. Worst-case analysis and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling, approximation schemes, and the limits of approximation for vertex coloring, maximum clique and the general TSP."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "Approximation Algorithms"
       lang: EN
@@ -138,6 +149,7 @@ groups:
   courses:
   - name: "LP Modelling"
     detail: "From the description of a decision problem to a linear programming model solved with Python and Gurobi. Modelling techniques, the solver and the interpretation of the solution, and case studies: production and inventory, electric vehicle charging, Data Envelopment Analysis, the newsvendor, VaR and CVaR, arbitrage and robust regression."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "LP Modelling"
       lang: EN
@@ -149,6 +161,7 @@ groups:
       repo: https://github.com/fabiofurini/modellazione-pl
   - name: "MIP Modelling"
     detail: "Integer linear programming models for real decision problems, implemented in Python and Gurobi. What a MIP model is, relaxations and bounds, logic with binary variables and links between variables, constructive heuristics, and models of assignment, scheduling, location, covering and production planning problems."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "MIP Modelling"
       lang: EN
@@ -161,6 +174,7 @@ groups:
   - name: "NLP Modelling"
     notice: Under construction
     detail: "Nonlinear programming models solved with Python and Gurobi. Theory recalls and solvers for nonlinear models, and case studies: production with quadratic smoothing, supply chain and CO2, the Markowitz portfolio, pricing, advertising budget, continuous location, queues, support vector machines and least squares."
+    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
     sites:
     - label: "NLP Modelling"
       lang: EN
