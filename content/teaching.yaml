@@ -44,8 +44,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/linear-algebra/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/linear-algebra/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/linear-algebra/lab/"}
-    - {label: "Lecture notes", url: "https://fabiofurini.github.io/linear-algebra/downloads/#the-lecture-notes"}
-    - {label: "Slides", url: "https://fabiofurini.github.io/linear-algebra/downloads/#the-slides"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/linear-algebra/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/linear-algebra/downloads/#slides"}
     sites:
     - label: "Linear Algebra"
       lang: EN
@@ -63,7 +63,7 @@ groups:
     - {label: "Basic algorithms", url: "https://fabiofurini.github.io/algorithms/basic-algorithms/"}
     - {label: "Languages", url: "https://fabiofurini.github.io/algorithms/languages/"}
     - {label: "Asymptotics", url: "https://fabiofurini.github.io/algorithms/asymptotics/"}
-    - {label: "Analysis", url: "https://fabiofurini.github.io/algorithms/analysis/"}
+    - {label: "Running time and correctness", url: "https://fabiofurini.github.io/algorithms/analysis/"}
     - {label: "Recursion", url: "https://fabiofurini.github.io/algorithms/recursion/"}
     material:
     - {label: "Exercises", url: "https://fabiofurini.github.io/algorithms/exercises/"}
@@ -151,7 +151,6 @@ groups:
       url: https://fabiofurini.github.io/ottimizzazione-convessa/
       repo: https://github.com/fabiofurini/ottimizzazione-convessa
 - name: "Integer programming and combinatorial optimization"
-  note: "These courses, with MIP Modelling, form the Sapienza master's course Integer Programming and Combinatorial Optimization."
   courses:
   - name: "Integer Linear Programming"
     detail: "Integer and mixed integer linear programming and the exact methods to solve it. The LP relaxation and bounds, valid inequalities and cutting planes, the branch-and-bound and branch-and-cut algorithms, how MIP solvers work and the heuristics they use."
@@ -165,7 +164,7 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/integer-linear-programming/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/integer-linear-programming/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/integer-linear-programming/lab/"}
-    - {label: "Lecture notes", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/#lecture-notes-1--models-bounds-and-formulations"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/#lecture-notes"}
     - {label: "Slides", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/#slides"}
     sites:
     - label: "Integer Linear Programming"
@@ -223,11 +222,9 @@ groups:
   - name: "Heuristic Algorithms"
     detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems."
     parts:
-    - {label: "Definitions", url: "https://fabiofurini.github.io/heuristic-algorithms/heuristics/"}
-    - {label: "Constructive heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/constructive-heuristics/"}
-    - {label: "Local search", url: "https://fabiofurini.github.io/heuristic-algorithms/local-search/"}
-    - {label: "Metaheuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/metaheuristics/"}
-    - {label: "MIP heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/mip-heuristics-classical/"}
+    - {label: "Principles", url: "https://fabiofurini.github.io/heuristic-algorithms/principles/"}
+    - {label: "Combinatorial heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/combinatorial-heuristics/"}
+    - {label: "MIP heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/mip-heuristics/"}
     material:
     - {label: "Exercises", url: "https://fabiofurini.github.io/heuristic-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/heuristic-algorithms/self-assessment/"}
@@ -246,13 +243,10 @@ groups:
   - name: "Approximation Algorithms"
     detail: "Algorithms with a proven guarantee on the quality of their solutions. Worst-case analysis and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling, approximation schemes, and the limits of approximation for vertex coloring, maximum clique and the general TSP."
     parts:
-    - {label: "Principles", url: "https://fabiofurini.github.io/approximation-algorithms/approximation/"}
-    - {label: "Knapsack problems", url: "https://fabiofurini.github.io/approximation-algorithms/knapsack-approximation/"}
-    - {label: "Packing problems", url: "https://fabiofurini.github.io/approximation-algorithms/bin-packing-approximation/"}
-    - {label: "Coloring problems", url: "https://fabiofurini.github.io/approximation-algorithms/coloring-inapproximability/"}
-    - {label: "Clique problems", url: "https://fabiofurini.github.io/approximation-algorithms/clique-inapproximability/"}
-    - {label: "Routing problems", url: "https://fabiofurini.github.io/approximation-algorithms/tsp-approximation/"}
-    - {label: "Scheduling problems", url: "https://fabiofurini.github.io/approximation-algorithms/pcmax-approximation/"}
+    - {label: "Principles", url: "https://fabiofurini.github.io/approximation-algorithms/principles/"}
+    - {label: "Packing problems", url: "https://fabiofurini.github.io/approximation-algorithms/packing-problems/"}
+    - {label: "Limits of approximation", url: "https://fabiofurini.github.io/approximation-algorithms/limits-of-approximation/"}
+    - {label: "Routing and scheduling", url: "https://fabiofurini.github.io/approximation-algorithms/routing-and-scheduling/"}
     material:
     - {label: "Exercises", url: "https://fabiofurini.github.io/approximation-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/approximation-algorithms/self-assessment/"}
@@ -281,7 +275,7 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/lp-modelling/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/lp-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/lp-modelling/lab/"}
-    - {label: "Lecture notes", url: "https://fabiofurini.github.io/lp-modelling/downloads/#the-lecture-notes"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/lp-modelling/downloads/#lecture-notes"}
     - {label: "Slides", url: "https://fabiofurini.github.io/lp-modelling/downloads/#slides"}
     sites:
     - label: "LP Modelling"
@@ -296,10 +290,15 @@ groups:
     detail: "Integer linear programming models for real decision problems, implemented in Python and Gurobi. What a MIP model is, relaxations and bounds, logic with binary variables and links between variables, constructive heuristics, and models of assignment, scheduling, location, covering and production planning problems."
     parts:
     - {label: "Modelling", url: "https://fabiofurini.github.io/mip-modelling/modelling/"}
-    - {label: "The problems", url: "https://fabiofurini.github.io/mip-modelling/problems/"}
+    - {label: "Assignment and scheduling", url: "https://fabiofurini.github.io/mip-modelling/scheduling/"}
+    - {label: "Location and covering", url: "https://fabiofurini.github.io/mip-modelling/location/"}
+    - {label: "Production planning", url: "https://fabiofurini.github.io/mip-modelling/production/"}
+    - {label: "Mixed problems", url: "https://fabiofurini.github.io/mip-modelling/mixed/"}
     material:
+    - {label: "Exercises", url: "https://fabiofurini.github.io/mip-modelling/to-model/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/mip-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/mip-modelling/lab/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/mip-modelling/downloads/#lecture-notes"}
     - {label: "Slides", url: "https://fabiofurini.github.io/mip-modelling/downloads/#slides"}
     sites:
     - label: "MIP Modelling"
@@ -321,7 +320,7 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/nlp-modelling/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/nlp-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/nlp-modelling/lab/"}
-    - {label: "Lecture notes", url: "https://fabiofurini.github.io/nlp-modelling/downloads/#the-lecture-notes"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/nlp-modelling/downloads/#lecture-notes"}
     - {label: "Slides", url: "https://fabiofurini.github.io/nlp-modelling/downloads/#slides"}
     sites:
     - label: "NLP Modelling"

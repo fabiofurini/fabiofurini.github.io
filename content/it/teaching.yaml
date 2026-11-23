@@ -44,7 +44,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algebra-lineare/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algebra-lineare/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/algebra-lineare/laboratorio/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/algebra-lineare/materiale/#le-slide"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/algebra-lineare/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/algebra-lineare/materiale/#slide"}
     sites:
     - label: "Algebra lineare"
       lang: IT
@@ -62,7 +63,7 @@ groups:
     - {label: "Algoritmi di base", url: "https://fabiofurini.github.io/algoritmi/algoritmi-di-base/"}
     - {label: "Linguaggi", url: "https://fabiofurini.github.io/algoritmi/linguaggi/"}
     - {label: "Notazione asintotica", url: "https://fabiofurini.github.io/algoritmi/notazione-asintotica/"}
-    - {label: "Analisi", url: "https://fabiofurini.github.io/algoritmi/analisi/"}
+    - {label: "Tempo e correttezza", url: "https://fabiofurini.github.io/algoritmi/analisi/"}
     - {label: "Ricorsione", url: "https://fabiofurini.github.io/algoritmi/ricorsione/"}
     material:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi/esercizi/"}
@@ -150,7 +151,6 @@ groups:
       url: https://fabiofurini.github.io/convex-optimization/
       repo: https://github.com/fabiofurini/convex-optimization
 - name: "Programmazione intera e ottimizzazione combinatoria"
-  note: "Questi corsi, con Modellazione MIP, formano il corso magistrale della Sapienza Programmazione intera e ottimizzazione combinatoria."
   courses:
   - name: "Programmazione lineare intera"
     detail: "La programmazione lineare intera e mista e i metodi esatti per risolverla. Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, il funzionamento dei solver MIP e le euristiche che usano."
@@ -164,6 +164,7 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-lineare-intera/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-lineare-intera/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-lineare-intera/laboratorio/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/#dispense"}
     - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/#slide"}
     sites:
     - label: "Programmazione lineare intera"
@@ -221,11 +222,9 @@ groups:
   - name: "Algoritmi euristici"
     detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione."
     parts:
-    - {label: "Definizioni", url: "https://fabiofurini.github.io/algoritmi-euristici/heuristics/"}
-    - {label: "Euristiche costruttive", url: "https://fabiofurini.github.io/algoritmi-euristici/constructive-heuristics/"}
-    - {label: "Ricerca locale", url: "https://fabiofurini.github.io/algoritmi-euristici/local-search/"}
-    - {label: "Metaeuristiche", url: "https://fabiofurini.github.io/algoritmi-euristici/metaheuristics/"}
-    - {label: "Euristiche MIP", url: "https://fabiofurini.github.io/algoritmi-euristici/mip-heuristics-classical/"}
+    - {label: "Principi", url: "https://fabiofurini.github.io/algoritmi-euristici/principi/"}
+    - {label: "Euristiche combinatorie", url: "https://fabiofurini.github.io/algoritmi-euristici/euristiche-combinatorie/"}
+    - {label: "Euristiche MIP", url: "https://fabiofurini.github.io/algoritmi-euristici/euristiche-mip/"}
     material:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-euristici/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-euristici/autovalutazione/"}
@@ -244,13 +243,10 @@ groups:
   - name: "Algoritmi di approssimazione"
     detail: "Gli algoritmi con una garanzia dimostrata sulla qualità delle soluzioni. Analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele, gli schemi di approssimazione e i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
     parts:
-    - {label: "Principi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/approximation/"}
-    - {label: "Problemi di zaino", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/knapsack-approximation/"}
-    - {label: "Problemi di packing", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/bin-packing-approximation/"}
-    - {label: "Problemi di colorazione", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/coloring-inapproximability/"}
-    - {label: "Problemi di clique", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/clique-inapproximability/"}
-    - {label: "Problemi di routing", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/tsp-approximation/"}
-    - {label: "Problemi di scheduling", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/pcmax-approximation/"}
+    - {label: "Principi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/principi/"}
+    - {label: "Problemi di packing", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/problemi-di-packing/"}
+    - {label: "Limiti dell'approssimazione", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/limiti-dell-approssimazione/"}
+    - {label: "Routing e scheduling", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/routing-e-scheduling/"}
     material:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/autovalutazione/"}
@@ -279,7 +275,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pl/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pl/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pl/laboratorio/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pl/materiale/#le-slide"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/modellazione-pl/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pl/materiale/#slide"}
     sites:
     - label: "Modellazione PL"
       lang: IT
@@ -293,12 +290,16 @@ groups:
     detail: "Modelli di programmazione lineare intera per problemi di decisione reali, implementati in Python e Gurobi. Che cos'è un modello MIP, rilassamenti e bound, logica con le variabili binarie e legami fra variabili, euristiche costruttive, e modelli di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
     parts:
     - {label: "Modellazione", url: "https://fabiofurini.github.io/modellazione-mip/modellazione/"}
-    - {label: "I problemi", url: "https://fabiofurini.github.io/modellazione-mip/problemi/"}
+    - {label: "Assegnamento e scheduling", url: "https://fabiofurini.github.io/modellazione-mip/scheduling/"}
+    - {label: "Localizzazione e copertura", url: "https://fabiofurini.github.io/modellazione-mip/localizzazione/"}
+    - {label: "Produzione", url: "https://fabiofurini.github.io/modellazione-mip/produzione/"}
+    - {label: "Problemi misti", url: "https://fabiofurini.github.io/modellazione-mip/misti/"}
     material:
+    - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-mip/da-modellare/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-mip/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-mip/laboratorio/"}
-    - {label: "Dispense", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#le-tre-dispense"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#le-slide"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#slide"}
     sites:
     - label: "Modellazione MIP"
       lang: IT
@@ -319,7 +320,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pnl/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pnl/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pnl/laboratorio/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/#le-slide"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/#slide"}
     sites:
     - label: "Modellazione PNL"
       lang: IT
