@@ -30,6 +30,7 @@
           </span>
         </div>
         <p class="series-d">{{ c.detail }}</p>
+        {% if c.parts %}<ul class="series-parts">{% for m in c.parts %}<li><a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.label }}</a></li>{% endfor %}</ul>{% endif %}
         {% if c.material %}<div class="series-mat">{% for m in c.material %}<a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.label }}</a>{% endfor %}</div>{% endif %}
       </div>
     {% endfor %}
