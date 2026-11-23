@@ -6,14 +6,18 @@
   <h1>{{ nav[3].label }}</h1>
   {% for p in teaching.intro %}<p class="lead">{{ p }}</p>
   {% endfor %}
+  {# indice: le aree dei corsi online e la didattica universitaria #}
+  <nav class="t-index" aria-label="{{ strings.t_index }}">
+    {% for g in teaching.groups %}<a href="#{{ g.id }}">{{ g.name }}</a>{% endfor %}
+    <a href="#university-teaching">{{ strings.university_teaching }}</a>
+  </nav>
 </div></div>
 
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div>
-    {% if teaching.total_hours %}<span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span>{% endif %}</div>
-  {# i corsi della collana divisi per area; un corso per riga: nome (link al sito nella lingua della pagina), badge EN / IT, argomenti #}
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div></div>
+  {# i corsi della collana divisi per area: una scheda per corso (nome, EN/IT, descrizione, materiale, argomenti a scomparsa) #}
   {% for g in teaching.groups %}
-  <div class="series-group">
+  <div class="series-group" id="{{ g.id }}">
     <h3 class="series-gh">{{ g.name }}</h3>
     {% if g.note %}<p class="series-gn">{{ g.note }}</p>{% endif %}
     <div class="series">
@@ -21,24 +25,26 @@
       {% set mio = (c.sites|selectattr("lang", "equalto", lang|upper)|list)[0] %}
       {% set en = (c.sites|selectattr("lang", "equalto", "EN")|list)[0] %}
       {% set it = (c.sites|selectattr("lang", "equalto", "IT")|list)[0] %}
-      <div class="series-card">
+      <article class="series-card">
         <div class="series-top">
-          <span><a class="nm" href="{{ mio.url }}" target="_blank" rel="noopener">{{ c.name }} ↗</a>{% if c.notice %} <span class="series-wip" title="{{ c.notice }}">🚧 {{ c.notice }}</span>{% endif %}</span>
+          <h4 class="series-nm"><a class="nm" href="{{ mio.url }}" target="_blank" rel="noopener">{{ c.name }} ↗</a></h4>
           <span class="series-lg">
-            <a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}">EN</a>
-            <a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}">IT</a>
+            <a class="lg" href="{{ en.url }}" target="_blank" rel="noopener" title="{{ en.label }}" hreflang="en">EN</a>
+            <a class="lg" href="{{ it.url }}" target="_blank" rel="noopener" title="{{ it.label }}" hreflang="it">IT</a>
           </span>
         </div>
+        {% if c.notice %}<span class="series-wip">🚧 {{ c.notice }}</span>{% endif %}
         <p class="series-d">{{ c.detail }}</p>
-        {% if c.parts %}<ul class="series-parts">{% for m in c.parts %}<li><a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.label }}</a></li>{% endfor %}</ul>{% endif %}
         {% if c.material %}<div class="series-mat">{% for m in c.material %}<a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.label }}</a>{% endfor %}</div>{% endif %}
-      </div>
+        {% if c.parts %}<details class="series-parts"><summary>{{ strings.topics }} ({{ c.parts|length }})</summary>
+          <ul>{% for m in c.parts %}<li><a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.label }}</a></li>{% endfor %}</ul>
+        </details>{% endif %}
+      </article>
     {% endfor %}
     </div>
   </div>
   {% endfor %}
 </div></section>
-
 
 {% if teaching.tools %}
 <section class="block"><div class="wrap">
@@ -57,26 +63,22 @@
 </div></section>
 {% endif %}
 
-<section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">{{ strings.doctoral }}</p><h2>{{ strings.phd_courses }}</h2></div></div>
-  <ul class="tl">
-    {% for c in teaching.advanced %}
-    <li><div class="y">{{ c.year }}</div><div><div class="r">{{ c.name }}</div><div class="w">{{ c.where }}</div></div></li>
-    {% endfor %}
-  </ul>
-</div></section>
-
-<section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">{{ strings.now }}</p><h2>{{ strings.current_teaching }}</h2></div></div>
+{# la didattica universitaria effettivamente tenuta, separata dai corsi online #}
+<section class="block" id="university-teaching"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.university_eyebrow }}</p><h2>{{ strings.university_teaching }}</h2></div></div>
+  <h3 class="t-sub">{{ strings.current_teaching }}</h3>
   <ul class="tl">
     {% for c in teaching.current %}
     <li><div class="y">{{ c.where }}</div><div class="w">{{ c.courses }}</div></li>
     {% endfor %}
   </ul>
-</div></section>
-
-<section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">{{ strings.previously }}</p><h2>{{ strings.past_teaching }}</h2></div></div>
+  <h3 class="t-sub">{{ strings.phd_courses }}</h3>
+  <ul class="tl">
+    {% for c in teaching.advanced %}
+    <li><div class="y">{{ c.year }}</div><div><div class="r">{{ c.name }}</div><div class="w">{{ c.where }}</div></div></li>
+    {% endfor %}
+  </ul>
+  <h3 class="t-sub">{{ strings.past_teaching }}</h3>
   <ul class="tl">
     {% for c in teaching.past %}
     <li><div class="y">{{ c.where }}</div><div class="w">{{ c.courses }}</div></li>

@@ -3,6 +3,7 @@ intro:
 - "Durante il mio insegnamento ho preparato i seguenti 14 corsi online, in italiano e in inglese, liberamente accessibili. Ogni corso ha dispense con definizioni, teoremi e dimostrazioni, esempi svolti ed esercizi con le soluzioni, slide, app interattive e quiz di autovalutazione; dispense e slide si scaricano anche in PDF."
 groups:
 - name: "Matematica"
+  id: mathematics
   courses:
   - name: "Analisi Matematica 1"
     detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali."
@@ -56,6 +57,7 @@ groups:
       url: https://fabiofurini.github.io/linear-algebra/
       repo: https://github.com/fabiofurini/linear-algebra
 - name: "Algoritmi"
+  id: algorithms
   courses:
   - name: "Algoritmi"
     detail: "Un'introduzione agli algoritmi e alla loro analisi. Rappresentazione dei numeri, pseudocodice, ordinamento, ricerca e algoritmi numerici; la loro implementazione in C++, Python e Java; notazione asintotica, tempo di esecuzione, correttezza, ricorsione ed equazioni di ricorrenza fino al Master theorem."
@@ -82,6 +84,7 @@ groups:
       url: https://fabiofurini.github.io/algorithms/
       repo: https://github.com/fabiofurini/algorithms
 - name: "Ottimizzazione lineare e convessa"
+  id: linear-and-convex-optimization
   courses:
   - name: "Programmazione lineare"
     detail: "La teoria e gli algoritmi della programmazione lineare. Poliedri e problemi di programmazione lineare con i loro esiti possibili, l'algoritmo del simplesso con la fase 0, la teoria della dualità e il simplesso duale, il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
@@ -151,6 +154,7 @@ groups:
       url: https://fabiofurini.github.io/convex-optimization/
       repo: https://github.com/fabiofurini/convex-optimization
 - name: "Programmazione intera e ottimizzazione combinatoria"
+  id: integer-programming-and-combinatorial-optimization
   courses:
   - name: "Programmazione lineare intera"
     detail: "La programmazione lineare intera e mista e i metodi esatti per risolverla. Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, il funzionamento dei solver MIP e le euristiche che usano."
@@ -263,6 +267,7 @@ groups:
       url: https://fabiofurini.github.io/approximation-algorithms/
       repo: https://github.com/fabiofurini/approximation-algorithms
 - name: "Modellazione"
+  id: optimization-modelling
   courses:
   - name: "Modellazione PL"
     detail: "Dalla descrizione di un problema di decisione al modello di programmazione lineare risolto con Python e Gurobi. Tecniche di modellazione, il solver e l'interpretazione della soluzione, e casi di studio: produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta."
@@ -331,6 +336,9 @@ groups:
       lang: EN
       url: https://fabiofurini.github.io/nlp-modelling/
       repo: https://github.com/fabiofurini/nlp-modelling
+current:
+- where: "Sapienza Università di Roma"
+  courses: "Programmazione intera e ottimizzazione combinatoria (magistrale, Ingegneria gestionale)"
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
