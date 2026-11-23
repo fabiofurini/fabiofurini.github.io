@@ -6,7 +6,13 @@ groups:
   courses:
   - name: "Mathematical Analysis 1"
     detail: "Calculus of one real variable, from the foundations to integrals. The course starts from logic, proof techniques, sets and number systems, then covers functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals, with interactive graphs for the main results."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/mathematical-analysis-1/indice/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/mathematical-analysis-1/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/mathematical-analysis-1/interactive/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/mathematical-analysis-1/self-assessment/"}
     sites:
     - label: "Mathematical Analysis 1"
       lang: EN
@@ -19,7 +25,13 @@ groups:
   - name: "Linear Algebra"
     notice: Under construction
     detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination. A computation lab shows every step of the methods in exact fractions."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/linear-algebra/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/linear-algebra/index-full/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/linear-algebra/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/linear-algebra/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/linear-algebra/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/linear-algebra/self-assessment/"}
     sites:
     - label: "Linear Algebra"
       lang: EN
@@ -33,7 +45,14 @@ groups:
   courses:
   - name: "Algorithms"
     detail: "An introduction to algorithms and their analysis. Representation of numbers, pseudo-code, sorting, searching and numerical algorithms; their implementation in C++, Python and Java; asymptotic notation, running time, correctness, recursion and recurrence relations up to the Master Theorem."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/algorithms/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/algorithms/indice/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/algorithms/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/algorithms/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/algorithms/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/algorithms/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/algorithms/notebooks/"}
     sites:
     - label: "Algorithms"
       lang: EN
@@ -47,7 +66,13 @@ groups:
   courses:
   - name: "Linear Programming"
     detail: "The theory and algorithms of linear programming. Polyhedra and linear programming problems with their possible outcomes, the simplex algorithm with phase 0, duality theory and the dual simplex method, the revised simplex, the primal-dual method, sensitivity analysis and the geometry of linear programming."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/linear-programming/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/linear-programming/indice/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/linear-programming/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/linear-programming/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/linear-programming/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/linear-programming/self-assessment/"}
     sites:
     - label: "Linear Programming"
       lang: EN
@@ -59,7 +84,13 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-lineare
   - name: "Network Optimization"
     detail: "Optimization problems on graphs and networks and the algorithms that solve them. Minimum spanning trees, shortest paths, maximum flow, minimum cost flow, transportation and assignment problems, the network simplex method and project management with critical paths."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/network-optimization/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/network-optimization/full-index/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/network-optimization/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/network-optimization/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/network-optimization/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/network-optimization/self-assessment/"}
     sites:
     - label: "Network Optimization"
       lang: EN
@@ -72,7 +103,13 @@ groups:
   - name: "Convex Optimization"
     notice: Under construction
     detail: "The mathematical basis of nonlinear optimization. Convex sets, functions of several variables, convex and quadratic functions and their characterizations, convex and concave optimization problems and the properties of their optimal solutions."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/convex-optimization/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/convex-optimization/indice/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/convex-optimization/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/convex-optimization/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/convex-optimization/interactive/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/convex-optimization/self-assessment/"}
     sites:
     - label: "Convex Optimization"
       lang: EN
@@ -87,7 +124,13 @@ groups:
   courses:
   - name: "Integer Linear Programming"
     detail: "Integer and mixed integer linear programming and the exact methods to solve it. The LP relaxation and bounds, valid inequalities and cutting planes, the branch-and-bound and branch-and-cut algorithms, how MIP solvers work and the heuristics they use."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/integer-linear-programming/indice/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/integer-linear-programming/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/integer-linear-programming/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/integer-linear-programming/self-assessment/"}
     sites:
     - label: "Integer Linear Programming"
       lang: EN
@@ -99,7 +142,13 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-lineare-intera
   - name: "Combinatorial Optimization Problems"
     detail: "The classical combinatorial optimization problems, one by one. Knapsack, bin packing, coloring, clique, routing, scheduling and lot sizing problems: their definitions, integer programming formulations with their properties and bounds, and the ad hoc algorithms for each problem."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/combinatorial-optimization/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/combinatorial-optimization/full-index/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/combinatorial-optimization/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/combinatorial-optimization/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/combinatorial-optimization/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/combinatorial-optimization/self-assessment/"}
     sites:
     - label: "Combinatorial Optimization Problems"
       lang: EN
@@ -111,7 +160,13 @@ groups:
       repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - name: "Dynamic Programming"
     detail: "Dynamic programming as an exact method for combinatorial problems. The principles of the method, recurrences, pseudo-code and complexity of DP algorithms for the knapsack family (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups), lot sizing, coin change and rod cutting."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/dynamic-programming/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/dynamic-programming/full-index/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/dynamic-programming/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/dynamic-programming/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/dynamic-programming/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/dynamic-programming/self-assessment/"}
     sites:
     - label: "Dynamic Programming"
       lang: EN
@@ -123,7 +178,14 @@ groups:
       repo: https://github.com/fabiofurini/programmazione-dinamica
   - name: "Heuristic Algorithms"
     detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems, with Colab notebooks."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/heuristic-algorithms/full-index/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/heuristic-algorithms/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/heuristic-algorithms/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/heuristic-algorithms/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/heuristic-algorithms/notebooks/"}
     sites:
     - label: "Heuristic Algorithms"
       lang: EN
@@ -135,7 +197,14 @@ groups:
       repo: https://github.com/fabiofurini/algoritmi-euristici
   - name: "Approximation Algorithms"
     detail: "Algorithms with a proven guarantee on the quality of their solutions. Worst-case analysis and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling, approximation schemes, and the limits of approximation for vertex coloring, maximum clique and the general TSP."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/approximation-algorithms/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/approximation-algorithms/full-index/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/approximation-algorithms/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/approximation-algorithms/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/approximation-algorithms/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/approximation-algorithms/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/approximation-algorithms/notebooks/"}
     sites:
     - label: "Approximation Algorithms"
       lang: EN
@@ -149,7 +218,14 @@ groups:
   courses:
   - name: "LP Modelling"
     detail: "From the description of a decision problem to a linear programming model solved with Python and Gurobi. Modelling techniques, the solver and the interpretation of the solution, and case studies: production and inventory, electric vehicle charging, Data Envelopment Analysis, the newsvendor, VaR and CVaR, arbitrage and robust regression."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/lp-modelling/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/lp-modelling/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/lp-modelling/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/lp-modelling/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/lp-modelling/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/lp-modelling/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/lp-modelling/notebooks/"}
     sites:
     - label: "LP Modelling"
       lang: EN
@@ -161,7 +237,14 @@ groups:
       repo: https://github.com/fabiofurini/modellazione-pl
   - name: "MIP Modelling"
     detail: "Integer linear programming models for real decision problems, implemented in Python and Gurobi. What a MIP model is, relaxations and bounds, logic with binary variables and links between variables, constructive heuristics, and models of assignment, scheduling, location, covering and production planning problems."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/mip-modelling/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/mip-modelling/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/mip-modelling/to-model/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/mip-modelling/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/mip-modelling/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/mip-modelling/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/mip-modelling/notebooks/"}
     sites:
     - label: "MIP Modelling"
       lang: EN
@@ -174,7 +257,14 @@ groups:
   - name: "NLP Modelling"
     notice: Under construction
     detail: "Nonlinear programming models solved with Python and Gurobi. Theory recalls and solvers for nonlinear models, and case studies: production with quadratic smoothing, supply chain and CO2, the Markowitz portfolio, pricing, advertising budget, continuous location, queues, support vector machines and least squares."
-    material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes", "Colab notebooks"]
+    material:
+    - {label: "Lecture notes (PDF)", url: "https://fabiofurini.github.io/nlp-modelling/downloads/"}
+    - {label: "Worked examples", url: "https://fabiofurini.github.io/nlp-modelling/"}
+    - {label: "Exercises", url: "https://fabiofurini.github.io/nlp-modelling/exercises/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/nlp-modelling/downloads/"}
+    - {label: "Interactive apps", url: "https://fabiofurini.github.io/nlp-modelling/lab/"}
+    - {label: "Quizzes", url: "https://fabiofurini.github.io/nlp-modelling/self-assessment/"}
+    - {label: "Colab notebooks", url: "https://fabiofurini.github.io/nlp-modelling/notebooks/"}
     sites:
     - label: "NLP Modelling"
       lang: EN
