@@ -7,11 +7,19 @@ groups:
   - name: "Analisi Matematica 1"
     detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/#dispense"}
+    - {label: "Logica", url: "https://fabiofurini.github.io/analisi-matematica-1/logica/"}
+    - {label: "Numeri", url: "https://fabiofurini.github.io/analisi-matematica-1/numeri/"}
+    - {label: "Relazioni", url: "https://fabiofurini.github.io/analisi-matematica-1/relazioni/"}
+    - {label: "Funzioni", url: "https://fabiofurini.github.io/analisi-matematica-1/funzioni/"}
+    - {label: "Successioni", url: "https://fabiofurini.github.io/analisi-matematica-1/successioni/"}
+    - {label: "Limiti", url: "https://fabiofurini.github.io/analisi-matematica-1/limiti/"}
+    - {label: "Derivate", url: "https://fabiofurini.github.io/analisi-matematica-1/derivate/"}
+    - {label: "Serie", url: "https://fabiofurini.github.io/analisi-matematica-1/serie/"}
+    - {label: "Integrali", url: "https://fabiofurini.github.io/analisi-matematica-1/integrali/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/analisi-matematica-1/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/analisi-matematica-1/interattivi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/analisi-matematica-1/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/analisi-matematica-1/interattivi/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/"}
     sites:
     - label: "Analisi Matematica 1"
       lang: IT
@@ -25,11 +33,15 @@ groups:
     notice: In costruzione
     detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algebra-lineare/materiale/"}
+    - {label: "Somme e produttorie", url: "https://fabiofurini.github.io/algebra-lineare/somme/"}
+    - {label: "Vettori e matrici", url: "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/"}
+    - {label: "Norme", url: "https://fabiofurini.github.io/algebra-lineare/norme/01-norme/"}
+    - {label: "Sistemi lineari", url: "https://fabiofurini.github.io/algebra-lineare/sistemi/01-sistemi-lineari/"}
+    - {label: "Approfondimenti", url: "https://fabiofurini.github.io/algebra-lineare/approfondimenti/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algebra-lineare/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/algebra-lineare/materiale/"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/algebra-lineare/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algebra-lineare/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/algebra-lineare/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/algebra-lineare/materiale/"}
     sites:
     - label: "Algebra lineare"
       lang: IT
@@ -44,12 +56,16 @@ groups:
   - name: "Algoritmi"
     detail: "Un'introduzione agli algoritmi e alla loro analisi. Rappresentazione dei numeri, pseudocodice, ordinamento, ricerca e algoritmi numerici; la loro implementazione in C++, Python e Java; notazione asintotica, tempo di esecuzione, correttezza, ricorsione ed equazioni di ricorrenza fino al Master theorem."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algoritmi/materiale/#dispense"}
+    - {label: "Algoritmi di base", url: "https://fabiofurini.github.io/algoritmi/algoritmi-di-base/"}
+    - {label: "Linguaggi", url: "https://fabiofurini.github.io/algoritmi/linguaggi/"}
+    - {label: "Notazione asintotica", url: "https://fabiofurini.github.io/algoritmi/notazione-asintotica/"}
+    - {label: "Analisi", url: "https://fabiofurini.github.io/algoritmi/analisi/"}
+    - {label: "Ricorsione", url: "https://fabiofurini.github.io/algoritmi/ricorsione/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/algoritmi/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/algoritmi/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi/laboratorio/"}
+    - {label: "Notebook", url: "https://fabiofurini.github.io/algoritmi/notebook/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi/materiale/"}
     sites:
     - label: "Algoritmi"
       lang: IT
@@ -64,11 +80,15 @@ groups:
   - name: "Programmazione lineare"
     detail: "La teoria e gli algoritmi della programmazione lineare. Poliedri e problemi di programmazione lineare con i loro esiti possibili, l'algoritmo del simplesso con la fase 0, la teoria della dualità e il simplesso duale, il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/#dispense"}
+    - {label: "Problemi di PL", url: "https://fabiofurini.github.io/programmazione-lineare/problemi-pl/"}
+    - {label: "Simplesso", url: "https://fabiofurini.github.io/programmazione-lineare/simplesso/"}
+    - {label: "Dualità", url: "https://fabiofurini.github.io/programmazione-lineare/dualita/"}
+    - {label: "Metodi avanzati", url: "https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-lineare/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/programmazione-lineare/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-lineare/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-lineare/laboratorio/"}
+    - {label: "Catalogo", url: "https://fabiofurini.github.io/programmazione-lineare/catalogo/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/"}
     sites:
     - label: "Programmazione lineare"
       lang: IT
@@ -81,11 +101,15 @@ groups:
   - name: "Ottimizzazione su reti"
     detail: "I problemi di ottimizzazione su grafi e reti e gli algoritmi che li risolvono. Alberi ricoprenti di costo minimo, cammini minimi, flusso massimo, flusso di costo minimo, problemi di trasporto e di assegnamento, il simplesso su reti e la gestione dei progetti con il cammino critico."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/#dispense"}
+    - {label: "Grafi", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/grafi/"}
+    - {label: "Alberi e cammini", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/alberi-e-cammini/"}
+    - {label: "Flussi", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/flussi/"}
+    - {label: "Simplesso su reti", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/simplesso-su-reti/"}
+    - {label: "Gestione dei progetti", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/gestione-dei-progetti/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/"}
     sites:
     - label: "Ottimizzazione su reti"
       lang: IT
@@ -99,11 +123,12 @@ groups:
     notice: In costruzione
     detail: "Le basi matematiche dell'ottimizzazione non lineare. Insiemi convessi, funzioni di più variabili, funzioni convesse e quadratiche con le loro caratterizzazioni, problemi di ottimizzazione convessi e concavi e le proprietà delle loro soluzioni ottime."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/#dispense"}
+    - {label: "Preliminari", url: "https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/"}
+    - {label: "Problemi di ottimizzazione", url: "https://fabiofurini.github.io/ottimizzazione-convessa/problemi/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-convessa/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/ottimizzazione-convessa/interattivi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-convessa/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-convessa/interattivi/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/"}
     sites:
     - label: "Ottimizzazione convessa"
       lang: IT
@@ -119,11 +144,15 @@ groups:
   - name: "Programmazione lineare intera"
     detail: "La programmazione lineare intera e mista e i metodi esatti per risolverla. Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, il funzionamento dei solver MIP e le euristiche che usano."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/"}
+    - {label: "Bound", url: "https://fabiofurini.github.io/programmazione-lineare-intera/modelli-e-bound/"}
+    - {label: "Formulazioni", url: "https://fabiofurini.github.io/programmazione-lineare-intera/formulazioni/"}
+    - {label: "Metodi esatti", url: "https://fabiofurini.github.io/programmazione-lineare-intera/metodi-esatti/"}
+    - {label: "Solver", url: "https://fabiofurini.github.io/programmazione-lineare-intera/solver/"}
+    - {label: "Euristiche", url: "https://fabiofurini.github.io/programmazione-lineare-intera/euristiche-mip/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-lineare-intera/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/programmazione-lineare-intera/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-lineare-intera/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-lineare-intera/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/"}
     sites:
     - label: "Programmazione lineare intera"
       lang: IT
@@ -136,11 +165,14 @@ groups:
   - name: "Problemi di ottimizzazione combinatoria"
     detail: "I problemi classici di ottimizzazione combinatoria, uno per uno. Zaino, bin packing, colorazione, clique, routing, scheduling e lot sizing: le definizioni, le formulazioni di programmazione intera con le loro proprietà e i bound, e gli algoritmi ad hoc per ciascun problema."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/#dispense"}
+    - {label: "Definizioni", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/problemi-di-ottimizzazione-combinatoria/combinatorial-optimization/"}
+    - {label: "Problemi", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/problemi-scelti/"}
+    - {label: "Formulazioni", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/formulazioni/"}
+    - {label: "Algoritmi ad hoc", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/algoritmi-specializzati/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/"}
     sites:
     - label: "Problemi di ottimizzazione combinatoria"
       lang: IT
@@ -153,11 +185,14 @@ groups:
   - name: "Programmazione dinamica"
     detail: "La programmazione dinamica come metodo esatto per i problemi combinatori. I principi del metodo, ricorrenze, pseudocodice e complessità degli algoritmi di PD per la famiglia dello zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup), il lot sizing, il cambio monete e il taglio delle aste."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/"}
+    - {label: "Principi", url: "https://fabiofurini.github.io/programmazione-dinamica/principi/"}
+    - {label: "Problemi di zaino", url: "https://fabiofurini.github.io/programmazione-dinamica/problemi-di-zaino/"}
+    - {label: "Problemi di lot sizing", url: "https://fabiofurini.github.io/programmazione-dinamica/problemi-di-lot-sizing/"}
+    - {label: "Problemi misti", url: "https://fabiofurini.github.io/programmazione-dinamica/problemi-misti/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-dinamica/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/programmazione-dinamica/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-dinamica/autovalutazione/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-dinamica/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/"}
     sites:
     - label: "Programmazione dinamica"
       lang: IT
@@ -170,12 +205,11 @@ groups:
   - name: "Algoritmi euristici"
     detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/"}
+    - {label: "Euristiche", url: "https://fabiofurini.github.io/algoritmi-euristici/heuristics/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-euristici/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/algoritmi-euristici/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-euristici/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/algoritmi-euristici/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi-euristici/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/"}
     sites:
     - label: "Algoritmi euristici"
       lang: IT
@@ -188,12 +222,11 @@ groups:
   - name: "Algoritmi di approssimazione"
     detail: "Gli algoritmi con una garanzia dimostrata sulla qualità delle soluzioni. Analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele, gli schemi di approssimazione e i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/"}
+    - {label: "Capitoli", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/approximation/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/#slide"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/"}
     sites:
     - label: "Algoritmi di approssimazione"
       lang: IT
@@ -208,12 +241,14 @@ groups:
   - name: "Modellazione PL"
     detail: "Dalla descrizione di un problema di decisione al modello di programmazione lineare risolto con Python e Gurobi. Tecniche di modellazione, il solver e l'interpretazione della soluzione, e casi di studio: produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/modellazione-pl/materiale/"}
+    - {label: "Modellazione", url: "https://fabiofurini.github.io/modellazione-pl/modellazione/"}
+    - {label: "Modelli deterministici", url: "https://fabiofurini.github.io/modellazione-pl/modelli-deterministici/"}
+    - {label: "Decisioni sotto incertezza", url: "https://fabiofurini.github.io/modellazione-pl/decisioni-incertezza/"}
+    - {label: "Ottimizzazione e machine learning", url: "https://fabiofurini.github.io/modellazione-pl/ottimizzazione-ml/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pl/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pl/materiale/"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/modellazione-pl/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pl/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/modellazione-pl/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pl/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-pl/materiale/"}
     sites:
     - label: "Modellazione PL"
       lang: IT
@@ -226,12 +261,11 @@ groups:
   - name: "Modellazione MIP"
     detail: "Modelli di programmazione lineare intera per problemi di decisione reali, implementati in Python e Gurobi. Che cos'è un modello MIP, rilassamenti e bound, logica con le variabili binarie e legami fra variabili, euristiche costruttive, e modelli di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/modellazione-mip/materiale/"}
-    - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-mip/da-modellare/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-mip/materiale/"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/modellazione-mip/laboratorio/"}
+    - {label: "Modellazione", url: "https://fabiofurini.github.io/modellazione-mip/modellazione/"}
+    - {label: "I problemi", url: "https://fabiofurini.github.io/modellazione-mip/problemi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-mip/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/modellazione-mip/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-mip/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-mip/materiale/"}
     sites:
     - label: "Modellazione MIP"
       lang: IT
@@ -245,12 +279,13 @@ groups:
     notice: In costruzione
     detail: "Modelli di programmazione non lineare risolti con Python e Gurobi. Richiami di teoria e solver per i modelli non lineari, e casi di studio: produzione con smoothing quadratico, supply chain e CO2, portafoglio di Markowitz, pricing, budget pubblicitario, localizzazione continua, code, support vector machine e minimi quadrati."
     material:
-    - {label: "Dispense in PDF", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/"}
+    - {label: "Strumenti", url: "https://fabiofurini.github.io/modellazione-pnl/strumenti/"}
+    - {label: "Modelli deterministici", url: "https://fabiofurini.github.io/modellazione-pnl/modelli-deterministici/"}
+    - {label: "Ottimizzazione e machine learning", url: "https://fabiofurini.github.io/modellazione-pnl/ottimizzazione-ml/"}
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pnl/esercizi/"}
-    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/"}
-    - {label: "App interattive", url: "https://fabiofurini.github.io/modellazione-pnl/laboratorio/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pnl/autovalutazione/"}
-    - {label: "Notebook Colab", url: "https://fabiofurini.github.io/modellazione-pnl/notebook/"}
+    - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pnl/laboratorio/"}
+    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/"}
     sites:
     - label: "Modellazione PNL"
       lang: IT
