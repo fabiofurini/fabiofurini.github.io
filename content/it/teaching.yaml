@@ -183,6 +183,9 @@ groups:
       lang: EN
       url: https://fabiofurini.github.io/nlp-modelling/
       repo: https://github.com/fabiofurini/nlp-modelling
+current:
+- where: Sapienza Università di Roma
+  courses: Programmazione intera e ottimizzazione combinatoria (magistrale, Ingegneria gestionale)
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
@@ -198,7 +201,7 @@ advanced:
   where: Corso di dottorato, Université Paris Dauphine-PSL
 past:
 - where: Sapienza Università di Roma
-  courses: Combinatorial Optimization and Integer Programming (magistrale)
+  courses: Combinatorial Optimization and Integer Programming (magistrale) · Analisi matematica 1 (triennale)
 - where: Università di Modena e Reggio Emilia
   courses: Ottimizzazione lineare intera (triennale)
 - where: Università di Parma

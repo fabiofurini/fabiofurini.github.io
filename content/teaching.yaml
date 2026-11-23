@@ -183,6 +183,9 @@ groups:
       lang: IT
       url: https://fabiofurini.github.io/modellazione-pnl/
       repo: https://github.com/fabiofurini/modellazione-pnl
+current:
+- where: Sapienza University of Rome
+  courses: Integer Programming and Combinatorial Optimization (Master's, Management Engineering)
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
@@ -198,7 +201,7 @@ advanced:
   where: PhD course, Université Paris Dauphine-PSL
 past:
 - where: Sapienza University of Rome
-  courses: Combinatorial Optimization and Integer Programming (Master's)
+  courses: Combinatorial Optimization and Integer Programming (Master's) · Mathematical Analysis 1 (Bachelor's)
 - where: University of Modena and Reggio Emilia
   courses: Ottimizzazione lineare intera (Bachelor's)
 - where: University of Parma
