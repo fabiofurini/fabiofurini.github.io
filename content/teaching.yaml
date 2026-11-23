@@ -6,7 +6,7 @@ groups:
 - name: "Mathematics"
   courses:
   - name: "Mathematical Analysis 1"
-    detail: "Logic and proof techniques, sets and numbers, relations and functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals."
+    detail: "Calculus of one real variable, from the foundations to integrals. The course starts from logic, proof techniques, sets and number systems, then covers functions, sequences and limits, continuity, derivatives and curve sketching, series and integrals, with interactive graphs for the main results."
     sites:
     - label: "Mathematical Analysis 1"
       lang: EN
@@ -17,7 +17,7 @@ groups:
       url: https://fabiofurini.github.io/analisi-matematica-1/
       repo: https://github.com/fabiofurini/analisi-matematica-1
   - name: "Linear Algebra"
-    detail: "Sums and products, vectors and matrices with their operations, inversion and LU factorization, eigenvalues and eigenvectors, norms and linear systems."
+    detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination. A computation lab shows every step of the methods in exact fractions."
     sites:
     - label: "Linear Algebra"
       lang: EN
@@ -30,7 +30,7 @@ groups:
 - name: "Algorithms"
   courses:
   - name: "Algorithms"
-    detail: "Basic algorithms (representation of numbers, pseudo-code, sorting, searching, numerical algorithms), the programming languages C++, Python and Java, the growth of functions and asymptotic notation, the analysis of algorithms and recursion (running time, correctness, recurrence relations, the Master Theorem)."
+    detail: "An introduction to algorithms and their analysis. Representation of numbers, pseudo-code, sorting, searching and numerical algorithms; their implementation in C++, Python and Java; asymptotic notation, running time, correctness, recursion and recurrence relations up to the Master Theorem."
     sites:
     - label: "Algorithms"
       lang: EN
@@ -43,7 +43,7 @@ groups:
 - name: "Linear and convex optimization"
   courses:
   - name: "Linear Programming"
-    detail: "Linear functions, polyhedra and linear programming problems with their possible outcomes; the simplex algorithm with phase 0; duality theory and the dual simplex method; the revised simplex, the primal-dual method, sensitivity analysis and the geometry of linear programming."
+    detail: "The theory and algorithms of linear programming. Polyhedra and linear programming problems with their possible outcomes, the simplex algorithm with phase 0, duality theory and the dual simplex method, the revised simplex, the primal-dual method, sensitivity analysis and the geometry of linear programming."
     sites:
     - label: "Linear Programming"
       lang: EN
@@ -54,7 +54,7 @@ groups:
       url: https://fabiofurini.github.io/programmazione-lineare/
       repo: https://github.com/fabiofurini/programmazione-lineare
   - name: "Network Optimization"
-    detail: "Graphs, minimum spanning trees, shortest paths, network flows (maximum flow, minimum cost flow, transportation and assignment), the network simplex and project management."
+    detail: "Optimization problems on graphs and networks and the algorithms that solve them. Minimum spanning trees, shortest paths, maximum flow, minimum cost flow, transportation and assignment problems, the network simplex method and project management with critical paths."
     sites:
     - label: "Network Optimization"
       lang: EN
@@ -66,7 +66,7 @@ groups:
       repo: https://github.com/fabiofurini/ottimizzazione-su-reti
   - name: "Convex Optimization"
     notice: Under construction
-    detail: "Convex sets, functions of several variables, convex and quadratic functions, convex and concave optimization problems."
+    detail: "The mathematical basis of nonlinear optimization. Convex sets, functions of several variables, convex and quadratic functions and their characterizations, convex and concave optimization problems and the properties of their optimal solutions."
     sites:
     - label: "Convex Optimization"
       lang: EN
@@ -80,7 +80,7 @@ groups:
   note: "These courses, with MIP Modelling, form the Sapienza master's course Integer Programming and Combinatorial Optimization."
   courses:
   - name: "Integer Linear Programming"
-    detail: "The LP relaxation and bounds, valid inequalities and cutting planes, the branch-and-bound and branch-and-cut algorithms, MIP solvers and heuristics."
+    detail: "Integer and mixed integer linear programming and the exact methods to solve it. The LP relaxation and bounds, valid inequalities and cutting planes, the branch-and-bound and branch-and-cut algorithms, how MIP solvers work and the heuristics they use."
     sites:
     - label: "Integer Linear Programming"
       lang: EN
@@ -91,7 +91,7 @@ groups:
       url: https://fabiofurini.github.io/programmazione-lineare-intera/
       repo: https://github.com/fabiofurini/programmazione-lineare-intera
   - name: "Combinatorial Optimization Problems"
-    detail: "Knapsack, packing, coloring, clique, routing, scheduling and lot sizing, with their formulations, properties and bounds, and ad hoc algorithms."
+    detail: "The classical combinatorial optimization problems, one by one. Knapsack, bin packing, coloring, clique, routing, scheduling and lot sizing problems: their definitions, integer programming formulations with their properties and bounds, and the ad hoc algorithms for each problem."
     sites:
     - label: "Combinatorial Optimization Problems"
       lang: EN
@@ -102,7 +102,7 @@ groups:
       url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
       repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - name: "Dynamic Programming"
-    detail: "The principles of the method and DP algorithms for knapsack problems (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups, multiple knapsack), for uncapacitated and capacitated lot sizing, coin change and rod cutting."
+    detail: "Dynamic programming as an exact method for combinatorial problems. The principles of the method, recurrences, pseudo-code and complexity of DP algorithms for the knapsack family (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups), lot sizing, coin change and rod cutting."
     sites:
     - label: "Dynamic Programming"
       lang: EN
@@ -113,7 +113,7 @@ groups:
       url: https://fabiofurini.github.io/programmazione-dinamica/
       repo: https://github.com/fabiofurini/programmazione-dinamica
   - name: "Heuristic Algorithms"
-    detail: "Primal and dual bounds and the evaluation of heuristics, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems."
+    detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems, with Colab notebooks."
     sites:
     - label: "Heuristic Algorithms"
       lang: EN
@@ -124,7 +124,7 @@ groups:
       url: https://fabiofurini.github.io/algoritmi-euristici/
       repo: https://github.com/fabiofurini/algoritmi-euristici
   - name: "Approximation Algorithms"
-    detail: "What they guarantee and how to prove it; algorithms, worst-case analyses and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling; approximation schemes; the limits of approximation for vertex coloring, maximum clique and the general TSP."
+    detail: "Algorithms with a proven guarantee on the quality of their solutions. Worst-case analysis and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling, approximation schemes, and the limits of approximation for vertex coloring, maximum clique and the general TSP."
     sites:
     - label: "Approximation Algorithms"
       lang: EN
@@ -137,7 +137,7 @@ groups:
 - name: "Optimization modelling"
   courses:
   - name: "LP Modelling"
-    detail: "How to build a model, the solver and the interpretation of the solution, modelling techniques, and models of production and inventory, electric vehicle charging, Data Envelopment Analysis, the newsvendor, VaR and CVaR, arbitrage and robust regression, with Python/Gurobi code."
+    detail: "From the description of a decision problem to a linear programming model solved with Python and Gurobi. Modelling techniques, the solver and the interpretation of the solution, and case studies: production and inventory, electric vehicle charging, Data Envelopment Analysis, the newsvendor, VaR and CVaR, arbitrage and robust regression."
     sites:
     - label: "LP Modelling"
       lang: EN
@@ -148,7 +148,7 @@ groups:
       url: https://fabiofurini.github.io/modellazione-pl/
       repo: https://github.com/fabiofurini/modellazione-pl
   - name: "MIP Modelling"
-    detail: "What a MIP model is, relaxations, duality and bounds, the implementation in Python/Gurobi, constructive heuristics, logic with binary variables and links between variables, and models of assignment, scheduling, location, covering and production planning problems."
+    detail: "Integer linear programming models for real decision problems, implemented in Python and Gurobi. What a MIP model is, relaxations and bounds, logic with binary variables and links between variables, constructive heuristics, and models of assignment, scheduling, location, covering and production planning problems."
     sites:
     - label: "MIP Modelling"
       lang: EN
@@ -160,7 +160,7 @@ groups:
       repo: https://github.com/fabiofurini/modellazione-mip
   - name: "NLP Modelling"
     notice: Under construction
-    detail: "Theory recalls, solvers for nonlinear models, and models of production with quadratic smoothing, supply chain and CO2, the Markowitz portfolio, pricing, advertising budget, continuous location, queues, support vector machines and least squares, with Python/Gurobi code."
+    detail: "Nonlinear programming models solved with Python and Gurobi. Theory recalls and solvers for nonlinear models, and case studies: production with quadratic smoothing, supply chain and CO2, the Markowitz portfolio, pricing, advertising budget, continuous location, queues, support vector machines and least squares."
     sites:
     - label: "NLP Modelling"
       lang: EN

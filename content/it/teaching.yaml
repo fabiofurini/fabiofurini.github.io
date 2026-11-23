@@ -6,7 +6,7 @@ groups:
 - name: "Matematica"
   courses:
   - name: "Analisi Matematica 1"
-    detail: "Logica e tecniche di dimostrazione, insiemi e numeri, relazioni e funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali."
+    detail: "Analisi matematica di una variabile reale, dai fondamenti agli integrali. Il corso parte da logica, tecniche di dimostrazione, insiemi e insiemi numerici, poi tratta funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali, con grafici interattivi per i risultati principali."
     sites:
     - label: "Analisi Matematica 1"
       lang: IT
@@ -17,7 +17,7 @@ groups:
       url: https://fabiofurini.github.io/mathematical-analysis-1/
       repo: https://github.com/fabiofurini/mathematical-analysis-1
   - name: "Algebra lineare"
-    detail: "Sommatorie e produttorie, vettori e matrici con le loro operazioni, l'inversione e la fattorizzazione LU, autovalori e autovettori, le norme e i sistemi lineari."
+    detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss. Un laboratorio di calcolo mostra tutti i passaggi dei metodi in frazioni esatte."
     sites:
     - label: "Algebra lineare"
       lang: IT
@@ -30,7 +30,7 @@ groups:
 - name: "Algoritmi"
   courses:
   - name: "Algoritmi"
-    detail: "Gli algoritmi di base (rappresentazione dei numeri, pseudocodice, ordinamento, ricerca, algoritmi numerici), i linguaggi di programmazione C++, Python e Java, la crescita delle funzioni e la notazione asintotica, l'analisi degli algoritmi e la ricorsione (tempo di esecuzione, correttezza, equazioni di ricorrenza, Master theorem)."
+    detail: "Un'introduzione agli algoritmi e alla loro analisi. Rappresentazione dei numeri, pseudocodice, ordinamento, ricerca e algoritmi numerici; la loro implementazione in C++, Python e Java; notazione asintotica, tempo di esecuzione, correttezza, ricorsione ed equazioni di ricorrenza fino al Master theorem."
     sites:
     - label: "Algoritmi"
       lang: IT
@@ -43,7 +43,7 @@ groups:
 - name: "Ottimizzazione lineare e convessa"
   courses:
   - name: "Programmazione lineare"
-    detail: "Funzioni lineari, poliedri e problemi di programmazione lineare con i loro esiti possibili; l'algoritmo del simplesso con la fase 0; la teoria della dualità e il simplesso duale; il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
+    detail: "La teoria e gli algoritmi della programmazione lineare. Poliedri e problemi di programmazione lineare con i loro esiti possibili, l'algoritmo del simplesso con la fase 0, la teoria della dualità e il simplesso duale, il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
     sites:
     - label: "Programmazione lineare"
       lang: IT
@@ -54,7 +54,7 @@ groups:
       url: https://fabiofurini.github.io/linear-programming/
       repo: https://github.com/fabiofurini/linear-programming
   - name: "Ottimizzazione su reti"
-    detail: "I grafi, gli alberi ricoprenti di costo minimo, i cammini minimi, i flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il simplesso su reti e la gestione dei progetti."
+    detail: "I problemi di ottimizzazione su grafi e reti e gli algoritmi che li risolvono. Alberi ricoprenti di costo minimo, cammini minimi, flusso massimo, flusso di costo minimo, problemi di trasporto e di assegnamento, il simplesso su reti e la gestione dei progetti con il cammino critico."
     sites:
     - label: "Ottimizzazione su reti"
       lang: IT
@@ -66,7 +66,7 @@ groups:
       repo: https://github.com/fabiofurini/network-optimization
   - name: "Ottimizzazione convessa"
     notice: In costruzione
-    detail: "Insiemi convessi, funzioni di più variabili, funzioni convesse e funzioni quadratiche, problemi di ottimizzazione convessi e concavi."
+    detail: "Le basi matematiche dell'ottimizzazione non lineare. Insiemi convessi, funzioni di più variabili, funzioni convesse e quadratiche con le loro caratterizzazioni, problemi di ottimizzazione convessi e concavi e le proprietà delle loro soluzioni ottime."
     sites:
     - label: "Ottimizzazione convessa"
       lang: IT
@@ -80,7 +80,7 @@ groups:
   note: "Questi corsi, con Modellazione MIP, formano il corso magistrale della Sapienza Programmazione intera e ottimizzazione combinatoria."
   courses:
   - name: "Programmazione lineare intera"
-    detail: "Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, i solver MIP e le euristiche."
+    detail: "La programmazione lineare intera e mista e i metodi esatti per risolverla. Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, il funzionamento dei solver MIP e le euristiche che usano."
     sites:
     - label: "Programmazione lineare intera"
       lang: IT
@@ -91,7 +91,7 @@ groups:
       url: https://fabiofurini.github.io/integer-linear-programming/
       repo: https://github.com/fabiofurini/integer-linear-programming
   - name: "Problemi di ottimizzazione combinatoria"
-    detail: "Zaino, packing, colorazione, clique, routing, scheduling e lot sizing, con le loro formulazioni, le proprietà e i bound, e gli algoritmi ad hoc."
+    detail: "I problemi classici di ottimizzazione combinatoria, uno per uno. Zaino, bin packing, colorazione, clique, routing, scheduling e lot sizing: le definizioni, le formulazioni di programmazione intera con le loro proprietà e i bound, e gli algoritmi ad hoc per ciascun problema."
     sites:
     - label: "Problemi di ottimizzazione combinatoria"
       lang: IT
@@ -102,7 +102,7 @@ groups:
       url: https://fabiofurini.github.io/combinatorial-optimization/
       repo: https://github.com/fabiofurini/combinatorial-optimization
   - name: "Programmazione dinamica"
-    detail: "I principi del metodo e gli algoritmi di PD per i problemi di zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup, zaini multipli), per il lot sizing senza capacità e capacitato, per il cambio monete e il taglio delle aste."
+    detail: "La programmazione dinamica come metodo esatto per i problemi combinatori. I principi del metodo, ricorrenze, pseudocodice e complessità degli algoritmi di PD per la famiglia dello zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup), il lot sizing, il cambio monete e il taglio delle aste."
     sites:
     - label: "Programmazione dinamica"
       lang: IT
@@ -113,7 +113,7 @@ groups:
       url: https://fabiofurini.github.io/dynamic-programming/
       repo: https://github.com/fabiofurini/dynamic-programming
   - name: "Algoritmi euristici"
-    detail: "Bound primali e duali e valutazione delle euristiche, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate ai problemi di zaino, di packing, di routing, di scheduling e di colorazione."
+    detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione, con notebook Colab."
     sites:
     - label: "Algoritmi euristici"
       lang: IT
@@ -124,7 +124,7 @@ groups:
       url: https://fabiofurini.github.io/heuristic-algorithms/
       repo: https://github.com/fabiofurini/heuristic-algorithms
   - name: "Algoritmi di approssimazione"
-    detail: "Che cosa garantiscono e come lo si dimostra; algoritmi, analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele; gli schemi di approssimazione; i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
+    detail: "Gli algoritmi con una garanzia dimostrata sulla qualità delle soluzioni. Analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele, gli schemi di approssimazione e i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
     sites:
     - label: "Algoritmi di approssimazione"
       lang: IT
@@ -137,7 +137,7 @@ groups:
 - name: "Modellazione"
   courses:
   - name: "Modellazione PL"
-    detail: "Come si costruisce un modello, il solver e l'interpretazione della soluzione, le tecniche di modellazione, e i modelli di produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta, con il codice Python/Gurobi."
+    detail: "Dalla descrizione di un problema di decisione al modello di programmazione lineare risolto con Python e Gurobi. Tecniche di modellazione, il solver e l'interpretazione della soluzione, e casi di studio: produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta."
     sites:
     - label: "Modellazione PL"
       lang: IT
@@ -148,7 +148,7 @@ groups:
       url: https://fabiofurini.github.io/lp-modelling/
       repo: https://github.com/fabiofurini/lp-modelling
   - name: "Modellazione MIP"
-    detail: "Che cos'è un modello MIP, rilassamenti, dualità e bound, l'implementazione in Python/Gurobi, le euristiche costruttive, la logica con le variabili binarie e i legami fra variabili, e i modelli di problemi di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
+    detail: "Modelli di programmazione lineare intera per problemi di decisione reali, implementati in Python e Gurobi. Che cos'è un modello MIP, rilassamenti e bound, logica con le variabili binarie e legami fra variabili, euristiche costruttive, e modelli di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
     sites:
     - label: "Modellazione MIP"
       lang: IT
@@ -160,7 +160,7 @@ groups:
       repo: https://github.com/fabiofurini/mip-modelling
   - name: "Modellazione PNL"
     notice: In costruzione
-    detail: "Richiami di teoria, i solver per i modelli non lineari, e i modelli di produzione con smoothing quadratico, supply chain e CO2, portafoglio di Markowitz, pricing, budget pubblicitario, localizzazione continua, code, support vector machine e minimi quadrati, con il codice Python/Gurobi."
+    detail: "Modelli di programmazione non lineare risolti con Python e Gurobi. Richiami di teoria e solver per i modelli non lineari, e casi di studio: produzione con smoothing quadratico, supply chain e CO2, portafoglio di Markowitz, pricing, budget pubblicitario, localizzazione continua, code, support vector machine e minimi quadrati."
     sites:
     - label: "Modellazione PNL"
       lang: IT
