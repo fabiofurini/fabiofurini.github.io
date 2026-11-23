@@ -214,7 +214,11 @@ groups:
   - name: "Heuristic Algorithms"
     detail: "Heuristic algorithms for hard combinatorial optimization problems. Primal and dual bounds and how to evaluate a heuristic, constructive heuristics, local search, metaheuristics and MIP heuristics, applied to knapsack, packing, routing, scheduling and coloring problems."
     parts:
-    - {label: "Heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/heuristics/"}
+    - {label: "Definitions", url: "https://fabiofurini.github.io/heuristic-algorithms/heuristics/"}
+    - {label: "Constructive heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/constructive-heuristics/"}
+    - {label: "Local search", url: "https://fabiofurini.github.io/heuristic-algorithms/local-search/"}
+    - {label: "Metaheuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/metaheuristics/"}
+    - {label: "MIP heuristics", url: "https://fabiofurini.github.io/heuristic-algorithms/mip-heuristics-classical/"}
     material:
     - {label: "Exercises", url: "https://fabiofurini.github.io/heuristic-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/heuristic-algorithms/self-assessment/"}
@@ -232,7 +236,13 @@ groups:
   - name: "Approximation Algorithms"
     detail: "Algorithms with a proven guarantee on the quality of their solutions. Worst-case analysis and tight instances for knapsack, bin packing, the metric TSP and parallel machine scheduling, approximation schemes, and the limits of approximation for vertex coloring, maximum clique and the general TSP."
     parts:
-    - {label: "Chapters", url: "https://fabiofurini.github.io/approximation-algorithms/approximation/"}
+    - {label: "Principles", url: "https://fabiofurini.github.io/approximation-algorithms/approximation/"}
+    - {label: "Knapsack problems", url: "https://fabiofurini.github.io/approximation-algorithms/knapsack-approximation/"}
+    - {label: "Packing problems", url: "https://fabiofurini.github.io/approximation-algorithms/bin-packing-approximation/"}
+    - {label: "Coloring problems", url: "https://fabiofurini.github.io/approximation-algorithms/coloring-inapproximability/"}
+    - {label: "Clique problems", url: "https://fabiofurini.github.io/approximation-algorithms/clique-inapproximability/"}
+    - {label: "Routing problems", url: "https://fabiofurini.github.io/approximation-algorithms/tsp-approximation/"}
+    - {label: "Scheduling problems", url: "https://fabiofurini.github.io/approximation-algorithms/pcmax-approximation/"}
     material:
     - {label: "Exercises", url: "https://fabiofurini.github.io/approximation-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/approximation-algorithms/self-assessment/"}

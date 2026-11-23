@@ -214,7 +214,11 @@ groups:
   - name: "Algoritmi euristici"
     detail: "Gli algoritmi euristici per i problemi difficili di ottimizzazione combinatoria. Bound primali e duali e valutazione di un'euristica, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate a problemi di zaino, packing, routing, scheduling e colorazione."
     parts:
-    - {label: "Euristiche", url: "https://fabiofurini.github.io/algoritmi-euristici/heuristics/"}
+    - {label: "Definizioni", url: "https://fabiofurini.github.io/algoritmi-euristici/heuristics/"}
+    - {label: "Euristiche costruttive", url: "https://fabiofurini.github.io/algoritmi-euristici/constructive-heuristics/"}
+    - {label: "Ricerca locale", url: "https://fabiofurini.github.io/algoritmi-euristici/local-search/"}
+    - {label: "Metaeuristiche", url: "https://fabiofurini.github.io/algoritmi-euristici/metaheuristics/"}
+    - {label: "Euristiche MIP", url: "https://fabiofurini.github.io/algoritmi-euristici/mip-heuristics-classical/"}
     material:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-euristici/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-euristici/autovalutazione/"}
@@ -232,7 +236,13 @@ groups:
   - name: "Algoritmi di approssimazione"
     detail: "Gli algoritmi con una garanzia dimostrata sulla qualità delle soluzioni. Analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele, gli schemi di approssimazione e i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
     parts:
-    - {label: "Capitoli", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/approximation/"}
+    - {label: "Principi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/approximation/"}
+    - {label: "Problemi di zaino", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/knapsack-approximation/"}
+    - {label: "Problemi di packing", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/bin-packing-approximation/"}
+    - {label: "Problemi di colorazione", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/coloring-inapproximability/"}
+    - {label: "Problemi di clique", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/clique-inapproximability/"}
+    - {label: "Problemi di routing", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/tsp-approximation/"}
+    - {label: "Problemi di scheduling", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/pcmax-approximation/"}
     material:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/autovalutazione/"}
