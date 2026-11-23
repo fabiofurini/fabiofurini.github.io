@@ -20,7 +20,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/analisi-matematica-1/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/analisi-matematica-1/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/analisi-matematica-1/interattivi/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/analisi-matematica-1/materiale/#slide"}
     sites:
     - label: "Analisi Matematica 1"
       lang: IT
@@ -43,7 +44,7 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algebra-lineare/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algebra-lineare/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/algebra-lineare/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/algebra-lineare/materiale/"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/algebra-lineare/materiale/#le-slide"}
     sites:
     - label: "Algebra lineare"
       lang: IT
@@ -68,7 +69,8 @@ groups:
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi/laboratorio/"}
     - {label: "Notebook", url: "https://fabiofurini.github.io/algoritmi/notebook/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/algoritmi/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi/materiale/#slide"}
     sites:
     - label: "Algoritmi"
       lang: IT
@@ -92,7 +94,8 @@ groups:
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-lineare/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-lineare/laboratorio/"}
     - {label: "Catalogo", url: "https://fabiofurini.github.io/programmazione-lineare/catalogo/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-lineare/materiale/#slide"}
     sites:
     - label: "Programmazione lineare"
       lang: IT
@@ -114,7 +117,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-su-reti/materiale/#slide"}
     sites:
     - label: "Ottimizzazione su reti"
       lang: IT
@@ -134,7 +138,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-convessa/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-convessa/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-convessa/interattivi/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-convessa/materiale/#slide"}
     sites:
     - label: "Ottimizzazione convessa"
       lang: IT
@@ -159,7 +164,7 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-lineare-intera/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-lineare-intera/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-lineare-intera/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-lineare-intera/materiale/#slide"}
     sites:
     - label: "Programmazione lineare intera"
       lang: IT
@@ -180,7 +185,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/ottimizzazione-combinatoria/materiale/#slide"}
     sites:
     - label: "Problemi di ottimizzazione combinatoria"
       lang: IT
@@ -201,7 +207,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/programmazione-dinamica/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/programmazione-dinamica/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/programmazione-dinamica/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/programmazione-dinamica/materiale/#slide"}
     sites:
     - label: "Programmazione dinamica"
       lang: IT
@@ -223,7 +230,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-euristici/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-euristici/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi-euristici/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi-euristici/materiale/#slide"}
     sites:
     - label: "Algoritmi euristici"
       lang: IT
@@ -247,7 +255,8 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/#dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/algoritmi-di-approssimazione/materiale/#slide"}
     sites:
     - label: "Algoritmi di approssimazione"
       lang: IT
@@ -270,7 +279,7 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pl/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pl/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pl/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-pl/materiale/"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pl/materiale/#le-slide"}
     sites:
     - label: "Modellazione PL"
       lang: IT
@@ -288,7 +297,8 @@ groups:
     material:
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-mip/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-mip/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-mip/materiale/"}
+    - {label: "Dispense", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#le-tre-dispense"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-mip/materiale/#le-slide"}
     sites:
     - label: "Modellazione MIP"
       lang: IT
@@ -309,7 +319,7 @@ groups:
     - {label: "Esercizi", url: "https://fabiofurini.github.io/modellazione-pnl/esercizi/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/modellazione-pnl/autovalutazione/"}
     - {label: "Laboratorio", url: "https://fabiofurini.github.io/modellazione-pnl/laboratorio/"}
-    - {label: "Materiale", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/"}
+    - {label: "Slide", url: "https://fabiofurini.github.io/modellazione-pnl/materiale/#le-slide"}
     sites:
     - label: "Modellazione PNL"
       lang: IT

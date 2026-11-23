@@ -20,7 +20,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/mathematical-analysis-1/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/mathematical-analysis-1/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/mathematical-analysis-1/interactive/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/mathematical-analysis-1/downloads/#slides"}
     sites:
     - label: "Mathematical Analysis 1"
       lang: EN
@@ -43,7 +44,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/linear-algebra/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/linear-algebra/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/linear-algebra/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/linear-algebra/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/linear-algebra/downloads/#the-lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/linear-algebra/downloads/#the-slides"}
     sites:
     - label: "Linear Algebra"
       lang: EN
@@ -68,7 +70,8 @@ groups:
     - {label: "Quiz", url: "https://fabiofurini.github.io/algorithms/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/algorithms/lab/"}
     - {label: "Notebooks", url: "https://fabiofurini.github.io/algorithms/notebooks/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/algorithms/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/algorithms/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/algorithms/downloads/#slides"}
     sites:
     - label: "Algorithms"
       lang: EN
@@ -92,7 +95,8 @@ groups:
     - {label: "Quiz", url: "https://fabiofurini.github.io/linear-programming/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/linear-programming/lab/"}
     - {label: "Catalogue", url: "https://fabiofurini.github.io/linear-programming/catalogue/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/linear-programming/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/linear-programming/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/linear-programming/downloads/#slides"}
     sites:
     - label: "Linear Programming"
       lang: EN
@@ -114,7 +118,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/network-optimization/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/network-optimization/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/network-optimization/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/network-optimization/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/network-optimization/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/network-optimization/downloads/#slides"}
     sites:
     - label: "Network Optimization"
       lang: EN
@@ -134,7 +139,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/convex-optimization/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/convex-optimization/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/convex-optimization/interactive/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/convex-optimization/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/convex-optimization/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/convex-optimization/downloads/#slides"}
     sites:
     - label: "Convex Optimization"
       lang: EN
@@ -159,7 +165,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/integer-linear-programming/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/integer-linear-programming/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/integer-linear-programming/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/#lecture-notes-1--models-bounds-and-formulations"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/integer-linear-programming/downloads/#slides"}
     sites:
     - label: "Integer Linear Programming"
       lang: EN
@@ -180,7 +187,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/combinatorial-optimization/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/combinatorial-optimization/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/combinatorial-optimization/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/combinatorial-optimization/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/combinatorial-optimization/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/combinatorial-optimization/downloads/#slides"}
     sites:
     - label: "Combinatorial Optimization Problems"
       lang: EN
@@ -201,7 +209,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/dynamic-programming/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/dynamic-programming/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/dynamic-programming/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/dynamic-programming/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/dynamic-programming/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/dynamic-programming/downloads/#slides"}
     sites:
     - label: "Dynamic Programming"
       lang: EN
@@ -223,7 +232,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/heuristic-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/heuristic-algorithms/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/heuristic-algorithms/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/heuristic-algorithms/downloads/#slides"}
     sites:
     - label: "Heuristic Algorithms"
       lang: EN
@@ -247,7 +257,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/approximation-algorithms/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/approximation-algorithms/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/approximation-algorithms/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/approximation-algorithms/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/approximation-algorithms/downloads/#lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/approximation-algorithms/downloads/#slides"}
     sites:
     - label: "Approximation Algorithms"
       lang: EN
@@ -270,7 +281,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/lp-modelling/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/lp-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/lp-modelling/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/lp-modelling/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/lp-modelling/downloads/#the-lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/lp-modelling/downloads/#slides"}
     sites:
     - label: "LP Modelling"
       lang: EN
@@ -288,7 +300,7 @@ groups:
     material:
     - {label: "Quiz", url: "https://fabiofurini.github.io/mip-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/mip-modelling/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/mip-modelling/downloads/"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/mip-modelling/downloads/#slides"}
     sites:
     - label: "MIP Modelling"
       lang: EN
@@ -309,7 +321,8 @@ groups:
     - {label: "Exercises", url: "https://fabiofurini.github.io/nlp-modelling/exercises/"}
     - {label: "Quiz", url: "https://fabiofurini.github.io/nlp-modelling/self-assessment/"}
     - {label: "Lab", url: "https://fabiofurini.github.io/nlp-modelling/lab/"}
-    - {label: "Downloads", url: "https://fabiofurini.github.io/nlp-modelling/downloads/"}
+    - {label: "Lecture notes", url: "https://fabiofurini.github.io/nlp-modelling/downloads/#the-lecture-notes"}
+    - {label: "Slides", url: "https://fabiofurini.github.io/nlp-modelling/downloads/#slides"}
     sites:
     - label: "NLP Modelling"
       lang: EN
