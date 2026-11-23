@@ -9,15 +9,6 @@
 </div></div>
 
 <section class="block"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">{{ strings.now }}</p><h2>{{ strings.current_teaching }}</h2></div></div>
-  <ul class="tl">
-    {% for c in teaching.current %}
-    <li><div class="y">{{ c.where }}</div><div class="w">{{ c.courses }}</div></li>
-    {% endfor %}
-  </ul>
-</div></section>
-
-<section class="block"><div class="wrap">
   <div class="sec-head"><div><p class="eyebrow">{{ strings.current_courses }}</p><h2>{{ strings.courses }}</h2></div>
     {% if teaching.total_hours %}<span class="faint">{{ strings.hours_since.replace("{h}", teaching.total_hours) }}</span>{% endif %}</div>
   {# i corsi della collana divisi per area; un corso per riga: nome (link al sito nella lingua della pagina), badge EN / IT, argomenti #}
@@ -70,6 +61,15 @@
   <ul class="tl">
     {% for c in teaching.advanced %}
     <li><div class="y">{{ c.year }}</div><div><div class="r">{{ c.name }}</div><div class="w">{{ c.where }}</div></div></li>
+    {% endfor %}
+  </ul>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="sec-head"><div><p class="eyebrow">{{ strings.now }}</p><h2>{{ strings.current_teaching }}</h2></div></div>
+  <ul class="tl">
+    {% for c in teaching.current %}
+    <li><div class="y">{{ c.where }}</div><div class="w">{{ c.courses }}</div></li>
     {% endfor %}
   </ul>
 </div></section>
