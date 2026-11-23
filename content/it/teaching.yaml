@@ -1,161 +1,175 @@
-intro: "Il mio materiale didattico è organizzato in una collana di 14 corsi con la stessa impostazione: dispense online e in PDF, esercizi con le soluzioni, laboratorio interattivo e quiz di autovalutazione, in italiano e in inglese, liberamente accessibili. Alla Sapienza, il corso di laurea magistrale Programmazione intera e ottimizzazione combinatoria (Ingegneria gestionale, dal 2021) usa Programmazione lineare intera, Problemi di ottimizzazione combinatoria, Programmazione dinamica, Algoritmi euristici, Algoritmi di approssimazione e Modellazione MIP."
-courses:
-- name: "Analisi Matematica 1"
-  detail: "numeri reali, funzioni, limiti, derivate e serie, con i grafici interattivi"
-  sites:
-  - label: "Analisi Matematica 1"
-    lang: IT
-    url: https://fabiofurini.github.io/analisi-matematica-1/
-    repo: https://github.com/fabiofurini/analisi-matematica-1
-  - label: "Mathematical Analysis 1"
-    lang: EN
-    url: https://fabiofurini.github.io/mathematical-analysis-1/
-    repo: https://github.com/fabiofurini/mathematical-analysis-1
-- name: "Algebra lineare"
-  detail: "vettori, matrici, determinanti, sistemi lineari e autovalori, con il laboratorio di calcolo"
-  sites:
-  - label: "Algebra lineare"
-    lang: IT
-    url: https://fabiofurini.github.io/algebra-lineare/
-    repo: https://github.com/fabiofurini/algebra-lineare
-  - label: "Linear Algebra"
-    lang: EN
-    url: https://fabiofurini.github.io/linear-algebra/
-    repo: https://github.com/fabiofurini/linear-algebra
+intro:
+- "Insegno ricerca operativa e ottimizzazione alla Sapienza Università di Roma, dove dal 2021 tengo il corso magistrale Programmazione intera e ottimizzazione combinatoria in Ingegneria gestionale."
+- "Dal 2013 al 2019, all'Université Paris Dauphine-PSL, ho insegnato in francese e in inglese: ottimizzazione lineare e combinatoria, ottimizzazione per la scienza dei dati e per la finanza, gestione della produzione, logistica umanitaria e basi di dati. In precedenza ho insegnato nelle università di Parma e di Modena e Reggio Emilia. Ho tenuto inoltre corsi di dottorato e scuole a Bologna, Lille, Parigi e per il CIMPA."
+- "Il mio materiale didattico è una collana di 14 corsi, dalla matematica e dagli algoritmi all'ottimizzazione e alla modellazione, in italiano e in inglese e liberamente accessibile."
+groups:
+- name: "Matematica"
+  courses:
+  - name: "Analisi Matematica 1"
+    detail: "Logica e tecniche di dimostrazione, insiemi e numeri, relazioni e funzioni, successioni e limiti, continuità, derivate e studio di funzione, serie e integrali."
+    sites:
+    - label: "Analisi Matematica 1"
+      lang: IT
+      url: https://fabiofurini.github.io/analisi-matematica-1/
+      repo: https://github.com/fabiofurini/analisi-matematica-1
+    - label: "Mathematical Analysis 1"
+      lang: EN
+      url: https://fabiofurini.github.io/mathematical-analysis-1/
+      repo: https://github.com/fabiofurini/mathematical-analysis-1
+  - name: "Algebra lineare"
+    detail: "Sommatorie e produttorie, vettori e matrici con le loro operazioni, l'inversione e la fattorizzazione LU, autovalori e autovettori, le norme e i sistemi lineari."
+    sites:
+    - label: "Algebra lineare"
+      lang: IT
+      url: https://fabiofurini.github.io/algebra-lineare/
+      repo: https://github.com/fabiofurini/algebra-lineare
+    - label: "Linear Algebra"
+      lang: EN
+      url: https://fabiofurini.github.io/linear-algebra/
+      repo: https://github.com/fabiofurini/linear-algebra
 - name: "Algoritmi"
-  detail: "rappresentazione dei numeri, pseudocodice, ordinamento e ricerca, analisi e algoritmi ricorsivi"
-  sites:
-  - label: "Algoritmi"
-    lang: IT
-    url: https://fabiofurini.github.io/algoritmi/
-    repo: https://github.com/fabiofurini/algoritmi
-  - label: "Algorithms"
-    lang: EN
-    url: https://fabiofurini.github.io/algorithms/
-    repo: https://github.com/fabiofurini/algorithms
-- name: "Programmazione lineare"
-  detail: "poliedri, algoritmo del simplesso, dualità e simplesso duale, con il laboratorio interattivo"
-  sites:
-  - label: "Programmazione lineare"
-    lang: IT
-    url: https://fabiofurini.github.io/programmazione-lineare/
-    repo: https://github.com/fabiofurini/programmazione-lineare
-  - label: "Linear Programming"
-    lang: EN
-    url: https://fabiofurini.github.io/linear-programming/
-    repo: https://github.com/fabiofurini/linear-programming
-- name: "Programmazione lineare intera"
-  detail: "rilassamento continuo, disuguaglianze valide, piani di taglio, branch-and-bound e branch-and-cut"
-  sites:
-  - label: "Programmazione lineare intera"
-    lang: IT
-    url: https://fabiofurini.github.io/programmazione-lineare-intera/
-    repo: https://github.com/fabiofurini/programmazione-lineare-intera
-  - label: "Integer Linear Programming"
-    lang: EN
-    url: https://fabiofurini.github.io/integer-linear-programming/
-    repo: https://github.com/fabiofurini/integer-linear-programming
-- name: "Ottimizzazione convessa"
-  notice: In costruzione
-  detail: "insiemi e funzioni convesse, problemi di ottimizzazione convessa, con grafici interattivi"
-  sites:
-  - label: "Ottimizzazione convessa"
-    lang: IT
-    url: https://fabiofurini.github.io/ottimizzazione-convessa/
-    repo: https://github.com/fabiofurini/ottimizzazione-convessa
-  - label: "Convex Optimization"
-    lang: EN
-    url: https://fabiofurini.github.io/convex-optimization/
-    repo: https://github.com/fabiofurini/convex-optimization
-- name: "Ottimizzazione su reti"
-  detail: "grafi, alberi ricoprenti, cammini minimi, flussi su reti, simplesso su reti e gestione dei progetti"
-  sites:
-  - label: "Ottimizzazione su reti"
-    lang: IT
-    url: https://fabiofurini.github.io/ottimizzazione-su-reti/
-    repo: https://github.com/fabiofurini/ottimizzazione-su-reti
-  - label: "Network Optimization"
-    lang: EN
-    url: https://fabiofurini.github.io/network-optimization/
-    repo: https://github.com/fabiofurini/network-optimization
-- name: "Problemi di ottimizzazione combinatoria"
-  detail: "zaino, bin packing, colorazione, TSP, scheduling e lot sizing: i problemi, le formulazioni e gli algoritmi ad hoc"
-  sites:
-  - label: "Problemi di ottimizzazione combinatoria"
-    lang: IT
-    url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
-    repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
-  - label: "Combinatorial Optimization Problems"
-    lang: EN
-    url: https://fabiofurini.github.io/combinatorial-optimization/
-    repo: https://github.com/fabiofurini/combinatorial-optimization
-- name: "Programmazione dinamica"
-  detail: "principi e algoritmi di PD per zaino, lot sizing, cambio monete e taglio delle aste"
-  sites:
-  - label: "Programmazione dinamica"
-    lang: IT
-    url: https://fabiofurini.github.io/programmazione-dinamica/
-    repo: https://github.com/fabiofurini/programmazione-dinamica
-  - label: "Dynamic Programming"
-    lang: EN
-    url: https://fabiofurini.github.io/dynamic-programming/
-    repo: https://github.com/fabiofurini/dynamic-programming
-- name: "Algoritmi euristici"
-  detail: "euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP per i problemi di ottimizzazione combinatoria"
-  sites:
-  - label: "Algoritmi euristici"
-    lang: IT
-    url: https://fabiofurini.github.io/algoritmi-euristici/
-    repo: https://github.com/fabiofurini/algoritmi-euristici
-  - label: "Heuristic Algorithms"
-    lang: EN
-    url: https://fabiofurini.github.io/heuristic-algorithms/
-    repo: https://github.com/fabiofurini/heuristic-algorithms
-- name: "Algoritmi di approssimazione"
-  detail: "garanzie di prestazione, schemi di approssimazione e limiti dell'approssimazione per i problemi combinatori"
-  sites:
-  - label: "Algoritmi di approssimazione"
-    lang: IT
-    url: https://fabiofurini.github.io/algoritmi-di-approssimazione/
-    repo: https://github.com/fabiofurini/algoritmi-di-approssimazione
-  - label: "Approximation Algorithms"
-    lang: EN
-    url: https://fabiofurini.github.io/approximation-algorithms/
-    repo: https://github.com/fabiofurini/approximation-algorithms
-- name: "Modellazione PL"
-  detail: "modelli di programmazione lineare per problemi gestionali, risolti con Python e Gurobi"
-  sites:
-  - label: "Modellazione PL"
-    lang: IT
-    url: https://fabiofurini.github.io/modellazione-pl/
-    repo: https://github.com/fabiofurini/modellazione-pl
-  - label: "LP Modelling"
-    lang: EN
-    url: https://fabiofurini.github.io/lp-modelling/
-    repo: https://github.com/fabiofurini/lp-modelling
-- name: "Modellazione PNL"
-  notice: In costruzione
-  detail: "modelli di programmazione non lineare, dal portafoglio al machine learning, con Python e Gurobi"
-  sites:
-  - label: "Modellazione PNL"
-    lang: IT
-    url: https://fabiofurini.github.io/modellazione-pnl/
-    repo: https://github.com/fabiofurini/modellazione-pnl
-  - label: "NLP Modelling"
-    lang: EN
-    url: https://fabiofurini.github.io/nlp-modelling/
-    repo: https://github.com/fabiofurini/nlp-modelling
-- name: "Modellazione MIP"
-  detail: "modelli di programmazione lineare a variabili intere, dalla formulazione alla soluzione con i solver"
-  sites:
-  - label: "Modellazione MIP"
-    lang: IT
-    url: https://fabiofurini.github.io/modellazione-mip/
-    repo: https://github.com/fabiofurini/modellazione-mip
-  - label: "MIP Modelling"
-    lang: EN
-    url: https://fabiofurini.github.io/mip-modelling/
-    repo: https://github.com/fabiofurini/mip-modelling
+  courses:
+  - name: "Algoritmi"
+    detail: "Gli algoritmi di base (rappresentazione dei numeri, pseudocodice, ordinamento, ricerca, algoritmi numerici), i linguaggi di programmazione C++, Python e Java, la crescita delle funzioni e la notazione asintotica, l'analisi degli algoritmi e la ricorsione (tempo di esecuzione, correttezza, equazioni di ricorrenza, Master theorem)."
+    sites:
+    - label: "Algoritmi"
+      lang: IT
+      url: https://fabiofurini.github.io/algoritmi/
+      repo: https://github.com/fabiofurini/algoritmi
+    - label: "Algorithms"
+      lang: EN
+      url: https://fabiofurini.github.io/algorithms/
+      repo: https://github.com/fabiofurini/algorithms
+- name: "Ottimizzazione lineare e convessa"
+  courses:
+  - name: "Programmazione lineare"
+    detail: "Funzioni lineari, poliedri e problemi di programmazione lineare con i loro esiti possibili; l'algoritmo del simplesso con la fase 0; la teoria della dualità e il simplesso duale; il simplesso rivisto, il metodo primale-duale, l'analisi di sensitività e la geometria della programmazione lineare."
+    sites:
+    - label: "Programmazione lineare"
+      lang: IT
+      url: https://fabiofurini.github.io/programmazione-lineare/
+      repo: https://github.com/fabiofurini/programmazione-lineare
+    - label: "Linear Programming"
+      lang: EN
+      url: https://fabiofurini.github.io/linear-programming/
+      repo: https://github.com/fabiofurini/linear-programming
+  - name: "Ottimizzazione su reti"
+    detail: "I grafi, gli alberi ricoprenti di costo minimo, i cammini minimi, i flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il simplesso su reti e la gestione dei progetti."
+    sites:
+    - label: "Ottimizzazione su reti"
+      lang: IT
+      url: https://fabiofurini.github.io/ottimizzazione-su-reti/
+      repo: https://github.com/fabiofurini/ottimizzazione-su-reti
+    - label: "Network Optimization"
+      lang: EN
+      url: https://fabiofurini.github.io/network-optimization/
+      repo: https://github.com/fabiofurini/network-optimization
+  - name: "Ottimizzazione convessa"
+    notice: In costruzione
+    detail: "Insiemi convessi, funzioni di più variabili, funzioni convesse e funzioni quadratiche, problemi di ottimizzazione convessi e concavi."
+    sites:
+    - label: "Ottimizzazione convessa"
+      lang: IT
+      url: https://fabiofurini.github.io/ottimizzazione-convessa/
+      repo: https://github.com/fabiofurini/ottimizzazione-convessa
+    - label: "Convex Optimization"
+      lang: EN
+      url: https://fabiofurini.github.io/convex-optimization/
+      repo: https://github.com/fabiofurini/convex-optimization
+- name: "Programmazione intera e ottimizzazione combinatoria"
+  note: "Questi corsi, con Modellazione MIP, formano il corso magistrale della Sapienza Programmazione intera e ottimizzazione combinatoria."
+  courses:
+  - name: "Programmazione lineare intera"
+    detail: "Il rilassamento lineare e i bound, le disuguaglianze valide e i piani di taglio, gli algoritmi di branch-and-bound e branch-and-cut, i solver MIP e le euristiche."
+    sites:
+    - label: "Programmazione lineare intera"
+      lang: IT
+      url: https://fabiofurini.github.io/programmazione-lineare-intera/
+      repo: https://github.com/fabiofurini/programmazione-lineare-intera
+    - label: "Integer Linear Programming"
+      lang: EN
+      url: https://fabiofurini.github.io/integer-linear-programming/
+      repo: https://github.com/fabiofurini/integer-linear-programming
+  - name: "Problemi di ottimizzazione combinatoria"
+    detail: "Zaino, packing, colorazione, clique, routing, scheduling e lot sizing, con le loro formulazioni, le proprietà e i bound, e gli algoritmi ad hoc."
+    sites:
+    - label: "Problemi di ottimizzazione combinatoria"
+      lang: IT
+      url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
+      repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
+    - label: "Combinatorial Optimization Problems"
+      lang: EN
+      url: https://fabiofurini.github.io/combinatorial-optimization/
+      repo: https://github.com/fabiofurini/combinatorial-optimization
+  - name: "Programmazione dinamica"
+    detail: "I principi del metodo e gli algoritmi di PD per i problemi di zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup, zaini multipli), per il lot sizing senza capacità e capacitato, per il cambio monete e il taglio delle aste."
+    sites:
+    - label: "Programmazione dinamica"
+      lang: IT
+      url: https://fabiofurini.github.io/programmazione-dinamica/
+      repo: https://github.com/fabiofurini/programmazione-dinamica
+    - label: "Dynamic Programming"
+      lang: EN
+      url: https://fabiofurini.github.io/dynamic-programming/
+      repo: https://github.com/fabiofurini/dynamic-programming
+  - name: "Algoritmi euristici"
+    detail: "Bound primali e duali e valutazione delle euristiche, euristiche costruttive, ricerca locale, metaeuristiche ed euristiche MIP, applicate ai problemi di zaino, di packing, di routing, di scheduling e di colorazione."
+    sites:
+    - label: "Algoritmi euristici"
+      lang: IT
+      url: https://fabiofurini.github.io/algoritmi-euristici/
+      repo: https://github.com/fabiofurini/algoritmi-euristici
+    - label: "Heuristic Algorithms"
+      lang: EN
+      url: https://fabiofurini.github.io/heuristic-algorithms/
+      repo: https://github.com/fabiofurini/heuristic-algorithms
+  - name: "Algoritmi di approssimazione"
+    detail: "Che cosa garantiscono e come lo si dimostra; algoritmi, analisi del caso peggiore e istanze tight per lo zaino, il bin packing, il TSP metrico e lo scheduling su macchine parallele; gli schemi di approssimazione; i limiti dell'approssimazione per la colorazione dei vertici, la clique massima e il TSP generale."
+    sites:
+    - label: "Algoritmi di approssimazione"
+      lang: IT
+      url: https://fabiofurini.github.io/algoritmi-di-approssimazione/
+      repo: https://github.com/fabiofurini/algoritmi-di-approssimazione
+    - label: "Approximation Algorithms"
+      lang: EN
+      url: https://fabiofurini.github.io/approximation-algorithms/
+      repo: https://github.com/fabiofurini/approximation-algorithms
+- name: "Modellazione"
+  courses:
+  - name: "Modellazione PL"
+    detail: "Come si costruisce un modello, il solver e l'interpretazione della soluzione, le tecniche di modellazione, e i modelli di produzione e scorte, ricarica di veicoli elettrici, Data Envelopment Analysis, newsvendor, VaR e CVaR, arbitraggio e regressione robusta, con il codice Python/Gurobi."
+    sites:
+    - label: "Modellazione PL"
+      lang: IT
+      url: https://fabiofurini.github.io/modellazione-pl/
+      repo: https://github.com/fabiofurini/modellazione-pl
+    - label: "LP Modelling"
+      lang: EN
+      url: https://fabiofurini.github.io/lp-modelling/
+      repo: https://github.com/fabiofurini/lp-modelling
+  - name: "Modellazione MIP"
+    detail: "Che cos'è un modello MIP, rilassamenti, dualità e bound, l'implementazione in Python/Gurobi, le euristiche costruttive, la logica con le variabili binarie e i legami fra variabili, e i modelli di problemi di assegnamento, scheduling, localizzazione, copertura e pianificazione della produzione."
+    sites:
+    - label: "Modellazione MIP"
+      lang: IT
+      url: https://fabiofurini.github.io/modellazione-mip/
+      repo: https://github.com/fabiofurini/modellazione-mip
+    - label: "MIP Modelling"
+      lang: EN
+      url: https://fabiofurini.github.io/mip-modelling/
+      repo: https://github.com/fabiofurini/mip-modelling
+  - name: "Modellazione PNL"
+    notice: In costruzione
+    detail: "Richiami di teoria, i solver per i modelli non lineari, e i modelli di produzione con smoothing quadratico, supply chain e CO2, portafoglio di Markowitz, pricing, budget pubblicitario, localizzazione continua, code, support vector machine e minimi quadrati, con il codice Python/Gurobi."
+    sites:
+    - label: "Modellazione PNL"
+      lang: IT
+      url: https://fabiofurini.github.io/modellazione-pnl/
+      repo: https://github.com/fabiofurini/modellazione-pnl
+    - label: "NLP Modelling"
+      lang: EN
+      url: https://fabiofurini.github.io/nlp-modelling/
+      repo: https://github.com/fabiofurini/nlp-modelling
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
