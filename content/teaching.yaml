@@ -17,6 +17,7 @@ groups:
       url: https://fabiofurini.github.io/analisi-matematica-1/
       repo: https://github.com/fabiofurini/analisi-matematica-1
   - name: "Linear Algebra"
+    notice: Under construction
     detail: "The linear algebra needed for optimization. Sums and products, vectors and matrices, matrix operations, inversion, LU factorization, eigenvalues and eigenvectors, norms and linear systems solved by Gaussian elimination. A computation lab shows every step of the methods in exact fractions."
     material: ["Lecture notes (PDF)", "Worked examples", "Exercises", "Slides", "Interactive apps", "Quizzes"]
     sites:
@@ -183,9 +184,6 @@ groups:
       lang: IT
       url: https://fabiofurini.github.io/modellazione-pnl/
       repo: https://github.com/fabiofurini/modellazione-pnl
-current:
-- where: Sapienza University of Rome
-  courses: Integer Programming and Combinatorial Optimization (Master's, Management Engineering)
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs

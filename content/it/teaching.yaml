@@ -17,6 +17,7 @@ groups:
       url: https://fabiofurini.github.io/mathematical-analysis-1/
       repo: https://github.com/fabiofurini/mathematical-analysis-1
   - name: "Algebra lineare"
+    notice: In costruzione
     detail: "L'algebra lineare che serve per l'ottimizzazione. Sommatorie e produttorie, vettori e matrici, operazioni sulle matrici, inversione, fattorizzazione LU, autovalori e autovettori, norme e sistemi lineari risolti con l'eliminazione di Gauss. Un laboratorio di calcolo mostra tutti i passaggi dei metodi in frazioni esatte."
     material: ["Dispense in PDF", "Esempi svolti", "Esercizi", "Slide", "App interattive", "Quiz"]
     sites:
@@ -183,9 +184,6 @@ groups:
       lang: EN
       url: https://fabiofurini.github.io/nlp-modelling/
       repo: https://github.com/fabiofurini/nlp-modelling
-current:
-- where: Sapienza Università di Roma
-  courses: Programmazione intera e ottimizzazione combinatoria (magistrale, Ingegneria gestionale)
 advanced:
 - year: '2023'
   name: Integer Programming Formulations and Exact Algorithms for Hard Combinatorial Optimization Problems on Graphs
