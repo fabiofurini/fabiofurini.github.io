@@ -202,7 +202,7 @@ groups:
       url: https://fabiofurini.github.io/ottimizzazione-combinatoria/
       repo: https://github.com/fabiofurini/ottimizzazione-combinatoria
   - name: "Dynamic Programming"
-    detail: "Dynamic programming as an exact method for combinatorial problems. The principles of the method, recurrences, pseudo-code and complexity of DP algorithms for the knapsack family (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups), lot sizing, coin change and rod cutting."
+    detail: "Dynamic programming as an exact method for combinatorial problems. The principles of the method, recurrences, pseudo-code and complexity of DP algorithms for the knapsack family (0/1, unbounded, bounded, subset sum, multiple-choice, multidimensional, with setups), lot sizing and other combinatorial optimization problems."
     parts:
     - {label: "Principles", url: "https://fabiofurini.github.io/dynamic-programming/principles/"}
     - {label: "Knapsack problems", url: "https://fabiofurini.github.io/dynamic-programming/knapsack-problems/"}

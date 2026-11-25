@@ -202,7 +202,7 @@ groups:
       url: https://fabiofurini.github.io/combinatorial-optimization/
       repo: https://github.com/fabiofurini/combinatorial-optimization
   - name: "Programmazione dinamica"
-    detail: "La programmazione dinamica come metodo esatto per i problemi combinatori. I principi del metodo, ricorrenze, pseudocodice e complessità degli algoritmi di PD per la famiglia dello zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup), il lot sizing, il cambio monete e il taglio delle aste."
+    detail: "La programmazione dinamica come metodo esatto per i problemi combinatori. I principi del metodo, ricorrenze, pseudocodice e complessità degli algoritmi di PD per la famiglia dello zaino (0/1, illimitato, limitato, subset sum, a scelta multipla, multidimensionale, con setup), il lot sizing e altri problemi di ottimizzazione combinatoria."
     parts:
     - {label: "Principi", url: "https://fabiofurini.github.io/programmazione-dinamica/principi/"}
     - {label: "Problemi di zaino", url: "https://fabiofurini.github.io/programmazione-dinamica/problemi-di-zaino/"}
